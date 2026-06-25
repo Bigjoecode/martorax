@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX AI Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Updated to Slate 900 per prompt
+                        "card-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen pb-24">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 glass-nav border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[24px]">auto_awesome</span>
+</div>
+<h1 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">AI Personalized Feed</h1>
+<div class="flex w-10 items-center justify-end">
+<button class="relative flex size-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">notifications</span>
+<span class="absolute top-2 right-2 flex h-2 w-2 rounded-full bg-red-500"></span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto">
+<!-- AI Discovery Chips -->
+<div class="flex gap-3 p-4 overflow-x-auto no-scrollbar">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">temp_preferences_custom</span>
+<p class="text-sm font-semibold">For You</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-5 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+<p class="text-sm font-medium">Home Maintenance</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-5 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+<p class="text-sm font-medium">Auto Care</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-5 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+<p class="text-sm font-medium">Wellness</p>
+</div>
+</div>
+<!-- Section Header -->
+<div class="px-4 pt-4 pb-1">
+<h2 class="text-slate-900 dark:text-white text-xl font-extrabold leading-tight">Recommended for You</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1 font-medium">Based on your activity and location</p>
+</div>
+<!-- Primary Suggestion Card -->
+<div class="p-4">
+<div class="flex flex-col items-stretch justify-start rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-card-dark border border-slate-100 dark:border-slate-800">
+<div class="relative w-full aspect-[16/9] bg-center bg-no-repeat bg-cover group" data-alt="Professional dry cleaning interior with hanging clothes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC84CjpaFtyo4uwwxQ7BjmbCe9wV45UpYxu7uOeHkf4h2utOLktNpA7kH3yZDZHvYyR_ufQV9sCmjei859Xl426Mv0nvafoBdzxMypGy3p0TLiW128gmziSeSwgdv5RbHl0fyku5lBBOzXfp_0bDH0x0-AQhmkRCU_jwnvG4eDCvIpalzViowwRXAXSDyTq1OhdoFzyy8t8gZWkE_H2JXUmA2eMzMUsW7CqWJdsTF_nHXcS8fI-VB8eAdB2Me31op24P8DEOtI7ag50");'>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-white text-[11px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">history</span>
+                        BASED ON HISTORY
+                    </div>
+</div>
+<div class="flex w-full flex-col p-5 gap-3">
+<div>
+<p class="text-slate-900 dark:text-white text-xl font-bold tracking-tight">Need a Dry Cleaner?</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1 leading-relaxed">Since you booked a Tailor last month, we thought you might need these garments professionally cleaned.</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex -space-x-2">
+<div class="size-8 rounded-full border-2 border-white dark:border-card-dark bg-slate-200" data-alt="User avatar 1" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVH2ykn4Rxkgo7HcH5sd6eV0DKfi308KdiljET-bUH8zGyKYJKCkIrq-rXispUuRgIWTtg889ZPyB8jv7nLaNk_CPnB6k_ptHwAh6oYcFhZEUsphoEEtgLVQ9t2r_3tbwBoV_DBksJTYY0lTQ2yuZ8cTaBOCCnQh0Zk31aLzMAiB0_XL-O_Yy3VHDpiSwoUgj_4iPmRaqf3wUS6wParbA0yKQelsvPE3csgTbRpxuavlpaVzI4L12hdVVszaftHeGbGy6FI3TemhOe"); background-size: cover;'></div>
+<div class="size-8 rounded-full border-2 border-white dark:border-card-dark bg-slate-200" data-alt="User avatar 2" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbQs1R5soozt8VEkfBj9A2-QZQZaOrbD_DBI7scMvX2SxkLdnXSi2V53eZCZQpYJZeZYOIGYXPI1YfmBSkwcJyah01jG9ewTWqqs_ZMjLhhpMeX0taYu9B-5IJA507ZMttKIMpYd-1BfEkus5guQcK_BWUbxKIalcMjFBe2RgKpd35qw5UIMTgpfFK2_cfHKS8YqCcWwiUI-hgexDaYRdqq_2N3wJudJ-6yeulHF6PuJ5kHtysecbNZiC_qU9tvYN0BROlTl2zQOty"); background-size: cover;'></div>
+<div class="size-8 rounded-full border-2 border-white dark:border-card-dark bg-slate-500 flex items-center justify-center text-[10px] text-white font-bold">+12</div>
+</div>
+<button class="flex items-center justify-center rounded-xl h-10 px-6 bg-primary text-white text-sm font-bold transition-transform active:scale-95 shadow-lg shadow-primary/30">
+                            View Pros
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Timely Suggestion Card -->
+<div class="p-4">
+<div class="flex flex-col items-stretch justify-start rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-card-dark border border-slate-100 dark:border-slate-800">
+<div class="relative w-full aspect-[16/9] bg-center bg-no-repeat bg-cover" data-alt="Rainy day view of a modern roof" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDm8ZmFqXotek_t2Fvnd3NsSppH80o7cwQSu4KnJ9yPHvY7YfDDgeF1UdSA2bTgdBQZVzErO24mElAnRxKCAhuMqohXX68dQrh6EghEdGakCskZ66oM2gjHKeb2ngAbiNI5WOzIGi39o57UC49-mV1fIixYhpu3GSqx5wJJGCLg05k6-Wmc3GDWpqM0rdaSFdFAfp8XYAZUwY98kSsL_VKScmXLf6WsWD0ePuNH-xyojVyVSPjMykVh1zWJdIoz6IZarp6EFna9vH33");'>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500 text-white text-[11px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">thunderstorm</span>
+                        TIMELY SUGGESTION
+                    </div>
+</div>
+<div class="flex w-full flex-col p-5 gap-3">
+<div>
+<p class="text-slate-900 dark:text-white text-xl font-bold tracking-tight">Rainy Season is Coming</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1 leading-relaxed">Top-rated Roof Repairers are booking up fast near your location. Secure a check-up before the storms hit.</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-amber-400 text-[18px] fill-amber-400">star</span>
+<span class="text-sm font-bold dark:text-white">4.9</span>
+<span class="text-xs text-slate-500">(240+ reviews)</span>
+</div>
+<button class="flex items-center justify-center rounded-xl h-10 px-6 bg-primary text-white text-sm font-bold transition-transform active:scale-95 shadow-lg shadow-primary/30">
+                            Get Quotes
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Prediction Card -->
+<div class="p-4">
+<div class="flex flex-col items-stretch justify-start rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-card-dark border border-slate-100 dark:border-slate-800">
+<div class="relative w-full aspect-[16/9] bg-center bg-no-repeat bg-cover" data-alt="Interior car detailing close up" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAh-7c7w8yhE0OgbDhBp1ge71nZP2fn2VjUlbkT6ewETQRdFMB--NjVu5hUXU00y43EgkMYhu0SJxLsI_ohOed7MgzaAZ9HvMOApXptCE5C8xNrUvhXyH5WbQMQlPOJBVneO-ZSXEsZv6KoLpQV1Nx8zBIvqHDZz3V2ifcCZbSmWIvquKlRyMEDhpsL2tniyR6hu_l33ec8Ziv-TevNgOkUbhgS7V2xg8frSgSzFtxdKibHo5D3ARliEkO_TqamE6ZJD3EusolN-Vt");'>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500 text-white text-[11px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">event_repeat</span>
+                        ROUTINE CARE
+                    </div>
+</div>
+<div class="flex w-full flex-col p-5 gap-3">
+<div>
+<p class="text-slate-900 dark:text-white text-xl font-bold tracking-tight">Time for a Car Detail?</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1 leading-relaxed">It's been 3 months since your last wash. Your usual pro has an opening tomorrow morning.</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<p class="text-primary text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+                            Top Rated Pro
+                        </p>
+<button class="flex items-center justify-center rounded-xl h-10 px-6 bg-primary text-white text-sm font-bold transition-transform active:scale-95 shadow-lg shadow-primary/30">
+                            Book Now
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- iOS Style Bottom Tab Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-slate-200 dark:border-slate-800 pb-safe-area">
+<div class="flex justify-around items-center h-20 max-w-md mx-auto px-6">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[26px] fill-primary">auto_awesome</span>
+<span class="text-[10px] font-bold">For You</span>
+</div>
+<div class="relative flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[26px]">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[26px]">calendar_month</span>
+<span class="text-[10px] font-medium">Bookings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[26px]">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</nav>
+</body></html>

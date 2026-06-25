@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Service Provider Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Bricolage+Grotesque:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059669", // Emerald 600
+                        "slate-900": "#0F172A",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "headline": ["Bricolage Grotesque", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #059669;
+        }
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-slate-900 font-display text-white overflow-hidden">
+<div class="relative flex h-screen w-full flex-col justify-between pt-12 pb-8 px-6">
+<div class="flex justify-between items-center w-full">
+<div class="flex gap-1.5">
+<div class="w-2 h-2 rounded-full bg-slate-700"></div>
+<div class="w-6 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-slate-700"></div>
+</div>
+<button class="text-slate-400 font-medium text-sm hover:text-white transition-colors">
+                Skip
+            </button>
+</div>
+<div class="flex-grow flex items-center justify-center py-8">
+<div class="relative w-full max-w-[280px] aspect-square">
+<div class="absolute inset-0 bg-primary/20 blur-[60px] rounded-full"></div>
+<div class="relative z-10 w-full h-full flex items-center justify-center">
+<div class="w-48 h-48 rounded-full border border-slate-700/50 flex items-center justify-center relative">
+<span class="material-symbols-outlined text-primary !text-7xl">construction</span>
+<div class="absolute -top-4 -right-2 w-16 h-16 bg-slate-800 rounded-2xl shadow-xl flex items-center justify-center border border-slate-700">
+<span class="material-symbols-outlined text-emerald-400 !text-3xl">camera</span>
+</div>
+<div class="absolute top-1/2 -left-8 -translate-y-1/2 w-14 h-14 bg-slate-800 rounded-2xl shadow-xl flex items-center justify-center border border-slate-700">
+<span class="material-symbols-outlined text-emerald-400 !text-2xl">home_repair_service</span>
+</div>
+<div class="absolute -bottom-4 right-8 w-14 h-14 bg-slate-800 rounded-2xl shadow-xl flex items-center justify-center border border-slate-700">
+<span class="material-symbols-outlined text-emerald-400 !text-2xl">content_cut</span>
+</div>
+<div class="absolute top-4 left-4 w-2 h-2 rounded-full bg-primary/40"></div>
+<div class="absolute bottom-12 -right-4 w-3 h-3 rounded-full bg-primary/30"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-4 text-center mb-10">
+<h1 class="font-headline text-3xl font-semibold leading-tight tracking-tight text-white px-4">
+                Find Expert Services Nearby
+            </h1>
+<p class="text-slate-400 text-base leading-relaxed px-2">
+                From skilled plumbers to professional makeup artists. Book trusted experts in Asaba with confidence.
+            </p>
+</div>
+<div class="space-y-4">
+<button class="w-full bg-primary hover:bg-emerald-700 text-white font-bold py-4 rounded-2xl transition-all active:scale-[0.98] shadow-lg shadow-emerald-900/20">
+                Next
+            </button>
+<div class="flex justify-center pt-2">
+<div class="w-32 h-1 bg-slate-800 rounded-full"></div>
+</div>
+</div>
+<div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-900/10 rounded-full blur-[100px]"></div>
+</div>
+</div>
+
+</body></html>

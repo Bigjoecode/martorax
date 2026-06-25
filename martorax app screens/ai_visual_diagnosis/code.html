@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#10221c",
+                        "slate-900": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-effect {
+            background: rgba(16, 34, 28, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .scan-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #09f6ab, transparent);
+            box-shadow: 0 0 15px #09f6ab;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-hidden">
+<!-- Main Container representing a Phone Screen -->
+<div class="relative flex h-screen w-full flex-col overflow-hidden bg-slate-900">
+<!-- Live Camera Viewfinder (Background) -->
+<div class="absolute inset-0 w-full h-full z-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close up photo of a cracked concrete wall outdoors" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBi0rb5n-Yucefy195iYuyGLPKw7NRHGgnrEIpyaJcl_1-VIqdziyhNlbp5wfi5qPna1LXu3O9kwzxhSIflSAT4JSUEmxAAGPCVoKGHGE_-213p8GzAloDv7se2Y_s3YJTZQ53YQBfglNpoibH4M1VNaAOG5rVmSoN_aym_Ysizeb5q0WL4uOTRH_QjjTJ4M8KLDMtTLMGCYgSOlxgeSS6YtvOqcwwkkFyc4NUnkCYrroXDdcG4aXL3AOVQiOWt8EUDE5BoAlmJ-OUy');">
+</div>
+<!-- Overlay scanning effect -->
+<div class="absolute inset-0 bg-black/20 pointer-events-none flex items-center justify-center">
+<div class="relative w-64 h-64 border-2 border-primary/40 rounded-xl">
+<div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-primary rounded-tl-lg"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-primary rounded-tr-lg"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-primary rounded-bl-lg"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-primary rounded-br-lg"></div>
+<!-- Animated-like scan line -->
+<div class="scan-line w-full absolute top-1/2"></div>
+</div>
+</div>
+</div>
+<!-- Top App Bar -->
+<div class="relative z-10 flex items-center glass-effect p-4 pb-4 justify-between border-b border-white/10">
+<div class="text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-white/10 cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">AI Visual Diagnosis</h2>
+<div class="size-10 flex items-center justify-center text-white/60">
+<span class="material-symbols-outlined">info</span>
+</div>
+</div>
+<!-- Content Spacer -->
+<div class="flex-1 relative z-10 pointer-events-none">
+<!-- Floating Label for processing status -->
+<div class="absolute top-4 left-1/2 -translate-x-1/2 bg-primary/20 border border-primary/40 px-3 py-1 rounded-full flex items-center gap-2">
+<div class="size-2 bg-primary rounded-full animate-pulse"></div>
+<span class="text-xs font-bold text-primary uppercase tracking-widest">AI Analyzing...</span>
+</div>
+</div>
+<!-- Diagnosis Card & Controls -->
+<div class="relative z-10 flex flex-col gap-4 p-4 pb-6">
+<!-- Result Card -->
+<div class="glass-effect rounded-xl border border-white/10 p-5 shadow-2xl">
+<div class="flex items-start gap-4">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<p class="text-primary text-xs font-bold uppercase tracking-wider">Identified</p>
+</div>
+<h3 class="text-white text-xl font-bold leading-tight mb-2">Detected: Masonry/Wall Repair</h3>
+<p class="text-white/70 text-sm font-medium leading-relaxed">
+                            We've identified structural cracks. Connect with top 3 rated masons in <span class="text-white font-bold">Asaba</span> for instant quotes.
+                        </p>
+</div>
+</div>
+<button class="w-full mt-4 flex h-12 items-center justify-center gap-2 rounded-lg bg-primary text-slate-900 text-base font-bold transition-transform active:scale-95 shadow-[0_4px_20px_rgba(9,246,171,0.3)]">
+<span class="material-symbols-outlined">send</span>
+<span>Get Quotes</span>
+</button>
+</div>
+<!-- Camera Control Row -->
+<div class="flex items-center justify-center gap-8 bg-black/40 rounded-full py-2 px-6 backdrop-blur-md border border-white/10 self-center">
+<button class="flex shrink-0 items-center justify-center rounded-full size-12 text-white/80 hover:bg-white/10">
+<span class="material-symbols-outlined">photo_library</span>
+</button>
+<button class="flex shrink-0 items-center justify-center rounded-full size-16 bg-white text-slate-900 shadow-xl border-4 border-primary/40 ring-2 ring-white ring-offset-2 ring-offset-transparent">
+<span class="material-symbols-outlined" style="font-size: 32px;">camera_alt</span>
+</button>
+<button class="flex shrink-0 items-center justify-center rounded-full size-12 text-white/80 hover:bg-white/10">
+<span class="material-symbols-outlined">bolt</span>
+</button>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="relative z-10 flex gap-2 border-t border-white/10 glass-effect px-4 pb-8 pt-2">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-white/40" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-medium leading-normal tracking-wide">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">search</span>
+<p class="text-[10px] font-medium leading-normal tracking-wide">Search</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-white/40" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<p class="text-[10px] font-medium leading-normal tracking-wide">Bookings</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-white/40" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-medium leading-normal tracking-wide">Profile</p>
+</a>
+</div>
+</div>
+</body></html>

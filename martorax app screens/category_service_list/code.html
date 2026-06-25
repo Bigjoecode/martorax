@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Category Service List</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 equivalent as requested
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Spline Sans", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-200">arrow_back_ios_new</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Beauty &amp; Style</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex items-center justify-center rounded-full size-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</div>
+<!-- Chips / Sub-categories -->
+<div class="flex gap-3 px-4 pb-4 overflow-x-auto hide-scrollbar max-w-md mx-auto">
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 shadow-lg shadow-primary/20">
+<p class="text-white text-sm font-semibold">All</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-5 border border-slate-200 dark:border-slate-700">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium">Hair styling</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-5 border border-slate-200 dark:border-slate-700">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium">Makeup</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-5 border border-slate-200 dark:border-slate-700">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium">Manicure</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-5 border border-slate-200 dark:border-slate-700">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium">Skincare</p>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto p-4 space-y-6">
+<!-- Service Provider Card 1 -->
+<div class="flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+<!-- Portfolio Thumbnails -->
+<div class="flex gap-1 p-1 h-56">
+<div class="flex-1 bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Professional bridal makeup portfolio close up" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCV2vRr6hSIjB0WuIAW-ld3fUJGRcc7yV-kJOKgbSm3xRaJsN4-GKd5NtpHLC0m4MUCcPeK7YxhU9HnydxR_VglR_0oNHiAgDst7pQpcsTixGbm4AM33ciCcqFTQ6GSvdah4pA6b_dMf6RM45ZAhnK4ioNWzas5z80IpeGH9IZyepXcdLD_tYKP9wgdrbuK5lt1nyAzErlAVikZEQtAHSpBDY6Esb3z7fj1NlDGUbklOYpx2GXez99nEN1_b_HXtb4ZGVFnqIpJCvgt");'>
+</div>
+<div class="flex flex-col flex-1 gap-1">
+<div class="flex-1 bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Close up of styled hair with accessories" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDIAjY1RvpyVMMBQRPYsyGPoEBTZG57DVZDnhXA-Eh7E7LDcmR-y0SAmkOIXqGEsQ4Oyibry2EDAQDKmI3seoyvJcFKpUAGkwSv-xQ2KnC6nR0D9CVf1k3waaz1FDmcJSdE4KJ1FW5874fTfuv-BXi7U2p0dfVEBnudunWv37EGhUUo0G_Hp83-b10lSeYoR1iVZouqsn09mIZZhvxzjjzgSWIDXYZQVy_swjCzvius8nu8tJ904qiLkugMSYFtu1Xx2DzK6rKAJm_O");'>
+</div>
+<div class="flex-1 bg-center bg-no-repeat bg-cover rounded-xl relative overflow-hidden" data-alt="Model with elegant makeup and jewelry" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAPyb_noyslKVdw4NziKwbPMDWJI9jVEjoT_O123ffNaKjoOvXGgdzxcAVo1tX9dDuYCkp7QnjGEqJ6q9xefKh4MnhDQwxI5BgEpnx99lJtuK8o2oOSRazK_TEsiDJAgOApet6cKDDDUYkzHo18Ud1H4l9_D7S8CuYVrR4irYBgqxmmxiK9B3waW4Hr-Iv9LtfHjN7O4ZKjwplwruWNu6UePBpb38HFozYCWPiIdUsfN7cmLVdhlYDqzb8tPVESt4eHP_6yx9TxKK4j");'>
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+<span class="text-white text-xs font-bold">+12 More</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Elena Grace</h3>
+<span class="material-symbols-outlined text-primary text-base">verified</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Professional Makeup Artist &amp; Stylist</p>
+</div>
+<div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-amber-400 text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-200">4.9</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-xs font-medium text-slate-500 dark:text-slate-400">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">work</span>
+<span>340 Jobs completed</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>2.4 miles away</span>
+</div>
+</div>
+<div class="flex gap-2 pt-1">
+<button class="flex-1 flex items-center justify-center gap-2 h-10 rounded-full border border-slate-200 dark:border-slate-700 bg-transparent text-slate-700 dark:text-slate-200 text-sm font-semibold">
+<span class="material-symbols-outlined text-base">chat_bubble</span>
+<span>Chat</span>
+</button>
+<button class="flex-[2] flex items-center justify-center rounded-full h-10 bg-primary text-white text-sm font-semibold shadow-md shadow-primary/20">
+<span>Book Now</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Service Provider Card 2 -->
+<div class="flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+<!-- Portfolio Thumbnails -->
+<div class="flex gap-1 p-1 h-56">
+<div class="flex-[2] bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Modern salon hair styling showcase" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCi_MB5HOKlU5w0LN2WPyjUr31Pv9DLlHc2dig9PsRAT5nXeoQc4B8hyDLjvrNcgIOkilyTUcNH-IdKEnhV0RmtB96ebns3lJpO9uQTSkxCM_afG6N6UqiM8N6ie_78GzsWWg0he-pXnxZ6RP08vd_oHltLPVUq1dofN7Eku9FUd2yjVgG6WeztcwzIiZ2KFygqcbdm48M3TXbx0DOfimYfWbeyuBUScUdM0eKCsg9QYl1zkECidWhjI_IkMVcxycIxs6ks-pwTxu1C");'>
+</div>
+<div class="flex-1 bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Detail of a fresh mens haircut" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDl33R3qRwXBdg98WmJsiABQPGuxyNArkOlxnxRxsOQ_j1QT1ExINJtXCgcTfvyx4p3G1fl9gwpz_GwVzahaBpbHdkpvQh4QxgHg42eQ6Lpv1qYaBr8vwAczzu2WUef7prc90Fvhwfd_gDr8fZ5dQ2KKWaCBcO2Q-vNjlrdtt2YYLOnfk2TsnEwVwk1-xs08bUIX7E1fFKNpP2aup5_cMNGocmxE211USOxm56KY_ATn-sLZr9ka_iqgt4jqGR6oyvPY_hghOLg63NI");'>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Marcus V.</h3>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Master Hair Stylist</p>
+</div>
+<div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-amber-400 text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-200">5.0</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-xs font-medium text-slate-500 dark:text-slate-400">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">work</span>
+<span>210 Jobs completed</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>0.8 miles away</span>
+</div>
+</div>
+<div class="flex gap-2 pt-1">
+<button class="flex-1 flex items-center justify-center gap-2 h-10 rounded-full border border-slate-200 dark:border-slate-700 bg-transparent text-slate-700 dark:text-slate-200 text-sm font-semibold">
+<span class="material-symbols-outlined text-base">chat_bubble</span>
+<span>Chat</span>
+</button>
+<button class="flex-[2] flex items-center justify-center rounded-full h-10 bg-primary text-white text-sm font-semibold shadow-md shadow-primary/20">
+<span>Book Now</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Service Provider Card 3 -->
+<div class="flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm opacity-90">
+<div class="flex gap-1 p-1 h-56">
+<div class="flex-1 bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Elegant nail art and manicure" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAymwuNUinB61of1CRrx2MY60A3telzktIDj16p-iX6_v3_wwZR-Ptk42TSFaLbNGhs2OkrM3ldEKv5GrFoUiEp_ZGBHmtUx-htQglPkVsCrcIE7T56tOrb1a4bFnF6l_5o2-Y9mVzXyLvNIhVL94pcPjd_NzQsnQj9YtGPP1nmZvHkfl2CNI2iutL2thYKRnn4p5J5f5k19I953e-B1x4x_rWO6l0VWWfI88zCDtB28VjinV4XHGYVNCeijzflGknPgf8h3tRBVKFf");'>
+</div>
+<div class="flex-1 bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Luxury skincare product application" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4qLB6eG4hS-t-lUmSKMvm3u8tszt1yGv3WR58dw2XCil52dhZJ1CCGDRZ501exLShLibl9MUX_UOY6NUf7HF84n_lzEJ8hLCq969frk8bAegyZ_E9SVyLCvHg0w0R96PhMlTIEjvEREUrH3XzCwHRUN1UK_NeVxbEsdn5eFjWcAL4ZyFyoXmAdgFoNyCa4Q3v-0wbfp3-jjg-kztz3OQqjZB_M8xSpsmkbGd61oiTQPkvKkOtTXU6AkMi_LF-TvFebFf2CvzcNqMT");'>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Sarah Chen</h3>
+<span class="material-symbols-outlined text-primary text-base">verified</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Manicure &amp; Skincare Specialist</p>
+</div>
+<div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-amber-400 text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-200">4.8</span>
+</div>
+</div>
+<div class="flex gap-2 pt-1">
+<button class="flex-1 flex items-center justify-center gap-2 h-10 rounded-full border border-slate-200 dark:border-slate-700 bg-transparent text-slate-700 dark:text-slate-200 text-sm font-semibold">
+<span class="material-symbols-outlined text-base">chat_bubble</span>
+<span>Chat</span>
+</button>
+<button class="flex-[2] flex items-center justify-center rounded-full h-10 bg-primary text-white text-sm font-semibold shadow-md shadow-primary/20">
+<span>Book Now</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 inset-x-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 pb-safe">
+<div class="max-w-md mx-auto flex justify-around items-center h-16">
+<button class="flex flex-col items-center justify-center w-1/4 gap-1">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 text-[24px]">home</span>
+<span class="text-[10px] font-semibold text-slate-400 dark:text-slate-500">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center w-1/4 gap-1">
+<span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings: 'FILL' 1">search</span>
+<span class="text-[10px] font-bold text-primary">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center w-1/4 gap-1">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 text-[24px]">calendar_today</span>
+<span class="text-[10px] font-semibold text-slate-400 dark:text-slate-500">Bookings</span>
+</button>
+<button class="flex flex-col items-center justify-center w-1/4 gap-1">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 text-[24px]">person</span>
+<span class="text-[10px] font-semibold text-slate-400 dark:text-slate-500">Profile</span>
+</button>
+</div>
+<!-- iOS Home Indicator Space -->
+<div class="h-5"></div>
+</nav>
+</body></html>

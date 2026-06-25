@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Provider Portfolio | MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#049567", // Emerald 600 style
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                        "accent-gold": "#fbbf24",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen pb-32">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-slate-200 dark:border-slate-800">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-base font-bold tracking-tight">Provider Portfolio</h1>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+</nav>
+<!-- Profile Header Section -->
+<header class="p-6 flex flex-col items-center">
+<div class="relative mb-4">
+<div class="w-32 h-32 rounded-full border-4 border-primary p-1">
+<div class="w-full h-full rounded-full bg-cover bg-center" data-alt="Professional headshot of service provider" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBW3ZAdpNUb6aqyskpy9LWgmh083C78Kp4mIxtQV2rfQTQS6NnHe7QA__FurdLCAz0IwAHBEC8Be7VBQCSHskLPeZe81L2JOVFNAZVq-_cjEx7cshxcwROBOGTz2z8o-zvIGQ7gOPexhnPubxC1--6LPrg7LJJwuH7wiqJ-eFXFJJp1WpHQ2pBCaaE_NTc0PKacWZFvSN5QKnor2OWaiO_Na-hOBHSqKbZCLyG_JztMQtz4S1MsAu0Lil_eBms7oklQ8zrkuySCFCcJ')">
+</div>
+</div>
+<div class="absolute bottom-1 right-1 bg-accent-gold text-slate-900 rounded-full px-2 py-1 flex items-center gap-1 shadow-lg border-2 border-slate-900">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">verified</span>
+<span class="text-[10px] font-extrabold uppercase tracking-wider">Pro</span>
+</div>
+</div>
+<div class="text-center">
+<h2 class="text-2xl font-bold tracking-tight">Johnathan Vance</h2>
+<p class="text-primary font-semibold text-lg">Master Welder &amp; Metal Fabricator</p>
+<div class="flex items-center justify-center gap-2 mt-2 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>Brooklyn, NY • 2km away</span>
+</div>
+</div>
+</header>
+<!-- Stats Bar -->
+<section class="flex gap-4 px-4 mb-8">
+<div class="flex-1 bg-white dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col items-center">
+<div class="flex items-center gap-1 text-accent-gold mb-1">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-lg font-bold text-slate-900 dark:text-white">4.9</span>
+</div>
+<p class="text-[10px] uppercase font-bold text-slate-500 tracking-widest">128 Reviews</p>
+</div>
+<div class="flex-1 bg-white dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col items-center">
+<div class="flex items-center gap-1 text-primary mb-1">
+<span class="material-symbols-outlined text-base">verified_user</span>
+<span class="text-lg font-bold text-slate-900 dark:text-white">100%</span>
+</div>
+<p class="text-[10px] uppercase font-bold text-slate-500 tracking-widest">Job Success</p>
+</div>
+<div class="flex-1 bg-white dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col items-center">
+<div class="flex items-center gap-1 text-blue-500 mb-1">
+<span class="material-symbols-outlined text-base">history</span>
+<span class="text-lg font-bold text-slate-900 dark:text-white">12y</span>
+</div>
+<p class="text-[10px] uppercase font-bold text-slate-500 tracking-widest">Experience</p>
+</div>
+</section>
+<!-- Past Work Gallery -->
+<section class="px-4 mb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold">Past Work</h3>
+<button class="text-primary text-sm font-semibold">View All</button>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="aspect-square rounded-xl bg-cover bg-center shadow-md overflow-hidden" data-alt="Industrial welding project close up" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKZOaRGUK4PyUon5EL3lXudxFqUyPmOiwxEJiRYOkDqs65UDbI73SoU_lhiyeQjBGC62-J_uRQRctaxTXcGwwU8NVF6633iEWQzshhpD9sR0407o2PZ7zqx-OXjLHmZNONfpIcgid5Ghxb1bhFDLUTXWzszdPIJblfQMkIlt_vMh6wk0BlEFpedY-ovmwU1yZj4nd-hv55tEjxfTcJL_LZGBWAl79t5SkdtDv3PmMk8JvP13Nr9ZdcIAkplUmxssMJZS8dDEgEEhzv')">
+</div>
+<div class="aspect-square rounded-xl bg-cover bg-center shadow-md overflow-hidden" data-alt="Custom metal furniture construction" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA8g7zLBtvKol642sRb6kTN2R2aANSiamZYbH7SjEAKvl5LZSNNeVyasacoxN6fXWCQmnrbwIpc5p4W44X4sZO5QBctMCCjAKU1wThwgaSK43kcn_OQ9KPwUbo1y844TbzpBIEFClExY09w8M600Q8qqfcKTUmCEA7nYzM53MTda64dzAFXIH6C0RwPjZDE4LgT3Tpft1Gpks6KTrGhOqBcVaa-PdVO01MF5ktxbOs3hjjQpVI4m0X8GaBAJ5v3tZEZwVQFd3JawLdO')">
+</div>
+<div class="aspect-square rounded-xl bg-cover bg-center shadow-md overflow-hidden" data-alt="Structural steel beam reinforcement" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQ8vwmBksvJwEMeWt013eQpQoRw81lRxbNII2AgufTGq36SO0ob0x5ZfOXh5MnFg8fEeFfq1ZijGEngvfXN1kmCa74jSM8ffxSC45iOkG3a4hhKGblf18iLuYl-JidL6OhZOOBjoIBWl4JZDz-7GJj8G9RCA9M6fGnD8PXm-JfI_3jQ5eXRUPECbRBLPF9VG1Ze8t973lgNHBd3vBwi3Cg1IjmCkHAHQf7MpEWYE_qSOKLUGucOQ9YjmJxCQ316JGdTs_yAWnHllpf')">
+</div>
+<div class="aspect-square rounded-xl bg-cover bg-center shadow-md overflow-hidden" data-alt="Modern geometric metal wall art" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6JfF_eLwlAMnS9w76ljABFypy2GD6aqUDMbrfchB5rSviqtBOnYZRGBfgP3Iu-6uhvQyPk2unbjIeyix-iiAyt9Xc1pmwTNFFw1le8e6KQ1vcpmn7--UDiFzmOi4S8mnyi5wMZxr08uBW63Hu5DgBZKcNRytFvhqQCTKoL4D_dFd9meE1OF5FmOvja2sklqH5uS-R7-s5M7zqCL-adwE66oJ3RgC5mKlXCnultp5m9QlKXouTL8zf8VWHAd8lxtt2MjQfrpRicYzO')">
+</div>
+</div>
+</section>
+<!-- Customer Reviews -->
+<section class="px-4 mb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold">Customer Reviews</h3>
+<button class="text-primary text-sm font-semibold">See More</button>
+</div>
+<div class="space-y-4">
+<!-- Review Card 1 -->
+<div class="bg-white dark:bg-slate-800/30 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-300" data-alt="Reviewer avatar profile circle"></div>
+<div>
+<p class="text-sm font-bold">Sarah Jenkins</p>
+<p class="text-[10px] text-slate-500">2 days ago • Manhattan, NY</p>
+</div>
+</div>
+<div class="flex text-accent-gold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    "John did an incredible job repairing our custom iron gate. He was punctual, professional, and the finish is seamless. Highly recommended!"
+                </p>
+</div>
+<!-- Review Card 2 -->
+<div class="bg-white dark:bg-slate-800/30 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-400" data-alt="Reviewer avatar profile circle"></div>
+<div>
+<p class="text-sm font-bold">Mark Thompson</p>
+<p class="text-[10px] text-slate-500">1 week ago • Brooklyn, NY</p>
+</div>
+</div>
+<div class="flex text-accent-gold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    "Fair pricing and expert knowledge. Helped us with some structural welding on a short notice. A true professional pro."
+                </p>
+</div>
+</div>
+</section>
+<!-- Fixed Bottom Footer Action Bar -->
+<footer class="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 p-4 pb-8 z-50">
+<div class="flex gap-4 max-w-md mx-auto">
+<button class="flex-1 h-14 rounded-full border-2 border-primary text-primary font-bold text-base hover:bg-primary/5 transition-colors">
+                Quick Quote
+            </button>
+<button class="flex-[1.5] h-14 rounded-full bg-primary text-white font-bold text-base shadow-lg shadow-primary/20 active:scale-95 transition-all">
+                Book Now
+            </button>
+</div>
+<!-- Tab Navigation (Mockup) -->
+<div class="mt-6 flex justify-around items-center px-4">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-medium">Bookings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</div>
+</div>
+</footer>
+</body></html>

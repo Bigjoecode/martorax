@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Product Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#10b981", // Emerald 500
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                    },
+                },
+            },
+        };
+        function toggleBargainSheet() {
+            const sheet = document.getElementById('bargain-sheet');
+            const overlay = document.getElementById('overlay');
+            sheet.classList.toggle('translate-y-full');
+            overlay.classList.toggle('hidden');
+        }
+    </script>
+<style>
+        .material-symbols-rounded {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-hidden h-screen flex justify-center">
+<div class="relative w-full max-w-md bg-white dark:bg-slate-900 h-full shadow-2xl overflow-hidden flex flex-col">
+<div class="absolute top-0 left-0 right-0 z-20 flex justify-between items-center p-4">
+<button class="w-10 h-10 flex items-center justify-center bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-full shadow-sm text-slate-800 dark:text-white">
+<span class="material-symbols-rounded">arrow_back_ios_new</span>
+</button>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-full shadow-sm text-slate-800 dark:text-white">
+<span class="material-symbols-rounded">share</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-full shadow-sm text-red-500">
+<span class="material-symbols-rounded filled-icon">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto no-scrollbar pb-32">
+<div class="relative w-full aspect-square bg-slate-200 dark:bg-slate-800">
+<img alt="Premium Leather Handbag" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNKgZA-Hy--i0sXFDF5OkA_OIwLlNP5APL5Aqas4fuXDkWEpEzgw1hoez-0iXNR_ztUBJjDElYPZ7s1EZSSjSpfxF5fZZJeYe12XZN1yFPL8eHzllYmKCSG-Q4QODntJcy7kcMRnMF-eXa69JLcE8fEC2HeRGy0CSrOYb23Q5MOTj45jln4QlZ4JrTnK_-nbFpMbJVoMGSLS5cvE0PK5rXGzlNVFBBqn2MTXCiAWlO7RVs8ncfN5MPp0Qz_hREHsgDLAmIZvpvTMdC"/>
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
+<span class="w-6 h-1.5 rounded-full bg-primary"></span>
+<span class="w-2 h-1.5 rounded-full bg-white/50"></span>
+<span class="w-2 h-1.5 rounded-full bg-white/50"></span>
+</div>
+</div>
+<div class="p-5 space-y-4">
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-full">HOT DEAL</span>
+<span class="px-2.5 py-1 bg-orange-100 dark:bg-orange-900/40 text-orange-600 dark:text-orange-400 text-xs font-bold rounded-full">20% OFF</span>
+</div>
+<div class="space-y-1">
+<h1 class="text-2xl font-bold leading-tight">Premium Hand-Crafted Leather Tote</h1>
+<div class="flex items-baseline gap-3">
+<span class="text-3xl font-extrabold text-primary">₦45,000</span>
+<span class="text-lg text-slate-400 dark:text-slate-500 line-through font-medium">₦58,000</span>
+</div>
+</div>
+<div class="h-px bg-slate-100 dark:bg-slate-800 w-full"></div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Vendor Profile" class="w-12 h-12 rounded-full object-cover border-2 border-white dark:border-slate-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRJVeYTzSyu5Mv_VdCy5aI1et3aoOqxU8zuezkvdCfnkGWkyUhAAh112AieU9eHPZdMOLRYnn4FyKMmybm4XPTJR7y11BLxDCkXRxsYDyq3M_3k8geBFJp57FxWjiDPvV0Z7dI-BEAyFnns83qORQX8Ai9t3dzsJcI-Bzz2DEcsOpRVN2udSsGMHx9pltMPeCIuDJZBDTyAG6ZqUYqwynMs8ydHxNvPz5jjmNeHv83Ez4KcziESayUQHsn7VJpEj3ivHcpl46u1LRQ"/>
+<div class="absolute -bottom-1 -right-1 bg-blue-500 text-white p-0.5 rounded-full border-2 border-white dark:border-slate-900">
+<span class="material-symbols-rounded text-[10px] filled-icon">verified</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-1">
+<span class="font-bold">Efe's Leather Works</span>
+<span class="flex items-center gap-0.5 px-1.5 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-[10px] font-black rounded uppercase tracking-wider">Trusted</span>
+</div>
+<div class="flex items-center gap-1 text-slate-500 dark:text-slate-400 text-xs">
+<span class="material-symbols-rounded text-sm text-yellow-500 filled-icon">star</span>
+<span>4.8 (124 reviews)</span>
+<span class="mx-1">•</span>
+<span>Asaba, Delta</span>
+</div>
+</div>
+</div>
+<button class="px-4 py-2 text-primary font-semibold text-sm border border-primary/20 rounded-lg hover:bg-primary/5 transition-colors">Visit Shop</button>
+</div>
+<div class="space-y-2">
+<h3 class="font-bold text-lg">Product Description</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Authentic cow-hide leather bag, locally sourced and stitched in the heart of Asaba. Durable, water-resistant, and perfect for daily office use or casual outings. Features internal compartments and a premium brass zip.
+                    </p>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 bg-slate-50 dark:bg-slate-800/40 rounded-xl flex items-center gap-2">
+<span class="material-symbols-rounded text-primary">local_shipping</span>
+<div>
+<p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold">Delivery</p>
+<p class="text-xs font-medium">Within 24hrs</p>
+</div>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-slate-800/40 rounded-xl flex items-center gap-2">
+<span class="material-symbols-rounded text-primary">verified_user</span>
+<div>
+<p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold">Guarantee</p>
+<p class="text-xs font-medium">1 Year Warranty</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-100 dark:border-slate-800 z-30">
+<div class="flex items-center gap-3">
+<button class="h-14 w-14 shrink-0 flex flex-col items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-2xl text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" onclick="toggleBargainSheet()">
+<span class="material-symbols-rounded">chat</span>
+<span class="text-[10px] font-bold mt-0.5">Bargain</span>
+</button>
+<button class="h-14 flex-1 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold rounded-2xl border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                    Add to Cart
+                </button>
+<button class="h-14 flex-[1.5] bg-primary text-white font-bold rounded-2xl shadow-lg shadow-emerald-500/20 active:scale-95 transition-all">
+                    Buy Now
+                </button>
+</div>
+<div class="h-4"></div>
+</div>
+<div class="absolute inset-0 bg-black/40 backdrop-blur-sm z-40 hidden transition-opacity duration-300" id="overlay" onclick="toggleBargainSheet()"></div>
+<div class="absolute bottom-0 left-0 right-0 bg-white dark:bg-slate-900 z-50 rounded-t-3xl shadow-2xl transition-transform duration-500 ease-out translate-y-full" id="bargain-sheet">
+<div class="w-12 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto my-3"></div>
+<div class="p-6 space-y-6">
+<div class="text-center space-y-1">
+<h2 class="text-xl font-extrabold">Price Bargain Flow</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400">Negotiate the price directly with Efe's Leather Works</p>
+</div>
+<div class="space-y-4">
+<div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-700">
+<p class="text-[10px] font-bold text-slate-400 uppercase mb-2">Current Asking Price</p>
+<p class="text-2xl font-black text-slate-400 line-through">₦45,000</p>
+</div>
+<div class="space-y-3">
+<p class="text-xs font-bold text-slate-500 uppercase px-1">Quick Negotiate (English &amp; Pidgin)</p>
+<div class="grid grid-cols-1 gap-2">
+<button class="w-full text-left p-4 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/20 text-slate-800 dark:text-slate-200 font-medium hover:bg-primary hover:text-white transition-all group">
+                                "Fit do am for <span class="text-primary group-hover:text-white font-bold">₦38,000</span>?"
+                            </button>
+<button class="w-full text-left p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-medium hover:bg-slate-100 transition-all">
+                                "Abeg, reduce the price small for me."
+                            </button>
+<button class="w-full text-left p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-medium hover:bg-slate-100 transition-all">
+                                "How much last, customer man?"
+                            </button>
+<button class="w-full text-left p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-medium hover:bg-slate-100 transition-all">
+                                "I go pay now now, give me better discount."
+                            </button>
+</div>
+</div>
+<div class="relative pt-2">
+<label class="block text-xs font-bold text-slate-500 uppercase mb-2 px-1">Or enter your own offer</label>
+<div class="flex gap-2">
+<div class="relative flex-1">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-400">₦</span>
+<input class="w-full pl-10 pr-4 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none focus:ring-2 focus:ring-primary font-bold text-lg" placeholder="0.00" type="number"/>
+</div>
+<button class="px-6 py-4 bg-primary text-white font-bold rounded-2xl shadow-lg">Send</button>
+</div>
+</div>
+</div>
+</div>
+<div class="h-10"></div>
+</div>
+</div>
+
+</body></html>

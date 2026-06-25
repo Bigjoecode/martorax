@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rider Payment Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#08dd9a",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Public Sans", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white antialiased">
+<div class="relative flex h-screen w-full flex-col max-w-md mx-auto overflow-hidden">
+<!-- TopAppBar -->
+<div class="flex items-center bg-transparent p-4 pb-2 justify-between">
+<div class="text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Payment Confirmation</h2>
+</div>
+<div class="flex-1 overflow-y-auto pb-32">
+<!-- Success Animation / Icon Placeholder -->
+<div class="flex flex-col items-center pt-8">
+<div class="bg-primary/20 rounded-full p-6 mb-4">
+<span class="material-symbols-outlined text-primary text-6xl">check_circle</span>
+</div>
+</div>
+<!-- HeadlineText -->
+<h1 class="text-white tracking-tight text-[32px] font-bold leading-tight px-4 text-center pb-2">Payment Released!</h1>
+<!-- BodyText -->
+<p class="text-slate-400 text-base font-normal leading-normal pb-8 pt-1 px-8 text-center">
+                Your payment has been securely transferred to the rider.
+            </p>
+<!-- SectionHeader -->
+<div class="px-4">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-4 pt-4 border-t border-slate-800">Breakdown</h3>
+</div>
+<!-- DescriptionList (Breakdown) -->
+<div class="px-4">
+<div class="bg-slate-800/50 rounded-xl p-4">
+<div class="flex justify-between gap-x-6 py-2 border-b border-slate-700/50">
+<p class="text-slate-400 text-sm font-normal leading-normal">Delivery Fee</p>
+<p class="text-white text-sm font-semibold leading-normal text-right">₦1,200</p>
+</div>
+<div class="flex justify-between gap-x-6 py-3">
+<p class="text-slate-400 text-sm font-normal leading-normal">SafePay Escrow Release</p>
+<div class="flex items-center gap-1.5 bg-primary/10 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-primary text-[14px]">verified</span>
+<p class="text-primary text-[12px] font-bold leading-normal text-right uppercase tracking-wider">Success</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Optional Tip Section -->
+<div class="px-4 mt-8">
+<div class="flex flex-col gap-4">
+<div class="flex flex-col">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Add a Tip</h3>
+<p class="text-slate-400 text-xs font-normal">Show some extra love to your rider</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<!-- Tip Chips -->
+<button class="flex-1 min-w-[70px] bg-slate-800 hover:bg-slate-700 border border-slate-700 py-3 rounded-xl text-white text-sm font-medium transition-colors">
+                            ₦200
+                        </button>
+<button class="flex-1 min-w-[70px] bg-slate-800 hover:bg-slate-700 border border-slate-700 py-3 rounded-xl text-white text-sm font-medium transition-colors">
+                            ₦500
+                        </button>
+<button class="flex-1 min-w-[70px] bg-primary/20 border border-primary/50 py-3 rounded-xl text-primary text-sm font-bold transition-colors">
+                            ₦1,000
+                        </button>
+<button class="flex-1 min-w-[80px] bg-slate-800 hover:bg-slate-700 border border-slate-700 py-3 rounded-xl text-white text-sm font-medium transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">edit</span>
+                            Custom
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Footer Button -->
+<div class="absolute bottom-0 left-0 w-full p-4 bg-background-dark/80 backdrop-blur-md">
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold text-lg py-4 rounded-xl shadow-lg shadow-primary/10 transition-all active:scale-[0.98]">
+                Done
+            </button>
+<div class="h-4"></div> <!-- Safe area spacing -->
+</div>
+</div>
+</body></html>

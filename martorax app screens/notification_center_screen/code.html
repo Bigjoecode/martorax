@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#09f6ab",
+              "background-light": "#f5f8f7",
+              "background-dark": "#0f172a", // Slate 900 as requested
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .unread-glow {
+        box-shadow: 0 0 15px rgba(9, 246, 171, 0.1);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .fill-icon {
+        font-variation-settings: 'FILL' 1;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white">
+<div class="relative flex min-h-screen w-full flex-col max-w-[430px] mx-auto bg-background-light dark:bg-background-dark pb-24 shadow-2xl">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<h2 class="text-slate-900 dark:text-white text-2xl font-extrabold leading-tight tracking-[-0.015em] flex-1">Notifications</h2>
+<button class="flex items-center justify-end">
+<span class="text-primary text-sm font-bold leading-normal tracking-[0.015em] shrink-0">Mark all as read</span>
+</button>
+</div>
+<div class="h-[1px] bg-slate-200 dark:bg-slate-800/50 mx-4"></div>
+</header>
+<main class="flex flex-col flex-1">
+<!-- Today Section -->
+<section>
+<div class="flex items-center px-4 pb-2 pt-6 justify-between">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Today</h3>
+<span class="text-xs font-medium text-slate-400">3 new</span>
+</div>
+<!-- Unread Booking Alert -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800/40 px-4 min-h-[88px] py-3 justify-between border-y border-transparent transition-all unread-glow border-l-4 border-l-primary mb-1">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-xl bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined text-[28px]">calendar_today</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-[15px] font-bold leading-snug line-clamp-1">New booking request from Chidi</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2 mt-0.5">Kitchen renovation consultation scheduled.</p>
+<p class="text-primary/80 text-[11px] font-semibold mt-1 uppercase tracking-wider">10:30 AM</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex size-7 items-center justify-center">
+<div class="size-2.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#09f6ab]"></div>
+</div>
+</div>
+</div>
+<!-- Unread Payment Alert -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800/40 px-4 min-h-[88px] py-3 justify-between border-y border-transparent transition-all unread-glow border-l-4 border-l-primary mb-1">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-xl bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined text-[28px]">account_balance_wallet</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-[15px] font-bold leading-snug line-clamp-1">₦15,000 released to your wallet</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2 mt-0.5">Payment for order #882 has been processed.</p>
+<p class="text-primary/80 text-[11px] font-semibold mt-1 uppercase tracking-wider">8:15 AM</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex size-7 items-center justify-center">
+<div class="size-2.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#09f6ab]"></div>
+</div>
+</div>
+</div>
+<!-- System Alert -->
+<div class="flex items-center gap-4 bg-transparent px-4 min-h-[80px] py-3 justify-between opacity-80">
+<div class="flex items-center gap-4">
+<div class="text-slate-400 flex items-center justify-center rounded-xl bg-slate-200 dark:bg-slate-800 shrink-0 size-12">
+<span class="material-symbols-outlined text-[28px] fill-icon">verified_user</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-[15px] font-medium leading-snug line-clamp-1">Your KYC is verified!</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2 mt-0.5">You can now accept premium projects.</p>
+<p class="text-slate-400 text-[11px] font-semibold mt-1 uppercase tracking-wider">6:00 AM</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Earlier Section -->
+<section>
+<div class="flex items-center px-4 pb-2 pt-6">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Earlier</h3>
+</div>
+<!-- Earlier Booking -->
+<div class="flex items-center gap-4 bg-transparent px-4 min-h-[80px] py-3 justify-between opacity-70">
+<div class="flex items-center gap-4">
+<div class="text-slate-400 flex items-center justify-center rounded-xl bg-slate-200 dark:bg-slate-800 shrink-0 size-12">
+<span class="material-symbols-outlined text-[28px]">event_repeat</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-[15px] font-medium leading-snug line-clamp-1">Service reminder: Jane Smith</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2 mt-0.5">Scheduled for tomorrow at 9:00 AM.</p>
+<p class="text-slate-400 text-[11px] font-semibold mt-1 uppercase tracking-wider">Yesterday</p>
+</div>
+</div>
+</div>
+<!-- Earlier Wallet -->
+<div class="flex items-center gap-4 bg-transparent px-4 min-h-[80px] py-3 justify-between opacity-70">
+<div class="flex items-center gap-4">
+<div class="text-slate-400 flex items-center justify-center rounded-xl bg-slate-200 dark:bg-slate-800 shrink-0 size-12">
+<span class="material-symbols-outlined text-[28px]">payments</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-[15px] font-medium leading-snug line-clamp-1">Withdrawal Successful</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2 mt-0.5">₦45,000 sent to your GT Bank account.</p>
+<p class="text-slate-400 text-[11px] font-semibold mt-1 uppercase tracking-wider">Oct 24, 2023</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 max-w-[430px] mx-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-6 py-3">
+<div class="flex items-center justify-between">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">book_online</span>
+<span class="text-[10px] font-bold">Bookings</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-icon">notifications</span>
+<span class="text-[10px] font-bold">Notifications</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-bold">Leads</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<div class="size-6 rounded-full overflow-hidden border border-slate-400">
+<img class="w-full h-full object-cover" data-alt="Profile photo of service provider" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0PVP3j5FxAksrZ-FqZ-Z47YsNqqhK8aAiuW4bfKFFG2VccDYyFgVmqok12XAPYYCOa4fwyNRMcGpquyz0Ncf6WG5lB6bMGgV5PH6lsRogNqlk2v6iDrN2NPhi8qghY2FYcoN3say8k2wMo7USPs_eOq3zNIKOP66-nU6luDRvY3gY2RLeAAlY2V6jobR0WnpxmrXG0JgiXxgV6FX0WNCNAoqieZ1e1A32yB2ZLhlaCsbUlh7niCC9SWbuew84JCZAUGYe6drbYuEc"/>
+</div>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</div>
+<!-- Home Indicator (iOS) -->
+<div class="w-32 h-1 bg-slate-200 dark:bg-slate-800 rounded-full mx-auto mt-4"></div>
+</nav>
+</div>
+</body></html>

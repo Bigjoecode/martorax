@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shopper Registration - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06ac4b",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<div class="flex items-center px-4 py-4 justify-between">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-white">arrow_back_ios_new</span>
+</button>
+<div class="w-10"></div> <!-- Spacer for balance -->
+</div>
+<main class="flex-1 flex flex-col px-6">
+<!-- Headline Section -->
+<header class="pt-4 pb-6">
+<h1 class="text-white tracking-tight text-[32px] font-bold leading-tight">Create Your Account</h1>
+<p class="text-slate-400 text-base font-normal leading-normal pt-2">Join MartoraX to shop and book services in Asaba.</p>
+</header>
+<!-- Registration Form -->
+<div class="space-y-4">
+<!-- Full Name Field -->
+<div class="flex flex-col w-full">
+<label class="text-slate-300 text-sm font-medium leading-normal pb-2 px-1">Full Name</label>
+<input class="form-input flex w-full rounded-xl text-white border border-slate-700 bg-slate-800/50 focus:border-primary focus:ring-1 focus:ring-primary h-14 placeholder:text-slate-500 px-4 text-base font-normal transition-all" placeholder="John Doe" type="text"/>
+</div>
+<!-- Email Field -->
+<div class="flex flex-col w-full">
+<label class="text-slate-300 text-sm font-medium leading-normal pb-2 px-1">Email</label>
+<input class="form-input flex w-full rounded-xl text-white border border-slate-700 bg-slate-800/50 focus:border-primary focus:ring-1 focus:ring-primary h-14 placeholder:text-slate-500 px-4 text-base font-normal transition-all" placeholder="name@example.com" type="email"/>
+</div>
+<!-- Phone Number Field -->
+<div class="flex flex-col w-full">
+<label class="text-slate-300 text-sm font-medium leading-normal pb-2 px-1">Phone Number</label>
+<div class="relative flex items-center">
+<span class="absolute left-4 text-slate-400 font-medium">+234</span>
+<input class="form-input flex w-full rounded-xl text-white border border-slate-700 bg-slate-800/50 focus:border-primary focus:ring-1 focus:ring-primary h-14 placeholder:text-slate-500 pl-16 pr-4 text-base font-normal transition-all" placeholder="803 000 0000" type="tel"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col w-full">
+<label class="text-slate-300 text-sm font-medium leading-normal pb-2 px-1">Password</label>
+<div class="relative flex items-center">
+<input class="form-input flex w-full rounded-xl text-white border border-slate-700 bg-slate-800/50 focus:border-primary focus:ring-1 focus:ring-primary h-14 placeholder:text-slate-500 px-4 text-base font-normal transition-all" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 text-slate-500 hover:text-slate-300">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="pt-8">
+<button class="w-full bg-primary hover:bg-emerald-600 text-white font-bold py-4 px-6 rounded-xl text-lg transition-all active:scale-[0.98] shadow-lg shadow-primary/20">
+                Sign Up
+            </button>
+</div>
+<!-- Divider -->
+<div class="flex items-center my-8">
+<div class="flex-grow border-t border-slate-800"></div>
+<span class="px-4 text-slate-500 text-sm font-medium">Or continue with</span>
+<div class="flex-grow border-t border-slate-800"></div>
+</div>
+<!-- Social Login Options -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 h-14 rounded-xl border border-slate-700 bg-slate-800/30 hover:bg-slate-800 transition-colors">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M12 5.04c1.64 0 3.12.56 4.28 1.67l3.21-3.21C17.53 1.63 14.95 1 12 1 7.37 1 3.4 3.61 1.45 7.42l3.77 2.92C6.11 7.11 8.84 5.04 12 5.04z" fill="#EA4335"></path>
+<path d="M23.49 12.27c0-.81-.07-1.59-.2-2.34H12v4.42h6.44c-.28 1.48-1.12 2.73-2.38 3.58l3.71 2.88c2.17-2 3.43-4.93 3.43-8.54z" fill="#4285F4"></path>
+<path d="M5.22 14.74c-.25-.74-.39-1.53-.39-2.34s.14-1.6.39-2.34L1.45 7.42C.53 9.22 0 11.25 0 13.4s.53 4.18 1.45 5.98l3.77-2.92c-.25-.74-.39-1.53-.39-2.34z" fill="#34A853"></path>
+<path d="M12 23c3.24 0 5.96-1.07 7.95-2.91l-3.71-2.88c-1.1.74-2.51 1.18-4.24 1.18-3.16 0-5.89-2.07-6.85-4.88L1.45 19.38C3.4 23.19 7.37 25.8 12 25.8z" fill="#FBBC05"></path>
+</svg>
+<span class="text-white font-medium">Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 h-14 rounded-xl border border-slate-700 bg-slate-800/30 hover:bg-slate-800 transition-colors">
+<svg class="w-5 h-5 fill-white" viewbox="0 0 24 24">
+<path d="M17.05 20.28c-.98.95-2.05 1.74-3.08 1.74-1.09 0-1.42-.67-2.67-.67-1.25 0-1.63.65-2.67.67-1.03 0-2.22-.88-3.21-1.85-2.02-2.01-3.57-5.69-3.57-8.91 0-5.11 3.19-7.81 6.22-7.81 1.58 0 3.07.97 4.04.97.96 0 2.74-.97 4.54-.97 1.88 0 3.32.74 4.31 1.88-3.66 1.86-3.07 7.07.41 8.52-1.08 2.54-2.36 5.18-4.32 7.13zM12.03 5.07c-.02-2.69 2.19-4.89 4.81-5.07.24 2.87-2.43 5.34-4.81 5.07z"></path>
+</svg>
+<span class="text-white font-medium">Apple</span>
+</button>
+</div>
+<!-- Login Link -->
+<footer class="mt-auto py-8 text-center">
+<p class="text-slate-400">
+                Already have an account? 
+                <a class="text-primary font-bold ml-1 hover:underline" href="#">Log In</a>
+</p>
+</footer>
+</main>
+<!-- Visual Element -->
+<div class="fixed top-0 right-0 -z-10 w-64 h-64 bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-64 h-64 bg-primary/5 rounded-full blur-[100px]"></div>
+</body></html>

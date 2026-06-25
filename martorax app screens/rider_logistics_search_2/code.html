@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rider Logistics Search</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 feel
+                        "card-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex justify-center">
+<div class="relative flex h-[844px] w-[390px] flex-col bg-background-light dark:bg-background-dark overflow-hidden border-x border-slate-200 dark:border-slate-800 shadow-2xl">
+<!-- Header Map Section -->
+<div class="relative w-full h-64 overflow-hidden shrink-0">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover" data-alt="Map of Asaba showing delivery routes" data-location="Asaba, Nigeria" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCktUKE63YamNOF9XHFkH5pMjauJQ7oKA_b2m2XP6-OTLgqmXSE0cOxbGEMqtmogdm4gZ-3WYPPSZUq5R9bHxBJF4Bz3fedSE_N5WZmcinaFQXvjEh22u3hl5QUo9kQbpXO8QFEOKBdPO53x7uuQuPbzZhhbgMlht7DzhD2iXKBW-hQnaHTA2lGxhPZnoLQwdSPTa8zlmdsALU2wROlx0Ily2H2VQibn8g6xwQJJMeWj_ixapdkEvegAYjEEA7iWj5DpmgGRFLhUF7h");'>
+</div>
+<!-- Custom Map Pins -->
+<div class="absolute top-1/2 left-1/3 text-primary animate-pulse">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1">location_on</span>
+</div>
+<div class="absolute top-1/4 right-1/4 text-primary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">location_on</span>
+</div>
+<!-- Gradient Overlay for transition -->
+<div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background-dark to-transparent"></div>
+</div>
+<!-- Main Content Area -->
+<div class="relative -mt-8 flex flex-col flex-1 bg-background-light dark:bg-background-dark rounded-t-xl z-10 px-4 pt-4">
+<!-- Search Bar -->
+<div class="pb-3">
+<label class="flex flex-col min-w-40 h-14 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-full h-full bg-slate-200/50 dark:bg-card-dark border border-slate-300 dark:border-slate-700">
+<div class="text-slate-500 dark:text-primary flex items-center justify-center pl-5">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white placeholder:text-slate-500 text-base font-medium px-4" placeholder="Find a rider or vehicle..." value=""/>
+</div>
+</label>
+</div>
+<!-- Segmented Control -->
+<div class="flex py-2">
+<div class="flex h-12 flex-1 items-center justify-center rounded-full bg-slate-200/50 dark:bg-card-dark p-1.5 border border-slate-300 dark:border-slate-700">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm text-slate-500 dark:text-slate-400 has-[:checked]:text-slate-900 dark:has-[:checked]:text-primary text-sm font-semibold transition-all">
+<span class="truncate">Keke</span>
+<input checked="" class="hidden" name="vehicle_type" type="radio" value="Keke"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm text-slate-500 dark:text-slate-400 has-[:checked]:text-slate-900 dark:has-[:checked]:text-primary text-sm font-semibold transition-all">
+<span class="truncate">Bike</span>
+<input class="hidden" name="vehicle_type" type="radio" value="Bike"/>
+</label>
+</div>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold px-1 pt-6 pb-2">Available Riders</h3>
+<!-- Scrollable List -->
+<div class="flex-1 overflow-y-auto hide-scrollbar pb-24 space-y-4">
+<!-- Rider Card 1 -->
+<div class="flex items-center gap-4 rounded-xl bg-white dark:bg-card-dark p-4 border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="w-16 h-16 rounded-lg bg-slate-200 dark:bg-slate-700 shrink-0 bg-center bg-cover" data-alt="Professional headshot of Emeka J." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAP7ARhSt9b-APD-jduiPRqBoPa8MsbZkCqvxXn2ELfZr-x7bTgyXvSCzsp7hg0_6iPB39r6QxObXmAkX4WUXNssnFVqCUQNqMbt8yUPeTZMO7tnm4rAf-Ph6ycpe3ydZvwjwY8sV4D8CRHHOL0CKnhUfHGK7XVgQ49p4K-t7MP4UgI3ZH0781hD2NGlMlJD58xIiLDkPWjQYOVGsSYtj5X1ywDbl1r_XLp3C7TAW6n-un5zwxKYE3CoGdtM8u0AsFTj5GkBikUTyhS");'></div>
+<div class="flex flex-col flex-1 gap-1">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-bold">Emeka J.</p>
+<p class="text-primary text-sm font-bold flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-1" style="font-variation-settings: 'FILL' 1">star</span>4.8
+                            </p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Keke • 5 mins away</p>
+<div class="mt-2">
+<button class="w-full bg-primary text-background-dark py-2 rounded-full text-sm font-bold active:scale-95 transition-transform">
+                                Request Now
+                            </button>
+</div>
+</div>
+</div>
+<!-- Rider Card 2 -->
+<div class="flex items-center gap-4 rounded-xl bg-white dark:bg-card-dark p-4 border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="w-16 h-16 rounded-lg bg-slate-200 dark:bg-slate-700 shrink-0 bg-center bg-cover" data-alt="Professional headshot of Chidi O." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChz38AuFZw2Tfr0K-mXqStClYTmHGhUAgTs8UPNrasCIQfgcOqT9xpg_K6qIspzbgs7D27TG5Eq676DoQMLDSjCW1HdfSPU7goVtfuJUIJ5JPUBNoFZXN4mfpWtGe5zANEpKjOVM5q9HbnoDr8NlDGtGJ55xQlAvkixhXAQppE5J5b0hUzn8pPFNQNQbq80NTI__z0tmq0kWYQMtL09YRBEOKshV6poTnN5c_1O01vS1MH9Cb-gQW9ZEgT5M6xzWLPK-ZzSIas4ZdV");'></div>
+<div class="flex flex-col flex-1 gap-1">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-bold">Chidi O.</p>
+<p class="text-primary text-sm font-bold flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-1" style="font-variation-settings: 'FILL' 1">star</span>4.9
+                            </p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Keke • 2 mins away</p>
+<div class="mt-2">
+<button class="w-full bg-primary text-background-dark py-2 rounded-full text-sm font-bold active:scale-95 transition-transform">
+                                Request Now
+                            </button>
+</div>
+</div>
+</div>
+<!-- Rider Card 3 -->
+<div class="flex items-center gap-4 rounded-xl bg-white dark:bg-card-dark p-4 border border-slate-100 dark:border-slate-800 shadow-sm opacity-80">
+<div class="w-16 h-16 rounded-lg bg-slate-200 dark:bg-slate-700 shrink-0 bg-center bg-cover" data-alt="Professional headshot of Musa V." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADUcwOj5qsmIGbJvLccKzboi_nN5Idz_GR3KaoajAKDdNvaaj6dF-HEzMYjJmqpfIr-DWIHfdAZeAUrvmmh4-RayVrXwIUBgthqV9gFcksv2eQ4OaWd2-LzuRTs1WUfG914oSY1CdEGf_SO_x_R5BEGIfzlnTQsNMimKbVcwLpoJwILNuomGsZB6uAxPZTLD_0rOtR1vZ7BhflikPbKKgH3IvBZAAaubGe9hHFm-YorXRDcUdoruzaMayBrjnryCkVlHIBINVBwfIq");'></div>
+<div class="flex flex-col flex-1 gap-1">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-base font-bold">Musa V.</p>
+<p class="text-primary text-sm font-bold flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-1" style="font-variation-settings: 'FILL' 1">star</span>4.7
+                            </p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Keke • 8 mins away</p>
+<div class="mt-2">
+<button class="w-full bg-primary/20 text-primary border border-primary/30 py-2 rounded-full text-sm font-bold">
+                                Request Now
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<div class="absolute bottom-0 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 pb-8 pt-3 px-6 flex justify-between items-center z-20">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">search</span>
+<span class="text-[10px] font-bold">Search</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-bold">Bookings</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</div>
+<!-- iOS Home Indicator -->
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full z-30"></div>
+</div>
+</body></html>

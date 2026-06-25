@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Job Completion Alert</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#10221c",
+                        "slate-custom": "#0f172a"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .emerald-glow {
+            background: radial-gradient(circle at center, rgba(9, 246, 171, 0.15) 0%, rgba(16, 34, 28, 0) 70%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Subtle Glow Background Effect -->
+<div class="fixed inset-0 pointer-events-none emerald-glow"></div>
+<!-- Top Navigation (iOS Style) -->
+<div class="relative z-10 flex items-center p-4 justify-between">
+<button class="text-white flex size-12 shrink-0 items-center justify-center hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">verified</span>
+<span class="text-xs font-semibold tracking-widest uppercase opacity-70">MartoraX Secure</span>
+</div>
+<div class="size-12"></div> <!-- Spacer for balance -->
+</div>
+<!-- Main Content Area -->
+<div class="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-12">
+<!-- Hero Illustration Component -->
+<div class="flex w-full @container py-8 max-w-md">
+<div class="relative w-full aspect-square flex items-center justify-center">
+<!-- Decorative Circles -->
+<div class="absolute inset-0 bg-primary/10 rounded-full animate-pulse"></div>
+<div class="absolute inset-10 bg-primary/20 rounded-full"></div>
+<!-- Success Image/Illustration -->
+<div class="relative w-48 h-48 bg-center bg-no-repeat bg-contain" data-alt="3D illustration of a completed task checklist with a green checkmark" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDAslGmARw8Y6a7buNEJbhZjF1PGpzBc_Kbi5hCG7QG9s5bzgzeDqPn7RCmgtWusQk2X0I_jjNdzAOE-1eaxzLtsGC2yGRBE4CHatfcN7xQrJCVAa2BVa7d38UMxnLkHUBqa05k-0ctOqEpSygrIQUr5Qk1cn1KSmU4hU7nxr3wWulHzaHJ9etauWfOqj2tkoy0aFo05jT96dsYptTvqLVjJZiU43q8dhEaStaH-iBecR3DdDvAelA5SmhEmqDgaWz0YMb7d2tjnt4V"); filter: drop-shadow(0 0 20px rgba(9, 246, 171, 0.4));'>
+</div>
+</div>
+</div>
+<!-- Headline Section -->
+<div class="text-center space-y-2">
+<h1 class="text-white tracking-tight text-[36px] font-extrabold leading-tight px-4">
+                    Job Marked as <span class="text-primary">Done!</span>
+</h1>
+</div>
+<!-- Body/Instructional Text Section -->
+<div class="mt-4 max-w-sm mx-auto">
+<div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
+<p class="text-white/90 text-lg font-medium leading-relaxed text-center mb-2">
+                        Alex Johnson
+                    </p>
+<p class="text-white/60 text-base font-normal leading-normal text-center">
+                        has finished the work and uploaded proof. Please review the work to release the SafePay payment.
+                    </p>
+</div>
+</div>
+<!-- Action Button Container -->
+<div class="w-full max-w-sm mt-12 space-y-4">
+<!-- SingleButton Component Variation -->
+<div class="flex flex-col gap-3">
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-16 px-5 bg-primary text-[#111816] text-lg font-bold leading-normal tracking-tight shadow-[0_8px_30px_rgb(9,246,171,0.3)] active:scale-95 transition-transform">
+<span class="truncate">Review &amp; Release Payment</span>
+</button>
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-transparent text-white/50 text-base font-medium leading-normal hover:text-white transition-colors">
+<span class="truncate">I'll do this later</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Safe Area Padding for iOS -->
+<div class="h-8"></div>
+</div>
+</body></html>

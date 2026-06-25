@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Portfolio Setup</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .ios-status-bar {
+            height: 44px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center px-4 py-4 justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-900 dark:text-white cursor-pointer">arrow_back_ios</span>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Portfolio Setup</h2>
+</div>
+<div class="text-primary text-sm font-semibold">Help</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col max-w-md mx-auto w-full pb-32">
+<!-- Progress Bar Component -->
+<div class="flex flex-col gap-3 p-4">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal uppercase tracking-wider">Step 1 of 4</p>
+<p class="text-primary text-sm font-bold leading-normal">25%</p>
+</div>
+<div class="rounded-full bg-slate-200 dark:bg-slate-800 h-2 overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 25%;"></div>
+</div>
+</div>
+<!-- Headline Component -->
+<div class="px-4 pt-4">
+<h1 class="text-slate-900 dark:text-white tracking-tight text-[28px] font-bold leading-tight">What services do you offer?</h1>
+</div>
+<!-- Body Text Component -->
+<div class="px-4 pt-2 pb-4">
+<p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-relaxed">
+                Adding specific skills helps you show up in more searches for experts in <span class="text-primary font-semibold">Asaba</span>.
+            </p>
+</div>
+<!-- Search Bar Component -->
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-14 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full border border-slate-200 dark:border-slate-700 focus-within:border-primary transition-colors">
+<div class="text-slate-400 dark:text-slate-500 flex bg-white dark:bg-slate-800/50 items-center justify-center pl-4 rounded-l-xl">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-white dark:bg-slate-800/50 h-full placeholder:text-slate-400 dark:placeholder:text-slate-500 px-4 rounded-l-none pl-2 text-base font-normal" placeholder="Search skills (e.g. Plumbing)" value=""/>
+</div>
+</label>
+</div>
+<!-- Multi-select Tags Section -->
+<div class="px-4 py-4 flex flex-col gap-4">
+<h3 class="text-slate-900 dark:text-white text-sm font-semibold uppercase tracking-wider">Suggested for you</h3>
+<div class="flex flex-wrap gap-2">
+<!-- Selected Tag -->
+<div class="flex items-center gap-2 bg-primary text-white px-4 py-2.5 rounded-full font-medium text-sm transition-all shadow-sm border border-primary">
+                    Plumbing
+                    <span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<!-- Selected Tag -->
+<div class="flex items-center gap-2 bg-primary text-white px-4 py-2.5 rounded-full font-medium text-sm transition-all shadow-sm border border-primary">
+                    Electrician
+                    <span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<!-- Default Tags -->
+<div class="flex items-center gap-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-4 py-2.5 rounded-full font-medium text-sm border border-slate-200 dark:border-slate-700 hover:border-primary active:scale-95 transition-all">
+                    Barber
+                </div>
+<div class="flex items-center gap-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-4 py-2.5 rounded-full font-medium text-sm border border-slate-200 dark:border-slate-700 hover:border-primary active:scale-95 transition-all">
+                    Tailor
+                </div>
+<div class="flex items-center gap-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-4 py-2.5 rounded-full font-medium text-sm border border-slate-200 dark:border-slate-700 hover:border-primary active:scale-95 transition-all">
+                    AC Repair
+                </div>
+<div class="flex items-center gap-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-4 py-2.5 rounded-full font-medium text-sm border border-slate-200 dark:border-slate-700 hover:border-primary active:scale-95 transition-all">
+                    Graphic Design
+                </div>
+<div class="flex items-center gap-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-4 py-2.5 rounded-full font-medium text-sm border border-slate-200 dark:border-slate-700 hover:border-primary active:scale-95 transition-all">
+                    Makeup Artist
+                </div>
+<div class="flex items-center gap-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-4 py-2.5 rounded-full font-medium text-sm border border-slate-200 dark:border-slate-700 hover:border-primary active:scale-95 transition-all">
+                    House Cleaning
+                </div>
+<div class="flex items-center gap-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-4 py-2.5 rounded-full font-medium text-sm border border-slate-200 dark:border-slate-700 hover:border-primary active:scale-95 transition-all">
+                    Catering
+                </div>
+<div class="flex items-center gap-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-4 py-2.5 rounded-full font-medium text-sm border border-slate-200 dark:border-slate-700 hover:border-primary active:scale-95 transition-all">
+                    Photography
+                </div>
+<div class="flex items-center gap-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-4 py-2.5 rounded-full font-medium text-sm border border-slate-200 dark:border-slate-700 hover:border-primary active:scale-95 transition-all">
+                    Interior Decor
+                </div>
+</div>
+</div>
+<!-- Quick Help Card -->
+<div class="mx-4 mt-6 p-4 rounded-xl bg-primary/10 border border-primary/20 flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+<p class="text-sm text-slate-700 dark:text-slate-300 leading-normal">
+                Experts with at least <span class="font-bold">3 skills</span> receive 40% more job inquiries.
+            </p>
+</div>
+</main>
+<!-- Sticky Bottom Navigation -->
+<footer class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 p-4 pb-8 max-w-md mx-auto w-full">
+<div class="flex gap-4">
+<button class="flex-1 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white py-4 rounded-xl font-bold text-center active:scale-[0.98] transition-all">
+                Skip
+            </button>
+<button class="flex-[2] bg-primary text-white py-4 rounded-xl font-bold text-center shadow-lg shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                Next Step
+                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>

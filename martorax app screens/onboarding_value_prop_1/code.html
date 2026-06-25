@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX Onboarding - Find Everything in Asaba</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#08aa77",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Updated to Slate 900 as requested
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .ios-status-bar {
+            height: 44px;
+        }
+        .ios-home-indicator {
+            height: 34px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white antialiased">
+<!-- Main Container (Mobile Form Factor) -->
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- iOS Status Bar Spacer & Top Navigation -->
+<div class="ios-status-bar w-full"></div>
+<div class="flex items-center justify-end p-4">
+<button class="text-slate-400 hover:text-white transition-colors text-base font-semibold leading-normal tracking-[0.015em] py-2 px-4">
+                Skip
+            </button>
+</div>
+<!-- Hero Illustration Section -->
+<div class="flex w-full grow items-center justify-center p-6 @container">
+<div class="relative w-full aspect-square max-w-sm overflow-hidden rounded-xl bg-slate-800/50 flex items-center justify-center border border-slate-800">
+<!-- Abstract Illustration Placeholder: Local Marketplace with Pins -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-50"></div>
+<div class="relative z-10 flex flex-col items-center gap-6">
+<div class="grid grid-cols-2 gap-4">
+<div class="w-24 h-24 rounded-lg bg-slate-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">storefront</span>
+</div>
+<div class="w-24 h-24 rounded-lg bg-slate-700 flex items-center justify-center translate-y-8">
+<span class="material-symbols-outlined text-primary text-4xl">shopping_basket</span>
+</div>
+</div>
+<!-- Digital Pin -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<span class="material-symbols-outlined text-white text-5xl drop-shadow-[0_0_10px_rgba(8,170,119,0.8)]" style="font-variation-settings: 'FILL' 1">location_on</span>
+</div>
+</div>
+<!-- Description for screen readers/alt text requirement -->
+<div class="sr-only" data-alt="Stylized illustration of Asaba market stalls with digital location pins"></div>
+</div>
+</div>
+<!-- Text Content Section -->
+<div class="px-6 pt-8 pb-4 text-center">
+<h1 class="text-white tracking-tight text-[32px] font-extrabold leading-tight pb-3">
+                Find Everything in Asaba
+            </h1>
+<p class="text-slate-400 text-lg font-normal leading-relaxed px-2">
+                From Ogbogonogo Main Market to your doorstep. Trusted vendors at your fingertips.
+            </p>
+</div>
+<!-- Navigation & Indicators Section -->
+<div class="mt-auto px-6 pb-4">
+<!-- Page Indicators -->
+<div class="flex w-full flex-row items-center justify-center gap-2 py-8">
+<div class="h-1.5 w-8 rounded-full bg-primary"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-slate-700"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-slate-700"></div>
+</div>
+<!-- Primary Action Button -->
+<button class="w-full bg-primary hover:bg-primary/90 text-white text-lg font-bold py-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+                Next
+                <span class="material-symbols-outlined font-bold">arrow_forward</span>
+</button>
+</div>
+<!-- iOS Home Indicator Spacer -->
+<div class="ios-home-indicator w-full"></div>
+</div>
+</body></html>

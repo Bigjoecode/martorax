@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Provider Dispute Response</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059669", /* Emerald 600 equivalent */
+                        "primary-accent": "#09f6ab",
+                        "background-light": "#f8fafc", /* Slate 50 */
+                        "background-dark": "#0f172a", /* Slate 900 */
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<button class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-6">Dispute Received</h2>
+</div>
+</header>
+<main class="flex-1 w-full max-w-md mx-auto pb-32">
+<!-- Timeline Section -->
+<section class="px-4 py-6">
+<div class="grid grid-cols-[40px_1fr] gap-x-2">
+<div class="flex flex-col items-center gap-1 pt-1">
+<div class="text-primary-accent">
+<span class="material-symbols-outlined text-[24px]">check_circle</span>
+</div>
+<div class="w-[2px] bg-primary/30 h-8"></div>
+</div>
+<div class="flex flex-1 flex-col pb-6">
+<p class="text-slate-900 dark:text-white text-base font-semibold">Dispute Opened</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Oct 24, 10:00 AM</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-[2px] bg-primary/30 h-1"></div>
+<div class="text-primary-accent">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1">radio_button_checked</span>
+</div>
+<div class="w-[2px] bg-slate-700 h-8"></div>
+</div>
+<div class="flex flex-1 flex-col pb-6">
+<p class="text-slate-900 dark:text-white text-base font-semibold">Provider Response</p>
+<p class="text-primary-accent text-sm font-medium">Action Required</p>
+</div>
+<div class="flex flex-col items-center gap-1 pb-3">
+<div class="w-[2px] bg-slate-700 h-1"></div>
+<div class="text-slate-600 dark:text-slate-500">
+<span class="material-symbols-outlined text-[24px]">circle</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col">
+<p class="text-slate-500 dark:text-slate-400 text-base font-medium">Admin Review</p>
+<p class="text-slate-600 dark:text-slate-500 text-sm">Pending</p>
+</div>
+</div>
+</section>
+<!-- Shopper Complaint Section -->
+<section class="px-4">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight mb-3">Shopper's Complaint</h3>
+<div class="bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-xl p-4">
+<div class="flex flex-col gap-3">
+<div class="w-full h-32 bg-slate-200 dark:bg-slate-700 rounded-lg bg-cover bg-center" data-alt="Close up photo of unfinished electrical wiring in a wall" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAx_Y6XKxDRZ33OTC_saSS8U_uYDQcNMU0KncTXlhUJglXUGmtiL2COugy9u66f0JFy5McAnrmtbMUjzVkydYIt26bxgWJ2gEbzbMLAP6DmIfsQ-Qf9gg5ZOJF7XqXaXqsZ0-5gIF1LTeJsDpRIbbYGIfiZvZZ1DZP8zVVEVHkiZwLHwpNMJYFarvPuNxK5DM0I8kHHHAAZDNNfEM7uIGnScnyAtzHQ3ycjlv6w5IY1zZt12WPF4aJ5--KNMHNMstAiz3mSJcfYQGIR')"></div>
+<div>
+<p class="text-slate-900 dark:text-white font-bold text-md mb-1">Incomplete Service</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            The shopper claims the electrical work was not completed according to the initial scope. Several outlets in the living area are still not functional and the wiring seems exposed.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Your Response Form -->
+<section class="px-4 mt-8">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight mb-3">Your Response</h3>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 px-1">Detailed Explanation</label>
+<textarea class="w-full bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-800 rounded-xl text-slate-900 dark:text-white placeholder-slate-500 p-4 focus:ring-primary focus:border-primary min-h-[160px]" placeholder="Describe the work completed and address the shopper's concerns..."></textarea>
+</div>
+<!-- Evidence Upload Section -->
+<div class="flex flex-col gap-2 mt-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 px-1">Upload Evidence</label>
+<div class="grid grid-cols-3 gap-3">
+<div class="aspect-square rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center text-slate-400 hover:border-primary-accent hover:text-primary-accent transition-all cursor-pointer">
+<span class="material-symbols-outlined">add_a_photo</span>
+<span class="text-[10px] mt-1 font-bold">ADD PHOTO</span>
+</div>
+<div class="aspect-square rounded-xl bg-slate-200 dark:bg-slate-800 overflow-hidden relative group">
+<img class="w-full h-full object-cover" data-alt="Photo of completed professional electrical panel installation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnF1SHKZPDyvw7tX-VjFncmeUm-N-7ng738sh0U9pVf_rcuS_VS8lBx1Ia06_iCuSxs_fU6BJdF_f1GMaZ7JELksplfzLTFt_LrT94lOwTANwBke2VoXlBm7JBToLvWGjav9mV5vQre1EmLAtl6WHgqHOB5z2fT24DcyL2cIJTi2y8Uaa_yHlDmI9MplHfMx3iyTrsksigtqAz5W-OwLM8Crt8SYWTVMkohxWxHO7qT6T7zpOaxpYb84X7mt39ChMUwn1LSVI2EQMp"/>
+<button class="absolute top-1 right-1 bg-black/50 text-white rounded-full p-1 scale-75">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<div class="aspect-square rounded-xl bg-slate-200 dark:bg-slate-800 overflow-hidden relative group">
+<div class="w-full h-full bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-accent">play_circle</span>
+</div>
+<button class="absolute top-1 right-1 bg-black/50 text-white rounded-full p-1 scale-75">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+<div class="absolute bottom-1 left-1 text-[8px] bg-black/40 px-1 rounded text-white font-mono">0:15</div>
+</div>
+</div>
+<p class="text-[11px] text-slate-500 px-1 mt-1 italic">Include photos/videos showing job completion to help admin review.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Footer Navigation -->
+<footer class="fixed bottom-0 left-0 right-0 bg-background-light/90 dark:bg-background-dark/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 p-4 pb-8">
+<div class="max-w-md mx-auto flex flex-col gap-3">
+<button class="w-full bg-primary hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-900/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                Submit Response
+                <span class="material-symbols-outlined text-sm">send</span>
+</button>
+<p class="text-center text-[10px] text-slate-500 dark:text-slate-500 uppercase tracking-widest font-bold">
+                Response is final once submitted
+            </p>
+</div>
+</footer>
+</body></html>

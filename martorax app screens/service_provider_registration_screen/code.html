@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Provider Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#059467",
+                "background-light": "#f5f8f7",
+                "background-dark": "#0f231d",
+                "slate-900": "#0f172a",
+                "slate-800": "#1e293b"
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-slate-900 min-h-screen font-display flex flex-col">
+<!-- Top Navigation Bar -->
+<div class="sticky top-0 z-50 bg-slate-900/80 ios-blur flex items-center p-4 justify-between border-b border-white/10">
+<div class="text-white flex size-10 items-center justify-center rounded-full hover:bg-white/5 cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Registration</h2>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto pb-32">
+<!-- Headline Section -->
+<div class="pt-8 pb-2 px-6">
+<h1 class="text-white tracking-tight text-[32px] font-bold leading-tight mb-2">Join as a Professional</h1>
+<p class="text-slate-400 text-base font-normal leading-normal">Help Asaba find your expertise.</p>
+</div>
+<!-- Registration Form -->
+<form class="space-y-2 mt-4">
+<!-- Full Name Field -->
+<div class="px-6 py-2">
+<label class="flex flex-col gap-2">
+<p class="text-slate-300 text-sm font-medium leading-normal ml-1">Full Name</p>
+<input class="form-input flex w-full rounded-xl text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-700 bg-slate-800/50 focus:border-primary h-14 placeholder:text-slate-500 px-4 text-base font-normal transition-all" placeholder="e.g. John Doe" type="text"/>
+</label>
+</div>
+<!-- Service Category Field -->
+<div class="px-6 py-2">
+<label class="flex flex-col gap-2">
+<p class="text-slate-300 text-sm font-medium leading-normal ml-1">Service Category</p>
+<div class="relative">
+<select class="form-select appearance-none flex w-full rounded-xl text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-700 bg-slate-800/50 focus:border-primary h-14 placeholder:text-slate-500 px-4 text-base font-normal transition-all pr-10">
+<option disabled="" selected="" value="">Select category</option>
+<option value="plumbing">Plumbing</option>
+<option value="makeup">Makeup Artistry</option>
+<option value="electrical">Electrical Services</option>
+<option value="cleaning">Professional Cleaning</option>
+<option value="delivery">Dispatch/Delivery</option>
+<option value="styling">Hair Styling</option>
+</select>
+<div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Experience & Phone Section (Side-by-side on larger screens, stacked on iOS) -->
+<div class="flex flex-col md:flex-row gap-2 px-6 py-2">
+<label class="flex flex-col gap-2 flex-1">
+<p class="text-slate-300 text-sm font-medium leading-normal ml-1">Years of Experience</p>
+<input class="form-input flex w-full rounded-xl text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-700 bg-slate-800/50 focus:border-primary h-14 placeholder:text-slate-500 px-4 text-base font-normal transition-all" min="0" placeholder="Years" type="number"/>
+</label>
+</div>
+<!-- Phone Number Field -->
+<div class="px-6 py-2">
+<label class="flex flex-col gap-2">
+<p class="text-slate-300 text-sm font-medium leading-normal ml-1">Phone Number</p>
+<div class="flex gap-2">
+<div class="flex items-center justify-center bg-slate-800 border border-slate-700 rounded-xl px-3 h-14 text-white font-medium">
+                            +234
+                        </div>
+<input class="form-input flex w-full rounded-xl text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-700 bg-slate-800/50 focus:border-primary h-14 placeholder:text-slate-500 px-4 text-base font-normal transition-all" placeholder="801 234 5678" type="tel"/>
+</div>
+</label>
+</div>
+<!-- Visual Hint/Abstract Pattern -->
+<div class="px-6 py-6 opacity-40">
+<div class="w-full h-32 rounded-2xl bg-gradient-to-br from-primary/20 via-transparent to-primary/10 border border-white/5 flex items-center justify-center overflow-hidden">
+<div class="relative w-full h-full">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 rounded-full blur-[60px]"></div>
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-[40px]"></div>
+</div>
+</div>
+</div>
+</form>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-slate-900 via-slate-900 to-transparent">
+<button class="w-full bg-primary hover:bg-emerald-600 active:scale-[0.98] transition-all text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span>Continue</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Home Indicator Area (iOS Spacing) -->
+<div class="h-4"></div>
+</div>
+</body></html>

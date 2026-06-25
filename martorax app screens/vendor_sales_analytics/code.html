@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vendor Sales Analytics - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#10221c",
+                        "slate-custom": "#0f172a",
+                        "slate-card": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Spline Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white pb-24">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-white/5 px-4 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer">arrow_back_ios</span>
+<div>
+<h1 class="text-lg font-bold leading-tight">Sales Analytics</h1>
+<p class="text-xs text-primary/80 font-medium">Asaba • MartoraX Vendor</p>
+</div>
+</div>
+<button class="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full border border-primary/20">
+<span class="material-symbols-outlined text-sm">calendar_month</span>
+<span class="text-xs font-bold uppercase tracking-wider">7 Days</span>
+</button>
+</header>
+<main class="max-w-md mx-auto">
+<!-- Revenue Overview Chart Card -->
+<section class="px-4 py-6">
+<div class="bg-slate-card/40 border border-white/5 rounded-xl p-6 shadow-xl">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col gap-1">
+<p class="text-white/60 text-sm font-medium">Revenue Overview</p>
+<p class="text-white tracking-tight text-3xl font-bold">₦1,250,000</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-sm">trending_up</span>
+<p class="text-primary text-sm font-medium">+12.4% <span class="text-white/40 ml-1 font-normal">vs last week</span></p>
+</div>
+</div>
+</div>
+<!-- Performance Chart -->
+<div class="relative h-44 w-full mt-6">
+<svg fill="none" height="100%" preserveaspectratio="none" viewbox="0 0 480 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#09f6ab" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#09f6ab" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 120 C40 110, 80 140, 120 80 C160 20, 200 60, 240 50 C280 40, 320 100, 360 30 C400 -10, 440 20, 480 10 L480 150 L0 150 Z" fill="url(#chartGradient)"></path>
+<path d="M0 120 C40 110, 80 140, 120 80 C160 20, 200 60, 240 50 C280 40, 320 100, 360 30 C400 -10, 440 20, 480 10" stroke="#09f6ab" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="flex justify-between mt-4 px-1">
+<span class="text-white/40 text-[10px] font-bold">MON</span>
+<span class="text-white/40 text-[10px] font-bold">TUE</span>
+<span class="text-white/40 text-[10px] font-bold">WED</span>
+<span class="text-white/40 text-[10px] font-bold">THU</span>
+<span class="text-white/40 text-[10px] font-bold">FRI</span>
+<span class="text-white/40 text-[10px] font-bold">SAT</span>
+<span class="text-white/40 text-[10px] font-bold">SUN</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Grid -->
+<section class="grid grid-cols-2 gap-4 px-4 pb-6">
+<div class="bg-slate-card/40 border border-white/5 rounded-xl p-4 flex flex-col gap-1">
+<span class="material-symbols-outlined text-primary mb-1">shopping_bag</span>
+<p class="text-white/60 text-xs font-medium uppercase tracking-wider">Orders</p>
+<div class="flex items-end justify-between">
+<p class="text-white text-xl font-bold">342</p>
+<p class="text-primary text-xs font-medium">+5%</p>
+</div>
+</div>
+<div class="bg-slate-card/40 border border-white/5 rounded-xl p-4 flex flex-col gap-1">
+<span class="material-symbols-outlined text-primary mb-1">groups</span>
+<p class="text-white/60 text-xs font-medium uppercase tracking-wider">Repeat Rate</p>
+<div class="flex items-end justify-between">
+<p class="text-white text-xl font-bold">24%</p>
+<p class="text-primary text-xs font-medium">+2%</p>
+</div>
+</div>
+</section>
+<!-- Sales by Market Clusters -->
+<section class="px-4 pb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-white text-lg font-bold leading-tight">Sales by Market</h3>
+<span class="text-primary text-xs font-bold uppercase cursor-pointer">View Map</span>
+</div>
+<div class="bg-slate-card/40 border border-white/5 rounded-xl overflow-hidden">
+<div class="p-4 space-y-4">
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-white/80">Ogbeogonogo Market</span>
+<span class="text-white font-bold">₦620k</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 75%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-white/80">Canning Market</span>
+<span class="text-white font-bold">₦410k</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary/60 rounded-full" style="width: 50%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-white/80">Cable Point</span>
+<span class="text-white font-bold">₦220k</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary/30 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Top Selling Products -->
+<section class="px-4 pb-12">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-white text-lg font-bold leading-tight">Top Selling Products</h3>
+<span class="text-white/40 text-xs font-medium uppercase tracking-wider">Units Sold</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Product Item 1 -->
+<div class="flex items-center gap-4 bg-slate-card/20 border border-white/5 p-3 rounded-xl justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14 shadow-md" data-alt="Bottle of pure groundnut oil" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAO8uasD_fIwK7NnTE1-Eberq3Dhl4VOfHGQHZiEOw8ATsauFFFt65JqCbU46tiCC7CATnDGp-rWh51VnMDlxNC2-8wD86glMMMdCcaOMJiStGt6QwrnuQ6dtrpRh4ts-e8dV8DxZv9e4st3eNefSUvHpcd3VczCJDRWaluXuAB-CMY-1wbLAp_QCQfAcLqX2IgyAv2Xwpgm4s9e8eQC6HkoUmErMTsfuxYhB8gnVozyont6X5MIcab_whrxol9nqq2GkX3z2R82J4D");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-white text-base font-semibold leading-normal line-clamp-1">Pure Groundnut Oil (5L)</p>
+<p class="text-primary text-sm font-medium leading-normal">92 units sold</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-white text-base font-bold leading-normal">₦450,000</p>
+<p class="text-white/40 text-[10px] font-bold uppercase tracking-widest">Revenue</p>
+</div>
+</div>
+<!-- Product Item 2 -->
+<div class="flex items-center gap-4 bg-slate-card/20 border border-white/5 p-3 rounded-xl justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14 shadow-md" data-alt="Bag of local parboiled rice" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCLNvsE-HApuVTPzaBrBPzfogdnuQZfBJKqMTqjaDmm3lVmIrRtkXAAX0QTJK_HGPJNwGt5s0QYTobu1r2MWdZv74A8dBMjmicbt2VQC2xMkpLz5K8qkfG5sOWL1_em_cmbYe_r61YpuUyVe1DuXRUYrdC86f9kFcssDN43cEziLc3-L-n9f5s9AUeB11lNsFm_4IdS3wXR5KpBBBRfqVQ73WCM-0CTLuhU2H1LlYq5LGcTAC7-HX130DxQp-J0gAlCYONdk72AGDkU");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-white text-base font-semibold leading-normal line-clamp-1">Parboiled Rice (25kg)</p>
+<p class="text-primary text-sm font-medium leading-normal">64 units sold</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-white text-base font-bold leading-normal">₦320,000</p>
+<p class="text-white/40 text-[10px] font-bold uppercase tracking-widest">Revenue</p>
+</div>
+</div>
+<!-- Product Item 3 -->
+<div class="flex items-center gap-4 bg-slate-card/20 border border-white/5 p-3 rounded-xl justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14 shadow-md" data-alt="Pack of refined table salt" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_vbqQ9QRioSV7NAvb8zPe6AmTrXaSAaEbO5hN2AgRyijJyqem-nDPTpJrW1fruGyig3irYT-0IPEqtdJTXdD4FUn8QqSr64L9brSqBWFdS4YTYCp-shOgvgI-98_733ujCGe83l8iw3jpuZT32hLhepdWwjHsnyuxb8PoocISjOIxRRDKxUGBfCMmplccVKPNk6wviSaeVUEQUyKgmZAkKIyFPbqVMYw6R_BPaaMfmpMZsj-SvWgdfdL6e6kpbly2sVxxbz-gY9PQ");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-white text-base font-semibold leading-normal line-clamp-1">Refined Table Salt</p>
+<p class="text-primary text-sm font-medium leading-normal">140 units sold</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-white text-base font-bold leading-normal">₦185,000</p>
+<p class="text-white/40 text-[10px] font-bold uppercase tracking-widest">Revenue</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- iOS Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-background-dark/95 backdrop-blur-xl border-t border-white/10 px-6 pt-3 pb-8 flex justify-between items-center z-[100]">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-[1]">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Inventory</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Orders</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Profile</span>
+</div>
+</nav>
+</body></html>

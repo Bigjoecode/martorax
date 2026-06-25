@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Using Slate 900 as background-dark
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: "Spline Sans", sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-10 bg-background-light dark:bg-background-dark border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4">
+<div class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="ml-2 text-lg font-bold leading-tight tracking-[-0.015em] flex-1">Delivery Details</h2>
+<div class="w-10"></div> <!-- Spacer for symmetry -->
+</div>
+</header>
+<main class="flex-1 pb-32">
+<!-- Delivery Mode Selector -->
+<div class="px-4 py-6">
+<div class="flex h-12 w-full items-center justify-center rounded-xl bg-slate-200 dark:bg-slate-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-900 has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-slate-400 text-sm font-semibold transition-all">
+<span class="truncate">Home Delivery</span>
+<input checked="" class="invisible w-0" name="delivery-method" type="radio" value="Home Delivery"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-900 has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-slate-400 text-sm font-semibold transition-all">
+<span class="truncate">Self-Pickup</span>
+<input class="invisible w-0" name="delivery-method" type="radio" value="Self-Pickup"/>
+</label>
+</div>
+</div>
+<!-- Section: Address -->
+<section>
+<div class="flex items-center px-4 pb-2 pt-2">
+<span class="material-symbols-outlined text-primary mr-2" style="font-size: 20px;">location_on</span>
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Delivery Address</h3>
+</div>
+<!-- Landmark Address Field -->
+<div class="flex flex-wrap items-end gap-4 px-4 py-3">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-slate-400 text-sm font-medium leading-normal pb-2">Landmark Address</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-slate-700 bg-slate-800/50 focus:border-primary h-14 placeholder:text-slate-500 p-4 text-base font-normal leading-normal" placeholder="e.g. Opp. Nnebisi Junction, Asaba" value=""/>
+</label>
+</div>
+<!-- Map Snippet -->
+<div class="px-4 py-3">
+<div class="relative group">
+<div class="w-full bg-slate-800 bg-center bg-no-repeat aspect-video bg-cover rounded-xl border border-slate-700 overflow-hidden" data-alt="Map showing a delivery location pin in Asaba city center" data-location="Asaba, Nigeria" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQy-HLouxFF2RmEbzCW5VuymhrlmN1l-V7ukmxkOb8CF0QzeIhx-ojsjleF8p-zShgw-9rziBsE14iO-FU7ubBJrWJwyIU6ktBAcQlKZyVq-DJHweIHHahArmZteUvN--WP_Atx1DfGaK0tq550T9EHLH5B0Ytuv6r3cIW1vaffmA8-mryoq9yGd7jL7WEdPAysJJNNkUfuBCx9lUSue_VYpv6wHNX1rDRHkC5rFaJz6_HWFTmb3qe2Qrn5HSu0TC7YRRLhWvNN2OQ");'>
+<!-- Mock Pin Overlay -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="relative">
+<span class="material-symbols-outlined text-primary text-5xl drop-shadow-lg">location_on</span>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-1 bg-black/40 blur-sm rounded-full"></div>
+</div>
+</div>
+</div>
+<button class="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-lg border border-white/20 text-xs font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">fullscreen</span>
+                        Adjust Pin
+                    </button>
+</div>
+</div>
+</section>
+<!-- Section: Instructions -->
+<section class="mt-4">
+<div class="flex items-center px-4 pb-2 pt-4">
+<span class="material-symbols-outlined text-primary mr-2" style="font-size: 20px;">notes</span>
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Delivery Instructions</h3>
+</div>
+<div class="px-4 py-3">
+<label class="flex flex-col w-full">
+<textarea class="form-textarea flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-slate-700 bg-slate-800/50 focus:border-primary h-32 placeholder:text-slate-500 p-4 text-base font-normal leading-normal" placeholder="e.g. Call when you reach the gate or leave with the security guard..."></textarea>
+</label>
+</div>
+</section>
+</main>
+<!-- Fixed Footer Button -->
+<footer class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 p-4 pb-8">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary hover:bg-emerald-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-900/20 transition-colors flex items-center justify-center gap-2">
+                Continue to Payment
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>

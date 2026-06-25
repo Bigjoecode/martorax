@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>History &amp; Statements - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                        "accent-emerald": "#059669", // Emerald 600
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
+<span class="material-symbols-outlined text-xl">arrow_back_ios_new</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">History &amp; Statements</h2>
+</div>
+</header>
+<main class="flex-1 max-w-md mx-auto w-full pb-32">
+<!-- Stats Summary Section -->
+<div class="flex flex-wrap gap-3 p-4">
+<div class="flex min-w-[140px] flex-1 flex-col gap-3 rounded-xl p-5 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">work</span>
+<p class="text-sm font-medium leading-normal">Total Jobs</p>
+</div>
+<p class="text-slate-900 dark:text-white tracking-tight text-2xl font-extrabold leading-tight">34</p>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-3 rounded-xl p-5 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">account_balance_wallet</span>
+<p class="text-sm font-medium leading-normal">Total Earned</p>
+</div>
+<p class="text-primary tracking-tight text-2xl font-extrabold leading-tight">₦1,240,000</p>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 px-4 py-2 overflow-x-auto no-scrollbar">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4">
+<p class="text-slate-700 dark:text-slate-200 text-sm font-semibold">Month: October</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4">
+<p class="text-slate-700 dark:text-slate-200 text-sm font-semibold">Year: 2023</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+</div>
+<!-- Section Header -->
+<div class="px-4 pt-6 pb-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Past Bookings</h3>
+</div>
+<!-- Booking List -->
+<div class="flex flex-col gap-1 px-2">
+<!-- List Item 1 -->
+<div class="flex items-center gap-4 bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-xl px-2 min-h-[80px] py-2 justify-between transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0 size-12">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal line-clamp-1">Standard Audit - Glo</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal line-clamp-1">Oct 12, 2023 • <span class="text-accent-emerald">Completed</span></p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">₦45,000</p>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex items-center gap-4 bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-xl px-2 min-h-[80px] py-2 justify-between transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0 size-12">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal line-clamp-1">Business Review - MTN</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal line-clamp-1">Oct 08, 2023 • <span class="text-accent-emerald">Completed</span></p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">₦120,000</p>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="flex items-center gap-4 bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-xl px-2 min-h-[80px] py-2 justify-between transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0 size-12">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal line-clamp-1">Financial Advisory</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal line-clamp-1">Oct 05, 2023 • <span class="text-accent-emerald">Completed</span></p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">₦85,000</p>
+</div>
+</div>
+<!-- List Item 4 -->
+<div class="flex items-center gap-4 bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-xl px-2 min-h-[80px] py-2 justify-between transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0 size-12">
+<span class="material-symbols-outlined">person_pin</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal line-clamp-1">Consultation - Heritage Bank</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal line-clamp-1">Sep 28, 2023 • <span class="text-accent-emerald">Completed</span></p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">₦50,000</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Footer Action -->
+<div class="fixed bottom-[80px] left-0 right-0 p-4 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent">
+<div class="max-w-md mx-auto">
+<button class="w-full flex h-14 items-center justify-center gap-3 rounded-xl bg-primary text-slate-900 font-extrabold text-base shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+                Export Statement
+            </button>
+</div>
+</div>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 pb-6 pt-2">
+<div class="flex justify-around items-center max-w-md mx-auto">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[26px]">grid_view</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[26px] fill-[1]">history</span>
+<span class="text-[10px] font-bold">Bookings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[26px]">rocket_launch</span>
+<span class="text-[10px] font-bold">Leads</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[26px]">account_circle</span>
+<span class="text-[10px] font-bold">Profile</span>
+</div>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Live Delivery Tracking Map</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#10221c",
+                        "accent-red": "#ff4d4d",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Spline Sans", sans-serif;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .map-gradient {
+            background: linear-gradient(180deg, rgba(16,34,28,0.8) 0%, rgba(16,34,28,0) 20%, rgba(16,34,28,0) 80%, rgba(16,34,28,1) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white antialiased">
+<!-- Main Container (iPhone Form Factor Simulation) -->
+<div class="relative flex h-screen w-full flex-col overflow-hidden mx-auto max-w-[430px] border-x border-slate-800/20">
+<!-- Top App Bar (Overlaid on Map) -->
+<div class="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-4 pt-12 bg-gradient-to-b from-background-dark/80 to-transparent">
+<button class="flex size-10 items-center justify-center rounded-full bg-background-dark/50 text-white backdrop-blur-md">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<div class="text-center">
+<h2 class="text-white text-sm font-bold uppercase tracking-widest">Tracking Order</h2>
+<p class="text-primary text-xs font-medium">#MTX-88210-ASB</p>
+</div>
+<button class="flex size-10 items-center justify-center rounded-full bg-background-dark/50 text-white backdrop-blur-md">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<!-- Live Map Section (Top Half) -->
+<div class="relative h-[45%] w-full shrink-0">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Dark stylized map of Asaba city streets" data-location="Asaba, Nigeria" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB94FcLEoBm7usuk6PCK_I5oq6aV7lmsDXXrBBSMalry8H0iqUZemivVme_QKPxk3DKBYlAdozy7S_RF5cHAQjovVtpH4OjOmwxVoRpwarZLZWLzs_RuRYVWFC5nFrnMVVAFqn-dx7BJr1kO-zORlyVtkOq7au8gy-F6H3iFNnIij7Jvdb8Egjqe0gMbDtXJ2EbgUxh0TBEpdhQ5Owh0XF7Ecpg_sbY7aKaEUlSt58v_VKER375Fw9ybLy3ddqssiRGvviRiK15lVRU');">
+<!-- Map Overlay for Darkening -->
+<div class="absolute inset-0 bg-background-dark/40"></div>
+<!-- Route Path (SVG/CSS Mockup) -->
+<svg class="absolute inset-0 h-full w-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M 20 80 Q 40 70 50 50 T 80 20" fill="none" stroke="#09f6ab" stroke-dasharray="4 2" stroke-width="2"></path>
+</svg>
+<!-- Rider Marker -->
+<div class="absolute top-[48%] left-[48%] flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-primary text-background-dark shadow-lg shadow-primary/40 ring-4 ring-primary/20">
+<span class="material-symbols-outlined text-[20px]">electric_rickshaw</span>
+</div>
+<div class="mt-1 rounded bg-background-dark px-1.5 py-0.5 text-[10px] font-bold text-white shadow-md">Efe is here</div>
+</div>
+<!-- Destination Marker -->
+<div class="absolute top-[18%] left-[78%]">
+<div class="flex size-8 items-center justify-center rounded-full bg-white text-background-dark shadow-lg">
+<span class="material-symbols-outlined text-[18px]">home</span>
+</div>
+</div>
+</div>
+<div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background-dark to-transparent"></div>
+</div>
+<!-- Bottom Content Card (Draggable feel) -->
+<div class="relative z-10 -mt-6 flex flex-1 flex-col rounded-t-[2.5rem] bg-background-light dark:bg-background-dark shadow-2xl overflow-y-auto">
+<!-- Handle -->
+<div class="flex w-full justify-center py-4">
+<div class="h-1.5 w-12 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+</div>
+<div class="flex flex-col gap-6 px-6 pb-24">
+<!-- Rider Card -->
+<div class="flex items-center justify-between gap-4 rounded-2xl bg-white dark:bg-[#1b2723] p-4 shadow-sm border border-slate-100 dark:border-white/5">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="size-14 rounded-full bg-center bg-cover border-2 border-primary" data-alt="Profile photo of delivery rider Efe" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhKJBPN4OqMZbhLxFCMX93o6eOjhNKnE0LMKE4gRf-ELXdk0P3AK9jtUD-zB9otfyrq3VzyvmxCIDkx78uyxoVyrWuF8857CmeTrV8Skw2FI7mWsjprypE977Yay3iBYIKdG_ZN8k0TFcZYEvBo44erP76mis470wK3B5qe1xsNhqIx1MwyqkB6Pcdh-AKgbQiWSBO4dmDpl2XpOjDGReaOpZxE2djPLATRWY8k-X67O6z0dDBq_xYbY77OEHJ5eR4gox3_qNFABp5');"></div>
+<div class="absolute -bottom-1 -right-1 flex size-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-background-dark">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+</div>
+</div>
+<div>
+<p class="text-lg font-bold leading-tight dark:text-white">Efe</p>
+<p class="text-sm font-medium text-slate-500 dark:text-[#9bbbb1]">Keke Napep • <span class="text-primary">4.8 ★</span></p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex size-11 items-center justify-center rounded-full bg-background-dark dark:bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined">chat</span>
+</button>
+<button class="flex size-11 items-center justify-center rounded-full bg-primary text-background-dark shadow-md shadow-primary/20">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+</div>
+<!-- Timeline / Status Stepper -->
+<div class="flex flex-col gap-4">
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Delivery Status</h3>
+<div class="grid grid-cols-[40px_1fr] gap-x-2">
+<!-- Step 1 -->
+<div class="flex flex-col items-center">
+<div class="flex size-8 items-center justify-center rounded-full bg-primary text-background-dark">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="w-[2px] h-8 bg-primary"></div>
+</div>
+<div class="pt-1">
+<p class="text-sm font-bold dark:text-white">Order Confirmed</p>
+<p class="text-xs text-slate-500 dark:text-[#9bbbb1]">10:30 AM</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center">
+<div class="flex size-8 items-center justify-center rounded-full bg-primary text-background-dark">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="w-[2px] h-8 bg-primary"></div>
+</div>
+<div class="pt-1">
+<p class="text-sm font-bold dark:text-white">At Market</p>
+<p class="text-xs text-slate-500 dark:text-[#9bbbb1]">10:45 AM</p>
+</div>
+<!-- Step 3 (Active) -->
+<div class="flex flex-col items-center">
+<div class="flex size-8 items-center justify-center rounded-full bg-primary/20 text-primary border-2 border-primary">
+<span class="material-symbols-outlined text-sm font-bold animate-pulse">local_shipping</span>
+</div>
+<div class="w-[2px] h-8 bg-slate-200 dark:bg-slate-700"></div>
+</div>
+<div class="pt-1">
+<p class="text-sm font-bold text-primary">On the way</p>
+<p class="text-xs text-slate-500 dark:text-[#9bbbb1]">Active Now</p>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center">
+<div class="flex size-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-600">
+<span class="material-symbols-outlined text-sm">flag</span>
+</div>
+</div>
+<div class="pt-1">
+<p class="text-sm font-bold text-slate-400 dark:text-slate-600">Arriving</p>
+<p class="text-xs text-slate-400 dark:text-slate-600">Estimated 5 mins</p>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex gap-3 mt-4">
+<button class="flex-1 flex items-center justify-center gap-2 rounded-xl bg-accent-red py-4 font-bold text-white shadow-lg shadow-accent-red/20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">emergency</span>
+                        SOS EMERGENCY
+                    </button>
+<button class="flex items-center justify-center gap-2 rounded-xl bg-slate-100 dark:bg-white/10 px-6 py-4 font-bold dark:text-white border border-slate-200 dark:border-white/5 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">share</span>
+                        Share
+                    </button>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<div class="absolute bottom-0 left-0 right-0 z-30 bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-t border-slate-200 dark:border-white/5 pb-8 pt-3 px-6">
+<div class="flex items-center justify-between">
+<div class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="text-[10px] font-bold">Bookings</span>
+<div class="h-1 w-1 rounded-full bg-primary"></div>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</div>
+<!-- Safe Area Home Indicator Mockup -->
+<div class="absolute bottom-1 left-1/2 z-40 -translate-x-1/2 h-1.5 w-32 rounded-full bg-slate-300 dark:bg-slate-700/50"></div>
+</div>
+</body></html>

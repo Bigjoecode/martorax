@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX Vendor - Order Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 feel matching request
+                        "surface-dark": "#1e293b", // Slate 800 for cards
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-30 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between">
+<div class="flex items-center gap-3">
+<button class="text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</button>
+<div class="flex flex-col">
+<h2 class="text-lg font-bold leading-tight tracking-tight">Order #MTX-99201</h2>
+<div class="flex items-center gap-1 text-primary text-xs font-medium">
+<span class="material-symbols-outlined text-xs">location_on</span>
+<span>Asaba • Behind XYZ Filling Station</span>
+</div>
+</div>
+</div>
+<button class="flex items-center justify-center rounded-full bg-slate-200 dark:bg-slate-800 p-2">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">info</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto pb-40 px-4 space-y-6">
+<!-- SafePay Escrow Banner -->
+<section class="mt-4">
+<div class="bg-primary/10 border border-primary/20 rounded-xl p-4 flex items-center gap-4">
+<div class="bg-primary rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-white">verified_user</span>
+</div>
+<div>
+<h4 class="text-primary font-bold text-sm">SafePay Escrow Active</h4>
+<p class="text-xs text-slate-600 dark:text-slate-400">₦33,000 held securely. Release on delivery.</p>
+</div>
+<div class="ml-auto">
+<span class="text-[10px] font-bold px-2 py-1 bg-primary/20 text-primary rounded-full uppercase">Secured</span>
+</div>
+</div>
+</section>
+<!-- Customer Info Section -->
+<section>
+<h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">Customer Communication</h3>
+<div class="bg-white dark:bg-surface-dark rounded-xl p-4 shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-4 mb-4">
+<div class="size-12 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
+<img alt="Customer profile picture" class="w-full h-full object-cover" data-alt="Customer profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbTM3yTQWGEeqFUR9pj7l5hR9FQaDHW1bod-WoeV2JnHFP7fN89tmALFY-Xr0PMafXlM3gTMkoDydDzbDhcu0Ic5e_Wd7Dx5vq_H4FKok4mm4GT6a2YzseZLN-zhS8Cc5ChA5fENgCJDeTPWngb5rV0GHrIU2fM0uJNGMiiP-E7JhNnbK9DsGg9Onby4oBbXfig5YknHD2R6vtAIVUBhbUmiNrP4eEHIl-l-hoDdJ0hNdwahMmCfoJnLtIuYqdfUTck7lawvvqLgQ-"/>
+</div>
+<div>
+<p class="font-bold text-base">Chidi K.</p>
+<p class="text-xs text-slate-500">Last seen 5m ago</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-2.5 px-4 bg-slate-100 dark:bg-slate-700 rounded-lg font-bold text-sm">
+<span class="material-symbols-outlined text-lg">call</span>
+                        Call (Masked)
+                    </button>
+<button class="flex items-center justify-center gap-2 py-2.5 px-4 bg-slate-100 dark:bg-slate-700 rounded-lg font-bold text-sm">
+<span class="material-symbols-outlined text-lg">chat</span>
+                        Chat
+                    </button>
+</div>
+</div>
+</section>
+<!-- Order Items Section -->
+<section>
+<div class="flex items-center justify-between mb-3">
+<h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">Order Items (2)</h3>
+<span class="text-xs font-medium text-slate-400">Weight: ~6.5kg</span>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-xl divide-y divide-slate-100 dark:divide-slate-800 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<!-- Item 1 -->
+<div class="flex gap-4 p-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[72px]" data-alt="Bags of premium white garri" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAkU5cUby2U00fwtErKCBOkW7Zr97510-IhDQEH1OEr0CG6CgJ42rC8QgBZ_-8t_cgii5Tkxh_o8XYqeFvBwQRZBAuq67P6PrKF2eCKxpWuG1MJIFHvtvju1qStNcywZi-hF6DcAsJMR8p8DQEppJaNWdPpKy7mO1F0F3AnFziIK6Lb5v1fItQI4E_-t1UqGQZ8t-_7-RWxhS0YwryaayN_EChh1TKSNWYfU6aN3e573-iPQ9gZGMWA0oSHTHzoRoEFM3DaVvB9DRj4");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Premium White Garri - 5kg</p>
+<p class="text-slate-500 text-sm mt-1">₦12,500 × 2</p>
+</div>
+<div class="flex items-center">
+<p class="text-slate-900 dark:text-white font-bold">₦25,000</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4 p-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[72px]" data-alt="Fresh basket of purple onions" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxdppiQ-JmYFo64PfXEiyGwQipl8-lGYIOWAvMzn3nkB-8xTc7w6_pR3LCVCgjqsUDoJKVKa5b8-mOMGT4zjlDR9d4tCCLwFE_LP1VcQzsBVeUwTdvszsN7srgjpGTET7KCsZa0k3GTFHBtcZqWvoXbLXSUdAwVsFCc67Ba3qL2X-JhKWP3ovVqihYVEm38oDfhsjc8Oyw43TVWpQgYTe5dqsMqKJRC3G_YpZTHVteywEpDc1ZsuPbIzFX3JH07aIECv_wbBSQAr0-");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Fresh Onions - Large Basket</p>
+<p class="text-slate-500 text-sm mt-1">₦8,000 × 1</p>
+</div>
+<div class="flex items-center">
+<p class="text-slate-900 dark:text-white font-bold">₦8,000</p>
+</div>
+</div>
+</div>
+<!-- Summary Total -->
+<div class="mt-4 flex justify-between items-center px-2">
+<span class="text-slate-500 font-medium">Order Total</span>
+<span class="text-xl font-extrabold text-slate-900 dark:text-white">₦33,000</span>
+</div>
+</section>
+<!-- Logistics Section -->
+<section>
+<h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">Logistics</h3>
+<div class="bg-white dark:bg-surface-dark rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-start gap-4 mb-4">
+<div class="bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 p-2 rounded-lg">
+<span class="material-symbols-outlined">moped</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">No rider assigned yet</p>
+<p class="text-xs text-slate-500 leading-relaxed">Request a local rider for delivery to the Landmark: Behind XYZ Filling Station.</p>
+</div>
+</div>
+<button class="w-full bg-[#059669] hover:bg-[#047857] text-white py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined">send</span>
+                    Request Rider
+                </button>
+</div>
+</section>
+</main>
+<!-- Fixed Footer & Navigation -->
+<div class="fixed bottom-0 left-0 right-0 z-40">
+<!-- Main Action Button -->
+<div class="bg-white dark:bg-background-dark p-4 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full bg-primary hover:bg-primary/90 text-white py-4 rounded-xl font-extrabold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">check_circle</span>
+                Mark as Ready for Pickup
+            </button>
+</div>
+<!-- iOS Bottom Tab Bar -->
+<nav class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 flex justify-around items-center pt-2 pb-6">
+<div class="flex flex-col items-center gap-1 opacity-50">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-50">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-bold">Inventory</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="text-[10px] font-bold">Orders</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-50">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</div>
+</nav>
+</div>
+</body></html>

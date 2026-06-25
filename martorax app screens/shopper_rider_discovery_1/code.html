@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Find a Rider</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f231d",
+                        "slate-900": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Spline Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-bottom-nav {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display">
+<!-- Main Container -->
+<div class="relative flex h-screen w-full flex-col overflow-hidden max-w-[430px] mx-auto bg-slate-900 shadow-2xl">
+<!-- Top App Bar (Overlaid on Map) -->
+<div class="absolute top-0 left-0 right-0 z-20 flex items-center bg-gradient-to-b from-slate-900/80 to-transparent p-4 pb-10">
+<button class="flex size-10 items-center justify-center rounded-full bg-slate-900/40 backdrop-blur-md text-white">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">Find a Rider</h2>
+</div>
+<!-- Search Bar Overlay -->
+<div class="absolute top-20 left-0 right-0 z-20 px-4">
+<div class="flex items-center gap-3 bg-slate-900/90 backdrop-blur-lg border border-white/10 p-3 rounded-xl shadow-xl">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<div class="flex flex-col">
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Pickup Location</span>
+<span class="text-sm text-white font-medium">Nnebisi Road, Asaba</span>
+</div>
+</div>
+</div>
+<!-- Map Section (Main Viewport) -->
+<div class="relative flex-1 w-full bg-[#1e293b]">
+<!-- Map Background Placeholder -->
+<div class="w-full h-full bg-center bg-no-repeat bg-cover opacity-60" data-alt="Dark themed city map showing streets of Asaba" data-location="Asaba, Nigeria" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDzPoHul7DCDI-eT-9kyy825x_FdXMHK9hi2k8G702AGmcR3xJiS4lBOOywLKiUVbdXIf44L8fdHbaplItdWh0mLa_zX78lMn02jQU0YbC3ie9MJEtBFXV5ZN1DiwOnBX9COHbJXuVzRAETdf3yzjlPQdxYMAOx_QTtiArY98AIzkjdQmJ6a8hMshfJTTHgoMQFQ0jVkBWxqlCJufZG2kZmlAfAROs4u-wEr--lTMlZ-gVW_XszcyPBZB6bo70_wCCXCe1JwipwwExY");'>
+</div>
+<!-- Map Markers -->
+<!-- User Location -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="relative flex h-8 w-8">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-40"></span>
+<span class="relative inline-flex rounded-full h-8 w-8 bg-primary border-4 border-white shadow-lg items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">person</span>
+</span>
+</div>
+</div>
+<!-- Rider Markers -->
+<div class="absolute top-1/3 left-1/4 animate-pulse">
+<div class="bg-white px-2 py-1 rounded-full shadow-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-slate-900 text-[14px]">electric_rickshaw</span>
+<span class="text-slate-900 text-[10px] font-bold">4 min</span>
+</div>
+</div>
+<div class="absolute bottom-1/3 right-1/4">
+<div class="bg-white px-2 py-1 rounded-full shadow-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-slate-900 text-[14px]">motorcycle</span>
+<span class="text-slate-900 text-[10px] font-bold">2 min</span>
+</div>
+</div>
+</div>
+<!-- Draggable-style Content Sheet -->
+<div class="relative z-30 flex flex-col bg-slate-900 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-t border-white/5">
+<!-- Handle -->
+<div class="flex justify-center p-3">
+<div class="w-12 h-1.5 bg-white/20 rounded-full"></div>
+</div>
+<!-- Chips / Filters -->
+<div class="flex gap-3 px-4 py-2 overflow-x-auto custom-scrollbar">
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-primary px-5 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<p class="text-white text-sm font-semibold">All Riders</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-white/10 px-5 border border-white/5">
+<span class="material-symbols-outlined text-[18px]">electric_rickshaw</span>
+<p class="text-white text-sm font-medium">Keke</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-white/10 px-5 border border-white/5">
+<span class="material-symbols-outlined text-[18px]">motorcycle</span>
+<p class="text-white text-sm font-medium">Bike</p>
+</div>
+</div>
+<!-- Section Header -->
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h3 class="text-white text-lg font-bold tracking-tight">Closest Riders</h3>
+<span class="text-primary text-sm font-medium">See Map</span>
+</div>
+<!-- List of Riders -->
+<div class="flex flex-col overflow-y-auto max-h-[320px] pb-32 custom-scrollbar">
+<!-- Rider 1 -->
+<div class="flex items-center gap-4 bg-transparent px-4 min-h-[80px] py-3 hover:bg-white/5 transition-colors">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-2xl h-14 w-14 ring-2 ring-primary/20" data-alt="Profile photo of a smiling male rider" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBH80oQirCQJYFhAV7dG3_8M0P7Ky0qy1cD7k7YezsyzAfDPud1z0tWhn_LpWzKD8rUiQmL4x3ZXs-QaWCcNLCf4vSwWvt2fbowFFgUtfMk7tMEsOYvwhI6YLchCl3gx0c1ZnBFwNZP_GA8Vsq86tMe4iGnnFpxFU1JkFu96rHQd6oXlZCsOdtgX34SDA48VPhKXpqqr4hG7AQp4qh5DnpvnK8AN-0ntyEcvRiic4uEf3bjmvT9QuwjUye56HUSpp75sCc6486bN-L7");'></div>
+<div class="absolute -bottom-1 -right-1 size-4 bg-primary rounded-full border-2 border-slate-900"></div>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<div class="flex items-center gap-2">
+<p class="text-white text-base font-semibold leading-none">Chidi Obi</p>
+<span class="text-[10px] bg-primary/20 text-primary px-1.5 py-0.5 rounded font-bold uppercase">Keke</span>
+</div>
+<p class="text-slate-400 text-sm font-normal mt-1 flex items-center gap-1">
+<span class="size-2 bg-primary rounded-full"></span> Available Now • 400m away
+                        </p>
+</div>
+<div class="text-right">
+<p class="text-white text-base font-bold flex items-center justify-end gap-1">4.8 <span class="material-symbols-outlined text-[16px] text-yellow-500 fill-1">star</span></p>
+<p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest">240 rides</p>
+</div>
+</div>
+<!-- Rider 2 -->
+<div class="flex items-center gap-4 bg-transparent px-4 min-h-[80px] py-3 hover:bg-white/5 transition-colors">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-2xl h-14 w-14 ring-2 ring-white/10" data-alt="Profile photo of a professional rider" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBVMRvYefn1qyJeL0fNvbuZ0083IXDTB2wJ1BC--DrNXiRyiopJ7U_tY13rY4HWjlf4SrghOwTtnJfL2MCmBGT7psJRGBXrrBlNi2hbB7-8F8aH7Nfohvu0DoFGSZptSJWfw39M2NijTaq15_kQ8NYB2IeoH4YUyFiw2kHQw7HDHkGRhVSQ8x3FUsqlcpu2TQVCAMWwV8v04dhCmVSZRnjijtrxXRqjcipBIhMEESiJFa_WbgMaw3fdTUCeQfxMCtvWOQ6-yyCeNJ1n");'></div>
+<div class="absolute -bottom-1 -right-1 size-4 bg-primary rounded-full border-2 border-slate-900"></div>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<div class="flex items-center gap-2">
+<p class="text-white text-base font-semibold leading-none">Emeka John</p>
+<span class="text-[10px] bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded font-bold uppercase">Bike</span>
+</div>
+<p class="text-slate-400 text-sm font-normal mt-1 flex items-center gap-1">
+<span class="size-2 bg-primary rounded-full"></span> Available Now • 1.2km away
+                        </p>
+</div>
+<div class="text-right">
+<p class="text-white text-base font-bold flex items-center justify-end gap-1">4.9 <span class="material-symbols-outlined text-[16px] text-yellow-500 fill-1">star</span></p>
+<p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest">512 rides</p>
+</div>
+</div>
+<!-- Rider 3 -->
+<div class="flex items-center gap-4 bg-transparent px-4 min-h-[80px] py-3 opacity-60">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-2xl h-14 w-14" data-alt="Rider profile image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB6OOtMvpGpHdlRfqio-xdVRily4FKXEtEqQs2oO1f0JIJuxRHb5Q91nT3Kx3kAXkaj14PyL39M_XNmZpjIVCycudo-7d169IvJNju20NA9spHzHfvmIMUQbfpjPBCXgBzO__inzFxGskPqBXdwJDDg5fNUIA4fybCeyJUqtXCpwTZZnpCagY7Ckqf0pe9OdrGiOFsy0UBSWsEsSe9W7v3EWgQm2yfzsVyq9xdwL1KCP5TpaYrpcTIepL-LlmBkqHXlz2ofKkkE6QWU");'></div>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<div class="flex items-center gap-2">
+<p class="text-white text-base font-semibold leading-none">Joy Silas</p>
+<span class="text-[10px] bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded font-bold uppercase">Keke</span>
+</div>
+<p class="text-slate-400 text-sm font-normal mt-1">Recently active • 2.5km away</p>
+</div>
+<div class="text-right">
+<p class="text-white text-base font-bold flex items-center justify-end gap-1">4.7 <span class="material-symbols-outlined text-[16px] text-yellow-500 fill-1">star</span></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Actions & Navigation -->
+<div class="absolute bottom-0 left-0 right-0 z-40">
+<!-- Floating Action Button Area -->
+<div class="px-4 pb-4">
+<button class="flex w-full h-14 items-center justify-center gap-3 rounded-2xl bg-primary text-white font-bold text-lg shadow-2xl shadow-primary/40 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">send</span>
+                    Request for Pickup
+                </button>
+</div>
+<!-- iOS Bottom Tab Bar -->
+<div class="ios-bottom-nav bg-slate-900/95 backdrop-blur-xl border-t border-white/10 px-6 py-3 flex justify-between items-center">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">explore</span>
+<span class="text-[10px] font-bold">Discover</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-medium">History</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 size-2 bg-red-500 rounded-full border border-slate-900"></span>
+<span class="text-[10px] font-medium">Alerts</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</div>
+</div>
+</body></html>

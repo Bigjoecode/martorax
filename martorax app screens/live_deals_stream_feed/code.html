@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Live Deals Stream Feed - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f231d",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar hiding */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Pulse for Live Pill */
+        @keyframes pulse-red {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .animate-live {
+            animation: pulse-red 2s infinite ease-in-out;
+        }
+        /* Scrolling Ticker Animation */
+        @keyframes scroll-text {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .ticker-animation {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll-text 15s linear infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-hidden">
+<!-- Main Container (Phone Form Factor) -->
+<div class="relative mx-auto h-screen max-w-[430px] bg-black shadow-2xl overflow-hidden flex flex-col">
+<!-- Top App Bar / Status -->
+<div class="absolute top-0 left-0 right-0 z-50 flex items-center justify-between p-4 pt-12 bg-gradient-to-b from-black/60 to-transparent">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white cursor-pointer">arrow_back_ios</span>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight">Live Deals</h2>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white">search</span>
+<span class="material-symbols-outlined text-white">more_vert</span>
+</div>
+</div>
+<!-- Live Stream Content Area (Full Screen Media Player Style) -->
+<div class="relative flex-1 bg-neutral-900 group/design-root overflow-hidden">
+<!-- Background Image mimicking a live video -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Live video stream of a vendor showcasing colorful electronics in a bright store" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBrLmSaHu_IH9xRUFpGbcE-MlAyS5JwCzZ2t7KDWSnDmWuQ02qkbiREP9BuJa9hXDphTohbChUa-C4cOdG3dvp8aWn6HKT-ihcL-7t4mmsna8hNCLeU_4E7BExVYH_Kgg-R4CXJY3ES0akrnNZgtvjoU1ps2qABvj1jC7AVRV5e5aZxbG16f-8024VmUWJLdAtKL34PZQZ2UzK_7JJdKSrg5PEL2X1lUjRmruqH6NyDcy3JeVA1DBeDcJrOD9raO_fzeKDVabg54b2j");'>
+<!-- Dark Overlay for readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+</div>
+<!-- Overlay Elements -->
+<div class="absolute inset-0 flex flex-col justify-between p-4 pb-24 pt-24">
+<!-- Top Row: Chips -->
+<div class="flex justify-between items-start">
+<div class="flex gap-2">
+<!-- Live Pill -->
+<div class="flex h-8 items-center gap-x-2 rounded-lg bg-red-600 px-3 shadow-lg">
+<div class="size-2 rounded-full bg-white animate-live"></div>
+<p class="text-white text-xs font-bold uppercase tracking-wider">LIVE</p>
+</div>
+<!-- Viewer Count -->
+<div class="flex h-8 items-center gap-x-2 rounded-lg bg-black/40 backdrop-blur-md px-3 border border-white/10">
+<span class="material-symbols-outlined text-white text-sm">visibility</span>
+<p class="text-white text-xs font-medium">1.2k</p>
+</div>
+</div>
+</div>
+<!-- Right Sidebar: Interactions -->
+<div class="absolute right-4 bottom-32 flex flex-col items-center gap-6">
+<div class="flex flex-col items-center gap-1 group cursor-pointer">
+<div class="size-12 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center border border-white/10 group-active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-white text-[28px] fill-icon text-red-500">favorite</span>
+</div>
+<span class="text-xs font-semibold">12.4k</span>
+</div>
+<div class="flex flex-col items-center gap-1 group cursor-pointer">
+<div class="size-12 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center border border-white/10 group-active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-white text-[28px]">chat_bubble</span>
+</div>
+<span class="text-xs font-semibold">856</span>
+</div>
+<div class="flex flex-col items-center gap-1 group cursor-pointer">
+<div class="size-12 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center border border-white/10 group-active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-white text-[28px]">share</span>
+</div>
+<span class="text-xs font-semibold">Share</span>
+</div>
+</div>
+<!-- Bottom Row: Vendor Profile and Product Overlay -->
+<div class="flex flex-col gap-4 max-w-[80%]">
+<!-- Vendor Profile -->
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-full border-2 border-primary bg-cover bg-center" data-alt="Vendor profile picture of a smiling local merchant" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrsIOal8m30qEKJzYgOrRe2wbhd6XACo68U7Zn-KiVjQiMwyfqJ-kjZQKZZf5G1Ops5B6Qdly9XaF0rmfLtgnt9iLXbg_6W0T9EAZG_qN8vXuNdYCHFQCLi5ngEdfVMJiKNHLkJPl3DbFLdrq9T-1ctOAatypB8XSJH6HFNhUyjAQnmBNya2FGb-RbnEt-w0j7DEZgD795T5Hj2yxJKnoXVc_lk6BsY57I2Wb3cVtpK3aDvIBmL2uUbEGMq9HUzYwrMCyxrL_vMjpy");'></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<p class="text-white text-base font-bold drop-shadow-md">Okafor's Electronics</p>
+<span class="material-symbols-outlined text-primary text-[16px] fill-icon">verified</span>
+</div>
+<p class="text-primary/90 text-sm font-medium drop-shadow-md">Trusted Vendor • Asaba</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white text-xs font-bold px-4 py-1.5 rounded-lg ml-2 shadow-lg transition-colors">Follow</button>
+</div>
+<!-- Stream Description -->
+<p class="text-white/90 text-sm leading-relaxed drop-shadow-md line-clamp-2">
+                        Flash Sale! Get the latest wireless earbuds at 30% off. Limited stock remaining for our Asaba customers. 🎧✨
+                    </p>
+<!-- Featured Product Quick Buy -->
+<div class="flex items-center gap-3 bg-white/10 backdrop-blur-xl p-3 rounded-xl border border-white/20 w-fit">
+<div class="size-14 bg-white rounded-lg overflow-hidden shrink-0">
+<img alt="Product thumbnail" class="w-full h-full object-cover" data-alt="High quality wireless headphones on a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc2vBBjVbOkZsbtZqku48CF5kRWx5HO7YS1U7Lp2yb1ifaqoq78sB9-kQsKDlnVvxol-B7zpYon1ZH3pJK2nuahl03MXoQYO83tkm6EpEYs30_UflqtR2Gudm7BC6_yafr_3f2NJBeYKsm2xtmW0Jscj6WwUrZ6SgJcKjpcTyLSxwEZi64Zg7ngmcrYDDTSW9RNQZihu2MkMdCEvIG84GVxp8TlyPSpgUodU_CNLyEYts5OnZSnIWF2VAV0_uD20T3jLsJ3yZ4FKuz"/>
+</div>
+<div class="flex flex-col pr-2">
+<p class="text-xs text-white/70 font-medium">Flash Deal</p>
+<p class="text-sm font-bold text-white">Wireless Beats Pro</p>
+<p class="text-primary text-sm font-black">₦24,500</p>
+</div>
+<button class="bg-primary text-white font-bold py-2 px-4 rounded-lg flex items-center gap-2 shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-sm">shopping_cart</span>
+                            Quick Buy
+                        </button>
+</div>
+</div>
+</div>
+<!-- Ticker at bottom -->
+<div class="absolute bottom-16 left-0 right-0 h-10 bg-black/60 backdrop-blur-md flex items-center overflow-hidden border-y border-white/5">
+<div class="ticker-animation px-4 flex gap-8 items-center">
+<p class="text-white/90 text-xs font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xs fill-icon">shopping_bag</span>
+                        Obinna just bought 5kg Rice!
+                    </p>
+<p class="text-white/90 text-xs font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xs fill-icon">shopping_bag</span>
+                        Chioma just ordered Suya!
+                    </p>
+<p class="text-white/90 text-xs font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xs fill-icon">shopping_bag</span>
+                        Emeka is viewing this item
+                    </p>
+<p class="text-white/90 text-xs font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xs fill-icon">shopping_bag</span>
+                        Adaeze just added to cart
+                    </p>
+<!-- Repeat for smooth loop -->
+<p class="text-white/90 text-xs font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xs fill-icon">shopping_bag</span>
+                        Obinna just bought 5kg Rice!
+                    </p>
+</div>
+</div>
+<!-- Play Overlay (Centered, hidden by default or for interaction) -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover/design-root:opacity-100 transition-opacity">
+<button class="flex shrink-0 items-center justify-center rounded-full size-20 bg-black/40 backdrop-blur-sm text-white border border-white/20">
+<span class="material-symbols-outlined text-[48px] fill-icon">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<div class="bg-background-dark/95 backdrop-blur-xl border-t border-white/10 px-6 py-3 pb-8 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 text-white/50">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[24px] fill-icon">live_tv</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Live</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/50">
+<span class="material-symbols-outlined text-[24px]">explore</span>
+<span class="text-[10px] font-bold">Discover</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/50">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px]">shopping_cart</span>
+<div class="absolute -top-1 -right-1 size-3 bg-primary rounded-full border border-background-dark"></div>
+</div>
+<span class="text-[10px] font-bold">Orders</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/50">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</div>
+</div>
+<!-- Progress/Connectivity Bar -->
+<div class="absolute top-0 left-0 h-1 bg-primary w-2/3 z-[60] shadow-[0_0_8px_rgba(5,148,103,0.8)]"></div>
+</div>
+</body></html>

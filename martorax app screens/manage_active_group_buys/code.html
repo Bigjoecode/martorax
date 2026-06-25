@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Manage Active Group Buys</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Spline Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-tab-bar {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 pb-2 justify-between max-w-md mx-auto">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-slate-900 dark:text-white cursor-pointer">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Active Group Buys</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</div>
+<!-- Tabs Section -->
+<div class="max-w-md mx-auto">
+<div class="flex border-b border-slate-200 dark:border-slate-800 px-4 gap-8">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-primary pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">All Deals</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-slate-500 dark:text-slate-400 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Ending Soon</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-slate-500 dark:text-slate-400 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">High Value</p>
+</a>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<main class="max-w-md mx-auto p-4 pb-32 space-y-4">
+<!-- Card 1: Avocado Box -->
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-lg bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="relative">
+<div class="w-full h-48 bg-center bg-no-repeat bg-cover" data-alt="Fresh organic avocados in a wooden box" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKs2htcHQDfhXc4c-ab7UcWt6a4L62x0p4lMs5R-vCzFXm4_NQmzF7tenKqZNfCBTa5WErd0HPx5Z-9HXy_fyQfVtSSND79pzZvzhcaPF_0PGyxOiQ4QSskLzX-RONvq74p2VsQdcxAS5Jt8W2MkUgHvfOug40ihGi0hD2s1jEl2TOMg45HEzjouH93lgAG-N2h6E6NejwFVu1VV-KFCuFQKNbvMQaBL272DARrfTevZO3Ljr-RhjTaFugnrzLnB0_iqaEvp-oPGEC");'></div>
+<div class="absolute top-3 right-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wider">High Demand</div>
+</div>
+<div class="flex flex-col gap-1 p-4">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Organic Avocado Box (Large)</p>
+<p class="text-primary text-lg font-bold">₦245,000</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-tighter">Potential Revenue</p>
+<!-- Progress Bar Component -->
+<div class="flex flex-col gap-2 mt-4">
+<div class="flex gap-6 justify-between items-end">
+<p class="text-slate-900 dark:text-white text-sm font-medium leading-normal">8 of 10 spots filled</p>
+<p class="text-primary text-sm font-bold leading-normal">80%</p>
+</div>
+<div class="h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 80%;"></div>
+</div>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<p class="text-xs font-normal leading-normal">Ends in: 04h 22m</p>
+</div>
+</div>
+<!-- Recently Joined / Avatar Group -->
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<p class="text-xs font-semibold text-slate-400 uppercase">Recently Joined</p>
+<div class="flex items-center py-1">
+<div class="overflow-visible w-7">
+<div class="bg-center bg-no-repeat aspect-square bg-cover border-2 border-white dark:border-slate-800 bg-slate-200 rounded-full size-8" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwG91zl_cBoOLEtt5zcvRVgnyLdFmqqAWafXnt7LdvAu9i2bTHd3y53xKUkhgFIqsCsnsWHKR65gEhIHTv3hv5r3JQjPw88O94iXGm24s5756l78h2iX0clSgGrSINnmiZNoZFsRlRFj1hQihC1FhLiM14wTy2QsNbnAzkDd9fgG4yfRZ9GqljutKZBWLJbQjwz_BHHIFtNRkg7aDixqPgc7vlmHa7wpFYu4crEn1B6NiUc-f9CJTSRm3SSXUthwpyGQrlzfqedlE9");'></div>
+</div>
+<div class="overflow-visible w-7">
+<div class="bg-center bg-no-repeat aspect-square bg-cover border-2 border-white dark:border-slate-800 bg-slate-200 rounded-full size-8" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBFA44BGJj6mwlvV_8SJeruMNrt8KG34kDlFIWzao7Nog1DR1peF2K07fW5M5v_BL9zheF3LLJbWfPbZHvBwIJmcEmxNVF-LbicNG2tEEx8-xtnwu4K4eBvj0HfIr2MfBGJXXqNOa2UghNBhqZSVoC7Zt_8w1NlWumQEBztjoGSUB4BArNLrd5cK3FY6TIjEPeKHHhyuTafqUH-0Kx3Kvcaa89ldWEYJXj54Xhx0lKu2PlsVIJY_tK3xyhIkQN-DQjVk_ODCOVrrMJX");'></div>
+</div>
+<div class="overflow-visible w-7">
+<div class="bg-center bg-no-repeat aspect-square bg-cover border-2 border-white dark:border-slate-800 bg-slate-200 rounded-full size-8" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCBY3F-lrVqJ2Xuc5yockyuvS_gDKh-BjOujxJ_SAXHQwhSCfn3iRqrxAKk--FSm7A_sZRm5hNApFHyecUJY6b09KmV2lqgRAoTqdB4Hr8O8Dlxmvfia5dzMUVs-1rJ4HFR1qBb_MVUeXUA0iR0DgBSMsYmVqLQE2jK12YAumYTn9gdcDNpKmjbNTAxjTMoWDhWdaxeGioyslaNaNdLdehbLugV2w6PT1B-ml-1q2a4ajCkpAi1QQAuG953nyankrffZDWRLqln7I8g");'></div>
+</div>
+<div class="ml-1 text-xs font-medium text-slate-500">+2 others</div>
+</div>
+</div>
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span class="text-sm font-bold">Share to WhatsApp</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Rice Sacks -->
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-lg bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 overflow-hidden opacity-90">
+<div class="relative">
+<div class="w-full h-48 bg-center bg-no-repeat bg-cover" data-alt="Bags of premium long grain rice" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSBWKneQvnanx2M8abhKlz0b7-hSFBpkyUph_ngrX0CxNN_S-o35nNC3vxP41uwsm_QpHn2AfGtyF3H3bOkMH3s8oePnJeD-o2gdS9diE9V48wOLSC3KYtEe26CYT2E-x4tR7utpCkX6O1SrcTB3eEwqoHFj8c5Z--4vkj1qbgXfwKeTj1_w5YE3O3S0alN8hKvZzQgvvNXP52dp_TrpdMlfqywvaTNpiqUkJBjbpGXk9g7M3ntPVetyTtTbWgwYGMedInqTLXDzCA");'></div>
+</div>
+<div class="flex flex-col gap-1 p-4">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Premium Long Grain Rice (50kg)</p>
+<p class="text-primary text-lg font-bold">₦850,000</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-tighter">Potential Revenue</p>
+<div class="flex flex-col gap-2 mt-4">
+<div class="flex gap-6 justify-between items-end">
+<p class="text-slate-900 dark:text-white text-sm font-medium leading-normal">14 of 25 spots filled</p>
+<p class="text-primary text-sm font-bold leading-normal">56%</p>
+</div>
+<div class="h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 56%;"></div>
+</div>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<p class="text-xs font-normal leading-normal">Ends in: 1d 12h</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<p class="text-xs font-semibold text-slate-400 uppercase">Recently Joined</p>
+<div class="flex items-center py-1">
+<div class="overflow-visible w-7">
+<div class="bg-center bg-no-repeat aspect-square bg-cover border-2 border-white dark:border-slate-800 bg-slate-200 rounded-full size-8" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBpq5d2ktIfeSmreykKwLrJtTTV13OK6gVQSr7RXaaBBa4yvSwpCcYyDWD7Dy2Ltelp8b71_cIVfWAJ7jM2n--nMeFEnefIGaqchtLzi2Ur1enr_Rd0RAJag5AOgNq0VyaHoJDJ1ykbcQlBfQ6mGmeIziAYOxvmkaNx3reOjLKELPAkAysxxw1RKWqpTJI_qQ1pCNSQRUxYryR-EQyWHZQlq-Sh2GVAK9u1reLtdZ9nyps9KxWUKzIOY_A2V2GJip7RMS8uMyhYYc2p");'></div>
+</div>
+<div class="overflow-visible w-7">
+<div class="bg-center bg-no-repeat aspect-square bg-cover border-2 border-white dark:border-slate-800 bg-slate-200 rounded-full size-8" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBN0oEp_rP35RN1359XyTGr0cx0UqsN-9gsHF2cD4IdCpPSF_UCbZD5rMl08JzWPRZYXxu8ABHYdv4ihWY4ruE0RP0G7UFCwNkly7Qx1GpXxam8z3VruRBJt0O78Udwn7Q2UNdmmjfUWA0ZYBdNcM0jXegDOoYixeCAEgsIX05vPv6ZpLEy6IWJJfQcR7-DRumAYgtV71pqFAP_-w2V0KVNNiJHuIpJKvFbg4z2l8UPgz9taO0ORpQuzS7yAuSi2ocgKFYhKkluuJ1W");'></div>
+</div>
+<div class="ml-1 text-xs font-medium text-slate-500">+12 others</div>
+</div>
+</div>
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span class="text-sm font-bold">Share to WhatsApp</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 ios-tab-bar z-50">
+<div class="max-w-md mx-auto flex justify-around items-center h-16">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-medium">Inventory</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">account_balance_wallet</span>
+<span class="text-[10px] font-bold">Active Buys</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="text-[10px] font-medium">Orders</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+<!-- Floating Action Button for New Group Buy (Optional context) -->
+<div class="fixed bottom-24 right-6 z-40">
+<button class="size-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+</div>
+</body></html>

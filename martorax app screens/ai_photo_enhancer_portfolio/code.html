@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Photo Enhancer Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#10221c",
+                        "slate-900": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white min-h-screen flex justify-center">
+<div class="relative flex h-full min-h-screen w-full max-w-[430px] flex-col bg-background-light dark:bg-background-dark overflow-x-hidden shadow-2xl">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center font-display">AI Photo Enhancer</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 bg-transparent text-slate-900 dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-2xl">help</span>
+</button>
+</div>
+</div>
+<!-- PageIndicators -->
+<div class="flex w-full flex-row items-center justify-center gap-3 py-2">
+<div class="h-1.5 w-6 rounded-full bg-primary"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-gray-700"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-gray-700"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-gray-700"></div>
+</div>
+<!-- Comparison Header Image (Before/After Simulation) -->
+<div class="px-4 py-4">
+<div class="relative @container">
+<div class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[420px] relative border border-white/10" data-alt="Side by side comparison of a messy job site and a clean professional photo">
+<!-- This div simulates the "After" image (Main Background) -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Clean professional interior photo with bright lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDc8uuVRF5YhSmGhbBoSDEZR6CPwl_AC6_14l3FzIfWRxJ4ur_CS1x4LFvNOxUvdhJarkLAT0v-shpb_NJ4pcm5DpMkpqz1SNaxQLGscczqTu5JSZkY7QnGZo-RMZlNC6oIuJfyBLD4Ny-euhv3v2p0BtxC8csQxIhcDx6ytQM8NJ_r_Gtg0Kt5t6tW57PydtntvU5FZX-8ijeuUPqbfoGfkonAf8uKuOIY2QiQxqnplIauRtSTIq4-8LNO2qzMdZJLIPsPfS6Yf7yD');"></div>
+<!-- This div simulates the "Before" image overlay with a clip-path -->
+<div class="absolute inset-0 bg-cover bg-center border-r-2 border-primary" data-alt="Messy construction site with tools and dust" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3X7dhMG1Oe6R9l7niX7PTRTwYZoZIufAlsnA9HwNQkCht0rEaO0zopPXsOm3ilVd0AxpfhIYH9al_FifEGx-HPR7yYFKkGcBu1U-HujdfYOB4__LE0K9hCJemtB3GR_f7Y5bO6e31pEbq_2q0dWfXBtUJmjUSjbgOT4tgTgesHpoM8zvWW_LJyogBDxGHo9ynUB7YgZZ5YRIq_yOp8LD5MjYkUDBJUc0WD5YTvGFZGfBwcpxDysK21ZiJC5xZk1jMLgwHiXziWiWY'); clip-path: inset(0 50% 0 0);"></div>
+<!-- Slider Handle -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="h-full w-0.5 bg-primary relative">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg pointer-events-auto cursor-grab">
+<span class="material-symbols-outlined text-background-dark text-lg font-bold">unfold_more</span>
+</div>
+</div>
+</div>
+<!-- Labels -->
+<div class="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+<span class="text-white text-xs font-bold uppercase tracking-widest">Original</span>
+</div>
+<div class="absolute top-4 right-4 bg-primary/90 px-3 py-1 rounded-full">
+<span class="text-background-dark text-xs font-bold uppercase tracking-widest">Enhanced</span>
+</div>
+<div class="flex p-6 relative z-[5] bg-gradient-to-t from-black/80 to-transparent w-full">
+<p class="text-white tracking-light text-2xl font-extrabold leading-tight">Compare Transformation</p>
+</div>
+</div>
+</div>
+</div>
+<!-- HeadlineText -->
+<div class="px-4 pt-4">
+<h3 class="text-slate-900 dark:text-white tracking-tight text-2xl font-bold leading-tight text-center font-display">
+                Professional Clean Up
+            </h3>
+</div>
+<!-- BodyText -->
+<div class="px-8">
+<p class="text-slate-600 dark:text-gray-400 text-base font-medium leading-normal pb-6 pt-2 text-center">
+                Our AI removes background clutter and adjusts lighting to make your work shine. <br/>
+<span class="text-primary font-bold mt-2 block">Professional photos sell 3x more.</span>
+</p>
+</div>
+<!-- Action Section -->
+<div class="mt-auto px-4 pb-10 flex flex-col gap-4">
+<!-- Main CTA Button -->
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-16 bg-primary text-background-dark gap-3 text-lg font-extrabold leading-normal tracking-[0.015em] shadow-[0_0_20px_rgba(9,246,171,0.3)] hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined">auto_fix_high</span>
+<span>Clean up with AI</span>
+</button>
+<!-- Secondary Actions -->
+<div class="flex gap-3">
+<button class="flex-1 flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white gap-2 text-sm font-bold border border-transparent dark:border-white/10">
+<span class="material-symbols-outlined text-lg">image</span>
+<span>Retake</span>
+</button>
+<button class="flex-1 flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white gap-2 text-sm font-bold border border-transparent dark:border-white/10">
+<span class="material-symbols-outlined text-lg">edit</span>
+<span>Manual Edit</span>
+</button>
+</div>
+<button class="text-slate-400 dark:text-gray-500 text-sm font-bold py-2 hover:text-primary transition-colors">
+                Skip for now
+            </button>
+</div>
+<!-- Home Indicator (iOS style) -->
+<div class="flex justify-center pb-2">
+<div class="w-32 h-1.5 bg-slate-300 dark:bg-gray-800 rounded-full"></div>
+</div>
+</div>
+</body></html>

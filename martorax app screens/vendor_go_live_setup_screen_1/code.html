@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vendor Go Live Setup - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 feel matching the request
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Spline Sans", sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white min-h-screen flex flex-col font-display">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 flex items-center justify-between border-b border-white/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-white cursor-pointer">arrow_back_ios</span>
+<h2 class="text-white text-lg font-bold tracking-tight">Go Live Setup</h2>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">settings</span>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto pb-32">
+<!-- Camera Preview Section -->
+<div class="px-4 py-4">
+<div class="relative w-full aspect-[4/5] bg-slate-800 rounded-xl overflow-hidden border-2 border-white/10 shadow-2xl group">
+<!-- Placeholder for Camera Feed -->
+<div class="absolute inset-0 bg-cover bg-center opacity-80" data-alt="Vendor setting up a display of fresh tomatoes for a live stream" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCJci14Z6xHspeh4ih76-A8YndHl8xydNnRnUADAyQqhMEp5sajpVvH5pspW25TBPL8CPhXJpJPFCw8MFXTeGaCtfIICOoANOSIwLWhPeXMhPYmt4TPVmrCe3R8FrJTzrDgdxBx6VdSNNkrFLAUVWphPrVv8piQKy7-W0FYrA1-VCz-A1UeZo-Wfjh6Vn3NqxxdtpHW5W9AqufR_17NzJpJAM26kf4dpKEVPNOFDdHDjd4JN46Q1pgP4sBV6Gvf1X3tUfho9xqSFP1n');">
+</div>
+<!-- Camera Overlays -->
+<div class="absolute inset-0 flex flex-col justify-between p-4 pointer-events-none">
+<div class="flex justify-between items-start">
+<span class="bg-black/40 backdrop-blur-md px-2 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span> Preview Mode
+                        </span>
+<div class="flex flex-col gap-2">
+<div class="p-2 bg-black/40 backdrop-blur-md rounded-full pointer-events-auto cursor-pointer">
+<span class="material-symbols-outlined text-white text-sm">flip_camera_ios</span>
+</div>
+<div class="p-2 bg-black/40 backdrop-blur-md rounded-full pointer-events-auto cursor-pointer">
+<span class="material-symbols-outlined text-white text-sm">flash_on</span>
+</div>
+</div>
+</div>
+<!-- Framing Guide -->
+<div class="absolute inset-0 border border-white/10 grid grid-cols-3 grid-rows-3 pointer-events-none">
+<div class="border-r border-b border-white/5"></div>
+<div class="border-r border-b border-white/5"></div>
+<div class="border-b border-white/5"></div>
+<div class="border-r border-b border-white/5"></div>
+<div class="border-r border-b border-white/5"></div>
+<div class="border-b border-white/5"></div>
+<div class="border-r border-white/5"></div>
+<div class="border-r border-white/5"></div>
+<div></div>
+</div>
+<div class="flex justify-center mb-2">
+<p class="text-[11px] text-white/60 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full">Position your products in the center</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Deal Title Input -->
+<div class="px-4 py-2">
+<div class="flex flex-col gap-2">
+<label class="text-white/60 text-xs font-semibold uppercase tracking-wider px-1">What's the deal today?</label>
+<input class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all font-medium" placeholder="e.g., Ogbogonogo Tomato Slash!" type="text" value="Ogbogonogo Tomato Slash!"/>
+</div>
+</div>
+<!-- Featured Products Section -->
+<div class="mt-6">
+<div class="flex items-center justify-between px-4 mb-4">
+<h3 class="text-white text-lg font-bold tracking-tight">Select Featured Products</h3>
+<span class="text-primary text-sm font-semibold">View All</span>
+</div>
+<div class="flex overflow-x-auto gap-4 px-4 pb-4 hide-scrollbar">
+<!-- Product Card 1 (Pinned) -->
+<div class="min-w-[140px] bg-slate-800/40 border-2 border-primary rounded-xl p-2 relative">
+<div class="w-full aspect-square rounded-lg bg-cover bg-center mb-2" data-alt="A basket of fresh red tomatoes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCitMXiymAwR9RO6TurlYhiCJDdl-DShbxuLxP_uKDLxXxS4WnOXOiJv9X_Ltt6PHH0Qns4JbSpo-SmL-sqG7e8X4FXMxvws6k8zpfMWhZQdjQqIOpq6M9-b1r2zeRPTfjS153cN5vkywhYl8yEmX-htfbP7NJopU77aNAtXH4nFeCKCq27frXAylEcYZ4725Fn3axsE9AXnvlNSMK2heBSjY1qFEdKkLbeA0ysZdAX42NEudKvQVCrMtvVeILOOUdT1ttoi7ACzl2F');">
+</div>
+<div class="absolute top-3 right-3 bg-primary text-white p-1 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-[14px]">push_pin</span>
+</div>
+<p class="text-xs font-bold text-white truncate">Fresh Tomatoes</p>
+<p class="text-[10px] text-primary font-bold">₦2,500 / basket</p>
+<button class="w-full mt-2 py-1.5 bg-primary text-white text-[10px] font-bold rounded-lg uppercase">Pinned</button>
+</div>
+<!-- Product Card 2 -->
+<div class="min-w-[140px] bg-slate-800/40 border border-slate-700 rounded-xl p-2 relative">
+<div class="w-full aspect-square rounded-lg bg-cover bg-center mb-2" data-alt="Bag of yellow garri grains" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNweN3qzBrF_wCX50F4534qRS3W-KgsLKURk1h0XUfNmxSSI9CxCz65KwumuFgnl3mYGcePTe8cuBRdmCxT8XqXBDEHpel2l5XdRf6EoGB7V5lzQUKWZzJq5QEzCzmJfiux8CrZWMqHMW1jjv1D5FB3brcB8ARw4Ojb9n0j3FI3ndqxpWaPQujCVuHj_iwklO8sZBZuitGf1dOrkYA0RPXb4zGSXvkDP6ILYv1cji68cxW1BdjevJoDNOUngMDxyDZ7OnPhW9Es3PN');">
+</div>
+<p class="text-xs font-bold text-white truncate">Yellow Garri</p>
+<p class="text-[10px] text-white/60 font-bold">₦1,800 / paint</p>
+<button class="w-full mt-2 py-1.5 bg-slate-700 text-white text-[10px] font-bold rounded-lg uppercase">Pin Product</button>
+</div>
+<!-- Product Card 3 -->
+<div class="min-w-[140px] bg-slate-800/40 border border-slate-700 rounded-xl p-2 relative">
+<div class="w-full aspect-square rounded-lg bg-cover bg-center mb-2" data-alt="Handful of fresh chili peppers" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACHLJiyCzcr8yYl6-4E9WSm6WxaKhTV6emS3YZp6042n8vRBCh3S10WMAgwRQaSaw828tcwPPzmVo-JY_ppSYCEyY1hWmxgsk0yidNRMTzmafMQSSeX_olE4MPE4RiDvJWwC0zZ4V5qZ3HKi7g10Fa1QuYA2Z27ZEXy1siP1TpFTlUPwSPEk3D1yTWWLY8APMrgEgm2lr9x-oEG1QIDWLyMh9DozD9O2Q2DZqUj54CJddOy0onV9MUpMTSaHni7MiyHwwzeseh2Yf4');">
+</div>
+<p class="text-xs font-bold text-white truncate">Chili Peppers</p>
+<p class="text-[10px] text-white/60 font-bold">₦500 / bowl</p>
+<button class="w-full mt-2 py-1.5 bg-slate-700 text-white text-[10px] font-bold rounded-lg uppercase">Pin Product</button>
+</div>
+<!-- Add More Placeholder -->
+<div class="min-w-[140px] border-2 border-dashed border-slate-700 rounded-xl flex flex-col items-center justify-center p-4">
+<span class="material-symbols-outlined text-slate-500 mb-2">add_circle</span>
+<p class="text-[10px] text-slate-500 font-bold text-center">Add From Inventory</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action & Navigation -->
+<div class="fixed bottom-0 left-0 right-0 z-[60]">
+<!-- Main CTA -->
+<div class="px-4 pb-6 pt-2 bg-gradient-to-t from-background-dark via-background-dark to-transparent">
+<button class="w-full bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all h-16 rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_-10px_rgba(5,148,103,0.5)]">
+<div class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+</div>
+<span class="text-white text-lg font-bold tracking-tight">Start Live Deal</span>
+</button>
+</div>
+<!-- iOS Bottom Tab Bar -->
+<nav class="bg-slate-900/90 backdrop-blur-xl border-t border-white/5 px-6 pb-8 pt-3 flex justify-between items-center">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[26px]">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined text-[26px]">inventory_2</span>
+<span class="text-[10px] font-medium">Inventory</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined text-[26px]">shopping_bag</span>
+<span class="text-[10px] font-medium">Orders</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined text-[26px]">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</nav>
+<!-- iOS Home Indicator -->
+<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/20 rounded-full"></div>
+</div>
+</body></html>

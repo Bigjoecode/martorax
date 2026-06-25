@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Confirm Delivery &amp; Release</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059432",
+                        "background-light": "#f5f8f6",
+                        "background-dark": "#0f172a", // Slate 900 equivalent for background
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Spline Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-tab-bar {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        input[type="checkbox"] {
+            --checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(255,255,255)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="text-slate-900 dark:text-white flex size-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer" data-icon="ArrowBack">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-base font-semibold leading-tight flex-1 text-center pr-10">Delivery Verification</h2>
+</div>
+</header>
+<main class="flex-1 pb-40">
+<!-- Hero Section -->
+<div class="px-4 py-8 text-center">
+<div class="inline-flex items-center justify-center size-16 bg-primary/10 rounded-full mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">inventory_2</span>
+</div>
+<h1 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight mb-2">Confirm Received?</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm px-6">Please check your items before releasing the escrow payment to the rider.</p>
+</div>
+<!-- Rider Brief -->
+<div class="mx-4 mb-6 p-4 bg-white dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4">
+<img alt="Rider Portrait" class="size-12 rounded-full object-cover" data-alt="Professional delivery rider portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkn5MPJI5esXfaafANLDmWqvQWVyFMw0qu1mBf0BWdx9YcNyN-CArHspnOi_WwKnBByWbt-_5FD0s0chfuqcNWp57MpY8zPnmcvRScV-9DYlDH4l92IS0Xr33zD_G2ZJsj266HlnHPlJyjbQMoLiKyoywvP5ztIcWzmjiD72EUTqvxX3IGE3xU-YGrMEYurIddSLcGbSu1gC7pa5Id3iIAXlvgqKQSVSTHiuR3r1LT87BH4X-ywrnvYMKX1bmdHRiRTyVP9rYbLAKm"/>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold">Your Rider</p>
+<p class="text-slate-900 dark:text-white font-semibold text-lg leading-none">Chidi Benson</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-yellow-500 text-sm fill-1">star</span>
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">4.9 (124 deliveries)</span>
+</div>
+</div>
+</div>
+<!-- Section Header -->
+<div class="flex items-center justify-between px-4 pb-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Itemized Checklist</h3>
+<span class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">3 Items</span>
+</div>
+<!-- Checklists -->
+<div class="px-4">
+<div class="bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 divide-y divide-slate-200 dark:divide-slate-800">
+<label class="flex items-center gap-4 p-4 cursor-pointer">
+<input class="h-6 w-6 rounded border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-medium">Organic Apples - 2kg</p>
+<p class="text-xs text-slate-500">Premium Gala Variety</p>
+</div>
+</label>
+<label class="flex items-center gap-4 p-4 cursor-pointer">
+<input class="h-6 w-6 rounded border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-medium">Whole Milk - 1L</p>
+<p class="text-xs text-slate-500">Fresh Farm Pasteurized</p>
+</div>
+</label>
+<label class="flex items-center gap-4 p-4 cursor-pointer">
+<input checked="" class="h-6 w-6 rounded border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-medium line-through decoration-slate-400 opacity-60">Whole Wheat Bread - 500g</p>
+<p class="text-xs text-slate-400">Sliced Loaf</p>
+</div>
+</label>
+</div>
+</div>
+<!-- Summary -->
+<div class="mt-8 px-4">
+<div class="bg-primary/5 dark:bg-primary/10 border border-primary/20 p-4 rounded-xl">
+<div class="flex justify-between items-center mb-1">
+<span class="text-slate-500 dark:text-slate-400 text-sm">Escrow Amount</span>
+<span class="text-slate-900 dark:text-white font-bold text-xl">₦12,500.00</span>
+</div>
+<p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-widest text-center mt-3 border-t border-primary/10 pt-3">
+                    Funds will be released immediately to rider
+                </p>
+</div>
+</div>
+</main>
+<!-- Fixed Footer Actions -->
+<div class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 z-50">
+<div class="p-4 flex flex-col gap-3">
+<button class="w-full bg-primary hover:bg-emerald-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98]">
+                Confirm &amp; Release Payment (₦)
+            </button>
+<button class="w-full text-slate-500 dark:text-slate-400 font-medium py-2 text-sm text-center hover:text-slate-700 dark:hover:text-slate-300 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">report</span>
+                Report Issue or Missing Item
+            </button>
+</div>
+<!-- iOS Bottom Tab Bar Navigation -->
+<nav class="flex items-center justify-around pb-6 pt-2 border-t border-slate-200 dark:border-slate-800 px-4">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">receipt_long</span>
+<span class="text-[10px] font-medium">Bookings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</nav>
+</div>
+</body></html>

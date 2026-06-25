@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Profile &amp; Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Using Slate 900 for dark background as requested
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+        .ios-tab-bar {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen pb-32">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Profile</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Profile Header -->
+<div class="flex p-6 @container">
+<div class="flex w-full flex-col gap-4 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 border-4 border-primary/20" data-alt="Portrait of a smiling shopper in Asaba" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDn5t7NwxlbZI2Kp6PtG68CC0KbYo6Sr5JXK3rf_i9D7b383xTSSRdiOmqJLdTgiNL5KPteVzV1k9SGnhh4kQQVPSkJc1-M3hrKO683tgqpyWsFBmTzeEcvVqqt6wwyXoQyD5t0YmWc6ftdf3iqTQdkjjRCbDgKwpu-QwDRB8-W_xH4sKn-rUsgrUrwJlnsiBmN8HdkGA-RzjHMXkdtspT7cF5CEhwepVbCj9E5JYswfn-cVdQNX0PFBqWWG1T_c3Ny-2XWMDqrCFEA");'>
+</div>
+<div class="absolute bottom-1 right-1 bg-primary p-1.5 rounded-full border-2 border-background-dark">
+<span class="material-symbols-outlined text-white text-xs block">edit</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-[24px] font-bold leading-tight tracking-[-0.015em] text-center">Chidi Okafor</p>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal leading-normal text-center">Member since 2024</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Wallet Card -->
+<div class="px-4 mb-6">
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">SafePay Balance</p>
+<p class="text-3xl font-extrabold leading-tight tracking-tight mt-1">₦ 25,000.00</p>
+</div>
+<div class="bg-primary/10 p-2 rounded-full">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+</div>
+</div>
+<div class="flex gap-3 mt-2">
+<button class="flex-1 flex cursor-pointer items-center justify-center rounded-full h-12 px-4 bg-primary text-white text-sm font-bold tracking-wide transition-transform active:scale-95">
+<span class="material-symbols-outlined mr-2 text-lg">add_circle</span>
+<span>Top Up</span>
+</button>
+<button class="flex-1 flex cursor-pointer items-center justify-center rounded-full h-12 px-4 bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white text-sm font-bold tracking-wide transition-transform active:scale-95">
+<span class="material-symbols-outlined mr-2 text-lg">history</span>
+<span>History</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Account Sections -->
+<div class="px-4 space-y-1">
+<h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest px-2 py-3">Account</h3>
+<div class="bg-slate-100 dark:bg-slate-800/50 rounded-2xl overflow-hidden">
+<!-- Item 1 -->
+<div class="flex items-center p-4 gap-4 border-b border-slate-200 dark:border-slate-800">
+<div class="size-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500">
+<span class="material-symbols-outlined">package_2</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-sm">My Orders &amp; Bookings</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Track current &amp; past history</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-xl">chevron_right</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center p-4 gap-4 border-b border-slate-200 dark:border-slate-800">
+<div class="size-10 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-500">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-sm">Saved Stalls &amp; Pros</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Your favorite market spots</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-xl">chevron_right</span>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center p-4 gap-4">
+<div class="size-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-sm">Primary Landmark Address</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Opp. Nnebisi Junction, Asaba</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-xl">edit</span>
+</div>
+</div>
+</div>
+<!-- Preferences -->
+<div class="px-4 mt-6 space-y-1">
+<h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest px-2 py-3">Preferences</h3>
+<div class="bg-slate-100 dark:bg-slate-800/50 rounded-2xl overflow-hidden">
+<div class="flex items-center p-4 gap-4 border-b border-slate-200 dark:border-slate-800">
+<div class="size-10 rounded-full bg-slate-500/10 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">language</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-sm">Language</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">English, Pidgin, Igbo...</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-primary font-medium">English</span>
+<span class="material-symbols-outlined text-slate-400 text-xl">expand_more</span>
+</div>
+</div>
+<div class="flex items-center p-4 gap-4 border-b border-slate-200 dark:border-slate-800">
+<div class="size-10 rounded-full bg-slate-500/10 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-sm">Notifications</p>
+</div>
+<div class="w-10 h-6 bg-primary rounded-full relative flex items-center px-1">
+<div class="bg-white size-4 rounded-full ml-auto"></div>
+</div>
+</div>
+<div class="flex items-center p-4 gap-4">
+<div class="size-10 rounded-full bg-slate-500/10 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">dark_mode</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-sm">App Theme</p>
+</div>
+<div class="flex bg-slate-200 dark:bg-slate-700 rounded-full p-1">
+<div class="p-1 px-3 bg-white dark:bg-transparent rounded-full shadow-sm">
+<span class="material-symbols-outlined text-sm block dark:text-slate-400">light_mode</span>
+</div>
+<div class="p-1 px-3 bg-transparent dark:bg-primary rounded-full">
+<span class="material-symbols-outlined text-sm block text-white">dark_mode</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Vendor CTA -->
+<div class="px-4 mt-8">
+<div class="bg-primary rounded-2xl p-6 relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="text-white text-xl font-bold leading-tight mb-2">Become a Vendor or Service Provider</h4>
+<p class="text-white/80 text-sm mb-4 max-w-[80%]">Start selling your products or offering services to shoppers in Asaba today.</p>
+<button class="bg-white text-primary px-6 py-2.5 rounded-full text-sm font-bold transition-all hover:shadow-lg active:scale-95">
+                    Register Now
+                </button>
+</div>
+<!-- Decorative circle -->
+<div class="absolute -right-10 -bottom-10 size-40 bg-white/10 rounded-full blur-2xl"></div>
+<div class="absolute top-2 right-4 text-white/20">
+<span class="material-symbols-outlined text-6xl">storefront</span>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="px-4 mt-10 mb-8 flex flex-col items-center gap-4">
+<button class="text-slate-400 text-sm font-semibold flex items-center gap-2 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg">logout</span>
+            Logout
+        </button>
+<button class="text-slate-500 text-xs font-medium hover:text-red-400 transition-colors">
+            Delete Account
+        </button>
+</div>
+<!-- iOS Tab Bar -->
+<nav class="fixed bottom-0 left-0 right-0 ios-tab-bar bg-white/80 dark:bg-slate-900/80 border-t border-slate-200 dark:border-slate-800 pb-8 pt-3 px-6 z-[100]">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-medium">Bookings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-[1]">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+<div class="size-1 bg-primary rounded-full"></div>
+</div>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX Vendor - Orders</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                        "card-dark": "#1e293b", // Slate 800
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen pb-24">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between px-4 py-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">storefront</span>
+</div>
+<h1 class="text-xl font-extrabold tracking-tight">Orders</h1>
+</div>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 flex h-2 w-2 rounded-full bg-red-500"></span>
+</button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex px-4">
+<button class="flex-1 flex flex-col items-center justify-center border-b-2 border-primary pb-3 pt-2 text-primary font-bold transition-all">
+<span class="text-sm">New</span>
+<span class="mt-1 px-2 py-0.5 bg-primary/20 rounded-full text-[10px]">12</span>
+</button>
+<button class="flex-1 flex flex-col items-center justify-center border-b-2 border-transparent pb-3 pt-2 text-slate-500 font-bold hover:text-slate-700 dark:hover:text-slate-300 transition-all">
+<span class="text-sm">Preparing</span>
+<span class="mt-1 px-2 py-0.5 bg-slate-200 dark:bg-slate-800 rounded-full text-[10px]">5</span>
+</button>
+<button class="flex-1 flex flex-col items-center justify-center border-b-2 border-transparent pb-3 pt-2 text-slate-500 font-bold hover:text-slate-700 dark:hover:text-slate-300 transition-all">
+<span class="text-sm">Shipped</span>
+<span class="mt-1 px-2 py-0.5 bg-slate-200 dark:bg-slate-800 rounded-full text-[10px]">48</span>
+</button>
+</div>
+</header>
+<main class="p-4 space-y-4 max-w-md mx-auto">
+<!-- Section: New Orders -->
+<div class="space-y-4">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-sm font-bold uppercase tracking-widest text-slate-500">Incoming Orders</h2>
+<span class="text-xs font-medium text-primary">Live Updates</span>
+</div>
+<!-- Card 1 -->
+<div class="bg-white dark:bg-card-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-semibold text-primary uppercase tracking-tighter">Order #1204</p>
+<h3 class="text-lg font-bold leading-tight mt-0.5">₦12,500.00</h3>
+</div>
+<span class="text-[10px] font-medium px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 rounded-full">2 mins ago</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg mt-0.5">location_on</span>
+<div>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">Opp. Nnebisi Junction</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Asaba, Delta State</p>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg mt-0.5">shopping_basket</span>
+<p class="text-xs text-slate-600 dark:text-slate-300 leading-normal">
+<span class="font-bold">2x</span> Special Fried Rice, <span class="font-bold">1x</span> Coca Cola (50cl)
+                        </p>
+</div>
+<div class="pt-2 border-t border-slate-100 dark:border-slate-700 flex gap-2">
+<button class="flex-1 bg-primary hover:bg-emerald-700 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+                            Accept &amp; Prepare
+                        </button>
+<button class="px-4 py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/30 hover:text-red-600 transition-colors">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-card-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-semibold text-primary uppercase tracking-tighter">Order #1203</p>
+<h3 class="text-lg font-bold leading-tight mt-0.5">₦8,200.00</h3>
+</div>
+<span class="text-[10px] font-medium px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 rounded-full">5 mins ago</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg mt-0.5">location_on</span>
+<div>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">Near Central Mosque</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Main Market Area</p>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg mt-0.5">shopping_basket</span>
+<p class="text-xs text-slate-600 dark:text-slate-300 leading-normal">
+<span class="font-bold">1x</span> Family Bucket, <span class="font-bold">2x</span> Large Fries, <span class="font-bold">2x</span> Sides
+                        </p>
+</div>
+<div class="pt-2 border-t border-slate-100 dark:border-slate-700">
+<button class="w-full bg-primary hover:bg-emerald-700 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+                            Accept &amp; Prepare
+                        </button>
+</div>
+</div>
+</div>
+<!-- Section Header: Preparing -->
+<div class="pt-6 pb-2 px-1">
+<h2 class="text-sm font-bold uppercase tracking-widest text-slate-500">Currently Preparing</h2>
+</div>
+<!-- Card: Preparing Status -->
+<div class="bg-white dark:bg-card-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden border-l-4 border-l-blue-500">
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-semibold text-blue-500 uppercase tracking-tighter">Order #1198</p>
+<h3 class="text-lg font-bold leading-tight mt-0.5">₦15,000.00</h3>
+</div>
+<div class="flex items-center gap-1 text-[10px] font-bold text-blue-500 animate-pulse">
+<span class="material-symbols-outlined text-[14px]">soup_kitchen</span>
+                            KITCHEN
+                        </div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg mt-0.5">location_on</span>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">Inter-Bau Flyover Foot</p>
+</div>
+<div class="flex gap-2 pt-2">
+<button class="flex-1 border border-primary text-primary hover:bg-primary/5 font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-xl">call</span>
+                            Call Rider
+                        </button>
+<button class="flex-1 bg-slate-800 dark:bg-slate-700 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition-colors">
+                            Ready
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Navigation -->
+<nav class="fixed bottom-0 inset-x-0 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-6 py-3 pb-8 z-50">
+<div class="max-w-md mx-auto flex items-center justify-between">
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-bold">Inventory</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">list_alt</span>
+<span class="text-[10px] font-bold">Orders</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

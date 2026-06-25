@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Service Concierge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex justify-center">
+<div class="relative flex h-full min-h-screen w-full max-w-[430px] flex-col bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden border-x border-slate-800/50">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-20 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 pb-2 justify-between border-b border-slate-800/50">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">AI Service Concierge</h2>
+<div class="flex items-center gap-1.5">
+<div class="size-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-[11px] text-slate-500 font-medium uppercase tracking-wider">MartoraX Online</span>
+</div>
+</div>
+<div class="flex w-12 items-center justify-end">
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-full bg-transparent text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">info</span>
+</button>
+</div>
+</div>
+<!-- Chat History -->
+<div class="flex-1 overflow-y-auto p-4 space-y-2 pb-32">
+<!-- AI Welcome Message -->
+<div class="flex items-end gap-3 py-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0 border-2 border-primary/20" data-alt="Avatar of MartoraX AI assistant" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBh5BHc9GMVHPPEvsmHxd6mxhrh2CPG4DeQi6taK0ZG8ow9XQnJ3gvTj2_r3z5V5UBf76sTS36wTk2_gD_v7wi4WRtV9Pdrg7f4bMhxwAm6jJY6YOxv-ibGKeTV9OlCNWrjO1tQbUR_JE90Q8oQfaUmsCot_KU1jgDV9591Yt_qvHhvZDoANEmP8qKQ8qLrdhWYwghr6SI--UUqyIekIXM8LtOxwzwn_s5dkh6Rfnqr0tA5TVmxuY_yygXInssObFZcHCB0XJssZZNW");'></div>
+<div class="flex flex-1 flex-col gap-1 items-start">
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-semibold leading-normal ml-1">MartoraX</p>
+<div class="text-base font-normal leading-relaxed flex max-w-[85%] rounded-2xl rounded-bl-none px-4 py-3 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm">
+                        How can I help you find a service in Asaba today?
+                    </div>
+</div>
+</div>
+<!-- User Query -->
+<div class="flex items-end gap-3 py-2 justify-end">
+<div class="flex flex-1 flex-col gap-1 items-end">
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-semibold leading-normal mr-1">Shopper</p>
+<div class="text-base font-medium leading-relaxed flex max-w-[85%] rounded-2xl rounded-br-none px-4 py-3 bg-primary text-slate-900 shadow-lg shadow-primary/10">
+                        My sink is leaking and I live in Okpanam
+                    </div>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0 border-2 border-white/10" data-alt="Avatar of the user" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1jFVFUNqek5C-BxJNIkCSoMLA65rk81etvGX572lKUD0-A4LxwPyZsk7Km3BwaW_Lov2HBuqIt_wpXaJ7OfgHT95e2F0i8tAsDqJafPPPmtmSquXUlSwpqejD8hpNv-szJ-CdU0J5oatiGJ-tMV7z0syjvXE1rKG20JpkPKgTq-09vZvJONm2JseNHAj9RYhPzJLiptL_ccvt6hwT1CknWOdL_j_b_q6-I8EYjhIhJAYc9uTQlh3v9LscpJtdDcTP7M_a1e-jIxU3");'></div>
+</div>
+<!-- AI Response -->
+<div class="flex items-end gap-3 py-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0 border-2 border-primary/20" data-alt="Avatar of MartoraX AI assistant" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDeXDwIjNPD6v6ol6exjWgeAPDxcEKnrfr67ayGzrBGgeNy5ERLSKCW3syIoUMfVVFYEf2uErIgOwGzcEqyLcA4ecL91b455srfGijqnzNd3xBBwPQ76qCjrFrIM-Qj_kDRLOfGKiWXsaju5Rqnr2jtp020RMuzjIZ0kBmk9jbQ0kNgOMhVnJC19EJ4PzR1svfCnerRxN_35_nFOLy8nRMptjnFnkYeR19U16_B4jPzG2TYOO9KsiFTm7kCYn38n5V5eBSSNcw--11C");'></div>
+<div class="flex flex-1 flex-col gap-1 items-start">
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-semibold leading-normal ml-1">MartoraX</p>
+<div class="text-base font-normal leading-relaxed flex max-w-[85%] rounded-2xl rounded-bl-none px-4 py-3 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm">
+                        I don find 3 plumbers near Okpanam for you. Emenike fit come now-now (₦5k)
+                    </div>
+</div>
+</div>
+<!-- Provider Carousel / Best Matches -->
+<div class="flex flex-col gap-3 pt-2">
+<div class="flex items-center gap-2 ml-14 mb-1">
+<span class="material-symbols-outlined text-primary text-sm">stars</span>
+<span class="text-xs font-bold uppercase tracking-widest text-primary">Best Matches Near You</span>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar -mx-4 px-14 gap-4 pb-4">
+<!-- Provider 1 -->
+<div class="flex h-full flex-col gap-0 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-xl min-w-[260px] overflow-hidden">
+<div class="relative w-full aspect-video bg-center bg-no-repeat bg-cover" data-alt="Emenike the plumber smiling with tools" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_bcDGgDxNBU2DpZQ32642K_e6riFjYv5s8xicHj2M65pCkhPZdcta_bShxsiLEf-Qnzv_UhZGra-Gpus-5XV3PwkuhJIBXY2x7m15nOJcQ7V0x43QF7BFut9bMirvMWaazA8m3BfxHrX_GzyzD00L_sKNakTpmOg9Jl0F8NitT3M4hRoE_wLVcEwi7JjpODzGqI6i9eFo5DU8CmS2p4kNyrHI5TC08NqqdZktQc7j1yylwEwCdItk-NGtJdWfjFY44IS4yKR8O093");'>
+<div class="absolute top-2 right-2 bg-primary text-slate-900 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Fastest</div>
+</div>
+<div class="flex flex-col flex-1 justify-between p-4 gap-4">
+<div>
+<div class="flex justify-between items-start mb-1">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Emenike Plumbings</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-sm fill-current">star</span>
+<span class="text-xs font-bold dark:text-white">4.9</span>
+</div>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">₦5,000 • Arrives Now-now</p>
+</div>
+<button class="w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-slate-900 text-sm font-bold leading-normal tracking-tight active:scale-95 transition-transform">
+                                Book Now
+                            </button>
+</div>
+</div>
+<!-- Provider 2 -->
+<div class="flex h-full flex-col gap-0 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-xl min-w-[260px] overflow-hidden">
+<div class="w-full aspect-video bg-center bg-no-repeat bg-cover" data-alt="Professional plumber working on a sink" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5lTlIjAyCTet9rpHWCwt74yNRVdRAFmB9f_G9hIYoOyRACDiVyyqAQ5giEsxtWyKomgwk_9cZeM4-jL3fQtuz-0fCmq62jX7N0uculvTpP4EYw9-CFGYoStZONx33o8AbawyMm2XEWsv3Kk8KFnAqTC35LOvNnEXB6zHXkHnIFJdzyhaJfzoz2EV2CYR_a0fy8_mj1Nn_AwNqk4umnSHIhiu2TxUvoWFG8CtJM_DLWyzjHsQa7BMjW7tlpvQFpIMuvqwUGioNwN-l");'></div>
+<div class="flex flex-col flex-1 justify-between p-4 gap-4">
+<div>
+<div class="flex justify-between items-start mb-1">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Chidi Quick Fix</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-sm fill-current">star</span>
+<span class="text-xs font-bold dark:text-white">4.7</span>
+</div>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">₦4,500 • 20 mins away</p>
+</div>
+<button class="w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white text-sm font-bold leading-normal tracking-tight">
+                                Book Now
+                            </button>
+</div>
+</div>
+<!-- Provider 3 -->
+<div class="flex h-full flex-col gap-0 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-xl min-w-[260px] overflow-hidden">
+<div class="w-full aspect-video bg-center bg-no-repeat bg-cover" data-alt="Repairman with a toolbox" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDyDUIq6mt3ULGphZj8r35IZXp0K2kc46iGPasA2jwIIgXn_JiXFks_NJ5gfJAZ1j6SE89gFqLSgxnjOC7sh5-v_SfjGDNibqKEIFxiBwUluMKEdE8q3rDhosknZDPTNnq2T_1uGlc-FlVAEbTx_TEHHY4vTUQpmEBtV5kU9SvFhgHsiAtZamsNLeNNKHJwtmkJMtvp8eS8W28i09PmpS-757jpADRrHrSLKg-2AnCLwmlKF16fTLqfvHl37w7NhsQQ4Lowq_VqXpbR");'></div>
+<div class="flex flex-col flex-1 justify-between p-4 gap-4">
+<div>
+<div class="flex justify-between items-start mb-1">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Sunday Repairs</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-sm fill-current">star</span>
+<span class="text-xs font-bold dark:text-white">4.5</span>
+</div>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">₦6,000 • Arrives 10 mins</p>
+</div>
+<button class="w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white text-sm font-bold leading-normal tracking-tight">
+                                Book Now
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-background-light dark:bg-background-dark/90 backdrop-blur-xl border-t border-slate-800/50 pb-8">
+<div class="flex items-center gap-2 mb-3 overflow-x-auto hide-scrollbar">
+<div class="whitespace-nowrap rounded-full px-3 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-400">Plumbing</div>
+<div class="whitespace-nowrap rounded-full px-3 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-400">Electrical</div>
+<div class="whitespace-nowrap rounded-full px-3 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-400">Cleaning</div>
+<div class="whitespace-nowrap rounded-full px-3 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-400">Appliance Fix</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex size-12 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined">mic</span>
+</button>
+<div class="relative flex-1">
+<input class="w-full h-12 bg-slate-100 dark:bg-slate-800 border-none rounded-full px-5 text-slate-900 dark:text-white placeholder:text-slate-500 focus:ring-2 focus:ring-primary/50 text-sm" placeholder="Type message..." type="text"/>
+<button class="absolute right-2 top-1.5 flex size-9 items-center justify-center rounded-full bg-primary text-slate-900 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px] font-bold">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Process Group Order Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 feel
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Spline Sans", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen pb-32">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+<div>
+<h2 class="text-lg font-bold leading-tight">Order #GR-9920</h2>
+<p class="text-xs text-primary font-medium uppercase tracking-wider">Group Filled • 10/10</p>
+</div>
+</div>
+<button class="flex items-center justify-center rounded-full w-10 h-10 bg-primary/10 text-primary">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+</div>
+<main class="max-w-md mx-auto p-4 space-y-6">
+<!-- Stats/Summary Card -->
+<div class="flex flex-wrap gap-3">
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-4 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase">Total Group Payout</p>
+<p class="text-2xl font-bold leading-tight text-primary">₦245,000</p>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-4 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase">Total Items</p>
+<p class="text-2xl font-bold leading-tight">24 Units</p>
+</div>
+</div>
+<!-- Logistics Section -->
+<section>
+<div class="flex items-center justify-between px-1 mb-3">
+<h3 class="text-lg font-bold tracking-tight">Group Logistics</h3>
+<span class="text-xs font-medium text-slate-500">Bulk Shipment</span>
+</div>
+<div class="flex items-center gap-4 bg-slate-100 dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="flex items-center justify-center rounded-lg bg-primary/20 text-primary shrink-0 size-12">
+<span class="material-symbols-outlined">distance</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-bold">Central Pickup Point</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Gate 2, Unilag Main Campus, Akoka</p>
+</div>
+<button class="bg-primary text-white rounded-lg px-3 py-1.5 text-xs font-bold">
+                    MAP
+                </button>
+</div>
+</section>
+<!-- Itemized Shoppers -->
+<section>
+<div class="flex items-center justify-between px-1 mb-3">
+<h3 class="text-lg font-bold tracking-tight">Shoppers (10)</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">description</span>
+                    Generate Bulk Labels
+                </button>
+</div>
+<div class="space-y-3">
+<!-- Shopper 1 -->
+<div class="flex items-center gap-3 bg-slate-100 dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="size-10 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar male" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZHGHEhfvZwxVa-HxNPBSePl2C0OJUoGOEYxnwIrSl9Yf2jTOzpkBNwtMkAjevv_RGgcz1EtbZgwYzEEVRYU-Yg0OVAbiB-7JkJwvNtPG3fO2vblRRANWlUWgJps3S1qpJm6luwnfpKh8mMo0ADxwKrA5IzaaDRDytCbdYOYFMrxtcM0zHv7CFqNhRPmR3dUXSUz4gQo8CyMUzvnBq0Vj-umzcZTUvemhv_vGR7fVzbYe2QrA6RsFmH_V0DqnWXet6g3ntT39atdBI"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<p class="font-bold text-sm">Adebayo Samuel</p>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">3 Units</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs">location_on</span> Jaja Hall, Landmark: Front Porch
+                        </p>
+</div>
+</div>
+<!-- Shopper 2 -->
+<div class="flex items-center gap-3 bg-slate-100 dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="size-10 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar female" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvpTQnn_p0KACQ1DzF9wQcs3N3gDkv3A1IrpYhQFqMH4uWyolz5XpGNbCd-0KSaq61WHILf7Ov7sKXnKHXuN6uXo6Rv8aKcQGUD2i-cj-v4j8gFtzTcrxGKiReMqXYEhF75YuY_lpByPgNTgZgPyOz1TJMt-96NiC4FOMnUUcyzPCiZUS5SCnpwqpOpbfApI-U5Jr-hxRp3bZU1EYQGC83UI1IPLVXak13FFd88W587AWgl2AwwUQv7nnO3GvCto6LuIJtPwSnx7Zl"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<p class="font-bold text-sm">Chinelo Okoro</p>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">2 Units</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs">location_on</span> Moremi Hall, Landmark: Shop 4
+                        </p>
+</div>
+</div>
+<!-- Shopper 3 -->
+<div class="flex items-center gap-3 bg-slate-100 dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="size-10 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar male" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc_lWy1jH1Cgi7M0Jwfn6SCqSYBPVRXvhaC928jHTp3o4-pjTKk2GxJ5ii9cL-FOLBrQufN9OtGjUX_xhpRp1xaYczsq_bU2PMst0DKaydN78rKAk8XBNSgabF8OJ-4hLnz7AUxo-xHFDvH7I7qeFEuSUPtocuylRZatnRbgWXOBDqkRegd6vzU_vVaa87HHnG_CoG3w3dWEWjRWh67ZH3PiBEzH5nJi3CF6PbPBgnu5tFO5LXrR5HLTp4FW4EQR3nlz_-NDet8LaA"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<p class="font-bold text-sm">Femi Otedola</p>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">5 Units</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs">location_on</span> New Hall, Landmark: Block B
+                        </p>
+</div>
+</div>
+<!-- Show more indicator -->
+<button class="w-full py-2 text-slate-500 text-xs font-bold border border-dashed border-slate-300 dark:border-slate-700 rounded-lg">
+                    VIEW ALL 10 SHOPPERS
+                </button>
+</div>
+</section>
+</main>
+<!-- Fixed Footer Action -->
+<div class="fixed bottom-[72px] left-0 right-0 p-4 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 z-40">
+<button class="w-full bg-primary text-white h-14 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">local_shipping</span>
+            Process Group Order
+        </button>
+</div>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 h-[72px] bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 flex items-center justify-around px-6 z-50">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-bold">Inventory</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">shopping_cart</span>
+<span class="text-[10px] font-bold">Orders</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</div>
+</nav>
+</body></html>

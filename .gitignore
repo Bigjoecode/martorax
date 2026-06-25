@@ -1,0 +1,23 @@
+# Editor / tooling
+.claude/
+.kilocode/
+.qodo/
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Flutter/Dart build artifacts (also covered by my_app/.gitignore)
+my_app/build/
+my_app/.dart_tool/
+my_app/.flutter-plugins
+my_app/.flutter-plugins-dependencies
+
+# Supabase local CLI state
+my_app/supabase/.temp/
+
+# Logs
+*.log

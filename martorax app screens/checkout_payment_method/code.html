@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout: Payment Method</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f231d",
+                        "slate-900": "#0f172a",
+                        "slate-800": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Spline Sans", sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-slate-900 text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-10 bg-slate-900/90 backdrop-blur-md border-b border-white/10">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-white cursor-pointer">arrow_back_ios</span>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight">Payment Method</h2>
+</div>
+<div class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded">Asaba</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto pb-32 max-w-md mx-auto w-full">
+<!-- SafePay Escrow Banner -->
+<div class="p-4">
+<div class="flex items-start gap-4 rounded-xl bg-primary/10 border border-primary/30 p-4">
+<div class="bg-primary rounded-full p-2 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white text-xl">shield_with_heart</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-white text-base font-bold leading-tight">SafePay Escrow Enabled</p>
+<p class="text-slate-300 text-sm font-normal leading-normal">
+                        Your funds are held securely and only released to the seller after you confirm delivery in Asaba.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Payment Method Section -->
+<div class="px-4">
+<h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest pb-3">Select Payment Method</h3>
+<div class="flex flex-col gap-3" style="--radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27%23059467%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%274%27/%3e%3c/svg%3e');">
+<!-- Wallet Option (Checked) -->
+<label class="flex items-center gap-4 rounded-xl border-2 border-primary bg-slate-800 p-4 transition-all cursor-pointer">
+<div class="flex items-center justify-center size-10 rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div class="flex grow flex-col">
+<p class="text-white text-sm font-bold leading-normal">MartoraX Wallet</p>
+<p class="text-primary text-xs font-medium leading-normal">Balance: ₦15,500.00</p>
+</div>
+<input checked="" class="h-5 w-5 border-2 border-slate-600 bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0" name="payment_method" type="radio"/>
+</label>
+<!-- Bank Transfer -->
+<label class="flex items-center gap-4 rounded-xl border border-slate-700 bg-slate-800/50 p-4 hover:bg-slate-800 transition-all cursor-pointer">
+<div class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-slate-300">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="flex grow flex-col">
+<p class="text-white text-sm font-medium leading-normal">Bank Transfer</p>
+<p class="text-slate-400 text-xs font-normal leading-normal">Transfer from your bank app</p>
+</div>
+<input class="h-5 w-5 border-2 border-slate-600 bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0" name="payment_method" type="radio"/>
+</label>
+<!-- Debit Card -->
+<label class="flex items-center gap-4 rounded-xl border border-slate-700 bg-slate-800/50 p-4 hover:bg-slate-800 transition-all cursor-pointer">
+<div class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-slate-300">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<div class="flex grow flex-col">
+<p class="text-white text-sm font-medium leading-normal">Debit Card</p>
+<p class="text-slate-400 text-xs font-normal leading-normal">Visa, Mastercard, Verve</p>
+</div>
+<input class="h-5 w-5 border-2 border-slate-600 bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0" name="payment_method" type="radio"/>
+</label>
+<!-- USSD -->
+<label class="flex items-center gap-4 rounded-xl border border-slate-700 bg-slate-800/50 p-4 hover:bg-slate-800 transition-all cursor-pointer">
+<div class="flex items-center justify-center size-10 rounded-full bg-slate-700 text-slate-300">
+<span class="material-symbols-outlined">dialpad</span>
+</div>
+<div class="flex grow flex-col">
+<p class="text-white text-sm font-medium leading-normal">USSD</p>
+<p class="text-slate-400 text-xs font-normal leading-normal">Dial a code to pay directly</p>
+</div>
+<input class="h-5 w-5 border-2 border-slate-600 bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0" name="payment_method" type="radio"/>
+</label>
+</div>
+</div>
+<!-- Summary Section -->
+<div class="p-4 mt-4">
+<h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest pb-3">Summary</h3>
+<div class="rounded-xl bg-slate-800 p-4 space-y-3">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Order Subtotal</span>
+<span class="text-white">₦12,400.00</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Delivery Fee (Asaba Central)</span>
+<span class="text-white">₦1,200.00</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Service Fee</span>
+<span class="text-white">₦150.00</span>
+</div>
+<div class="h-px bg-slate-700 my-2"></div>
+<div class="flex justify-between items-center">
+<span class="text-white font-bold">Total Amount</span>
+<span class="text-white text-lg font-bold">₦13,750.00</span>
+</div>
+</div>
+</div>
+<!-- Security Badge Image -->
+<div class="px-4 py-2">
+<div class="w-full h-12 rounded-lg opacity-40 bg-center bg-no-repeat bg-contain" data-alt="secure payment processor logos and trust badges" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCo8z7eHrB7sHxquVcnDSp5NmahRQTds7IKn5bdxtXvuSh2LQFjx9UDXIHQpFdCaacds5R4LIrCvul0IfEckB4cZi-jN_rrdZWT6ai60wWagwsn1E_U6I75qQKorXX-6_Qp6bKRzUMrjjQXDGNhDMLTZOxQ1ZPDYRDlqupb_PUayvTdhBXxU7XGD0xrDMgMrgaWBrb8ngYeO54KvNMWsxNMlOC-7aFRmb6F5SU6-yXukFPGEKtDi4JOvkypUGLDD3tfCyXQOYXbYTNU");'></div>
+</div>
+</main>
+<!-- Fixed Footer Action -->
+<footer class="fixed bottom-0 left-0 right-0 bg-slate-900 border-t border-slate-800 p-4 pb-8 z-20">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">lock</span>
+                Pay ₦13,750.00 securely
+            </button>
+<p class="text-center text-slate-500 text-[10px] mt-3 flex items-center justify-center gap-1 uppercase tracking-tighter">
+<span class="material-symbols-outlined text-xs">verified_user</span>
+                End-to-End Encryption Secured by MartoraX
+            </p>
+</div>
+</footer>
+</body></html>

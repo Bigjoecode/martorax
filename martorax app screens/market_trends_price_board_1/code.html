@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX | Ogbogonogo Market Board</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059669", // Emerald 600
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a", // Slate 900
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Spline Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .font-variation-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        .live-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-slate-900 text-white min-h-screen">
+<main class="pb-24">
+<div class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-slate-800 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<div class="flex-1 px-2">
+<h2 class="text-lg font-bold leading-tight tracking-tight">Ogbogonogo Market</h2>
+<p class="text-xs text-slate-400">Asaba, Delta State</p>
+</div>
+<div class="flex items-center gap-2 bg-emerald-600/10 px-3 py-1 rounded-full border border-emerald-600/20">
+<div class="size-2 bg-emerald-500 rounded-full live-pulse"></div>
+<p class="text-emerald-500 text-xs font-bold uppercase tracking-wider">Live Now</p>
+</div>
+</div>
+</div>
+<div class="max-w-md mx-auto">
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h2 class="text-xl font-bold tracking-tight">Daily Price Board</h2>
+<span class="text-emerald-500 text-xs font-medium">Last updated 5m ago</span>
+</div>
+<div class="flex flex-col gap-3 p-4">
+<div class="flex items-center justify-between gap-4 rounded-xl p-4 bg-slate-800 border border-slate-700 shadow-sm">
+<div class="flex flex-col gap-1">
+<p class="text-slate-400 text-sm font-medium">Rice (50kg Bag)</p>
+<p class="text-2xl font-bold leading-tight">₦45,000</p>
+</div>
+<div class="flex flex-col items-end gap-1">
+<div class="flex items-center text-emerald-500 font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="ml-1">+2.4%</span>
+</div>
+<div class="w-16 h-8 opacity-50 bg-gradient-to-t from-emerald-500/20 to-transparent rounded"></div>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4 rounded-xl p-4 bg-slate-800 border border-slate-700 shadow-sm">
+<div class="flex flex-col gap-1">
+<p class="text-slate-400 text-sm font-medium">Tomatoes (Big Basket)</p>
+<p class="text-2xl font-bold leading-tight">₦12,000</p>
+</div>
+<div class="flex flex-col items-end gap-1">
+<div class="flex items-center text-rose-500 font-bold">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span class="ml-1">-5.1%</span>
+</div>
+<div class="w-16 h-8 opacity-50 bg-gradient-to-t from-rose-500/20 to-transparent rounded"></div>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4 rounded-xl p-4 bg-slate-800 border border-slate-700 shadow-sm">
+<div class="flex flex-col gap-1">
+<p class="text-slate-400 text-sm font-medium">Garri (Yellow Paint)</p>
+<p class="text-2xl font-bold leading-tight">₦1,500</p>
+</div>
+<div class="flex flex-col items-end gap-1 text-slate-400">
+<p class="text-sm font-bold uppercase tracking-wider">Stable</p>
+<div class="w-16 h-1 bg-slate-600 rounded-full mt-2"></div>
+</div>
+</div>
+</div>
+<div class="px-4 pt-4 pb-2">
+<h2 class="text-xl font-bold tracking-tight">Trending Stalls</h2>
+<p class="text-sm text-slate-400">Highest activity today</p>
+</div>
+<div class="flex w-full overflow-x-auto no-scrollbar px-4 py-3 gap-4">
+<div class="flex flex-col items-center gap-2 min-w-[100px] group cursor-pointer">
+<div class="relative p-1 rounded-2xl border-2 border-emerald-500">
+<div class="w-20 h-28 bg-center bg-no-repeat bg-cover rounded-xl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBTvHuOtx4oDxfsL4Pw4h7wlQuLrZMsho4l8TQ9zLcTMsSfaESyU59AnpnZGx3rfTYjQkLwMSmLbFeuVRDlBJZO5lqRTbwbOx48ZCEt-GTx5KAS0z_HOSP8iuTQgmzb3OtqcTg6_kyUc85t4b0cvLADCMAoLs-6rD6hMT6DDXLQ48EdFjLvIPut0P7ovYfKF7mjufZL0__nS8_Zy8D3w-mtzMRElf7a2dgf0Ww5h4Id54xAUPf8hODAUS8a9-RcFxuQb6bnluPj6sWU");'></div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-emerald-500 text-slate-900 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Live</div>
+</div>
+<p class="text-[13px] font-semibold text-center truncate w-full">Mama Nkechi</p>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[100px] group cursor-pointer">
+<div class="relative p-1 rounded-2xl border-2 border-slate-700">
+<div class="w-20 h-28 bg-center bg-no-repeat bg-cover rounded-xl grayscale-[0.5]" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtUKafY2iexYi_tmIlVWA-rJXwmo2M5Ye_lZPHhI69E0Ty349sQGyiNDJ6cWvHJVvcIJk0H1R_H9DCdphNXa7tQgV78h1HbwHoiSfMyreb8SuUQnKYAQbqrLgG-C5GdGpB73OrG1PX45LHOosq7-95Vj9Iw83DW07Jn4JpBBnzu3ADXQxdfHNKl5SGj8NJI-m98v-telAax4gxQKtwqfPGLyZiQKmP7XzyhqWVI_azY3fBIh2tOmWItdiOtVGYGpn6PwiSmUDlHI6o");'></div>
+</div>
+<p class="text-[13px] font-medium text-center truncate w-full text-slate-400">Chidi Tools</p>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[100px] group cursor-pointer">
+<div class="relative p-1 rounded-2xl border-2 border-emerald-500">
+<div class="w-20 h-28 bg-center bg-no-repeat bg-cover rounded-xl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAp_eRUq14dPLN_PvAmR_2JoqTetpGdVaPB0OhkWHtNDfHrtLX8vSAbDbk21Fi0990OSWa9CH2qIs_Je0s0j-47AQuyNHQMMaHM_BOSJ9LzJwmbZFH96cvUVRcVp4HsIbjBm14DfjFYYPgBNdwsaylTnnQMSi-TyIsE5nj5nKR72lz0aXQ5smro5pPX2W8dLPS9cGG0HQqXicCKhQayEhbHU792xRIptDW0Hc_wSX-FkyIV8byuEO2cbwmT1uvCx6VJ1ILQB6vAHPAg");'></div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-emerald-500 text-slate-900 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Live</div>
+</div>
+<p class="text-[13px] font-semibold text-center truncate w-full">Fruit Hub</p>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[100px] group cursor-pointer">
+<div class="relative p-1 rounded-2xl border-2 border-slate-700">
+<div class="w-20 h-28 bg-center bg-no-repeat bg-cover rounded-xl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbIYQmJUZVJiE18SCX8oVoTIMyNCK2LYIv-C4TGQiBaWgBa45qYTgv2JQrT6sKzJf7gSJE6hOCgH6a6OiFZMH1wLe3Sy2YUavMxLRoLxGehcknjZIlhkudZ5vPstvPGkKNGLyUDcblb7c0Te98ojoxzsu0SnX3BzrjJS7N1tXHnTdYRDsKQ6AeQIiexTI-eIZSn3O1csvBL28Q3k1HkuCkadonwLHNJDG3iD8zDa1ujkIgZYIHzZD_QcNALzsx3OfmSVBmN8B3VAJd");'></div>
+</div>
+<p class="text-[13px] font-medium text-center truncate w-full text-slate-400">Auchi Spices</p>
+</div>
+</div>
+<div class="px-4 pt-6 pb-2">
+<h2 class="text-xl font-bold tracking-tight">Best Deals Today</h2>
+</div>
+<div class="grid grid-cols-2 gap-4 px-4 pb-6">
+<div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 shadow-sm">
+<div class="relative h-32 w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDTY8CzPKfRfUHGJgYJDb_ZREFjIfbBckzLNiKQPlN08WCeGR5UfaIqlIeMsiIBjBm8EEIqLcd4lmrU3zsUZjl49LyHP0lO51_Qv_Q2UVWTzsbdbwPMG_rswMjKSpI4u_YkcdiMziuK0XHTf748V-urgONmF5qdSFgLhQf1L9SSQhCKWUv-F6pwXyLaA0HGPju7_5Ci9fUhPOXuV62ts_Na3WPGeQ9LLTgyaZVS6wkgeBgmti-ITmhgMX03Omxmvxy-J-b2zbFAYckA");'>
+<div class="absolute top-2 left-2 bg-amber-500 text-white text-[10px] font-black px-2 py-1 rounded">-20%</div>
+</div>
+<div class="p-3">
+<h3 class="font-bold text-sm truncate">Vegetable Oil (5L)</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-emerald-500 font-bold">₦7,200</span>
+<span class="text-slate-500 text-xs line-through font-medium">₦9,000</span>
+</div>
+<p class="text-[10px] text-slate-500 mt-2">Stall B22 • 400m away</p>
+</div>
+</div>
+<div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 shadow-sm">
+<div class="relative h-32 w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA6MIzJk6rIPE1eQ_MK9ruawjGHwzjrGdBB4b3v_Gttl_AYZLjpfS9hEMy-w3h9Wb0Vii_LL08UxSVews1odztl9kJr3-PVBbRzq0UGYlpvZ85Y4zYTsMS9np13VgGA9QYqvQjW2hVF36vJrc9wymEwDZG2pYaZpJbAbBAuI8R_xD8XFxtlg61bFMjucj38MEMor0cCzCsctP6pGAFY1kBh53okIDv1r2FrL1xoT2w72fp_GwphPpqe3Glv30w0E8rXXEkPIqFKpJUu");'>
+<div class="absolute top-2 left-2 bg-amber-500 text-white text-[10px] font-black px-2 py-1 rounded">-15%</div>
+</div>
+<div class="p-3">
+<h3 class="font-bold text-sm truncate">Live Chicken (Large)</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-emerald-500 font-bold">₦5,500</span>
+<span class="text-slate-500 text-xs line-through font-medium">₦6,500</span>
+</div>
+<p class="text-[10px] text-slate-500 mt-2">Ibo Section • 250m away</p>
+</div>
+</div>
+</div>
+<div class="px-4 pt-2 pb-2">
+<h2 class="text-xl font-bold tracking-tight">Market Sentiment</h2>
+</div>
+<div class="mx-4 mb-8 p-5 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500">speed</span>
+<span class="font-bold text-white">Activity Level: <span class="text-amber-500 uppercase">Busy</span></span>
+</div>
+<span class="text-slate-400 text-xs">As of 10:45 AM</span>
+</div>
+<div class="relative w-full h-3 bg-slate-700 rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-gradient-to-r from-emerald-500 via-amber-500 to-rose-500 w-full opacity-30"></div>
+<div class="absolute top-0 left-[75%] h-full w-2 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+<span>Quiet</span>
+<span>Moderate</span>
+<span class="text-white">Hustling</span>
+<span>Peak</span>
+</div>
+<p class="mt-4 text-xs text-slate-400 leading-relaxed">
+                    High foot traffic reported in the meat and poultry section. Pricing remains competitive but negotiation times are longer than usual.
+                </p>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-xl border-t border-slate-800 px-6 pb-[env(safe-area-inset-bottom,24px)] pt-3">
+<div class="flex items-center justify-between max-w-md mx-auto h-12">
+<div class="flex flex-col items-center gap-1 text-emerald-500">
+<span class="material-symbols-outlined font-variation-fill">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-medium">Bookings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</nav>
+
+</body></html>

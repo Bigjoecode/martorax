@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Search &amp; Discovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#059669", // Emerald 600
+                        secondary: "#64748b", // Slate 500
+                        gold: "#fbbf24", // Amber 400
+                        "background-light": "#f8fafc", // Slate 50
+                        "background-dark": "#0f172a", // Slate 900
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                    },
+                },
+            },
+        };
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        .live-indicator {
+            animation: pulse-red 2s infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="fixed top-0 w-full z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-6 py-3 text-xs font-semibold">
+<span>9:41</span>
+<div class="flex items-center gap-1">
+<span class="material-icons-round text-[14px]">signal_cellular_alt</span>
+<span class="material-icons-round text-[14px]">wifi</span>
+<span class="material-icons-round text-[14px]">battery_full</span>
+</div>
+</div>
+</div>
+<main class="pt-12 pb-24">
+<div class="px-4 mt-4 space-y-4">
+<div class="flex items-center justify-between gap-4">
+<div class="relative flex-1">
+<span class="material-icons-round absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-white dark:bg-slate-800 border-none rounded-2xl py-3 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary shadow-sm dark:text-white" placeholder="Search in Asaba..." type="text"/>
+</div>
+<button class="p-2 bg-white dark:bg-slate-800 rounded-full shadow-sm" onclick="toggleTheme()">
+<span class="material-icons-round text-slate-500 dark:text-slate-300">dark_mode</span>
+</button>
+</div>
+<div class="flex bg-slate-200/50 dark:bg-slate-800 p-1 rounded-xl w-fit mx-auto">
+<button class="px-6 py-1.5 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-semibold transition-all">List</button>
+<button class="px-6 py-1.5 rounded-lg text-slate-500 dark:text-slate-400 text-sm font-semibold transition-all">Map</button>
+</div>
+</div>
+<div class="mt-6 border-b border-slate-200 dark:border-slate-800">
+<div class="flex px-4 gap-8 overflow-x-auto no-scrollbar">
+<button class="pb-3 border-b-2 border-primary text-primary font-bold whitespace-nowrap">Vendors</button>
+<button class="pb-3 border-b-2 border-transparent text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap">Products</button>
+<button class="pb-3 border-b-2 border-transparent text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap">Services</button>
+<button class="pb-3 border-b-2 border-transparent text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap">Markets</button>
+</div>
+</div>
+<div class="mt-4 flex px-4 gap-2 overflow-x-auto no-scrollbar">
+<button class="flex items-center gap-1 bg-primary text-white px-4 py-1.5 rounded-full text-sm font-medium">
+<span class="material-icons-round text-sm">tune</span> Filters
+            </button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-1.5 rounded-full text-sm font-medium">Nearest</button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-1.5 rounded-full text-sm font-medium">Open Now</button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-1.5 rounded-full text-sm font-medium">Trusted</button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-1.5 rounded-full text-sm font-medium">Bargain</button>
+</div>
+<div class="mt-6 px-4 space-y-4">
+<div class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700/50">
+<div class="relative h-48">
+<img alt="Vendor marketplace stall" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALAmAySiVyFqF6UmYJc8Qmn6Qbh4Xc5DYF7bFNPSocjcF__Bj8wu6mnGuBK4e96wjk_xy5xL4bukACoErgU2A0cLs2VhE9XBzBjwq1rVm4k122q-m8IClkto-osd0mVomqoXyuqu-QhQV1B7peh6c6re9F-pxXsAaC538UshlLmM_O7UPNDkVxpQE9mI6JMFH3LZePxNJnU2CtyDccpeVK-o9WlmW0jyPKrGOf7YSHQ-dPlC7fzcbWUqAHmS8iF5l4NEC10tdX1HtU"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-primary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Pro</span>
+<span class="bg-gold text-slate-900 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
+<span class="material-icons-round text-[12px]">verified</span> Trusted Stall
+                        </span>
+</div>
+<div class="absolute top-3 right-3">
+<div class="bg-red-500 live-indicator text-white text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-white rounded-full"></span> LIVE
+                        </div>
+</div>
+<div class="absolute bottom-3 left-3">
+<div class="bg-black/40 backdrop-blur-md text-white p-1 rounded-full">
+<span class="material-icons-round text-lg">favorite_border</span>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg dark:text-white">Chidi's Electronics Hub</h3>
+<p class="text-secondary text-sm flex items-center gap-1">
+<span class="material-icons-round text-sm">location_on</span> Ogbogonogo Market, Asaba
+                            </p>
+</div>
+<div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-lg">
+<span class="material-icons-round text-gold text-sm">star</span>
+<span class="text-sm font-bold">4.9</span>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-700">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img alt="Vendor profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH3vN5fYuAuwsG5szbQguLbT6VK6dTs9woG7HVkr5xBbdV0PTTrrI-Z49wySWLYLxoEW_7mz2x93QLkoEQSIArBC3sxpJFdgGRX3psZTE32oh_2RjaYhkI0GMN7MPbHJtkUYkuzMtOBrxe_mTdqRvEwGDB9zNgTFx0lb-KsS-hhQAe2D7ZO4RVwfUshzDQVb59WTqfvFLH1UMmW1Rx-k9G8jreDLScP3KyjWSeOJpbEQY1HZx7cR_v8lfoRsQomZnFC0OCqTzjcijS"/>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400">1.2km away • Active 5m ago</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-xl text-sm font-semibold">Visit Store</button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700/50">
+<div class="relative h-48">
+<img alt="Tailoring service" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXxEd-Bep7HBMDxmyXC6JoDhmYbXCWsPFVhivhUZvOeqoCOJswbFIGOOEglO7pSNCgMrR0NDTaxPVer1tT77rSVdpDeZ-zjm7xMbQ7cI4-pnnxVxoBjU_iHANUsxe1n6P1_moDx3XHnnv_SJmhcAv7LJS1nz9L_fyjI9cwTNx0oHvQmjiouX6tTulwYEOIDxhI0_8mRXd-sosOKSoeqgLNr5V4wFVhdqlNmweX_7QgBHwGwDKAug2T1VRv5YpW7sJclvsd2a_Ne1MQ"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-primary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Pro</span>
+</div>
+<div class="absolute bottom-3 left-3">
+<div class="bg-black/40 backdrop-blur-md text-white p-1 rounded-full">
+<span class="material-icons-round text-lg">favorite_border</span>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg dark:text-white">Elite Stitches Asaba</h3>
+<p class="text-secondary text-sm flex items-center gap-1">
+<span class="material-icons-round text-sm">location_on</span> Nnebisi Road, Asaba
+                            </p>
+</div>
+<div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-lg">
+<span class="material-icons-round text-gold text-sm">star</span>
+<span class="text-sm font-bold">4.7</span>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-700">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img alt="Vendor profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8CA4E2XyJ7kjCF3wRK4PW94VuckQrTZjRNSzQ-LIGe9sbgBsg6cRpOpcDsOWDVOzoela8RNUv8oFOh-RdRHidbzn5AYGLfSSTUPfI4f5OAjjwukuctV1BLUSQM_vFZMMKJ2MrR93GeFCOvG2K0fI5vuWt6PuqgNswAK1ODs0F1dBpPxUdBamePmElQ8U8iLPxVLkwnq9krWlZQDmadlrquUeg4tLLSIAiGTnCzxEFr5UkMYv93E3KntYi5Itx3LB7cysJiNN38RHS"/>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400">0.8km away • Active now</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-xl text-sm font-semibold">Message</button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700/50">
+<div class="relative h-48">
+<img alt="Produce market" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRJKGtQHm62i2mhFjRieW-LKNa826djjYWlcviznzspEuhYEuoMZrvO5taxCdG8aODyJcvkgtE4Dv9beLQ-FYzgccC48yhgKM9xneg18axSS3hFHxhXo2xi0LO690M0YnvFtaNLjapmGS2SB3EwMci3pWio0YEqtSzi4RtAWk4SOl4X_4VfrnI9aF2evISxGSj0x-n9cXU5zylYi8gBSBjepQJ5Mwv9SNikB3a9xJbe3c5DnQ7_GFZAV-yf8JVpAr0ejbxF-1mwCnP"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-gold text-slate-900 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
+<span class="material-icons-round text-[12px]">verified</span> Trusted Stall
+                        </span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg dark:text-white">Mama B Fresh Veggies</h3>
+<p class="text-secondary text-sm flex items-center gap-1">
+<span class="material-icons-round text-sm">location_on</span> Cable Point, Asaba
+                            </p>
+</div>
+<div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-lg">
+<span class="material-icons-round text-gold text-sm">star</span>
+<span class="text-sm font-bold">4.5</span>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-700">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img alt="Vendor profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwuV78lF9bKwkm-iA4AKHACC3VNm3g_Kwkdg2CcOGyPk0EaEip-94vWt1tbW0y5tdLPJ7M2QGHNqNotwo7lta83ZZc5F97-ELx90FXEBdk646Kij_o9axJd1RHC9i6reSNRf7_zkzHjUE2f7dLReQfzLclr1VWtDWatTI-NIwEkIBVxYOPB8zO6wA2aAgo42i7FDHeD-cDhxVpX6lVbtPB6-HtwAGDPdmPX0Q3wvzTfW9kjuQpjqDz4t4ckqyjiqGo6LBUZv6Nr-21"/>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400">2.5km away • Open now</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-xl text-sm font-semibold">Order Now</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 w-full bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 px-8 py-3 pb-8 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons-round">explore</span>
+<span class="text-[10px] font-bold">Discover</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 relative">
+<span class="material-icons-round">local_mall</span>
+<span class="text-[10px] font-medium">Bookings</span>
+<span class="absolute -top-1 -right-1 bg-red-500 text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center border-2 border-white dark:border-slate-900">2</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">person_outline</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</nav>
+
+</body></html>

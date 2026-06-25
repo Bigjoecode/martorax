@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Discovery Search</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 feel
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 pt-6 pb-2">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-2xl">location_on</span>
+<span class="text-sm font-semibold">Asaba, Nigeria</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</div>
+</div>
+<h1 class="text-2xl font-bold leading-tight mb-2">Find a Service</h1>
+</header>
+<!-- Search Bar -->
+<div class="px-4 py-2 sticky top-[104px] z-40 bg-background-light dark:bg-background-dark">
+<label class="flex flex-col w-full">
+<div class="flex w-full h-14 items-stretch rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus-within:border-primary transition-colors">
+<div class="text-slate-400 flex items-center justify-center pl-5">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full border-none bg-transparent focus:ring-0 text-base font-medium placeholder:text-slate-500 px-3" placeholder="Find a plumber, tailor, welder..." value=""/>
+<div class="flex items-center pr-4">
+<span class="material-symbols-outlined text-slate-400">tune</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Category Chips -->
+<div class="flex gap-3 px-4 py-4 overflow-x-auto no-scrollbar">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-background-dark text-sm">home_repair_service</span>
+<p class="text-background-dark text-sm font-bold">Plumbing</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-5 border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-sm">checkroom</span>
+<p class="text-sm font-medium">Fashion</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-5 border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-sm">face_3</span>
+<p class="text-sm font-medium">Beauty</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-5 border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-sm">build</span>
+<p class="text-sm font-medium">Repairs</p>
+</div>
+</div>
+<!-- Section Header -->
+<div class="flex items-center justify-between px-4 mt-2 mb-2">
+<h3 class="text-lg font-bold tracking-tight">Nearby Pros in Asaba</h3>
+<span class="text-primary text-sm font-semibold">See all</span>
+</div>
+<!-- Main Results Container -->
+<main class="flex-1 px-4 pb-24 space-y-4">
+<!-- Card 1 -->
+<div class="flex flex-col gap-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 p-4 border border-slate-200 dark:border-slate-700/50">
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-1 flex-col gap-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] fill-1">verified</span> Verified Pro
+                        </span>
+</div>
+<p class="text-xl font-bold leading-tight">Chidi's Repairs</p>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-sm">near_me</span>
+<span>2.4 km away • Plumbing &amp; Pipes</span>
+</div>
+<p class="text-primary text-base font-bold mt-1">Starting from ₦5,000</p>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Professional plumber working with tools" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtEclWKQt98Go28Or9JdzYtQ-4DzyDdFJZkxtUmhPu7crRFgHgx1yNPLrIEbMEtxkt6pa2xj7zgQBPNQR2Xhoo-pFwmRpTlkI7VCE5BsVw1WVrNSD0t2k8czHIOn1PC8CFVq0gg7qtdRbtPU6v-vmVIN80JYv_v8JzmZzBOkdqMITEPogoVsD01sYjZnD_bRfPed0uW8kiCGZY6hXJsoxPPuHdk1PIg8jaglAhmLyKPq3-p9OiolWljCWVGsHX5lgawP1lE1qEGpSB");'>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 h-11 flex items-center justify-center gap-2 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-bold text-sm">
+<span class="material-symbols-outlined text-lg">chat_bubble</span> Chat
+                </button>
+<button class="flex-[2] h-11 flex items-center justify-center gap-2 rounded-full bg-primary text-background-dark font-bold text-sm">
+<span class="material-symbols-outlined text-lg">calendar_today</span> Book Now
+                </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col gap-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 p-4 border border-slate-200 dark:border-slate-700/50">
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-1 flex-col gap-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] fill-1">verified</span> Verified Pro
+                        </span>
+</div>
+<p class="text-xl font-bold leading-tight">Sarah's Stitches</p>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-sm">near_me</span>
+<span>0.8 km away • Bespoke Tailoring</span>
+</div>
+<p class="text-primary text-base font-bold mt-1">Starting from ₦12,000</p>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Fashion designer measuring fabric" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQyhn8V7LQ5O5YZ5Cu5mRBinFCoEa9MM3reAupgannPHWJ-pAVC9fT3AxFEr9bqjgLTieYrAxlrHV5vPTjBKxsDCyBcproHgMNipJ3u2YTvkyyfBu0z7rG9lYb1ud0dc9T5OSnoZDxQF6fm813WDWOmg0sNf-mWZM3W0C_5uFBfUzpPUK5RhqCgPTDfgkLIGLSl7eiEST7N5hQmFHcD5u6Ju9hTUfQa7_p0wSkTjRWn28jbPi3qXcWcEux6-BsHZPBrhW-G_DGxgKu");'>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 h-11 flex items-center justify-center gap-2 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-bold text-sm">
+<span class="material-symbols-outlined text-lg">chat_bubble</span> Chat
+                </button>
+<button class="flex-[2] h-11 flex items-center justify-center gap-2 rounded-full bg-primary text-background-dark font-bold text-sm">
+<span class="material-symbols-outlined text-lg">calendar_today</span> Book Now
+                </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col gap-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 p-4 border border-slate-200 dark:border-slate-700/50">
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-1 flex-col gap-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] fill-1">verified</span> Verified Pro
+                        </span>
+</div>
+<p class="text-xl font-bold leading-tight">Ifeanyi's Weld</p>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-sm">near_me</span>
+<span>5.1 km away • Metal Fabrications</span>
+</div>
+<p class="text-primary text-base font-bold mt-1">Starting from ₦8,500</p>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Welder working on metal frame" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGsRs9f9iltXXwWeEPGaBXUo1O5JtXiWlZugWa-vBXMCzC-b2jWW9dTP5sSRGKKTbtpd2C_z3qa8uMaWCnkuDdZCtleS1G9k56392u_X0Jakrx0leJouJ-981j5Q-j22BTtsuFoH5uDWg1Myp7YsHeP-IJnbUz5EpA0yjElnymFUJHnXXjg7v5rgAbnqFaXfp89n6ZB77bB3krGo30VKBx1FF69BRZJzr-KS8W95JFF6BncI02Nen146wuSulps3QoeR6emMqwXgEg");'>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 h-11 flex items-center justify-center gap-2 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-bold text-sm">
+<span class="material-symbols-outlined text-lg">chat_bubble</span> Chat
+                </button>
+<button class="flex-[2] h-11 flex items-center justify-center gap-2 rounded-full bg-primary text-background-dark font-bold text-sm">
+<span class="material-symbols-outlined text-lg">calendar_today</span> Book Now
+                </button>
+</div>
+</div>
+</main>
+<!-- Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-6 pb-8 pt-3 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">search</span>
+<span class="text-[10px] font-bold">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">event_note</span>
+<span class="text-[10px] font-medium">Bookings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</nav>
+<!-- Floating Map Button (Bonus for Search discovery) -->
+<div class="fixed bottom-24 right-4 z-40">
+<button class="w-14 h-14 rounded-full bg-primary shadow-2xl shadow-primary/40 flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined">map</span>
+</button>
+</div>
+</body></html>

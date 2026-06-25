@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Link Bank Account - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#08f7ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 feel as requested
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Manrope", sans-serif;
+    -webkit-tap-highlight-color: transparent
+    }
+.form-input:focus {
+    border-color: #08f7ab !important;
+    box-shadow: 0 0 0 1px #08f7ab !important
+    }
+select {
+    appearance: none;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBEy7GfPewmg3XUGZjpKejsZ5WG6fhAbkh3vD1WyTOeVYEbSPvT2G_5tWXv7XmC6juP-7oBCNMHkq6mCzjv_81HrnpyXMwvXERuPLUjCCEN2sv3bHdsHucTlPJH2qSeCSQv8eGmY95Ceuli0tn3piZRP7_jD_zspMnUXEHqNjEzefDLT9a9Ot6pLPjhKpBmJzEknswaKEPxHyfXnBm2alCjn21RVfZwiiqDx6TB6lXcNmoR8Grx8vdCpPkAXXNT9mbW4EHWnhkSUMFs);
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between px-4 py-4 max-w-md mx-auto w-full">
+<button class="w-10 h-10 flex items-center justify-start text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight">Link Bank Account</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</div>
+</header>
+<main class="flex-1 overflow-y-auto w-full max-w-md mx-auto pb-32">
+<!-- Introductory Text -->
+<div class="px-4 py-6">
+<p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                Connect your local Nigerian bank account to receive vendor payouts securely and automatically.
+            </p>
+</div>
+<!-- Form Section -->
+<div class="px-4 space-y-6">
+<!-- Select Bank -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">Select Bank</label>
+<select class="form-input block w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 h-14 px-4 text-base focus:ring-primary focus:border-primary transition-all">
+<option disabled="" selected="" value="">Choose a Nigerian bank</option>
+<option value="gtb">Guaranty Trust Bank (GTB)</option>
+<option value="zenith">Zenith Bank</option>
+<option value="access">Access Bank</option>
+<option value="kuda">Kuda Bank</option>
+<option value="first">First Bank of Nigeria</option>
+<option value="uab">United Bank for Africa (UBA)</option>
+</select>
+</div>
+<!-- Account Number -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">Account Number</label>
+<div class="relative">
+<input class="form-input block w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 h-14 px-4 text-base focus:ring-primary focus:border-primary transition-all" inputmode="numeric" pattern="[0-9]*" placeholder="e.g. 0123456789" type="number"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2">
+<!-- Placeholder for loading spinner if verifying -->
+<span class="material-symbols-outlined text-primary text-sm animate-pulse hidden">sync</span>
+</div>
+</div>
+</div>
+<!-- Account Name (Verified State) -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">Account Name</label>
+<span class="text-[10px] uppercase tracking-wider font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> Verified
+                    </span>
+</div>
+<input class="form-input block w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 h-14 px-4 text-base text-slate-500 dark:text-slate-400 font-medium cursor-not-allowed border-dashed" disabled="" type="text" value="OLAWALE ADEBAYO CHUKWUMA"/>
+</div>
+<!-- Microcopy -->
+<div class="flex gap-3 bg-primary/10 p-4 rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-primary">info</span>
+<p class="text-xs text-slate-600 dark:text-slate-300 leading-tight">
+                    Ensure account name matches your registered MartoraX name for fast, hassle-free payouts.
+                </p>
+</div>
+<!-- Set as Primary Toggle -->
+<div class="flex items-center justify-between py-2 px-1">
+<div class="flex flex-col">
+<span class="text-base font-medium">Set as Primary</span>
+<span class="text-xs text-slate-500">Use this for all future payouts</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</main>
+<!-- Fixed Footer -->
+<footer class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 p-4 pb-8">
+<div class="max-w-md mx-auto w-full">
+<button class="w-full bg-primary hover:bg-primary/90 text-slate-900 font-bold py-4 rounded-xl transition-colors shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">link</span>
+                Link Account
+            </button>
+<!-- Safety Tagline -->
+<p class="text-center text-[10px] text-slate-500 mt-3 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[12px]">lock</span> 
+                Secure bank-grade 256-bit encryption
+            </p>
+</div>
+</footer>
+</body></html>

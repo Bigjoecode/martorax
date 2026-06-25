@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX Market Hubs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09aa77", // Emerald 600 style
+                        "accent": "#f59e0b", // Amber 500
+                        "background-light": "#f8fafc", // Slate 50
+                        "background-dark": "#0f172a", // Slate 900
+                        "surface-dark": "#1e293b", // Slate 800
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Public Sans", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-tab-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen pb-24">
+<!-- Top Navigation Bar -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-tab-blur border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center px-4 py-3 justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary" data-icon="hub" data-size="28px">
+<span class="material-symbols-outlined text-[28px]">hub</span>
+</div>
+<div>
+<h1 class="text-xl font-bold leading-none">MartoraX</h1>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mt-0.5">Market Hubs</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-surface-dark transition-colors">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="px-4 py-4">
+<label class="flex flex-col w-full">
+<div class="flex w-full items-stretch rounded-xl h-12 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 shadow-sm">
+<div class="text-slate-400 flex items-center justify-center pl-4">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full border-none bg-transparent focus:ring-0 text-base font-normal placeholder:text-slate-500 px-3" placeholder="Search markets or commodities" value=""/>
+<div class="flex items-center pr-3">
+<span class="material-symbols-outlined text-slate-400 text-[20px]">tune</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Market Hubs Section -->
+<div class="px-4 flex justify-between items-end mb-4">
+<h2 class="text-[22px] font-bold tracking-tight">Major Markets</h2>
+<a class="text-primary text-sm font-semibold" href="#">See All</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 mb-8">
+<!-- Market Card 1 -->
+<div class="relative overflow-hidden rounded-xl aspect-[16/9] bg-cover bg-center group" data-alt="Busy African outdoor market scene with colorful stalls" style='background-image: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.2) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbKmHm75LwKnyDYLjQRQCxPWrNj4H0iGu5rhsJXnC_ICApTAbRSn3MIi2wJPLjkPWVVt4TdZv7XEdncYPbfWH81LdlMzvaKXPo5mRzzS3rUiVokkx4lkBZ1WpdVrxve_F5NzgwVZsa5-7T6nU4FaStn25h6ONQw_TrszHlXMflKUOhYqy-s2h9iCFIV3QvjRHtHz9QLHI6n0jAQ-VwGuNigmiPIpLh5jIxihNAldC-QVS2ieghyP70A5pdLGs5AtSW3HnPBlkRRzTr");'>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 px-2 py-1 bg-red-600 rounded-lg text-[10px] font-bold text-white uppercase tracking-wider">
+<span class="size-1.5 bg-white rounded-full animate-pulse"></span>
+                12 Live
+            </div>
+<div class="absolute bottom-4 left-4 right-4">
+<h3 class="text-white text-lg font-bold">Ogbogonogo Market</h3>
+<p class="text-slate-300 text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                    Asaba, Delta State
+                </p>
+</div>
+</div>
+<!-- Market Card 2 -->
+<div class="relative overflow-hidden rounded-xl aspect-[16/9] bg-cover bg-center group" data-alt="Market vendor selling fresh vegetables and fruits" style='background-image: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.2) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBcBIVrgJtUCAJwnXAj5njQf5pfXfe8TnzAOKfxiIM5QG6gcse5BOM8oept7KvbMad22Xkbl0Pe8kzQsSHPGHDPAvfcKNvsGjWBAFyWGZ6o9oI5kzF0JLbAEi8WRoxlQGKeaauOZtQhS59LTAn6987cZLoT7aIm5v7umkEgWpCZON_DjDjDSTNe7suKSBO4Rzd9quyYuJwj47SxtySN-mURuHVdtiY-9BK-AYGm_2jMlQG56HqH3QAAVqWmU453HlmdREsIdSgr9rc9");'>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 px-2 py-1 bg-red-600 rounded-lg text-[10px] font-bold text-white uppercase tracking-wider">
+<span class="size-1.5 bg-white rounded-full animate-pulse"></span>
+                8 Live
+            </div>
+<div class="absolute bottom-4 left-4 right-4">
+<h3 class="text-white text-lg font-bold">Main Market</h3>
+<p class="text-slate-300 text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                    Onitsha, Anambra
+                </p>
+</div>
+</div>
+</div>
+<!-- Daily Price Board Section -->
+<div class="px-4 mb-4">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-[22px] font-bold tracking-tight">Daily Price Board</h2>
+<div class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-md uppercase">Updated 2m ago</div>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<!-- Table Header -->
+<div class="grid grid-cols-12 gap-2 px-4 py-3 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+<div class="col-span-5">Commodity</div>
+<div class="col-span-4 text-right">Price (₦)</div>
+<div class="col-span-3 text-right">Trend</div>
+</div>
+<!-- Price Row 1 -->
+<div class="grid grid-cols-12 gap-2 px-4 py-4 border-b border-slate-100 dark:border-slate-800 items-center">
+<div class="col-span-5 flex items-center gap-3">
+<div class="size-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600">
+<span class="material-symbols-outlined">grass</span>
+</div>
+<div>
+<p class="font-bold text-sm">Rice (50kg)</p>
+<p class="text-[10px] text-slate-500">Local Long Grain</p>
+</div>
+</div>
+<div class="col-span-4 text-right">
+<p class="font-bold">₦55,000</p>
+</div>
+<div class="col-span-3 text-right">
+<div class="inline-flex items-center gap-1 text-accent font-bold text-xs bg-accent/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                        2.5%
+                    </div>
+</div>
+</div>
+<!-- Price Row 2 -->
+<div class="grid grid-cols-12 gap-2 px-4 py-4 border-b border-slate-100 dark:border-slate-800 items-center">
+<div class="col-span-5 flex items-center gap-3">
+<div class="size-10 rounded-lg bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center text-yellow-600">
+<span class="material-symbols-outlined">bakery_dining</span>
+</div>
+<div>
+<p class="font-bold text-sm">Garri (Paint)</p>
+<p class="text-[10px] text-slate-500">White Fine</p>
+</div>
+</div>
+<div class="col-span-4 text-right">
+<p class="font-bold">₦2,800</p>
+</div>
+<div class="col-span-3 text-right">
+<div class="inline-flex items-center gap-1 text-primary font-bold text-xs bg-primary/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_down</span>
+                        1.2%
+                    </div>
+</div>
+</div>
+<!-- Price Row 3 -->
+<div class="grid grid-cols-12 gap-2 px-4 py-4 items-center">
+<div class="col-span-5 flex items-center gap-3">
+<div class="size-10 rounded-lg bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-red-600">
+<span class="material-symbols-outlined">nutrition</span>
+</div>
+<div>
+<p class="font-bold text-sm">Tomatoes</p>
+<p class="text-[10px] text-slate-500">Large Basket</p>
+</div>
+</div>
+<div class="col-span-4 text-right">
+<p class="font-bold">₦42,000</p>
+</div>
+<div class="col-span-3 text-right">
+<div class="inline-flex items-center gap-1 text-accent font-bold text-xs bg-accent/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                        5.8%
+                    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Highlight -->
+<div class="px-4 mb-8">
+<div class="bg-primary rounded-2xl p-4 text-white flex items-center justify-between shadow-lg shadow-primary/20">
+<div>
+<p class="text-white/80 text-xs font-medium uppercase tracking-wider mb-1">Market Activity</p>
+<p class="text-2xl font-bold">2.4k Trades</p>
+</div>
+<div class="h-10 w-24 bg-white/20 rounded-lg flex items-center justify-center overflow-hidden">
+<!-- Sparkline Placeholder -->
+<svg class="w-full h-full stroke-white fill-none stroke-2" viewbox="0 0 100 40">
+<path d="M0 30 Q 20 10 40 25 T 80 5 T 100 20"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-background-dark/90 ios-tab-blur border-t border-slate-200 dark:border-slate-800 px-6 pt-3 pb-8 z-50">
+<div class="max-w-lg mx-auto flex justify-between items-center">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">calendar_today</span>
+<span class="text-[10px] font-medium">Bookings</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+<!-- iOS Home Indicator -->
+<div class="w-32 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto mt-4"></div>
+</nav>
+</body></html>

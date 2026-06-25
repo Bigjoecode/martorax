@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rider Payout Receipt</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#059467",
+              "background-light": "#f5f8f7",
+              "background-dark": "#0f172a", // Slate 900
+              "card-dark": "#334155",       // Slate 700
+            },
+            fontFamily: {
+              "display": ["Public Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        font-family: "Public Sans", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display">
+<!-- TopAppBar -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Payout Receipt</h2>
+</header>
+<main class="flex-1 flex flex-col items-center px-4 pt-4 pb-12 max-w-md mx-auto w-full">
+<!-- Status Icon and Header -->
+<div class="flex flex-col items-center mb-6">
+<div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">check_circle</span>
+</div>
+<!-- SectionHeader -->
+<h4 class="text-primary text-sm font-bold leading-normal tracking-[0.015em] text-center uppercase">Transfer Successful</h4>
+</div>
+<!-- Receipt Card -->
+<div class="w-full bg-white dark:bg-card-dark rounded-xl shadow-lg overflow-hidden border border-slate-200 dark:border-slate-600">
+<!-- HeadlineText -->
+<div class="pt-8 pb-2 text-center">
+<h1 class="text-slate-900 dark:text-white tracking-light text-[36px] font-extrabold leading-tight">₦45,000.00</h1>
+<!-- MetaText -->
+<p class="text-slate-500 dark:text-slate-300 text-sm font-medium leading-normal pt-1">Completed</p>
+</div>
+<div class="px-6 py-4">
+<div class="border-t border-dashed border-slate-300 dark:border-slate-500 my-4"></div>
+<!-- DescriptionList -->
+<div class="space-y-5 py-2">
+<div class="flex justify-between items-start gap-x-6">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Transfer ID</p>
+<p class="text-slate-900 dark:text-white text-sm font-semibold leading-normal text-right">MTX-987654321</p>
+</div>
+<div class="flex justify-between items-start gap-x-6">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">From</p>
+<div class="text-right">
+<p class="text-slate-900 dark:text-white text-sm font-semibold leading-normal">MartoraX Wallet</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Personal Account</p>
+</div>
+</div>
+<div class="flex justify-between items-start gap-x-6">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">To</p>
+<div class="text-right">
+<p class="text-slate-900 dark:text-white text-sm font-semibold leading-normal">Zenith Bank</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-1">**** 1234</p>
+</div>
+</div>
+<div class="flex justify-between items-start gap-x-6">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Date &amp; Time</p>
+<p class="text-slate-900 dark:text-white text-sm font-semibold leading-normal text-right">Oct 24, 2023, 14:30</p>
+</div>
+</div>
+<div class="border-t border-dashed border-slate-300 dark:border-slate-500 mt-6 mb-2"></div>
+<div class="flex items-center justify-center gap-2 py-4">
+<span class="material-symbols-outlined text-slate-400 text-sm">security</span>
+<p class="text-slate-400 text-[10px] uppercase tracking-widest font-bold">Secured by MartoraX</p>
+</div>
+</div>
+</div>
+<!-- Primary Actions -->
+<div class="w-full mt-8 flex flex-col gap-3">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined">download</span>
+                Download PDF
+            </button>
+<button class="w-full bg-transparent border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white font-semibold py-4 rounded-xl transition-colors">
+                Back to Earnings
+            </button>
+</div>
+<!-- Support Text -->
+<p class="mt-8 text-slate-500 dark:text-slate-400 text-xs text-center px-6 leading-relaxed">
+            If you have any issues with this transfer, please contact our support team with the Transfer ID provided above.
+        </p>
+</main>
+<!-- Navigation Bar Placeholder (iOS Style) -->
+<div class="h-8 w-full bg-background-light dark:bg-background-dark"></div>
+</body></html>

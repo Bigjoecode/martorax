@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vendor Market Insights - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#10b77f", // Emerald 600 style
+                        "accent-amber": "#f59e0b", // Amber 500
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#0f172a", // Slate 900
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen pb-24">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Market Insights</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-xl">calendar_today</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto px-4">
+<!-- Summary Stats -->
+<div class="grid grid-cols-2 gap-4 py-6">
+<div class="bg-white dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Market Rank</p>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-2xl font-bold">#12</span>
+<span class="text-xs text-primary font-medium">Top 5%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Demand Score</p>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-2xl font-bold text-accent-amber">88</span>
+<span class="text-xs text-slate-400">/ 100</span>
+</div>
+</div>
+</div>
+<!-- Market Comparison Chart Section -->
+<section class="mb-8">
+<div class="flex flex-col gap-2">
+<h3 class="text-lg font-bold leading-tight tracking-tight">Market Comparison</h3>
+<div class="bg-white dark:bg-slate-800/50 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Price Index vs. Ogbogonogo Avg</p>
+<p class="text-[32px] font-bold leading-tight mt-1 tracking-tighter">₦2,450 <span class="text-sm font-normal text-slate-400">/avg unit</span></p>
+<div class="flex gap-2 items-center mt-1">
+<span class="flex items-center text-xs px-2 py-0.5 rounded-full bg-red-500/10 text-red-500 font-medium italic">
+<span class="material-symbols-outlined text-xs mr-1">trending_down</span>
+                            5% Lower
+                        </span>
+<p class="text-slate-400 text-xs font-normal">than market average</p>
+</div>
+<!-- SVG Chart -->
+<div class="mt-6 h-40 relative">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 150">
+<!-- Background Average Line (Dashed) -->
+<path d="M0 75 L400 75" stroke="#475569" stroke-dasharray="4 4" stroke-width="1"></path>
+<!-- Vendor Trend Line -->
+<path d="M0 120 C 50 110, 80 40, 120 60 S 180 130, 240 100 S 320 20, 400 50" fill="none" stroke="#10b77f" stroke-linecap="round" stroke-width="3"></path>
+<!-- Fill Area -->
+<path d="M0 120 C 50 110, 80 40, 120 60 S 180 130, 240 100 S 320 20, 400 50 L 400 150 L 0 150 Z" fill="url(#chartGradient)" opacity="0.2"></path>
+<defs>
+<lineargradient id="chartGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#10b77f"></stop>
+<stop offset="100%" stop-color="#10b77f" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="flex justify-between mt-2 px-1">
+<span class="text-[10px] font-bold text-slate-500 uppercase">Mon</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">Wed</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">Fri</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">Today</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Growth Tips Carousel -->
+<section class="mb-8 -mx-4">
+<div class="flex items-center justify-between px-4 mb-4">
+<h3 class="text-lg font-bold leading-tight tracking-tight flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-amber fill-1">lightbulb</span>
+                    AI Growth Tips
+                </h3>
+<button class="text-primary text-sm font-semibold">View All</button>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar px-4 gap-4 pb-2">
+<!-- Tip 1 -->
+<div class="min-w-[280px] bg-slate-800 border-l-4 border-accent-amber rounded-xl p-4 flex flex-col gap-3 shadow-lg">
+<div class="flex justify-between items-start">
+<div class="h-10 w-10 rounded-lg bg-accent-amber/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-accent-amber">inventory_2</span>
+</div>
+<span class="text-[10px] font-bold bg-white/10 px-2 py-1 rounded uppercase tracking-wider">High Impact</span>
+</div>
+<div>
+<p class="text-white text-base font-bold leading-snug">Restock Fresh Tomatoes</p>
+<p class="text-slate-300 text-sm mt-1">You could sell <span class="text-accent-amber font-bold">20% more</span> if you restock by Friday.</p>
+</div>
+<button class="w-full py-2 bg-accent-amber text-slate-900 font-bold rounded-lg text-sm mt-2">Update Stock</button>
+</div>
+<!-- Tip 2 -->
+<div class="min-w-[280px] bg-slate-800 border-l-4 border-primary rounded-xl p-4 flex flex-col gap-3 shadow-lg">
+<div class="flex justify-between items-start">
+<div class="h-10 w-10 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">sell</span>
+</div>
+<span class="text-[10px] font-bold bg-white/10 px-2 py-1 rounded uppercase tracking-wider">Bundle Tip</span>
+</div>
+<div>
+<p class="text-white text-base font-bold leading-snug">Bundle Strategy</p>
+<p class="text-slate-300 text-sm mt-1">Pair <span class="font-semibold text-white">Peppers with Onions</span> for a predicted 10% lift.</p>
+</div>
+<button class="w-full py-2 bg-primary text-white font-bold rounded-lg text-sm mt-2">Create Offer</button>
+</div>
+</div>
+</section>
+<!-- Customer Reach Section -->
+<section class="mb-8">
+<h3 class="text-lg font-bold leading-tight tracking-tight mb-4">Customer Reach</h3>
+<div class="bg-white dark:bg-slate-800/50 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="space-y-6">
+<!-- Reach Item 1 -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<div>
+<p class="text-sm font-semibold">Live Deals Views</p>
+<p class="text-xs text-slate-400">Traffic from your active flash sales</p>
+</div>
+<span class="text-lg font-bold">1,240</span>
+</div>
+<div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[75%]"></div>
+</div>
+</div>
+<!-- Reach Item 2 -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<div>
+<p class="text-sm font-semibold">Search Results</p>
+<p class="text-xs text-slate-400">Traffic from organic keyword searches</p>
+</div>
+<span class="text-lg font-bold text-slate-400">412</span>
+</div>
+<div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-slate-400 dark:bg-slate-500 rounded-full w-[25%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-4">
+<div class="flex-1 bg-primary/10 p-3 rounded-lg text-center">
+<p class="text-[10px] font-bold text-primary uppercase">Conversion Rate</p>
+<p class="text-xl font-bold">4.2%</p>
+</div>
+<div class="flex-1 bg-accent-amber/10 p-3 rounded-lg text-center">
+<p class="text-[10px] font-bold text-accent-amber uppercase">Bounce Rate</p>
+<p class="text-xl font-bold">12%</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 px-6 pt-3 pb-8 z-50">
+<div class="max-w-md mx-auto flex justify-between items-center">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">monitoring</span>
+<span class="text-[10px] font-medium">Insights</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">inventory</span>
+<span class="text-[10px] font-medium">Inventory</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-medium">Orders</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</nav>
+</body></html>

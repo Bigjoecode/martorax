@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Product Discovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#069366",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 equivalent as requested
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-white">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 pt-4 pb-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight">MartoraX</h1>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-200 dark:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="User profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuApOx3-pSzWH_atqJ2VfhDODZeHny3vq6Pb7DwC6tFpoR6_BIlDsMEJZR56J6eYdtTF767A3R7XxHBUD-G0jW6vt2BDharV8R-QCiriFRuZsMSbC03ilOhZ35Ew5PJV8EWnqNFS1IZW7ebxLCIVJuEuqMPcoErCA3fmP1cq7PnPcDuQooXNlGetBbeHL_-EEGx1BysDOhSk68qJAmZnJjf8GtxbfGU9pKUc9OYy9EqIj0jrYy2xPcb5LQs8fmYV_hzraQMiMogMaKLH')"></div>
+</button>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="mt-4">
+<div class="relative flex items-center w-full">
+<div class="absolute left-4 text-slate-400">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="w-full h-12 pl-12 pr-12 rounded-xl border-none bg-slate-100 dark:bg-slate-800 focus:ring-2 focus:ring-primary text-base" placeholder="Search products in Asaba markets..." type="text"/>
+<button class="absolute right-2 w-8 h-8 flex items-center justify-center rounded-full bg-primary text-white">
+<span class="material-symbols-outlined text-xl">mic</span>
+</button>
+</div>
+</div>
+<!-- Chips -->
+<div class="flex gap-3 mt-4 overflow-x-auto no-scrollbar pb-2">
+<button class="flex h-10 shrink-0 items-center justify-center px-5 rounded-full bg-primary text-white text-sm font-semibold">
+                All
+            </button>
+<button class="flex h-10 shrink-0 items-center justify-center px-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium">
+                Food &amp; Groceries
+            </button>
+<button class="flex h-10 shrink-0 items-center justify-center px-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium">
+                Fashion
+            </button>
+<button class="flex h-10 shrink-0 items-center justify-center px-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium">
+                Electronics
+            </button>
+<button class="flex h-10 shrink-0 items-center justify-center px-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium">
+                Market Specials
+            </button>
+</div>
+</header>
+<!-- Main Feed -->
+<main class="px-4 py-2 mb-24">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-lg font-bold">Recommended for You</h2>
+<button class="text-primary text-sm font-semibold">View All</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Product Tile 1 (Live) -->
+<div class="flex flex-col group">
+<div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-3">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Fresh organic tomatoes in a basket" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBRy8-Qrw49MWETVuZ4ZEskiJuskJ1CxecwZn2zrqL0llTXz24p5aqG4XBnWv2fydc3RS6hLat3BVw4jToKi8LslD41aUpsjPr1llrhzZvLket9uYW7e7DmnUZX4OwW1ghQIRX2UX6sx9WlEDEKJs_nGo0RFmc6wBIMSD7zWCoBywYn-ctiokKlbwX2JLgOngvhhcnG0vJOlK-dDHsn_dgUmSPjNblDZU9d3ooCQ6djUNG1WpYnAWrUToRi92rvoeUGb5ZajZbpnLa0')"></div>
+<!-- Badges -->
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="flex items-center gap-1 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+<span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span> Live
+                        </span>
+<span class="flex items-center gap-1 bg-amber-400 text-slate-900 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+<span class="material-symbols-outlined text-[12px] fill-1">verified</span> Trusted
+                        </span>
+</div>
+<button class="absolute bottom-2 right-2 w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div>
+<h3 class="font-semibold text-slate-800 dark:text-slate-100 line-clamp-1">Fresh Plum Tomatoes</h3>
+<p class="text-primary font-bold text-lg leading-tight">₦4,500 <span class="text-[10px] text-slate-500 font-normal">/ Basket</span></p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm text-slate-400">location_on</span>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Ogbogonogo Market</p>
+</div>
+</div>
+</div>
+<!-- Product Tile 2 -->
+<div class="flex flex-col group">
+<div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-3">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Elegant designer Ankara fabric" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4930EEmiZ9oBKEfBvDnjNEkPRnQXOqrZ7VLfpk8vPx6-6xI52UEZGTVN8i7TV7bZQTBDTwVBrfPpXHZwoJNAHeXBzzNJFXELf25PV10Y02oD1QGcuAyDGvCng0V5S8DRgCSdamH0xl0IWp7yeZmJ0AOUAe4mzViqT3W26ZrRujcBF11i48ZeOP-fg0X5S0AROD0HcFpWFcaFxm7woS2wny5nZBD1BsE2SRQN38DeAyv7zjkhw7HHZARHPxoHSuQPhAEuCcww1AM4v')"></div>
+<div class="absolute top-2 left-2">
+<span class="flex items-center gap-1 bg-amber-400 text-slate-900 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+<span class="material-symbols-outlined text-[12px] fill-1">verified</span> Trusted
+                        </span>
+</div>
+<button class="absolute bottom-2 right-2 w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div>
+<h3 class="font-semibold text-slate-800 dark:text-slate-100 line-clamp-1">Premium Ankara Silk</h3>
+<p class="text-primary font-bold text-lg leading-tight">₦12,000</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm text-slate-400">location_on</span>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Coker Market</p>
+</div>
+</div>
+</div>
+<!-- Product Tile 3 -->
+<div class="flex flex-col group">
+<div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-3">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Portable smart power bank" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgT_FhotolF7p9U3c1Po-FrYyqLZWJsFb7Ra77cczdzFgJKNgU7Xg-qhLsTnCO6lkCPfFPXDrB41YBxHkiyKvuXKWBTw0V3YHskT0_BDu8P0_-QnM-V14kukygJa5JYpljeRDb7T-w2prgYSQLEWcDGzR02f2QFAILE4GySuRIS6cvAdUYjVS_6RkEe-lZc8ceaCAL7e4K3RhkgZ_hfgVrNHb1brHeUU2651sj9tXyU7WmuPSXIEEelV0fq9WK8KyiCJg6qpneqlLu')"></div>
+<div class="absolute top-2 left-2">
+<span class="flex items-center gap-1 bg-amber-400 text-slate-900 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+<span class="material-symbols-outlined text-[12px] fill-1">verified</span> Trusted
+                        </span>
+</div>
+</div>
+<div>
+<h3 class="font-semibold text-slate-800 dark:text-slate-100 line-clamp-1">Fast Charge PowerBank</h3>
+<p class="text-primary font-bold text-lg leading-tight">₦8,500</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm text-slate-400">location_on</span>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Asaba Main Market</p>
+</div>
+</div>
+</div>
+<!-- Product Tile 4 (Live) -->
+<div class="flex flex-col group">
+<div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-3">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Smoked dried fish displayed on a tray" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA495YPabfOyI24hlucfhYAYcSXBCbYP-Xh10whu8Cgpfo-B2UzBAL3FHEDgqVDzRtDAUyOFZk06kpaxGj6RujmMYL0-Se0EOqhrEgRZxt6D_VWKM0vsWxASSGFMV90lb2_ZsKMOLvYNL6tkfWsUuxvQZR79-ftOCKUA8HRMrn9BIvqAdA41Q15FS3zUd1sXn1ablSGuvsvk7SFqw0JjUAWrY8W31BQbyxEHWZoSlFkerUGLh39E6ED0Dx5RtcLOLw-4xlGuX0DrK6S')"></div>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="flex items-center gap-1 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+<span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span> Live
+                        </span>
+</div>
+</div>
+<div>
+<h3 class="font-semibold text-slate-800 dark:text-slate-100 line-clamp-1">Large Smoked Catfish</h3>
+<p class="text-primary font-bold text-lg leading-tight">₦3,200</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm text-slate-400">location_on</span>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Cable Point Market</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 pb-safe-area">
+<div class="flex justify-around items-center h-20 px-4">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wide">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium uppercase tracking-wide">Search</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-medium uppercase tracking-wide">Bookings</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium uppercase tracking-wide">Profile</span>
+</a>
+</div>
+<!-- iOS Home Indicator Spacing -->
+<div class="h-6 bg-transparent"></div>
+</nav>
+</body></html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KYC Submission Success - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#05ad78",
+                        "emerald-600": "#059669",
+                        "background-dark": "#0f172a", // Slate 900
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .glow-emerald {
+            box-shadow: 0 0 40px 10px rgba(16, 185, 129, 0.15);
+        }
+    </style>
+<style>
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display text-white flex flex-col items-center justify-center p-6">
+<main class="max-w-md w-full flex flex-col items-center text-center">
+<div class="relative mb-10">
+<div class="absolute inset-0 bg-emerald-500/20 blur-3xl rounded-full scale-150"></div>
+<div class="relative flex items-center justify-center size-32 rounded-full bg-emerald-500/10 border border-emerald-500/20 glow-emerald">
+<span class="material-symbols-outlined text-emerald-500 !text-7xl">
+                    check_circle
+                </span>
+</div>
+</div>
+<div class="space-y-4 mb-12">
+<h1 class="text-3xl font-extrabold tracking-tight text-white">
+                Verification Submitted!
+            </h1>
+<p class="text-slate-400 text-lg leading-relaxed px-2">
+                Our team is reviewing your documents. You will get a <span class="text-emerald-400 font-semibold">'Verified'</span> badge once approved (usually within 24 hours).
+            </p>
+<p class="text-slate-500 text-sm">
+                In the meantime, you can explore the dashboard.
+            </p>
+</div>
+<div class="w-full space-y-4">
+<button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-xl font-bold text-lg transition-all active:scale-95 shadow-lg shadow-emerald-900/20">
+                Go to Dashboard
+            </button>
+</div>
+<div class="mt-20 opacity-30">
+<span class="text-xs font-mono uppercase tracking-[0.3em]">MartoraX</span>
+</div>
+</main>
+
+</body></html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Discovery Feed - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f231d",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col max-w-md mx-auto shadow-2xl relative">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md pt-6 pb-2 px-4 border-b border-white/5">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="text-xl font-extrabold tracking-tight">Services</h1>
+<button class="size-10 flex items-center justify-center rounded-full bg-primary/10">
+<span class="material-symbols-outlined text-primary">map</span>
+</button>
+</div>
+<!-- Segmented Buttons (List/Map Toggle) -->
+<div class="flex h-11 items-center justify-center rounded-xl bg-slate-200 dark:bg-slate-800/50 p-1 mb-2">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm transition-all text-slate-500 dark:text-slate-400 has-[:checked]:text-primary text-sm font-bold">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">format_list_bulleted</span> List</span>
+<input checked="" class="invisible w-0" name="view-toggle" type="radio" value="List"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm transition-all text-slate-500 dark:text-slate-400 has-[:checked]:text-primary text-sm font-bold">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">map</span> Map</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="Map"/>
+</label>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto pb-24">
+<!-- Search Bar -->
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-14 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-2xl h-full shadow-inner">
+<div class="text-slate-400 flex border-none bg-white dark:bg-slate-800 items-center justify-center pl-4 rounded-l-2xl" data-icon="MagnifyingGlass">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-white dark:bg-slate-800 focus:ring-0 h-full placeholder:text-slate-500 text-slate-900 dark:text-white px-3 text-base font-medium" placeholder="Find a plumber, tailor..." value=""/>
+<div class="text-primary flex border-none bg-white dark:bg-slate-800 items-center justify-center pr-4 rounded-r-2xl">
+<span class="material-symbols-outlined">mic</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Chips / Categories -->
+<div class="flex gap-3 px-4 py-2 overflow-x-auto hide-scrollbar">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 shadow-lg shadow-primary/20">
+<p class="text-white text-sm font-bold leading-normal">Electrical</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 px-5 border border-slate-100 dark:border-slate-700">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-semibold leading-normal">Beauty</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 px-5 border border-slate-100 dark:border-slate-700">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-semibold leading-normal">Plumbing</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 px-5 border border-slate-100 dark:border-slate-700">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-semibold leading-normal">Tailoring</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 px-5 border border-slate-100 dark:border-slate-700">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-semibold leading-normal">Laundry</p>
+</div>
+</div>
+<!-- Feed Header -->
+<div class="px-4 py-4 flex items-center justify-between">
+<h3 class="text-sm font-bold uppercase tracking-widest text-slate-500">Popular in Asaba</h3>
+<span class="text-primary text-xs font-bold">See All</span>
+</div>
+<!-- Service Cards -->
+<div class="space-y-4 px-4">
+<!-- Card 1 -->
+<div class="flex flex-col items-stretch justify-start rounded-3xl overflow-hidden bg-white dark:bg-slate-800 shadow-xl border border-white/5 transition-transform active:scale-[0.98]">
+<div class="relative w-full h-48 bg-center bg-no-repeat bg-cover" data-alt="professional electrician working on high voltage panel" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBeGvmW_M1Yi_LCzhjx-_isohzpKFGQ1XPFvzvhxsGN8cI7ppGxMBOCLT1m0VOpEFyVyPGxd8g8BXoi0FVzi6psTf_1_IEzKTPImJQ6cIHdWIdkCyO-yH-j4FEbwWwz45giG4tD-2OTd9m42DOgcpEgVTEuQ8EEIB7ZqFEAXWXtbpYHPsjTnV-wZWpTImQq5Na1IklccQoKvyNbayDp09w9lWxHPanap0Inq7UAsVGYjju14F5Gthn1EiawgfkPd9n3CaZxwWkiinaL");'>
+<div class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-black px-2 py-1 rounded-md flex items-center gap-1 shadow-lg">
+<span class="size-1.5 bg-white rounded-full animate-pulse"></span> LIVE
+                    </div>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md size-9 flex items-center justify-center rounded-full text-primary">
+<span class="material-symbols-outlined text-[20px] font-bold">favorite</span>
+</div>
+</div>
+<div class="flex w-full flex-col gap-2 p-4">
+<div class="flex items-center gap-2">
+<div class="bg-primary/20 text-primary px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1 uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[14px]">verified</span> Verified Pro
+                        </div>
+<span class="text-slate-400 text-xs">•</span>
+<span class="text-slate-400 text-xs flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-amber-500 fill-amber-500">star</span> 4.9 (124)
+                        </span>
+</div>
+<h4 class="text-slate-900 dark:text-white text-lg font-extrabold leading-tight">Godwin Electrical Services</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Professional Electrician • 1.2km from you</p>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 dark:border-slate-700/50">
+<div class="flex flex-col">
+<p class="text-slate-400 text-[10px] uppercase font-bold">Starting from</p>
+<p class="text-primary text-xl font-black">₦5,000</p>
+</div>
+<button class="flex items-center justify-center rounded-xl h-11 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20">
+                            Book Now
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col items-stretch justify-start rounded-3xl overflow-hidden bg-white dark:bg-slate-800 shadow-xl border border-white/5 transition-transform active:scale-[0.98]">
+<div class="relative w-full h-48 bg-center bg-no-repeat bg-cover" data-alt="professional tailor measuring fabric in workshop" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrEfYPJx9_hMjRMFZdOl_y4mjW__V2VT_T94JYbADuXQX33EKm2bG0Uz0hnkwgDsyi6bRKS5AJwZ4TYZ7Aq1ttdOMmqVtWd69Bye9BRsTpz6fOgsIAlYCc5sutRGctiyNTfLBYAhUOJBQ9MDYWsIHgc9pbwTlC8Zhi8jazH0amEv-39FtaUKW6gkfQfaZk9qwW4elH-qiaXdaSkIEea-Crht9_ZCPO1mfkjTFVseFalKY3U2FKxcTVqicBG4RUJt-MQNHDypCm6fpB");'>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md size-9 flex items-center justify-center rounded-full text-slate-300">
+<span class="material-symbols-outlined text-[20px] font-bold">favorite</span>
+</div>
+</div>
+<div class="flex w-full flex-col gap-2 p-4">
+<div class="flex items-center gap-2">
+<div class="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1 uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[14px]">workspace_premium</span> Pro
+                        </div>
+<span class="text-slate-400 text-xs">•</span>
+<span class="text-slate-400 text-xs flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-amber-500 fill-amber-500">star</span> 4.7 (89)
+                        </span>
+</div>
+<h4 class="text-slate-900 dark:text-white text-lg font-extrabold leading-tight">Precious Stitches</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Bespoke Tailoring • 0.8km from you</p>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 dark:border-slate-700/50">
+<div class="flex flex-col">
+<p class="text-slate-400 text-[10px] uppercase font-bold">Starting from</p>
+<p class="text-primary text-xl font-black">₦3,500</p>
+</div>
+<button class="flex items-center justify-center rounded-xl h-11 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20">
+                            Book Now
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col items-stretch justify-start rounded-3xl overflow-hidden bg-white dark:bg-slate-800 shadow-xl border border-white/5 transition-transform active:scale-[0.98]">
+<div class="relative w-full h-48 bg-center bg-no-repeat bg-cover" data-alt="professional plumbing equipment and tools" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuASgwKWcpj2241HBTkz-XOFTzRJdVNhMXyi7V00H3qt71GfDmFuQSRtJehGOBJ9sjOEyDNvbxD2xXhjfyihWU3uPymjUrlHxrMHDEeCbJwr1kxrSE88OSii4_k9vVLSyQDAtwiQvxxgcdJ7UffE8RCr_uiGquqmKLB4amKGyUZs9w0dMvtW5bpU5kpd6-CyviHex3CaraHPMMalMYhU-rU2_wTm8-nOvIr4zi1Mw5RixfVzhRXrtAJbmzLLQ2IjMS7vXFUssmdA36eO");'>
+<div class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-black px-2 py-1 rounded-md flex items-center gap-1 shadow-lg">
+<span class="size-1.5 bg-white rounded-full animate-pulse"></span> LIVE
+                    </div>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md size-9 flex items-center justify-center rounded-full text-slate-300">
+<span class="material-symbols-outlined text-[20px] font-bold">favorite</span>
+</div>
+</div>
+<div class="flex w-full flex-col gap-2 p-4">
+<div class="flex items-center gap-2">
+<div class="bg-primary/20 text-primary px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1 uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[14px]">verified</span> Verified Pro
+                        </div>
+<span class="text-slate-400 text-xs">•</span>
+<span class="text-slate-400 text-xs flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-amber-500 fill-amber-500">star</span> 5.0 (21)
+                        </span>
+</div>
+<h4 class="text-slate-900 dark:text-white text-lg font-extrabold leading-tight">Asaba Quick Fix Plumber</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Emergency Plumbing • 2.5km from you</p>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 dark:border-slate-700/50">
+<div class="flex flex-col">
+<p class="text-slate-400 text-[10px] uppercase font-bold">Starting from</p>
+<p class="text-primary text-xl font-black">₦7,000</p>
+</div>
+<button class="flex items-center justify-center rounded-xl h-11 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20">
+                            Book Now
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-slate-100 dark:border-slate-800 pb-8 pt-3 px-6 z-50">
+<div class="flex items-center justify-between">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Bookings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Profile</span>
+</div>
+</div>
+</nav>
+</body></html>

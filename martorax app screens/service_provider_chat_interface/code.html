@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX Service Provider Chat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#05ad78",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                        "customer-bubble": "#334155", // Slate 700
+                        "provider-bubble": "#059669", // Emerald 600
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Main Container (Phone Form Factor) -->
+<div class="relative mx-auto flex h-screen max-w-[430px] flex-col overflow-hidden bg-background-light dark:bg-background-dark border-x border-slate-200 dark:border-slate-800 shadow-2xl">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-20 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 p-4 backdrop-blur-md">
+<div class="flex items-center gap-3">
+<div class="flex size-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<div>
+<h2 class="text-lg font-bold leading-tight">John Doe</h2>
+<div class="flex items-center gap-1.5">
+<span class="relative flex h-2 w-2">
+<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
+</span>
+<p class="text-[12px] font-semibold uppercase tracking-wider text-primary">Active Lead</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-10 rounded-full bg-center bg-no-repeat bg-cover border-2 border-primary/20" data-alt="Professional profile photo of customer John Doe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2BGFc93a8WI2yd0O5ekFgOVUR9XdUg41EdvoBfgiPPAr7SSNd_UtDvVNwk4NQqt3FMSbZnj5XiKrT1VK8XOVknEbuSWOjx-rqtFSziJqaOxYeCdrpWzZtSx1YOxZ4BNf3IO4_HrvTJwmBEki8Z5kl6g060HCc7IwkScTlEw94LCRLSmW2nJq6RfUU1HUSPmzyLrbyzLSx7Mv-TqnHVSAR56HbsWmplUHxtAetWS5bEkw9ScTduXB0crUs1R_WmQ2wRRx3g7Xe-7fc");'>
+</div>
+</div>
+</header>
+<!-- Message List Area -->
+<main class="flex-1 overflow-y-auto p-4 space-y-6 hide-scrollbar">
+<!-- Date Divider -->
+<div class="flex justify-center">
+<span class="rounded-full bg-slate-200/50 dark:bg-slate-800 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Today</span>
+</div>
+<!-- SingleMessage (Customer) -->
+<div class="flex items-end gap-2.5">
+<div class="size-8 shrink-0 rounded-full bg-center bg-no-repeat bg-cover" data-alt="Avatar of customer John Doe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDAXOvBs2ExjsZOIgEIDj6npPYpwqg4VGTtaZSMTbRDoE_w_KhRzC5dODD-YLUCnhHY2H7Pa_1VhyK7iy4L6p4CSOmV6fqHWXdvwzm1v0Zyy-PXbwAHL6hoM2_S0BVr9wUol90UA3RnPnTnlMcWCYPxnv23NakN2A7rsUX2qZLeeYHRIkfXLp7yW3xpXeKHTUIQhPPkWaD72oQ6P2VhAnYzYXJFjvA2ppxPKdokWhh7WYAWmjwLxK1X3_NjrEr8NIt5joN2stmRD0kF");'>
+</div>
+<div class="flex max-w-[75%] flex-col gap-1">
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400 ml-1">John Doe</p>
+<div class="rounded-2xl rounded-bl-none bg-customer-bubble px-4 py-3 shadow-sm">
+<p class="text-sm leading-relaxed text-white">I need help fixing my kitchen sink today. Can you come? The pipe underneath is leaking heavily since morning.</p>
+</div>
+<p class="text-[10px] text-slate-400 dark:text-slate-500 ml-1">10:24 AM</p>
+</div>
+</div>
+<!-- SingleMessage (Service Provider) -->
+<div class="flex flex-row-reverse items-end gap-2.5">
+<div class="size-8 shrink-0 rounded-full bg-center bg-no-repeat bg-cover" data-alt="Profile picture of the service provider" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDmlzRJmyQjIPhAp2sRDE8OoavDZYBXAlYF9qHHS3nUhLLIUQ9iYlEEEAmGuhq83S9lKvWQXuZdLzjwT9xHyg9UtkIeeSvLyJJmZbt1VJMAnzA4-3hGN01sU_wYATMAFk2hNXAnbWt1v8bk4qCGONAGfkTk2zr-R-wye9mOp8sRn6BG-u7yUO2wPwJr2B2iW-d2Ay6bKipzjY9o1xDonzS_VGqcWJhYq7SU9szpvqvhkI1nPVfs69ICMraXB03O7Tl4qYEoI3VA9z8L");'>
+</div>
+<div class="flex max-w-[75%] flex-col items-end gap-1">
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400 mr-1">You</p>
+<div class="rounded-2xl rounded-br-none bg-provider-bubble px-4 py-3 shadow-sm">
+<p class="text-sm leading-relaxed text-white">Yes, I am available. I can head over to your location in 30 minutes. Do you have replacement parts already?</p>
+</div>
+<p class="text-[10px] text-slate-400 dark:text-slate-500 mr-1">10:26 AM</p>
+</div>
+</div>
+<!-- SingleMessage (Customer) -->
+<div class="flex items-end gap-2.5">
+<div class="size-8 shrink-0 rounded-full bg-center bg-no-repeat bg-cover" data-alt="Avatar of customer John Doe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJOrUAU0MWd3MKlIdsOok3LKJqPXlnViQG9CFst557GFe9KBftrGB2osxL7cC0mXmoUqBPbSNAHME8K4xqXFn8alBFerPn1tWVHjPCR1HhiJdz2UuIzUmUFceab3JANV9W5t2I5vmeiAoTqRarQ0Npd_Wh3JmmHPMdMOGKG9Xm8l_-Au-UpTYvqzm1BY7MHxz009HkdYjp2JfFs6YEzIkQmAzIQLiRFzeWaSDtzcGv65c_PO_T1DB4Tny618LWyJU7R14ps_vEqOCf");'>
+</div>
+<div class="flex max-w-[75%] flex-col gap-1">
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400 ml-1">John Doe</p>
+<div class="rounded-2xl rounded-bl-none bg-customer-bubble px-4 py-3 shadow-sm">
+<p class="text-sm leading-relaxed text-white">No, I don't have anything. Please buy what's needed and add it to the bill. What's your service charge?</p>
+</div>
+<p class="text-[10px] text-slate-400 dark:text-slate-500 ml-1">10:27 AM</p>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Interaction Area -->
+<footer class="mt-auto bg-background-light dark:bg-background-dark pb-8 pt-2 shadow-[0_-4px_12px_rgba(0,0,0,0.1)]">
+<!-- Quick Response Chips -->
+<div class="hide-scrollbar flex gap-2 overflow-x-auto px-4 pb-4">
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-xl bg-slate-200 dark:bg-slate-800 px-4 transition-active active:scale-95">
+<p class="text-sm font-bold text-slate-700 dark:text-white">Fit do am for ₦X?</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-xl bg-slate-200 dark:bg-slate-800 px-4 transition-active active:scale-95">
+<p class="text-sm font-bold text-slate-700 dark:text-white">Wetin be your location?</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-xl bg-slate-200 dark:bg-slate-800 px-4 transition-active active:scale-95">
+<p class="text-sm font-bold text-slate-700 dark:text-white">I dey come now now</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-xl bg-slate-200 dark:bg-slate-800 px-4 transition-active active:scale-95">
+<p class="text-sm font-bold text-slate-700 dark:text-white">Work don set</p>
+</button>
+</div>
+<!-- Input Bar -->
+<div class="flex items-center gap-2 px-4">
+<button class="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/20 transition-all active:scale-90" title="Send Quote">
+<span class="material-symbols-outlined text-[28px]">add_circle</span>
+</button>
+<div class="relative flex flex-1 items-center">
+<input class="w-full rounded-2xl border-none bg-slate-100 dark:bg-slate-800 py-3 pl-4 pr-12 text-sm focus:ring-2 focus:ring-primary dark:text-white dark:placeholder-slate-500" placeholder="Type a message..." type="text"/>
+<button class="absolute right-2 flex size-8 items-center justify-center rounded-xl text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined text-[22px] font-bold">send</span>
+</button>
+</div>
+</div>
+<!-- Home Indicator (iOS style) -->
+<div class="mx-auto mt-6 h-1 w-32 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking Details Hub - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#10221c",
+                        "slate-surface": "#1b2723",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Booking Details</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex size-12 cursor-pointer items-center justify-center rounded-xl bg-transparent text-white">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<main class="flex-1 overflow-y-auto pb-32">
+<!-- Status Header -->
+<div class="px-4 py-2">
+<div class="flex justify-center">
+<span class="bg-primary/20 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                    In Progress
+                </span>
+</div>
+<h4 class="text-[#9bbbb1] text-sm font-medium leading-normal mt-4 text-center">Estimated Arrival In</h4>
+</div>
+<!-- Timer Component -->
+<div class="flex gap-4 py-4 px-4">
+<div class="flex grow basis-0 flex-col items-stretch gap-2">
+<div class="flex h-16 grow items-center justify-center rounded-xl px-3 bg-slate-surface border border-white/5">
+<p class="text-primary text-2xl font-extrabold leading-tight tracking-[-0.015em]">00</p>
+</div>
+<div class="flex items-center justify-center"><p class="text-[#9bbbb1] text-xs font-medium uppercase">Hours</p></div>
+</div>
+<div class="flex grow basis-0 flex-col items-stretch gap-2">
+<div class="flex h-16 grow items-center justify-center rounded-xl px-3 bg-slate-surface border border-white/5">
+<p class="text-primary text-2xl font-extrabold leading-tight tracking-[-0.015em]">12</p>
+</div>
+<div class="flex items-center justify-center"><p class="text-[#9bbbb1] text-xs font-medium uppercase">Minutes</p></div>
+</div>
+<div class="flex grow basis-0 flex-col items-stretch gap-2">
+<div class="flex h-16 grow items-center justify-center rounded-xl px-3 bg-slate-surface border border-white/5">
+<p class="text-primary text-2xl font-extrabold leading-tight tracking-[-0.015em]">45</p>
+</div>
+<div class="flex items-center justify-center"><p class="text-[#9bbbb1] text-xs font-medium uppercase">Seconds</p></div>
+</div>
+</div>
+<!-- Service Card -->
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl bg-slate-surface border border-white/5 overflow-hidden">
+<div class="w-full h-40 bg-center bg-no-repeat bg-cover" data-alt="Modern kitchen sink with plumbing repair tools" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKiWUL2pKwaJ6bd1minuwGVdChgA_4drW4R_9ldy1t8nMEUiDXoZq4eGOPzAWPvfzMC-kQqORNoXp55MkS23RV8FkQUfJbHAR7QSa2zvewxkpjfiutl8LtW7DpNB4VUZbpqSJM06yETg3DaiZ83lWs6a52bM_OIibaskjmK6upzJgOsPEisN5LKuoAjR1Jw48OD29tDzXwonfvJgPsV_x68K4tvR01gOQ_12dpNLZGzmLz6LSZIX41d2fjfBJ5em9tX3n9jNgKL2s3");'>
+</div>
+<div class="flex w-full flex-col items-stretch justify-center gap-3 p-5">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-primary text-[10px] font-bold tracking-widest uppercase mb-1">Service Details</p>
+<p class="text-white text-xl font-bold leading-tight">Emergency Plumbing Repair</p>
+</div>
+<span class="material-symbols-outlined text-primary">verified_user</span>
+</div>
+<div class="space-y-2 border-t border-white/10 pt-3">
+<div class="flex justify-between text-sm">
+<span class="text-[#9bbbb1]">SafePay Secured Quote</span>
+<span class="text-white font-medium">$120.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-[#9bbbb1]">Service Fee</span>
+<span class="text-white font-medium">$15.00</span>
+</div>
+<div class="flex justify-between items-center pt-2 mt-2 border-t border-white/5">
+<p class="text-[#9bbbb1] text-base font-semibold">Total Amount</p>
+<p class="text-primary text-xl font-black">$135.00</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Communication Section -->
+<div class="px-4 py-2">
+<h3 class="text-white text-sm font-bold mb-3 px-1">Communication</h3>
+<div class="flex gap-4">
+<div class="flex flex-col items-center gap-2 bg-slate-surface/50 rounded-2xl py-4 flex-1 border border-white/5">
+<div class="rounded-full bg-primary/20 p-3">
+<span class="material-symbols-outlined text-primary">phone</span>
+</div>
+<p class="text-white text-xs font-semibold">Call Provider</p>
+</div>
+<div class="flex flex-col items-center gap-2 bg-slate-surface/50 rounded-2xl py-4 flex-1 border border-white/5">
+<div class="rounded-full bg-primary/20 p-3">
+<span class="material-symbols-outlined text-primary">chat_bubble</span>
+</div>
+<p class="text-white text-xs font-semibold">Live Chat</p>
+</div>
+</div>
+</div>
+<!-- Location Map Snippet -->
+<div class="px-4 py-6">
+<h3 class="text-white text-sm font-bold mb-3 px-1">Service Location</h3>
+<div class="relative h-40 w-full rounded-xl overflow-hidden border border-white/10">
+<div class="absolute inset-0 bg-slate-700" data-location="Seattle, WA" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCLMiNlaJxM5fp3INAxqJ2f_fHpFqnLQ5JwLSJ1MMrahnl51m9ROBe8-4YLI-Wx52Ya_ZpXamUqYMqEEtgO7s8jxEJUlw1Prv3wJbUkTGamh2uM2UM4wMTBzKfJ__A5RmRK6OzyDaoqs8flKC3m1dBm-0wwwCabggoCUFk-WLd1qDf_YeaAxcUK6lkaS6HtLc33DD6lSUHJmprtrXhw3eKXvzumgEFCqf0HRGxjaXrnQDWi782rUHxm6-aKjgEx7XBrI7KU0gC4vNbd"); background-size: cover; background-position: center;'>
+<!-- Map Overlay Gradient -->
+<div class="absolute inset-0 bg-background-dark/30"></div>
+</div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 bg-background-dark/80 backdrop-blur-md p-2 rounded-lg border border-white/10">
+<p class="text-white text-xs font-bold truncate">Harbor Landmark Plaza, Suite 402</p>
+<p class="text-[#9bbbb1] text-[10px]">12.4 miles from current location</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Footer Actions -->
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-background-dark/90 backdrop-blur-xl border-t border-white/10 pb-8">
+<div class="flex flex-col gap-3">
+<button class="w-full py-4 bg-primary text-background-dark font-extrabold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">play_circle</span>
+                Confirm Job Started
+            </button>
+<button class="w-full py-3 bg-transparent text-[#9bbbb1] font-bold rounded-xl border border-white/10">
+                Reschedule Booking
+            </button>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX Service Provider Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#05ad78",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-red {
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen pb-24">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-center bg-cover border-2 border-primary" data-alt="Professional profile picture of a service provider" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRZv-aeC-4-DjB2-DoB8RBo3vP4SX7J4T0H6Vo13iF3uVwEg5ezn2Od0-RiO1J3rwDhcC5yg4tQAJb9_JtSoY-9oDqS7Za1fhe59cB3qce4pmHRfPBhdZteNseOPVvtTktBnTV8qD89JCNHUmUIlTpCJdRgBuQ7tpXvTI6agt0We0b77MHQ3CQnRunUlLIS__UGyrvoDceYFcC7OS2jMbrHulqaF64jffzWT-Km6m_ZrHwW15gLdWusuZbPpIKocpKp3p9LAuQcZGM');">
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Good morning,</p>
+<h1 class="text-lg font-bold leading-tight">Alex Rivera</h1>
+</div>
+</div>
+<button class="relative p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-background-dark"></span>
+</button>
+</header>
+<main class="max-w-md mx-auto">
+<!-- Stats Grid -->
+<div class="grid grid-cols-2 gap-3 p-4">
+<div class="flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/50 p-4">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary">inbox</span>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">+3</span>
+</div>
+<div>
+<h2 class="text-2xl font-extrabold tracking-tight">3</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">New Requests</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/50 p-4">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-blue-500">calendar_month</span>
+</div>
+<div>
+<h2 class="text-2xl font-extrabold tracking-tight">5</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Upcoming Bookings</p>
+</div>
+</div>
+</div>
+<!-- Balance Card -->
+<div class="p-4 pt-0">
+<div class="rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-semibold uppercase tracking-wider">Total Balance</p>
+<span class="material-symbols-outlined text-slate-400">info</span>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-xs text-slate-500 dark:text-slate-400">Available for Withdrawal</p>
+<p class="text-3xl font-bold font-mono text-primary">$3,400.00</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all active:scale-95 shadow-lg shadow-primary/20">
+                                Withdraw
+                            </button>
+</div>
+<div class="h-px bg-slate-200 dark:bg-slate-700 w-full"></div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-sm">lock</span>
+<p class="text-sm text-slate-500 dark:text-slate-400">Pending Escrow</p>
+</div>
+<p class="text-base font-semibold font-mono text-slate-700 dark:text-slate-200">$1,250.00</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section Header -->
+<div class="flex items-center justify-between px-4 pb-2 pt-2">
+<h3 class="text-lg font-bold tracking-tight">Recent Leads</h3>
+<button class="text-primary text-sm font-bold">View all</button>
+</div>
+<!-- Leads List -->
+<div class="px-4 space-y-2">
+<!-- Item 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800/30 border border-slate-100 dark:border-slate-800/50 rounded-xl px-4 py-3 justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-cover rounded-full h-12 w-12 border border-slate-200 dark:border-slate-700" data-alt="Customer avatar Sarah J." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_M2iBKbMLX3jxYwWYDRnY0DocCnk4hu1gWWa3pzui1hUDEuCM5iuYNlr7XhPMwg1JBCb38d8cd1SLF820U3ZuC3-uUYHxPHb7CDnsGazDPrs9ONsTR6DjRKw53UXhbWHjHtt0MQd8OUa7aDhsFy9bKJhqM7SYz6t8GpSxB0CNMaanda3779lAAN3BsZ5vk7wsibf3ZXllkJawKdUJtTKnQEgaLcaF44hVgT1hXTf1xOJPNXymd_w70D1rw2G2crX2W7EIJaIXQc40");'></div>
+<div class="flex flex-col">
+<p class="text-base font-bold leading-tight">Sarah J.</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium mt-0.5">House Cleaning • <span class="text-primary">1.2 miles away</span></p>
+</div>
+</div>
+<button class="p-2 rounded-full bg-slate-50 dark:bg-slate-800">
+<span class="material-symbols-outlined text-slate-400" style="font-size: 20px;">chevron_right</span>
+</button>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800/30 border border-slate-100 dark:border-slate-800/50 rounded-xl px-4 py-3 justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-cover rounded-full h-12 w-12 border border-slate-200 dark:border-slate-700" data-alt="Customer avatar Michael T." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBmYZF-5fMyLmvsAIJkgpyuJgj_spmQBdMOwMHRUospZGpZ0TLt-QPnoC_zXqpSevxeqbe5hOCK14wGsvnNQwnJ4mfQbaWC_ajWHBuckF7uc6_Rf6DvYvJ4zfavLLAL71KuFJiG0qwG35OvqBmdxtT2s94zL5UITarXaPcdVlwPPitsMy245H7IhuoLcQ3Uu7lmchf21-AUWPx42RUrkM98QrYfgmM1kuQIw_-swnklRzJAfedy4pe--dymXxqjXLy5MWoT5rIcq2h_");'></div>
+<div class="flex flex-col">
+<p class="text-base font-bold leading-tight">Michael T.</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium mt-0.5">HVAC Repair • <span class="text-primary">0.8 miles away</span></p>
+</div>
+</div>
+<button class="p-2 rounded-full bg-slate-50 dark:bg-slate-800">
+<span class="material-symbols-outlined text-slate-400" style="font-size: 20px;">chevron_right</span>
+</button>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800/30 border border-slate-100 dark:border-slate-800/50 rounded-xl px-4 py-3 justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-cover rounded-full h-12 w-12 border border-slate-200 dark:border-slate-700" data-alt="Customer avatar Emily W." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBk-COLsD8lN2_7zJ3ark4CDoFta58lNjKPp5l50pK3MKV3w7dcVH1tRqyYjyW-3QviVQKOPerVDXGWMdGeUfDwq_gENhom4GikJvh6YyZUXVpXJVgTKZTpikvKe-97eDDEtYsqhJEhrTrDcJ7xuZ8hRZeoi8BGMG0HfbiSoHHHMcfQAdXZ3cp9O-e5x2kyMbNg2Y9U4DZNbcNhqdIE0hlEyobf2czCn9aO272qcX3wX877c9KC1a8pCGx2I_qMpUPY7AauPbDG_tbE");'></div>
+<div class="flex flex-col">
+<p class="text-base font-bold leading-tight">Emily W.</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium mt-0.5">Deep Cleaning • <span class="text-primary">2.5 miles away</span></p>
+</div>
+</div>
+<button class="p-2 rounded-full bg-slate-50 dark:bg-slate-800">
+<span class="material-symbols-outlined text-slate-400" style="font-size: 20px;">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Floating Action Button -->
+<div class="fixed bottom-24 right-6 z-50">
+<button class="pulse-red flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-6 py-4 rounded-full shadow-2xl transition-transform active:scale-90">
+<span class="material-symbols-outlined font-bold" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="font-bold tracking-wide">Go Live</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 pb-8 pt-2">
+<div class="max-w-md mx-auto flex items-center justify-around px-2">
+<a class="flex flex-col items-center gap-1 p-2 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-medium">Bookings</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-medium">Leads</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

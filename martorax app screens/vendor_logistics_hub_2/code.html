@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Vendor Logistics Hub Updated - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a",
+                        "card-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background-dark text-slate-100 antialiased overflow-hidden h-screen flex flex-col;
+            }
+        }
+        .radar-pulse {
+            position: relative;
+            width: 160px;
+            height: 160px;
+        }
+        .radar-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid #059467;
+            border-radius: 50%;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body>
+<header class="flex-none z-50 bg-background-dark/80 backdrop-blur-md border-b border-slate-800">
+<div class="flex items-center p-4 justify-between">
+<div class="flex size-10 items-center justify-center rounded-full hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</div>
+<div class="text-center">
+<h2 class="text-lg font-bold leading-tight tracking-tight">Assign Rider</h2>
+<p class="text-xs text-primary font-medium">MartoraX Asaba Hub</p>
+</div>
+<div class="flex size-10 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">more_vert</span>
+</div>
+</div>
+<div class="px-4">
+<div class="flex border-b border-slate-800 gap-8">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-primary pb-3 pt-4" href="#">
+<p class="text-sm font-bold tracking-wide">Ready for Pickup</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-400 pb-3 pt-4" href="#">
+<p class="text-sm font-bold tracking-wide">Assigned</p>
+</a>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto custom-scrollbar">
+<div class="p-4 space-y-4">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-card-dark p-4 shadow-sm border border-slate-800">
+<div class="flex flex-[2_2_0px] flex-col justify-between gap-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<p class="text-lg font-bold leading-tight">Order #7281</p>
+<span class="px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-500 text-[10px] font-bold uppercase tracking-wider">Priority</span>
+</div>
+<p class="text-slate-400 text-sm font-normal">3 Items • Prepared 5 mins ago</p>
+</div>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white gap-2 text-sm font-semibold transition-transform active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">person_search</span>
+<span class="truncate">Assign Rider</span>
+</button>
+</div>
+<div class="w-32 h-24 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 border border-slate-700" data-alt="Traditional Nigerian dish" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBZdChdhZ4hzqO-UrxddOBcumFNseT2HVgvRf5Pa-Hf4pC0ds89_TXndPLvAn96IcRNN_PwNwQ9hyx3B5nJiUqFGTkccIbAYhMkT8lUc4QSKL4l0Sdhlur1aYhu--hFJYPiXxnw1Ks2DiNNIfAQmA9zNb35v-utEKj6aqAtEJ_d0MqOHjEwHJ8jCVcOrNoPMZAZsumV552uFaJtaMlJEaRWYeXMQddhBpLT4XqZqwzzb4K4md61UW7ne3qagIBwAdVRVO_3AGauCH23");'></div>
+</div>
+<div class="py-6 flex flex-col items-center justify-center">
+<div class="radar-pulse mb-6">
+<div class="radar-circle opacity-20 border-primary scale-100"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-14 bg-primary rounded-full flex items-center justify-center text-white shadow-xl shadow-primary/40">
+<span class="material-symbols-outlined text-2xl">location_on</span>
+</div>
+</div>
+</div>
+<h3 class="text-base font-semibold text-center mb-1">Searching for nearby riders...</h3>
+<p class="text-slate-500 text-xs text-center max-w-[250px]">Scanning 2km radius in Asaba</p>
+</div>
+<div class="pb-10">
+<h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Closest Riders Found (3)</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-4 rounded-xl bg-card-dark border border-primary/40 shadow-md">
+<div class="size-12 rounded-full bg-slate-700 bg-cover bg-center ring-2 ring-primary ring-offset-2 ring-offset-background-dark" data-alt="Rider profile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCrGCO_IbirbRDXNdE8XqpbDS2AKYRU2pjBjVO_HSZxqksxGecqSwSK31taKC7qJmlV7eNd6BuFbs4M6YZUeEPNfwaD3b6iUVysUka234Me9C_nSHSaMsNmgOi-9_8_pvNm_XGEK_rqk5gGWNn0Jtu-Cd8IPWsOhFs2Yt7Ok2Jsq22WjHs9-lZ5y8G0dTSlRDsr5sYJpP0w_Z-2ALPL4xMB3A0sNbtB_w4BUe9a6W-jqauxwGCrQlGf31NfJeHrXH0raBKWoS4w7RCp')"></div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<p class="font-bold text-sm">Emeka Obi</p>
+<span class="text-primary text-xs font-bold">3 mins ETA</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-yellow-500 text-[14px] fill-current">star</span>
+<p class="text-[11px] text-slate-400">4.9 • Suzuki DR200</p>
+</div>
+</div>
+<button class="size-9 rounded-full bg-slate-700 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl">call</span>
+</button>
+<div class="size-5 rounded-full border-2 border-primary bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-white font-bold">check</span>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-card-dark border border-slate-800">
+<div class="size-12 rounded-full bg-slate-700 bg-cover bg-center" data-alt="Rider profile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB10nEsKKLN-EdNlyHeli5NfGIpWHg2zPV8K6fzjh6Df_07ycd8FaqfI16zhjosJ5ICNxRwdOLOPt2iL0XOGTXtVnzOvopq7bTRk6hTUfNuYSTC0keqoJcU8gxDxUmr7kIA5X8qcRf_inF_KkB1noTGjgJsqfs66Q0iWPUDz_r_vE7JWHU5mMXFpta_a9UDknhmPjOBF6EhJuwLPyk8WYeKSdfThqs9-rGQDJH512VSGYBggNxc6EC6zAGQo6U8tzhTZCADinUYU_A1')"></div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<p class="font-bold text-sm">Chidi K.</p>
+<span class="text-slate-500 text-xs font-bold">5 mins ETA</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-yellow-500 text-[14px] fill-current">star</span>
+<p class="text-[11px] text-slate-400">4.7 • Honda CG125</p>
+</div>
+</div>
+<button class="size-9 rounded-full bg-slate-700 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined text-xl">call</span>
+</button>
+<div class="size-5 rounded-full border-2 border-slate-700"></div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-card-dark border border-slate-800">
+<div class="size-12 rounded-full bg-slate-700 bg-cover bg-center" data-alt="Rider profile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDwKFfuxG09vAGH9Nb3w1OC9yoFUqK9M0ECf34RluVH-3XykWXmPjyPSVhAenoVZRWqiX0_EdzLuF3UXzsPjiT-ufbPlfhbEerb3tEsfKj278T1TLxMadTVnp4oP_x-Fg1wrAK9rQdQoR6DVpDozOqsc_v4iFbzLUAXiMOsHq6Rjy87XPjXA_NWt2S0V_W6V_OhaAsN0PpoZiBbH2Wi3YC1fVFWXR9SO-duPvEG9GfTqpWWIjywnNjW3npD36T-VuoTYOQzNdQwspXh')"></div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<p class="font-bold text-sm">Blessing U.</p>
+<span class="text-slate-500 text-xs font-bold">8 mins ETA</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-yellow-500 text-[14px] fill-current">star</span>
+<p class="text-[11px] text-slate-400">4.8 • Yamaha TMAX</p>
+</div>
+</div>
+<button class="size-9 rounded-full bg-slate-700 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined text-xl">call</span>
+</button>
+<div class="size-5 rounded-full border-2 border-slate-700"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="flex-none bg-background-dark/95 backdrop-blur-xl border-t border-slate-800 safe-area-bottom">
+<div class="px-4 py-4">
+<button class="w-full bg-primary hover:bg-primary/90 text-white py-4 rounded-xl font-bold text-base shadow-2xl shadow-primary/20 flex items-center justify-center gap-2 transition-transform active:scale-[0.98]">
+<span>Confirm Dispatch</span>
+<span class="material-symbols-outlined text-xl">local_shipping</span>
+</button>
+</div>
+<nav class="pb-8 pt-1 px-2">
+<div class="flex justify-around items-center">
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined text-[26px]">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined text-[26px]">inventory_2</span>
+<span class="text-[10px] font-medium">Inventory</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-[26px] fill-current">assignment_turned_in</span>
+<span class="text-[10px] font-bold">Orders</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined text-[26px]">account_circle</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+<div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-800 rounded-full"></div>
+</footer>
+
+</body></html>

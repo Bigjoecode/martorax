@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rider Payment Success - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#10221c", // Updated to match the requested dark slate/green feel
+                        "slate-900": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Spline Sans', sans-serif;
+        }
+        .emerald-glow {
+            box-shadow: 0 0 40px 10px rgba(9, 246, 171, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-slate-900 text-white min-h-screen flex flex-col font-display">
+<!-- Top App Bar -->
+<div class="flex items-center bg-transparent p-4 pb-2 justify-between">
+<div class="text-white flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">Payment Status</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-lg h-12 bg-transparent text-white">
+<span class="material-symbols-outlined text-2xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Success Visual -->
+<div class="flex flex-col items-center justify-center py-8">
+<div class="relative flex items-center justify-center w-24 h-24 rounded-full bg-primary/10 emerald-glow mb-6">
+<span class="material-symbols-outlined text-primary text-6xl" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48">
+                check_circle
+            </span>
+</div>
+<!-- HeadlineText Component -->
+<h1 class="text-white tracking-tight text-[32px] font-bold leading-tight px-4 text-center">Trip Successful!</h1>
+<!-- BodyText Component -->
+<p class="text-slate-400 text-lg font-normal leading-normal pb-3 pt-2 px-8 text-center">
+            ₦1,500.00 has been added to your available balance.
+        </p>
+</div>
+<!-- Summary Card -->
+<div class="px-6 py-2 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl bg-slate-800/50 border border-slate-700/50 overflow-hidden">
+<div class="p-5 flex flex-col gap-4">
+<div class="flex justify-between items-center border-b border-slate-700 pb-3">
+<p class="text-slate-400 text-sm font-medium">Trip ID</p>
+<p class="text-white text-base font-bold">#MTX-99283</p>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<p class="text-slate-400 text-base">Delivery Fee</p>
+<p class="text-white text-base font-medium">₦1,200.00</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-slate-400 text-base">Tip</p>
+<p class="text-primary text-base font-bold">+ ₦300.00</p>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-700 flex justify-between items-center">
+<p class="text-white text-lg font-bold">Total Earned</p>
+<p class="text-primary text-2xl font-bold tracking-tight">₦1,500.00</p>
+</div>
+</div>
+<!-- Map Preview (Location component feel) -->
+<div class="w-full h-32 bg-center bg-no-repeat bg-cover opacity-60" data-alt="Map view of Asaba city streets" data-location="Asaba, Nigeria" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBaVp58w2FDZ50q696MjtPJkQpMlr-8SRLiwYUTJ269qYftVnKp52EYpy0rHmLMbOMV1ibiZBuN96UxwQPHPo5TlrM6slFxe3qIwYZo-nO0Y3c5pz3L5z32mri5yINtjz6QTXDJrxg49jQX2dhnPh-y0LS5r26uiYdJDsvXethuw3CIj_-Zq79DNmBytNW4X4ZmoYWoIytqCTKhFkwmBm8b_l7i8vVW1QtsvTiS_EIFkJwVXE2QglvwqmDZedCBBYScXJCx3eP0HIUR");'>
+</div>
+</div>
+</div>
+<!-- Spacer -->
+<div class="flex-grow"></div>
+<!-- Action Buttons -->
+<div class="px-6 flex flex-col gap-3 pb-8">
+<button class="w-full bg-primary text-slate-900 h-14 rounded-xl font-bold text-lg flex items-center justify-center transition-transform active:scale-[0.98]">
+            Back to Dashboard
+        </button>
+<button class="w-full border-2 border-slate-700 text-white h-14 rounded-xl font-bold text-lg flex items-center justify-center transition-transform active:scale-[0.98]">
+            View Earnings
+        </button>
+</div>
+<!-- Navigation Bar -->
+<div class="bg-slate-900 border-t border-slate-800 px-6 py-4 pb-8 flex justify-between items-center">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-[28px]">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Earnings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-[28px]">history</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">History</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-[28px]">person</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Profile</span>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#089669",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Spline Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-white">arrow_back_ios</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Trip Completion</h2>
+</div>
+<div class="flex-1 overflow-y-auto pb-24">
+<!-- HeadlineText -->
+<div class="px-4">
+<h1 class="text-white tracking-light text-[32px] font-bold leading-tight text-center pb-3 pt-6">Arrived at Destination</h1>
+</div>
+<!-- Card: Location/Landmark -->
+<div class="p-4">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-slate-800/50 p-4 border border-slate-700 shadow-lg">
+<div class="flex flex-col gap-1 flex-[2_2_0px]">
+<p class="text-primary text-xs font-bold uppercase tracking-wider">Shopper Landmark</p>
+<p class="text-white text-xl font-bold leading-tight">Opp. Nnebisi Junction</p>
+<p class="text-slate-400 text-sm font-normal leading-normal">Asaba, Delta State</p>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg flex-1 border border-slate-600" data-alt="Map view showing Nnebisi Junction area in Asaba" data-location="Asaba, Nigeria" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBaVp58w2FDZ50q696MjtPJkQpMlr-8SRLiwYUTJ269qYftVnKp52EYpy0rHmLMbOMV1ibiZBuN96UxwQPHPo5TlrM6slFxe3qIwYZo-nO0Y3c5pz3L5z32mri5yINtjz6QTXDJrxg49jQX2dhnPh-y0LS5r26uiYdJDsvXethuw3CIj_-Zq79DNmBytNW4X4ZmoYWoIytqCTKhFkwmBm8b_l7i8vVW1QtsvTiS_EIFkJwVXE2QglvwqmDZedCBBYScXJCx3eP0HIUR");'>
+</div>
+</div>
+</div>
+<!-- SectionHeader -->
+<div class="mt-4">
+<h4 class="text-slate-400 text-sm font-bold leading-normal tracking-[0.1em] px-4 py-2 text-center uppercase">Verify Delivery</h4>
+</div>
+<!-- BodyText -->
+<div class="px-8">
+<p class="text-slate-300 text-base font-normal leading-relaxed text-center pb-6">Scan customer QR code or enter the 4-digit code provided by the shopper below</p>
+</div>
+<!-- Verification Module: QR Scanner Placeholder -->
+<div class="px-4 mb-8">
+<div class="relative w-48 h-48 mx-auto bg-slate-800 rounded-2xl flex items-center justify-center border-2 border-dashed border-slate-600 group overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent"></div>
+<span class="material-symbols-outlined text-6xl text-slate-500">qr_code_scanner</span>
+<!-- Corner Borders for Scanner Look -->
+<div class="absolute top-4 left-4 w-6 h-6 border-t-4 border-l-4 border-primary rounded-tl-sm"></div>
+<div class="absolute top-4 right-4 w-6 h-6 border-t-4 border-r-4 border-primary rounded-tr-sm"></div>
+<div class="absolute bottom-4 left-4 w-6 h-6 border-b-4 border-l-4 border-primary rounded-bl-sm"></div>
+<div class="absolute bottom-4 right-4 w-6 h-6 border-b-4 border-r-4 border-primary rounded-br-sm"></div>
+</div>
+</div>
+<!-- Manual Code Input -->
+<div class="px-8 pb-8">
+<div class="flex justify-center gap-3">
+<input class="w-14 h-16 text-center text-2xl font-bold bg-slate-800 border-2 border-slate-700 rounded-xl focus:border-primary focus:ring-0 text-white" maxlength="1" placeholder="•" type="text"/>
+<input class="w-14 h-16 text-center text-2xl font-bold bg-slate-800 border-2 border-slate-700 rounded-xl focus:border-primary focus:ring-0 text-white" maxlength="1" placeholder="•" type="text"/>
+<input class="w-14 h-16 text-center text-2xl font-bold bg-slate-800 border-2 border-slate-700 rounded-xl focus:border-primary focus:ring-0 text-white" maxlength="1" placeholder="•" type="text"/>
+<input class="w-14 h-16 text-center text-2xl font-bold bg-slate-800 border-2 border-slate-700 rounded-xl focus:border-primary focus:ring-0 text-white" maxlength="1" placeholder="•" type="text"/>
+</div>
+</div>
+<!-- Confirmation Section -->
+<div class="px-4 flex flex-col items-center gap-4">
+<p class="text-slate-400 text-xs text-center flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">account_balance_wallet</span>
+                Funds will be released to your wallet instantly after confirmation.
+            </p>
+<button class="w-full bg-primary hover:bg-emerald-600 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-emerald-900/20 active:scale-[0.98]">
+                Confirm Delivery
+            </button>
+</div>
+</div>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<div class="fixed bottom-0 left-0 right-0 bg-slate-900/90 backdrop-blur-md border-t border-slate-800 px-6 py-3 flex justify-between items-center z-20">
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-medium">Earnings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="text-[10px] font-medium">History</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+<!-- Home Indicator (iOS) -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/20 rounded-full z-30"></div>
+</body></html>

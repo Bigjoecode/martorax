@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX Rider Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#079266",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#10221c",
+                        "slate-card": "#1b2723",
+                        "slate-900": "#0f172a"
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Spline Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-active {
+            color: #079266;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-30 bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center p-4 justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 shrink-0 bg-primary/20 rounded-full flex items-center justify-center overflow-hidden border-2 border-primary/50">
+<div class="w-full h-full bg-cover bg-center" data-alt="Rider profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDspdhg5vU0JtWGo-WRsCzLChhQLqpzmGA6wFoicnr3f2e2GRAvppUY5PntOjBXd3--IThVMqObLFguTRIcmlKT31Nz9M-y_DSDR57ZMZwpcxECtODtAegwdjv8ryYkofeU-6LheqWpSn3-i2oNIhvCpqypYxnc9_9xEyGijXOheT9C1Y4PjlD9kMArxgkG3FlKEB9cnn4QvACKIP8u2OTk8AjZHgBo8kprarIs6AKmsIofX0F650OmHYdB6IXV6WOU4N_a4PUs2rPV');"></div>
+</div>
+<div>
+<h2 class="text-base font-bold leading-tight tracking-tight">MartoraX Dashboard</h2>
+<p class="text-xs text-primary font-medium">Verified Rider</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20">
+<div class="size-2 bg-primary rounded-full animate-pulse"></div>
+<p class="text-primary text-sm font-bold tracking-tight">Go Online</p>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto pb-24">
+<!-- Greeting Section -->
+<div class="px-4 pt-6 pb-2">
+<p class="text-gray-500 dark:text-gray-400 text-sm">Welcome back,</p>
+<h1 class="text-2xl font-bold">Good Morning, Rider!</h1>
+</div>
+<!-- Stats Grid -->
+<div class="flex flex-wrap gap-3 p-4">
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-4 bg-white dark:bg-slate-card border border-gray-100 dark:border-gray-800 shadow-sm">
+<div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 mb-1">
+<span class="material-symbols-outlined text-lg">payments</span>
+<p class="text-xs font-medium">Daily Earnings</p>
+</div>
+<p class="text-2xl font-bold text-primary">₦12,500</p>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-4 bg-white dark:bg-slate-card border border-gray-100 dark:border-gray-800 shadow-sm">
+<div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 mb-1">
+<span class="material-symbols-outlined text-lg">directions_bike</span>
+<p class="text-xs font-medium">Completed</p>
+</div>
+<p class="text-2xl font-bold">14</p>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-4 bg-white dark:bg-slate-card border border-gray-100 dark:border-gray-800 shadow-sm">
+<div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 mb-1">
+<span class="material-symbols-outlined text-lg">star</span>
+<p class="text-xs font-medium">Rating</p>
+</div>
+<p class="text-2xl font-bold">4.9<span class="text-sm font-normal text-gray-400">/5</span></p>
+</div>
+</div>
+<!-- Section Header -->
+<div class="flex items-center justify-between px-4 pt-4">
+<h3 class="text-lg font-bold tracking-tight">New Order Nearby</h3>
+<span class="text-xs bg-red-500/10 text-red-500 px-2 py-0.5 rounded font-bold">EXPIRES IN 45s</span>
+</div>
+<!-- Order Popup Card -->
+<div class="p-4">
+<div class="flex flex-col rounded-xl overflow-hidden border-2 border-primary shadow-xl bg-white dark:bg-slate-card">
+<!-- Map Preview -->
+<div class="w-full h-40 bg-center bg-no-repeat bg-cover relative" data-alt="Map view showing delivery route in Asaba" data-location="Asaba, Nigeria" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzPoHul7DCDI-eT-9kyy825x_FdXMHK9hi2k8G702AGmcR3xJiS4lBOOywLKiUVbdXIf44L8fdHbaplItdWh0mLa_zX78lMn02jQU0YbC3ie9MJEtBFXV5ZN1DiwOnBX9COHbJXuVzRAETdf3yzjlPQdxYMAOx_QTtiArY98AIzkjdQmJ6a8hMshfJTTHgoMQFQ0jVkBWxqlCJufZG2kZmlAfAROs4u-wEr--lTMlZ-gVW_XszcyPBZB6bo70_wCCXCe1JwipwwExY');">
+<div class="absolute inset-0 bg-primary/5"></div>
+<div class="absolute top-2 right-2 bg-white/90 dark:bg-black/70 px-2 py-1 rounded text-[10px] font-bold">2.4 KM AWAY</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-primary text-2xl font-bold tracking-tight">₦1,200 <span class="text-xs font-normal text-gray-500 dark:text-gray-400 italic">Delivery Fee</span></p>
+</div>
+<div class="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg">
+<span class="material-symbols-outlined text-gray-400">local_mall</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex gap-3">
+<div class="flex flex-col items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-base">radio_button_checked</span>
+<div class="w-0.5 h-6 bg-gray-200 dark:bg-gray-700"></div>
+<span class="material-symbols-outlined text-red-500 text-base">location_on</span>
+</div>
+<div class="flex-1 space-y-3">
+<div>
+<p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold leading-none">Pickup</p>
+<p class="text-sm font-bold">Ogbogonogo Stall 4</p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold leading-none">Dropoff Landmark</p>
+<p class="text-sm font-bold">Near Federal Medical Centre</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex gap-3 mt-6">
+<button class="flex-1 cursor-pointer items-center justify-center rounded-xl h-14 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-base font-bold transition-all active:scale-95">
+                            Decline
+                        </button>
+<button class="flex-[2] cursor-pointer items-center justify-center rounded-xl h-14 bg-primary text-white text-base font-bold shadow-lg shadow-primary/30 transition-all active:scale-95">
+                            Accept Order
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity List -->
+<div class="px-4 mt-4">
+<h3 class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Today's Activity</h3>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-bold">Food Delivery</p>
+<p class="text-xs text-gray-500">10:45 AM • Asaba Mall</p>
+</div>
+</div>
+<p class="text-sm font-bold">₦850</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-background-dark border-t border-gray-200 dark:border-gray-800 pb-6 pt-2 px-6">
+<div class="flex items-center justify-between max-w-lg mx-auto">
+<button class="flex flex-col items-center gap-1 nav-active">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-[10px] font-bold">Earnings</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-bold">History</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</div>
+</nav>
+</body></html>

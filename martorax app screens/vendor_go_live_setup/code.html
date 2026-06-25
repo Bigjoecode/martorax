@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vendor Go Live Setup - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f231d",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased
+    }
+.camera-preview {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCRwAuCUEHMaIcdiTeTST6TUbXJuPcOmeKks2wlrGAfiybF8Lb-rt35l9VU5zvw6JSiRJ1QGwDVnxhKK2PnQTHjWTAshFcU2I__L-ZHJUkwqBXqlAWb8QPw09JmPWRACyUpa4LzxLC2s2-HZrrC12YgpCWKWn3XaO00laQKzrnNaevLRBajdpZuUbmjvI9bjFcQ1JgOT9ibklO-w7SvmQbiCfxPmV7J6SIbn5cRar9vFe6Gm5FXSHTGyeCN_iF9Hhs4qooxnMjymT5x);
+    background-size: cover;
+    background-position: center
+    }
+.glass-panel {
+    background: rgba(15, 35, 29, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display">
+<!-- Main Container (iOS aspect ratio simulation/full screen) -->
+<div class="relative flex flex-col h-screen w-full max-w-[430px] mx-auto overflow-hidden shadow-2xl bg-black">
+<!-- Full Screen Camera Preview Layer -->
+<div class="absolute inset-0 camera-preview" data-alt="Vendor setting up their shop display for a live stream"></div>
+<!-- Top Navigation / App Bar -->
+<div class="relative z-10 flex items-center justify-between p-4 pt-12">
+<button class="flex items-center justify-center size-10 rounded-full bg-black/40 text-white">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight">Go Live Setup</h2>
+<button class="flex items-center justify-center size-10 rounded-full bg-black/40 text-white">
+<span class="material-symbols-outlined">flip_camera_ios</span>
+</button>
+</div>
+<!-- Status & Microcopy -->
+<div class="relative z-10 px-4 mt-2">
+<div class="glass-panel rounded-xl p-3 flex items-center gap-3 border border-white/10">
+<span class="material-symbols-outlined text-primary">info</span>
+<p class="text-white text-sm font-normal leading-tight">Go Live to showcase deals. Viewers can buy instantly.</p>
+</div>
+</div>
+<!-- Spacer to push content down -->
+<div class="flex-grow"></div>
+<!-- Interactive Controls Area -->
+<div class="relative z-10 flex flex-col gap-6 p-6 pb-12 glass-panel rounded-t-xl border-t border-white/10">
+<!-- Camera Controls (Flash, Beauty, Mic) -->
+<div class="flex items-center justify-center gap-8">
+<div class="flex flex-col items-center gap-1">
+<button class="flex shrink-0 items-center justify-center rounded-full size-12 bg-white/10 text-white border border-white/20">
+<span class="material-symbols-outlined">flash_on</span>
+</button>
+<span class="text-[10px] uppercase font-bold tracking-widest opacity-60">Flash</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<button class="flex shrink-0 items-center justify-center rounded-full size-16 bg-primary text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-3xl">videocam</span>
+</button>
+<span class="text-[10px] uppercase font-bold tracking-widest">Active</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<button class="flex shrink-0 items-center justify-center rounded-full size-12 bg-white/10 text-white border border-white/20">
+<span class="material-symbols-outlined">face</span>
+</button>
+<span class="text-[10px] uppercase font-bold tracking-widest opacity-60">Beauty</span>
+</div>
+</div>
+<!-- Select Featured Products Section -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h3 class="text-white text-md font-bold leading-tight tracking-tight">Select Featured Products</h3>
+<button class="text-primary text-sm font-bold">Add New</button>
+</div>
+<div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+<!-- Product Card 1 -->
+<div class="relative shrink-0 w-32 aspect-square rounded-lg border-2 border-primary overflow-hidden" data-alt="High quality red palm oil bottle">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Bottled cooking oil product" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANnGvAy9CyVxX5Y5oqkIAVilXXnG51oMcyP9y_r2mCpluTrSt84xytxk3rWjdtdMxkI5o08SuAyHaK3iy2BTF78VUPjQCBSWLRwBUevLoqNqozxAog7TC-DhOr20ONs5YCBfePvNiTt5U9VOrLzgKYTM262T2Ge-a05LscONnhNcscwMxz3797RkbCn_2jXQZ0w_hCkggRHBjXMhYEuvSHlQmfAhQqPP1sr78ZrWvDSbOJYlQ0INlgnCJirUw4WopX3udX_PTwqM0V');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-2">
+<p class="text-[10px] text-white font-bold truncate">Palm Oil Special</p>
+</div>
+<div class="absolute top-1 right-1 bg-primary text-white size-5 rounded-full flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[12px]">check</span>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="relative shrink-0 w-32 aspect-square rounded-lg border-2 border-transparent overflow-hidden" data-alt="Fresh local catfish on ice">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Fresh fish product" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAu63GGaJlnFSi0Jfr0TZC9WmcfBN7s2k3tnWPe7vw3PnZJ8LOOMrCxpRWDLS-eiG-jeYrQkK0iSGEsxVyV-xIYMuS4C1k5r9i5OfvCdZ3yjSTR4LamyeSkppE0DpoPvsoX278Vy2_YU8kTIOBCP5o5La5ngrQFA3ihRS5g9chK-qsf6HAweCpOmbnSfovPauvc96I4cy7Mik44sAl54wChpbxnzfgAqObWGoH30DRPvwPKaKmg7C9XaCvhL37WBwrHbun3Cml_rcC_');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-2">
+<p class="text-[10px] text-white font-bold truncate">Fresh Catfish</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="relative shrink-0 w-32 aspect-square rounded-lg border-2 border-primary overflow-hidden" data-alt="Plate of steaming hot jollof rice">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Delicious jollof rice meal" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJE8Wbv-a6lmpQKkJ41IYVBIgys2bZC_QXhaEFHBSyICnZmvubvgYq8h3soP328gNtNJE6SNVDFTLRBo44MlzsOyk6jnfVApQirf1BeHnD10B25Ea8sqSH84o9rHdug2qhBCjMhYeYNdKmsDsLcn5WwegMPG3OWBRkHNmyzbM4LBFbj6LqTIwPeHi4xD3cQHdgE1baionhFR7zDZRPoUUMDUnB6mg1K9n6jQXy53-NaCjIFu3_S8M0VY1jK-H_AMpOuG_VM0D2o-Ng');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-2">
+<p class="text-[10px] text-white font-bold truncate">Jollof Rice Mega</p>
+</div>
+<div class="absolute top-1 right-1 bg-primary text-white size-5 rounded-full flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[12px]">check</span>
+</div>
+</div>
+<!-- Add More Placeholder -->
+<button class="shrink-0 w-32 aspect-square rounded-lg border-2 border-dashed border-white/20 flex flex-col items-center justify-center gap-1 bg-white/5 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-white/40">add_circle</span>
+<span class="text-[10px] text-white/40 font-bold uppercase">More</span>
+</button>
+</div>
+</div>
+<!-- Start Live Button -->
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 flex items-center justify-center gap-2 text-lg active:scale-[0.98] transition-transform">
+<span>Start Live Session</span>
+<span class="material-symbols-outlined">sensors</span>
+</button>
+<!-- Safe Area Indicator (iOS) -->
+<div class="w-32 h-1.5 bg-white/20 rounded-full mx-auto mt-2"></div>
+</div>
+</div>
+</body></html>

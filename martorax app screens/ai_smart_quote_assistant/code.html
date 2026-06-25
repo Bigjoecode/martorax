@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Smart-Quote Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467", // Emerald 600 style
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-glow {
+            box-shadow: 0 0 15px rgba(5, 148, 103, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight">New Quote</h2>
+</div>
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-primary">history</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto max-w-md mx-auto w-full pb-32">
+<!-- Client Context -->
+<div class="px-4 py-4 flex items-center justify-between">
+<div>
+<p class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Client Location</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">location_on</span>
+<p class="text-sm font-medium">Asaba, Delta State</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Date</p>
+<p class="text-sm font-medium">Oct 24, 2023</p>
+</div>
+</div>
+<!-- Service Description -->
+<div class="px-4 py-3">
+<label class="flex flex-col w-full">
+<p class="text-sm font-bold leading-normal pb-2 text-slate-700 dark:text-slate-200">Service Description</p>
+<textarea class="form-input flex w-full min-w-0 resize-none overflow-hidden rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 min-h-[120px] placeholder:text-slate-400 dark:placeholder:text-slate-500 p-4 text-base font-normal leading-relaxed transition-all" placeholder="e.g. Split Unit AC repair and gas refill...">AC maintenance for 2HP Samsung unit. Needs checking for leaks and potential gas refill.</textarea>
+</label>
+</div>
+<!-- AI Recommendation Chip -->
+<div class="px-4 py-1">
+<div class="flex items-start gap-3 p-4 rounded-xl bg-primary/10 border border-primary/20 ai-glow">
+<span class="material-symbols-outlined text-primary shrink-0" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<div>
+<p class="text-primary font-bold text-sm mb-0.5 tracking-tight">AI Smart Recommendation</p>
+<p class="text-slate-700 dark:text-emerald-50/90 text-sm font-medium leading-relaxed">
+                        AC repairs in Asaba typically range from <span class="font-bold">₦8,000 - ₦12,000</span> based on current market trends.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Cost Breakdown Section -->
+<div class="mt-6 px-4">
+<h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4 px-1">Pricing Breakdown</h3>
+<div class="space-y-4">
+<!-- Labor Cost Field -->
+<label class="flex flex-col w-full">
+<div class="flex justify-between items-center mb-2">
+<p class="text-sm font-bold text-slate-700 dark:text-slate-200">Labor Cost</p>
+<span class="text-[10px] bg-slate-200 dark:bg-slate-700 text-slate-500 px-2 py-0.5 rounded-full">MARKET RATE</span>
+</div>
+<div class="relative flex w-full items-stretch rounded-xl">
+<div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">₦</div>
+<input class="form-input flex w-full min-w-0 flex-1 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 h-14 pl-10 pr-12 text-lg font-semibold transition-all" placeholder="0.00" type="text" value="8,500"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/20 text-primary hover:bg-primary/30 transition-colors group">
+<span class="material-symbols-outlined text-[20px]" title="Auto-fill using AI">auto_fix_high</span>
+</button>
+</div>
+</label>
+<!-- Material Cost Field -->
+<label class="flex flex-col w-full">
+<div class="flex justify-between items-center mb-2">
+<p class="text-sm font-bold text-slate-700 dark:text-slate-200">Material Cost</p>
+<span class="text-[10px] bg-primary/20 text-primary px-2 py-0.5 rounded-full">AI SUGGESTED</span>
+</div>
+<div class="relative flex w-full items-stretch rounded-xl">
+<div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">₦</div>
+<input class="form-input flex w-full min-w-0 flex-1 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 h-14 pl-10 pr-12 text-lg font-semibold transition-all" placeholder="0.00" type="text" value="3,200"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/20 text-primary hover:bg-primary/30 transition-colors">
+<span class="material-symbols-outlined text-[20px]" title="Auto-fill using AI">auto_fix_high</span>
+</button>
+</div>
+<p class="text-[11px] mt-1.5 px-1 text-slate-500 italic">Includes R22 Gas Refill (Asaba Market Board avg.)</p>
+</label>
+</div>
+</div>
+<!-- Price Summary Card -->
+<div class="mx-4 mt-8 p-5 rounded-2xl bg-slate-100 dark:bg-slate-800/30 border border-slate-200 dark:border-slate-700/50">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium text-slate-500">Total Quote Amount</span>
+<span class="text-xs text-primary font-bold bg-primary/10 px-2 py-1 rounded-md">PROFITABLE RANGE</span>
+</div>
+<div class="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">
+                ₦11,700
+            </div>
+</div>
+</main>
+<!-- Fixed Bottom Actions -->
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-md mx-auto flex gap-3">
+<button class="flex-1 h-14 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-primary/20 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">send</span>
+                Send Quote
+            </button>
+<button class="w-14 h-14 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl font-bold flex items-center justify-center transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">save</span>
+</button>
+</div>
+<!-- iOS Home Indicator Spacing -->
+<div class="h-4"></div>
+</footer>
+</body></html>

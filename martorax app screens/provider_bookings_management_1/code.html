@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Provider Bookings Management - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as per description
+                        "card-dark": "#1e293b", // Slate 800 for depth
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col pb-24">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur px-4 pt-6 pb-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+</div>
+<h1 class="text-xl font-800 tracking-tight">My Bookings</h1>
+</div>
+<div class="flex gap-3">
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-200 dark:bg-slate-800">
+<span class="material-symbols-outlined text-sm">search</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-200 dark:bg-slate-800 relative">
+<span class="material-symbols-outlined text-sm">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-background-dark"></span>
+</button>
+</div>
+</div>
+<!-- Filter Tabs -->
+<div class="mt-6 flex border-b border-slate-200 dark:border-slate-800">
+<button class="flex-1 py-3 text-sm font-bold border-b-2 border-transparent text-slate-500 dark:text-slate-400">
+                Upcoming
+            </button>
+<button class="flex-1 py-3 text-sm font-bold border-b-2 border-primary text-primary">
+                Today
+            </button>
+<button class="flex-1 py-3 text-sm font-bold border-b-2 border-transparent text-slate-500 dark:text-slate-400">
+                History
+            </button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+<!-- Section Header -->
+<div class="flex items-center justify-between pt-2">
+<h2 class="text-sm font-bold uppercase tracking-widest text-slate-500">Active Tasks (2)</h2>
+<span class="text-xs font-medium px-2 py-1 bg-primary/10 text-primary rounded-full">Monday, Oct 24</span>
+</div>
+<!-- Booking Card 1 (Active) -->
+<div class="group bg-white dark:bg-card-dark rounded-xl overflow-hidden shadow-lg border border-slate-100 dark:border-slate-700/50 transition-all hover:ring-1 hover:ring-primary/50">
+<div class="h-40 w-full bg-center bg-cover" data-alt="Close up of air conditioning unit repair" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvwBSVPn1ZnPtug4PAioegfrNOwil41-30vNCmwIN3-zXCFrYln-UlJiuAhrMehIvUWp4Exn3J5Pu95_Fe-DWMdN1V6ZF7Jwg3AVFCB_mOmX1ERBSWGay9xh09zp88vJi_4fReKevT3Q31GTrG_rjZWQle0OrWL4gpuqrcKoVmYNdfGFyAoYekVgvlYy9N9XbiV76-W74lhRYIBiSb2yV6IroSDvReOdvpWvU-t4GIxfEj3D_MZ8uO_Q9ciSrwsUqK7zIBVhmEb7KC');"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-primary uppercase tracking-wider">Confirmed</span>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-card-dark bg-slate-400 overflow-hidden">
+<img alt="Chidi Okafor" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE4o9IxQNHpgbIyqIpxAGTL5y_5Cz9mzj0Wb-MGjw3_ORW-j2GuXTtizCS0lNQAhMBZQbjvsXGMdaNs6wkpi8KB7x8rlnN19xW1tv7byqMdfkCSMDEITdrQB1PlW3lEpKXkhbNtodHqSeDaewDmNi-poKyOUrbGxbc7artrf8SJgyODPxx_GMrZJldnhDMsWBCNr7dfD8G-hL5q42CiVyb0PbbSKBcSib2QwrZQoly6LBHwfZZbxCHlsBOwhi-1ZPQQIkzE4CC4GMM"/>
+</div>
+</div>
+</div>
+<h3 class="text-lg font-bold leading-tight mb-1">AC Repair - Chidi Okafor</h3>
+<div class="space-y-2 mb-4">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>10:30 AM (In 15 mins)</span>
+</div>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-sm text-primary">location_on</span>
+<span>Near Shoprite, Asaba</span>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary text-slate-900 font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined">play_arrow</span>
+                        Start Job
+                    </button>
+<button class="w-12 h-12 bg-slate-100 dark:bg-slate-700 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">directions</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Booking Card 2 (Paid/History Style in Today list) -->
+<div class="bg-white dark:bg-card-dark rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800/50 opacity-90">
+<div class="h-32 w-full bg-center bg-cover grayscale-[0.5]" data-alt="Plumbing tools on a clean floor" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDK3yJDZ945TyvQgC_v8F88ZZHcDWUCmvsGafKMg_hSuoblM1MfMiBV_zDdjXiFDtNR3qNmkWhe0Y0ETQRP1uIbp-v8zwBH17_OYHDkcC3VchsWalWvXODzxXaNIxfFuKVQLIuCjqzndjwimlIrfBwgLTWcFOLQRD8zY6XVo8JmxjbOwMjlx7C65cRIBJaje0F_wWYOIGnQAglXujuOv6nFCG72F_Jux0o8vcr_QabsucBcL4bxin_Nw_Yb1VKaY-LgqiKRVajeXeEY');"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Paid</span>
+<span class="text-xs font-medium text-slate-500">Completed 08:45 AM</span>
+</div>
+<h3 class="text-base font-bold leading-tight mb-1">Plumbing - Sarah Udoh</h3>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined text-xs">location_on</span>
+<span>Summit Road, Asaba</span>
+</div>
+</div>
+</div>
+<!-- Section Header Upcoming -->
+<div class="flex items-center justify-between pt-4">
+<h2 class="text-sm font-bold uppercase tracking-widest text-slate-500">Next Appointment</h2>
+</div>
+<!-- Upcoming Task Card (Horizontal style) -->
+<div class="bg-white dark:bg-card-dark rounded-xl p-4 flex gap-4 items-center border border-slate-100 dark:border-slate-800">
+<div class="w-16 h-16 rounded-lg bg-slate-100 dark:bg-slate-700 flex flex-col items-center justify-center shrink-0">
+<span class="text-xs font-bold text-slate-500 uppercase">Oct</span>
+<span class="text-xl font-800 text-primary">25</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-bold text-primary uppercase">Confirmed</p>
+<h4 class="font-bold truncate text-slate-900 dark:text-white">Electrical Wiring - Emeka V.</h4>
+<p class="text-xs text-slate-500 truncate">02:15 PM • Nnebisi Road</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Navigation Bar (iOS style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-slate-900/90 ios-blur border-t border-slate-200 dark:border-slate-800 px-6 pt-3 pb-8 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">calendar_today</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Bookings</span>
+</a>
+<div class="relative -top-8">
+<button class="w-14 h-14 bg-primary text-slate-900 rounded-full shadow-lg shadow-primary/30 flex items-center justify-center ring-4 ring-background-dark">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">bolt</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Leads</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Profile</span>
+</a>
+</nav>
+<!-- iOS Home Indicator -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-300 dark:bg-slate-700 rounded-full z-[60]"></div>
+</body></html>

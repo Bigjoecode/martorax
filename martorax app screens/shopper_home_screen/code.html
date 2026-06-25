@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Hyper-local Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#059669",
+                        secondary: "#f59e0b", // Amber
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "slate-custom": "#475569",
+                    },
+                    fontFamily: {
+                        display: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-slate-100 dark:bg-slate-950 flex justify-center items-center min-h-screen">
+<div class="relative w-full max-w-[430px] h-[932px] bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden flex flex-col border-[8px] border-slate-900 dark:border-slate-800 rounded-[50px]">
+<div class="flex justify-between items-center px-8 pt-4 pb-2 text-slate-900 dark:text-white">
+<span class="text-sm font-bold">9:41</span>
+<div class="flex items-center space-x-1.5">
+<span class="material-icons-outlined text-sm">signal_cellular_alt</span>
+<span class="material-icons-outlined text-sm">wifi</span>
+<span class="material-icons-outlined text-sm">battery_full</span>
+</div>
+</div>
+<header class="px-6 py-4 flex justify-between items-center">
+<div class="flex items-center space-x-2">
+<div class="bg-primary/10 p-2 rounded-full">
+<span class="material-icons-outlined text-primary text-xl">location_on</span>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Your location</p>
+<div class="flex items-center">
+<span class="text-sm font-bold text-slate-800 dark:text-slate-100">Asaba, Delta State</span>
+<span class="material-icons-outlined text-sm text-slate-400">expand_more</span>
+</div>
+</div>
+</div>
+<button class="relative bg-white dark:bg-slate-800 p-2.5 rounded-full shadow-sm border border-slate-100 dark:border-slate-700">
+<span class="material-icons-outlined text-slate-600 dark:text-slate-300">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-800"></span>
+</button>
+</header>
+<div class="px-6 mb-6">
+<div class="relative flex items-center">
+<span class="absolute left-4 material-icons-outlined text-slate-400">search</span>
+<input class="w-full bg-white dark:bg-slate-800 border-none rounded-2xl py-3.5 pl-12 pr-12 shadow-sm text-sm focus:ring-2 focus:ring-primary dark:text-white placeholder-slate-400" placeholder="Search markets or services..." type="text"/>
+<span class="absolute right-4 material-icons-outlined text-primary cursor-pointer">mic</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto hide-scrollbar pb-24">
+<section class="mb-8">
+<div class="px-6 flex justify-between items-center mb-4">
+<h2 class="text-lg font-bold text-slate-800 dark:text-slate-100">Market Clusters</h2>
+<button class="text-primary text-sm font-semibold">See All</button>
+</div>
+<div class="flex space-x-4 overflow-x-auto px-6 hide-scrollbar">
+<div class="relative min-w-[280px] h-[160px] rounded-3xl overflow-hidden group">
+<img alt="Ogbogonogo Market" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMEgIsxTHbs5EC6wptyLC46Ld8Ey94fjjdL5Th5jbLUDJJENTVlAq16JWeE6IOooEwjvRfN4WUmcf4JBuAIhMj2hAK_Z1dXVhVksvRlJArFX7VvoaelJcxz48CfWqcJ6SOo4xUUD7UrsiJfYbxNM67lfj_qDevXat7IxtUA282MFANizoQaNSeWrqIchN-Zb8etZp5SYKHJOc90Ryu7BLc68avVS4jOgyC8oexYoCxjgiWOBLIeBsWjC28M5qkhLhqQf6zufuIq9S2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h3 class="text-white font-bold text-lg">Ogbogonogo Market</h3>
+<p class="text-white/80 text-xs flex items-center"><span class="material-icons-outlined text-[10px] mr-1">location_on</span>Central Area, Asaba</p>
+</div>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-[10px] text-white font-bold uppercase tracking-tighter">Open Now</div>
+</div>
+<div class="relative min-w-[280px] h-[160px] rounded-3xl overflow-hidden">
+<img alt="Coker Market" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbmV3CDCYAOaoq09nuJHgq-IKpoFwGYWso6pJpUy97j9fXpkxLnpNOmHYJevuIhHPmst7m6zQgkTBRx3-6assjxNyGiO7Ra8Ziz2E7DDFFP_sAvlE2V8XlEpp6Bj_md_WUICEsKRNwgZbOGpF8oha8n17b4CQ9mP2gvBqBhbilqCl4weZrVCF5pbmzd4rYNoQ-Z4GoAF784IW3sosDWtu5jMWDk4mSFsUl4yH6bBypYN7I4LuLvEotDqv5sBTqZZE1rTZB0y32jOkQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h3 class="text-white font-bold text-lg">Coker Market</h3>
+<p class="text-white/80 text-xs flex items-center"><span class="material-icons-outlined text-[10px] mr-1">location_on</span>Asaba Bypass</p>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 mb-8">
+<div class="bg-white dark:bg-slate-800 rounded-3xl p-5 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center space-x-2">
+<span class="material-icons-outlined text-secondary">trending_up</span>
+<h2 class="text-sm font-bold text-slate-800 dark:text-slate-100 uppercase tracking-wide">Market Price Board</h2>
+</div>
+<span class="text-[10px] font-medium text-slate-400">Updated: Today, 8:00 AM</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-slate-50 dark:bg-slate-900/50 p-3 rounded-2xl flex items-center justify-between border border-slate-100 dark:border-slate-800">
+<div>
+<p class="text-xs text-slate-500 font-medium">Garri (Paint)</p>
+<p class="text-base font-bold text-slate-800 dark:text-slate-100">₦2,500</p>
+</div>
+<span class="material-icons-outlined text-red-500 text-sm">arrow_upward</span>
+</div>
+<div class="bg-slate-50 dark:bg-slate-900/50 p-3 rounded-2xl flex items-center justify-between border border-slate-100 dark:border-slate-800">
+<div>
+<p class="text-xs text-slate-500 font-medium">Tomatoes</p>
+<p class="text-base font-bold text-slate-800 dark:text-slate-100">₦1,200</p>
+</div>
+<span class="material-icons-outlined text-green-500 text-sm">arrow_downward</span>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<div class="px-6 flex justify-between items-center mb-4">
+<h2 class="text-lg font-bold text-slate-800 dark:text-slate-100">Quick Services</h2>
+</div>
+<div class="grid grid-cols-4 gap-4 px-6">
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-2 shadow-sm">
+<span class="material-icons-outlined text-primary text-3xl">restaurant</span>
+</div>
+<span class="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-tighter">Food</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-2 shadow-sm">
+<span class="material-icons-outlined text-blue-600 text-3xl">build</span>
+</div>
+<span class="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-tighter">Services</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mb-2 shadow-sm">
+<span class="material-icons-outlined text-purple-600 text-3xl">checkroom</span>
+</div>
+<span class="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-tighter">Fashion</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-2xl flex items-center justify-center mb-2 shadow-sm">
+<span class="material-icons-outlined text-secondary text-3xl">shopping_basket</span>
+</div>
+<span class="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-tighter">Grocery</span>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<div class="px-6 mb-4 flex items-center space-x-2">
+<h2 class="text-lg font-bold text-slate-800 dark:text-slate-100">Hot Deals</h2>
+<div class="bg-red-500 px-2 py-0.5 rounded text-[10px] font-bold text-white uppercase animate-pulse">Live</div>
+</div>
+<div class="flex space-x-4 overflow-x-auto px-6 hide-scrollbar">
+<div class="min-w-[180px] bg-white dark:bg-slate-800 rounded-3xl p-3 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="relative h-24 rounded-2xl overflow-hidden mb-3">
+<img alt="Fresh Salad" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCMaDTwdSkJuD-1s_RKtzT3UnF6sKbkV_FFloIb0O4-7hMB2vlg6u0O5XcYYdFtwn49m4UwEsPskO1x08IRiplrOyCw8VAE6XrWhNAuRDSGdMVwJ238WueNfzTm4hxIIaAsJTLnlEQYcCjo9lVgH2gUDSSh7Tw944iR4_9UqcPdOuO2_m4adCGoWZu5c3hFDG5MPbus0TZRpm5eXwUvoedr_c0l0-alX6ieOISbBs-qFU6y8aBMN1Zc9lYNptcbvX2GlqfgtwN7d4K"/>
+<div class="absolute top-2 left-2 bg-secondary text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase">20% OFF</div>
+</div>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-100 truncate">Organic Farm Box</p>
+<p class="text-primary font-bold">₦4,500 <span class="text-slate-400 line-through text-[10px] ml-1">₦6,000</span></p>
+</div>
+<div class="min-w-[180px] bg-white dark:bg-slate-800 rounded-3xl p-3 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="relative h-24 rounded-2xl overflow-hidden mb-3">
+<img alt="Phone" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA333EUHBgrFVzFED7XSJiMPknQBHfPh4ny639iwPZR6CDNgMjuooJOeI851i_Kp8AwYu0o7-2J98FFgu0EMuEBQ449TXelV1TWrUU9w78sQ6LIvKraHRP5VA0l3LgSXTTXN50IEe8tBKb_7EOMY0UOo0Z1R-QFveJyeaZYb1sRFCAQ5LUwPanp8wgX6nCpCQWryA32MjGgo7au2cYbu3ZxSt_IEqfDCJEsX9LJtRCOrDSN_bE15dkgGQgAEAwyYM-nIYOCgp8eeJV5"/>
+<div class="absolute top-2 left-2 bg-secondary text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase">Flash Sale</div>
+</div>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-100 truncate">Smart Device Pro</p>
+<p class="text-primary font-bold">₦125,000</p>
+</div>
+</div>
+</section>
+</div>
+<nav class="absolute bottom-0 left-0 right-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 px-8 py-4 pb-8 flex justify-between items-center">
+<div class="flex flex-col items-center">
+<span class="material-icons-outlined text-primary">home</span>
+<span class="text-[10px] font-bold text-primary mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center opacity-40">
+<span class="material-icons-outlined text-slate-600 dark:text-slate-300">search</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-300 mt-1">Search</span>
+</div>
+<div class="flex flex-col items-center opacity-40">
+<span class="material-icons-outlined text-slate-600 dark:text-slate-300">calendar_today</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-300 mt-1">Bookings</span>
+</div>
+<div class="flex flex-col items-center opacity-40">
+<span class="material-icons-outlined text-slate-600 dark:text-slate-300">person_outline</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-300 mt-1">Profile</span>
+</div>
+</nav>
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-slate-900/20 dark:bg-white/20 rounded-full"></div>
+</div>
+<div class="fixed top-4 right-4 flex space-x-2">
+<button class="p-2 bg-white rounded-full shadow-lg border border-slate-200" onclick="document.documentElement.classList.remove('dark')"><span class="material-icons-outlined text-slate-600">light_mode</span></button>
+<button class="p-2 bg-slate-800 rounded-full shadow-lg border border-slate-700" onclick="document.documentElement.classList.add('dark')"><span class="material-icons-outlined text-white">dark_mode</span></button>
+</div>
+
+</body></html>

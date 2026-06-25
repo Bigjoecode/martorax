@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX Onboarding - SafePay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 for dark mode
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white antialiased">
+<div class="relative flex h-screen w-full flex-col overflow-hidden max-w-[430px] mx-auto bg-slate-900">
+<!-- Top Navigation -->
+<div class="flex items-center p-4 pb-2 justify-end pt-8">
+<button class="flex items-center justify-end px-4 py-2 hover:opacity-80 transition-opacity">
+<p class="text-slate-400 text-base font-bold leading-normal tracking-[0.015em]">Skip</p>
+</button>
+</div>
+<!-- Illustration Area -->
+<div class="flex w-full grow items-center justify-center p-8 @container">
+<div class="relative w-full max-w-[320px] aspect-square flex items-center justify-center">
+<!-- Background decorative circles -->
+<div class="absolute inset-0 bg-primary/10 rounded-full blur-3xl"></div>
+<!-- Main Illustration Container -->
+<div class="relative z-10 w-full h-full bg-slate-800/50 rounded-3xl border border-white/5 flex flex-col items-center justify-center overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-primary text-4xl opacity-50">verified_user</span>
+</div>
+<!-- Visual Composition -->
+<div class="flex flex-col items-center gap-6">
+<div class="w-32 h-32 bg-primary rounded-full flex items-center justify-center shadow-2xl shadow-primary/40">
+<span class="material-symbols-outlined text-white text-6xl">shield</span>
+</div>
+<div class="flex items-center gap-3 bg-slate-700/80 px-4 py-2 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-primary text-xl">shopping_bag</span>
+<span class="text-sm font-medium">Secure Transaction</span>
+</div>
+</div>
+<!-- Decorative Background Image/Pattern -->
+<div class="absolute inset-0 -z-10 opacity-20 bg-center bg-no-repeat bg-cover" data-alt="Abstract emerald gradient pattern representing secure digital flow" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAsrt4zb9cpKesNjo_yFhMKrRH8E-KG59r59ybpOkUYuznKfIGKuen0MjWKSksRHJdfui_jvknhtzohqpH12AJweND92Jw1m8PTywq9bn8rU6hcATpApgvGaqCAQjHmzqqasMo7CkY3PAk16AlDdUnJIpIi9nOjT3zt0KmiJ9R12anJ1xOn_M4lYnhMYqBqjVd7hf1_QmxJcNojAD-x-hk2f90G5eagYmBd8KJU2eqtB_v40nDrKCYZPnZrP4-vSr3wF8omWgwyh3s8');">
+</div>
+</div>
+</div>
+</div>
+<!-- Text Content Area -->
+<div class="flex flex-col px-8 pb-4">
+<h1 class="text-white tracking-tight text-[32px] font-bold leading-tight text-center pb-3">
+                Shop with SafePay
+            </h1>
+<p class="text-slate-300 text-lg font-normal leading-relaxed text-center">
+                Your money is held securely until you confirm delivery. <span class="text-primary font-semibold">No wahala, no stories.</span>
+</p>
+</div>
+<!-- Page Indicators -->
+<div class="flex w-full flex-row items-center justify-center gap-3 py-6">
+<div class="h-2 w-2 rounded-full bg-slate-700"></div>
+<div class="h-2 w-8 rounded-full bg-primary"></div>
+<div class="h-2 w-2 rounded-full bg-slate-700"></div>
+<div class="h-2 w-2 rounded-full bg-slate-700"></div>
+</div>
+<!-- Footer Actions -->
+<div class="flex flex-col w-full p-8 pt-2 pb-12 gap-4">
+<button class="flex w-full items-center justify-center rounded-xl bg-primary h-14 transition-all active:scale-[0.98]">
+<span class="text-white text-lg font-bold">Next</span>
+</button>
+<!-- Secondary/Ghost Button -->
+<button class="flex w-full items-center justify-center rounded-xl h-12 border border-transparent hover:bg-white/5 transition-all">
+<span class="text-slate-400 text-base font-medium">Learn how it works</span>
+</button>
+</div>
+<!-- iOS Home Indicator Spacing -->
+<div class="h-5 bg-transparent"></div>
+</div>
+</body></html>

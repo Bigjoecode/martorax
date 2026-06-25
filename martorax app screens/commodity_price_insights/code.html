@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Commodity Price Insights</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#0df26c",
+                "background-light": "#f5f8f7",
+                "background-dark": "#0f172a", // Updated to Slate 900 as requested
+              },
+              fontFamily: {
+                "display": ["Manrope", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .chart-glow {
+            filter: drop-shadow(0 0 8px rgba(13, 242, 108, 0.3));
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen pb-24">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined cursor-pointer hover:opacity-70">arrow_back_ios</span>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Local Rice 50kg</h2>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">share</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">bookmark</span>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto">
+<!-- Summary Stats -->
+<div class="p-4 grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1 rounded-xl p-5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Avg. Price</p>
+<p class="text-2xl font-extrabold leading-tight">₦45,000</p>
+<div class="flex items-center gap-1 text-red-500">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span class="text-sm font-bold">-2.4%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 rounded-xl p-5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Market Status</p>
+<p class="text-2xl font-extrabold leading-tight">High</p>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span class="text-sm font-bold">Verified</span>
+</div>
+</div>
+</div>
+<!-- AI Prediction Panel -->
+<div class="px-4 mb-6">
+<div class="flex flex-col items-start justify-between gap-4 rounded-xl border border-primary/30 bg-primary/10 p-5 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-6xl">psychology</span>
+</div>
+<div class="flex flex-col gap-1 z-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">smart_toy</span>
+<p class="text-primary text-base font-bold leading-tight uppercase tracking-tight">AI Prediction</p>
+</div>
+<p class="text-slate-800 dark:text-slate-200 text-lg font-semibold leading-snug mt-1">
+                        Price likely to drop tomorrow - Wait or Buy?
+                    </p>
+</div>
+<div class="flex gap-3 w-full">
+<button class="flex-1 cursor-pointer items-center justify-center rounded-lg h-10 bg-primary text-slate-900 text-sm font-bold tracking-tight">
+                        Wait for drop
+                    </button>
+<button class="flex-1 cursor-pointer items-center justify-center rounded-lg h-10 border border-primary text-primary bg-transparent text-sm font-bold">
+                        Set Alert
+                    </button>
+</div>
+</div>
+</div>
+<!-- 7-Day Price Trend Chart -->
+<section class="mb-6">
+<div class="flex justify-between items-end px-4 mb-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold tracking-tight">7-Day Price Trend</h3>
+<span class="text-xs text-slate-500 font-medium">Asaba Market</span>
+</div>
+<div class="mx-4 p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+<div class="flex flex-col gap-4">
+<div class="flex min-h-[160px] flex-col gap-6">
+<svg class="chart-glow" fill="none" height="140" preserveaspectratio="none" viewbox="0 0 478 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 120C20 120 40 40 60 40C80 40 100 70 120 70C140 70 160 20 180 20C200 20 220 100 240 100C260 100 280 130 300 130C320 130 340 10 360 10C380 10 400 90 420 90C440 90 460 110 480 110V150H0V120Z" fill="url(#emerald_gradient)" opacity="0.2"></path>
+<path d="M0 120C20 120 40 40 60 40C80 40 100 70 120 70C140 70 160 20 180 20C200 20 220 100 240 100C260 100 280 130 300 130C320 130 340 10 360 10C380 10 400 90 420 90C440 90 460 110 480 110" stroke="#0df26c" stroke-linecap="round" stroke-width="3"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="emerald_gradient" x1="240" x2="240" y1="10" y2="150">
+<stop stop-color="#0df26c"></stop>
+<stop offset="1" stop-color="#0df26c" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="flex justify-between px-1">
+<p class="text-slate-400 text-[11px] font-bold">MON</p>
+<p class="text-slate-400 text-[11px] font-bold">TUE</p>
+<p class="text-slate-400 text-[11px] font-bold">WED</p>
+<p class="text-slate-400 text-[11px] font-bold">THU</p>
+<p class="text-slate-400 text-[11px] font-bold">FRI</p>
+<p class="text-slate-400 text-[11px] font-bold">SAT</p>
+<p class="text-slate-400 text-[11px] font-bold text-primary">SUN</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Where to Buy Section -->
+<section class="px-4 pb-8">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold tracking-tight">Where to Buy</h3>
+<button class="text-primary text-sm font-bold">View Map</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Vendor 1 -->
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+<div class="size-14 rounded-lg bg-slate-100 dark:bg-slate-900 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-slate-400">store</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1">
+<h4 class="font-bold truncate">Ogbogonogo Market B4</h4>
+<span class="material-symbols-outlined text-primary text-sm" title="Verified Vendor">verified</span>
+</div>
+<p class="text-xs text-slate-500 font-medium">2.4 km • Asaba Central</p>
+<div class="mt-1 flex items-baseline gap-2">
+<span class="text-lg font-extrabold text-primary">₦44,500</span>
+<span class="text-[10px] text-slate-400 line-through">₦46,000</span>
+</div>
+</div>
+<button class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg p-2 flex items-center justify-center">
+<span class="material-symbols-outlined">directions</span>
+</button>
+</div>
+<!-- Vendor 2 -->
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm opacity-90">
+<div class="size-14 rounded-lg bg-slate-100 dark:bg-slate-900 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-slate-400">storefront</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1">
+<h4 class="font-bold truncate">Caleb &amp; Sons Grains</h4>
+</div>
+<p class="text-xs text-slate-500 font-medium">3.8 km • Okpanam Road</p>
+<div class="mt-1 flex items-baseline gap-2">
+<span class="text-lg font-extrabold text-primary">₦45,000</span>
+</div>
+</div>
+<button class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg p-2 flex items-center justify-center">
+<span class="material-symbols-outlined">directions</span>
+</button>
+</div>
+<!-- Vendor 3 -->
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm opacity-80">
+<div class="size-14 rounded-lg bg-slate-100 dark:bg-slate-900 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-slate-400">shopping_cart</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1">
+<h4 class="font-bold truncate">Summit Junction Stores</h4>
+<span class="material-symbols-outlined text-primary text-sm">verified</span>
+</div>
+<p class="text-xs text-slate-500 font-medium">5.1 km • Summit Road</p>
+<div class="mt-1 flex items-baseline gap-2">
+<span class="text-lg font-extrabold text-primary">₦45,200</span>
+</div>
+</div>
+<button class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg p-2 flex items-center justify-center">
+<span class="material-symbols-outlined">directions</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 ios-blur border-t border-slate-200 dark:border-slate-800 pb-safe z-50">
+<div class="max-w-md mx-auto flex justify-around items-center h-16 px-4">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-bold">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-bold">Bookings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</div>
+</div>
+</nav>
+</body></html>

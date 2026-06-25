@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Escrow Dispute Wizard - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "danger": "#ef4444",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        :root {
+            --radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(19,91,236)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%273%27/%3e%3c/svg%3e');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<div class="relative flex w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-50">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">SafePay Dispute</h2>
+<div class="flex w-12 items-center justify-end">
+<p class="text-primary text-base font-bold leading-normal tracking-[0.015em] shrink-0 cursor-pointer">Help</p>
+</div>
+</div>
+<!-- Progress Indicators -->
+<div class="flex w-full flex-row items-center justify-center gap-3 py-4">
+<div class="h-2 w-8 rounded-full bg-primary"></div>
+<div class="h-2 w-2 rounded-full bg-slate-300 dark:bg-[#324467]"></div>
+<div class="h-2 w-2 rounded-full bg-slate-300 dark:bg-[#324467]"></div>
+</div>
+<!-- Information Callout -->
+<div class="px-4 mt-2">
+<div class="bg-primary/10 border border-primary/20 rounded-lg p-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">info</span>
+<p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+<span class="font-bold text-primary">SafePay Protection:</span> SafePay holds your money for 48 hours for resolution. Your funds are secure while we investigate.
+                </p>
+</div>
+</div>
+<!-- Step 1: Problem Selection -->
+<div class="flex flex-col">
+<h3 class="text-slate-900 dark:text-white tracking-light text-2xl font-bold leading-tight px-4 text-left pb-2 pt-6">What is the problem?</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm px-4 pb-4">Select the option that best describes your issue.</p>
+<div class="flex flex-col gap-3 p-4">
+<label class="flex items-center gap-4 rounded-xl border border-solid border-slate-200 dark:border-[#324467] p-[15px] flex-row-reverse hover:border-primary transition-colors cursor-pointer">
+<input checked="" class="h-5 w-5 border-2 border-slate-300 dark:border-[#324467] bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-primary" name="dispute-reason" type="radio"/>
+<div class="flex grow items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">package_2</span>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">Item not received</p>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border border-solid border-slate-200 dark:border-[#324467] p-[15px] flex-row-reverse hover:border-primary transition-colors cursor-pointer">
+<input class="h-5 w-5 border-2 border-slate-300 dark:border-[#324467] bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-primary" name="dispute-reason" type="radio"/>
+<div class="flex grow items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">sentiment_dissatisfied</span>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">Poor quality</p>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border border-solid border-slate-200 dark:border-[#324467] p-[15px] flex-row-reverse hover:border-primary transition-colors cursor-pointer">
+<input class="h-5 w-5 border-2 border-slate-300 dark:border-[#324467] bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-primary" name="dispute-reason" type="radio"/>
+<div class="flex grow items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">wrong_location</span>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">Wrong item</p>
+</div>
+</label>
+</div>
+</div>
+<!-- Step 2: Evidence Section Header -->
+<div class="flex flex-col">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-6">Upload Evidence</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm px-4 mb-4">Include photos or videos showing the issue for faster resolution.</p>
+<!-- Media Upload Area -->
+<div class="px-4 flex gap-3 overflow-x-auto pb-4">
+<!-- Add Button -->
+<div class="flex-shrink-0 w-24 h-24 rounded-lg border-2 border-dashed border-slate-300 dark:border-[#324467] flex flex-col items-center justify-center gap-1 cursor-pointer bg-slate-50 dark:bg-white/5">
+<span class="material-symbols-outlined text-primary">add_a_photo</span>
+<span class="text-[10px] font-bold text-primary uppercase">Add Media</span>
+</div>
+<!-- Sample Image Preview -->
+<div class="relative flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden bg-slate-200">
+<img alt="Package evidence" class="w-full h-full object-cover" data-alt="Close up photo of a damaged cardboard box" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOU6hOlmOPrm4n8kHQHb_AQR6k9t2AFFa1aNVeRm144g4g41zQxMXFOLkJsxzuHvMzmOEs1CCZp3GgX_23F7fciaVZ7U176hVLD9Yl3ROaVo1ULpwhYEKnpPrejddOlZO3hGg-cur6Ql3xs5RIL_tIaOi5c0VesFaEdiynResEnojP0rSBUzmTmnTfTNEhxkqZURUhf6edfG-JDQxsRjrI0X3N8qNuoiJFtX8maQLcZ6ifKASTKE6IkzEKkmPemoQuA3nasMdq9nqa"/>
+<div class="absolute top-1 right-1 bg-black/50 rounded-full p-0.5">
+<span class="material-symbols-outlined text-white text-sm">close</span>
+</div>
+</div>
+<div class="relative flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden bg-slate-200">
+<img alt="Receipt evidence" class="w-full h-full object-cover" data-alt="Photo of a printed transaction receipt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx6etCFB3mgS99iqxdX5LQ9wLmEWeJhBxvfFQ0UID65PVgjtd7ULCs7O_WjrCXWloIzj_cr2KVBLr5wJdCyal4ifGfdJGtrx6aaTFSPKwvjcHsgFSRvcXICHjkRd9YxoSl9lfs1gL75fGSS6rX-z_ZnluWAdDuYMckpjePJ56Yl3bNKtnGjA660xYZ0rqWqHsVG-cSLKzM0mpspjMc6uOE9BTfNgxL1stSJ26pKtwlfOpLD3KqeHZrjv6jT3qCqe3UAF_OgAhgETvU"/>
+<div class="absolute top-1 right-1 bg-black/50 rounded-full p-0.5">
+<span class="material-symbols-outlined text-white text-sm">close</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Description Box -->
+<div class="px-4 py-4">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Additional details (Optional)</label>
+<textarea class="w-full h-32 rounded-xl bg-white dark:bg-[#1c2433] border-slate-200 dark:border-[#324467] text-slate-900 dark:text-white focus:ring-primary focus:border-primary placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="Tell us more about what happened..."></textarea>
+</div>
+<!-- Spacer for footer -->
+<div class="h-32 bg-transparent"></div>
+<!-- Sticky Footer CTA -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-t border-slate-200 dark:border-white/10">
+<div class="max-w-md mx-auto flex flex-col gap-3">
+<button class="w-full bg-danger hover:bg-red-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-red-500/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">gavel</span>
+                    Raise Dispute
+                </button>
+<p class="text-center text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-widest font-bold">
+                    Case #MTX-9921-ASB
+                </p>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Catalog: Inventory &amp; Wholesale</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Using Slate 900 as per user request
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .sticky-bottom {
+            position: sticky;
+            bottom: 0;
+            z-index: 50;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col font-display">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-[480px] mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300 cursor-pointer">arrow_back</span>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Inventory &amp; Wholesale</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">help_outline</span>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-[480px] mx-auto w-full pb-32">
+<!-- Section: Inventory Details -->
+<section class="mt-4">
+<h3 class="text-lg font-bold px-4 pb-2 pt-4">Inventory Details</h3>
+<div class="flex flex-wrap items-end gap-4 px-4 py-3">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-sm font-medium pb-2 text-slate-600 dark:text-slate-400">Stock Quantity</p>
+<input class="form-input flex w-full min-w-0 flex-1 rounded-xl text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800/50 focus:border-primary focus:ring-1 focus:ring-primary h-14 placeholder:text-slate-400 p-[15px] text-base font-normal" placeholder="e.g. 100" type="number"/>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-sm font-medium pb-2 text-slate-600 dark:text-slate-400">Min. Order Qty</p>
+<input class="form-input flex w-full min-w-0 flex-1 rounded-xl text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800/50 focus:border-primary focus:ring-1 focus:ring-primary h-14 placeholder:text-slate-400 p-[15px] text-base font-normal" placeholder="e.g. 1" type="number"/>
+</label>
+</div>
+</section>
+<!-- Section: Wholesale Tiers -->
+<section class="mt-6">
+<div class="flex items-center justify-between px-4">
+<h3 class="text-lg font-bold">Wholesale Tiers</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add</span> Add Tier
+                </button>
+</div>
+<p class="text-sm font-normal text-slate-600 dark:text-slate-400 pb-3 pt-1 px-4">Set lower prices for bulk purchases to attract wholesale buyers.</p>
+<!-- Tier List -->
+<div class="px-4 space-y-3 mt-2">
+<!-- Tier Row 1 -->
+<div class="flex items-center gap-3 bg-white dark:bg-slate-800/40 p-3 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex-1">
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Quantity Range</p>
+<input class="w-full bg-transparent border-none p-0 text-base focus:ring-0" type="text" value="5 - 10 items"/>
+</div>
+<div class="w-px h-10 bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex-1">
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Price per unit</p>
+<div class="flex items-center">
+<span class="text-base mr-1">₦</span>
+<input class="w-full bg-transparent border-none p-0 text-base focus:ring-0" type="number" value="4500"/>
+</div>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<!-- Tier Row 2 -->
+<div class="flex items-center gap-3 bg-white dark:bg-slate-800/40 p-3 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex-1">
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Quantity Range</p>
+<input class="w-full bg-transparent border-none p-0 text-base focus:ring-0" type="text" value="11+ items"/>
+</div>
+<div class="w-px h-10 bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex-1">
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Price per unit</p>
+<div class="flex items-center">
+<span class="text-base mr-1">₦</span>
+<input class="w-full bg-transparent border-none p-0 text-base focus:ring-0" type="number" value="4000"/>
+</div>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section: Bargaining -->
+<section class="mt-8 px-4">
+<div class="flex items-center justify-between bg-white dark:bg-slate-800/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex flex-col">
+<h4 class="text-base font-bold">Bargaining Allowed</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Allow buyers to propose a different price</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</section>
+<!-- Spacer for FAB -->
+<div class="h-10"></div>
+</main>
+<!-- Fixed Bottom Action & Navigation -->
+<div class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 flex flex-col items-center">
+<!-- Publish Button -->
+<div class="w-full max-w-[480px] px-4 pt-4 pb-2">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">publish</span>
+                Publish Product
+            </button>
+</div>
+<!-- Bottom Tab Navigation -->
+<nav class="w-full max-w-[480px] grid grid-cols-4 px-2 pb-6 pt-2">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">inventory_2</span>
+<span class="text-[10px] font-medium">Inventory</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-[10px] font-medium">Orders</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</nav>
+</div>
+</body></html>

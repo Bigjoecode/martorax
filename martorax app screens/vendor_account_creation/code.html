@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vendor Account Creation - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab", // Emerald 600 style based on primary config
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 per request
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white">
+<div class="relative flex min-h-screen w-full flex-col max-w-[430px] mx-auto overflow-x-hidden border-x border-slate-800/20 shadow-2xl">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 sticky top-0 z-10">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Vendor Registration</h2>
+</div>
+<!-- HeadlineText -->
+<div class="px-4 pt-8 pb-2">
+<h1 class="text-slate-900 dark:text-white tracking-tight text-[32px] font-extrabold leading-tight text-left">
+                Open Your <span class="text-primary">Digital Stall</span>
+</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-2 text-base font-medium">Join the largest commerce network in Asaba.</p>
+</div>
+<!-- Form Content -->
+<div class="flex flex-col gap-6 px-4 py-6">
+<!-- TextField: Business Name -->
+<div class="flex flex-col gap-2">
+<label class="flex flex-col w-full">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold leading-normal pb-2">Business Name</p>
+<input class="form-input flex w-full rounded-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 h-14 placeholder:text-slate-400 dark:placeholder:text-slate-500 p-4 text-base font-medium transition-all" placeholder="e.g. Chioma's Textiles" type="text"/>
+</label>
+</div>
+<!-- SectionHeader & Chips: Vendor Type -->
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-700 dark:text-slate-300 text-sm font-semibold leading-tight">Vendor Type</h3>
+<div class="flex gap-2 flex-wrap">
+<div class="flex h-11 cursor-pointer items-center justify-center rounded-xl bg-primary text-slate-900 px-5 transition-all">
+<p class="text-sm font-bold">Retailer</p>
+</div>
+<div class="flex h-11 cursor-pointer items-center justify-center rounded-xl bg-slate-200 dark:bg-slate-800 border border-transparent hover:border-primary/50 text-slate-700 dark:text-slate-300 px-5 transition-all">
+<p class="text-sm font-bold">Wholesaler</p>
+</div>
+<div class="flex h-11 cursor-pointer items-center justify-center rounded-xl bg-slate-200 dark:bg-slate-800 border border-transparent hover:border-primary/50 text-slate-700 dark:text-slate-300 px-5 transition-all">
+<p class="text-sm font-bold">Manufacturer</p>
+</div>
+</div>
+</div>
+<!-- Market Selection Dropdown (Custom Component) -->
+<div class="flex flex-col gap-2">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold leading-normal">Market Selection</p>
+<div class="relative group">
+<select class="form-select appearance-none flex w-full rounded-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 h-14 p-4 text-base font-medium transition-all cursor-pointer">
+<option disabled="" selected="" value="">Select your market location</option>
+<option value="ogbogonogo">Ogbogonogo Market</option>
+<option value="main_market">Main Market Asaba</option>
+<option value="abraka">Abraka Market</option>
+<option value="cable">Cable Point Market</option>
+</select>
+<div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<!-- TextField: Stall/Shop Number -->
+<div class="flex flex-col gap-2">
+<label class="flex flex-col w-full">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold leading-normal pb-2">Stall / Shop Number</p>
+<input class="form-input flex w-full rounded-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 h-14 placeholder:text-slate-400 dark:placeholder:text-slate-500 p-4 text-base font-medium transition-all" placeholder="e.g. Block B, Line 4, No. 22" type="text"/>
+</label>
+</div>
+<!-- Microcopy -->
+<div class="flex gap-3 bg-primary/10 border border-primary/20 p-4 rounded-xl">
+<span class="material-symbols-outlined text-primary text-xl">info</span>
+<p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                    Joining a market cluster helps local shoppers find you faster based on their proximity.
+                </p>
+</div>
+</div>
+<!-- Sticky Bottom CTA Area -->
+<div class="mt-auto p-4 pb-10 bg-gradient-to-t from-background-light dark:from-background-dark via-background-light dark:via-background-dark to-transparent pt-10">
+<button class="flex w-full h-14 items-center justify-center gap-2 rounded-xl bg-primary hover:bg-[#08dd9a] text-slate-900 font-bold text-lg shadow-lg shadow-primary/20 transition-all active:scale-[0.98]">
+<span>Create My Stall</span>
+<span class="material-symbols-outlined">storefront</span>
+</button>
+<p class="text-center text-slate-500 text-xs mt-4 px-8">
+                By creating a stall, you agree to MartoraX Vendor Terms and Community Guidelines.
+            </p>
+</div>
+</div>
+</body></html>

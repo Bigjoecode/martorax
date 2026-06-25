@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Unified Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06f9ac",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900
+                        "card-dark": "#1e293b", // Slate 800
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen pb-24">
+<!-- Top Navigation / Search Header -->
+<header class="sticky top-0 z-30 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md pt-6 pb-2">
+<div class="px-4 flex items-center justify-between mb-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-200 dark:bg-card-dark text-slate-700 dark:text-white">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold">Search Results</h1>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-200 dark:bg-card-dark text-slate-700 dark:text-white">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Search Bar Component -->
+<div class="px-4 mb-4">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+<div class="text-slate-400 flex border-none bg-white dark:bg-card-dark items-center justify-center pl-4 rounded-l-xl border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-white dark:bg-card-dark focus:border-none h-full placeholder:text-slate-400 px-4 rounded-r-none border-r-0 pr-2 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" value="AC Repair"/>
+<div class="flex items-center justify-center rounded-r-xl border-l-0 border-none bg-white dark:bg-card-dark pr-4">
+<button class="flex items-center justify-center rounded-full bg-transparent text-slate-400">
+<span class="material-symbols-outlined">cancel</span>
+</button>
+</div>
+</div>
+</label>
+</div>
+<!-- Tabs Component -->
+<div class="px-4">
+<div class="flex p-1 bg-slate-200 dark:bg-card-dark rounded-full">
+<button class="flex-1 flex items-center justify-center py-2 text-sm font-bold text-slate-500 dark:text-slate-400 rounded-full transition-all">
+                    Products
+                </button>
+<button class="flex-1 flex items-center justify-center py-2 text-sm font-bold bg-white dark:bg-primary text-slate-900 dark:text-background-dark rounded-full shadow-sm">
+                    Services
+                </button>
+</div>
+</div>
+</header>
+<!-- Filter Chips Component -->
+<div class="px-4 py-4">
+<div class="flex gap-3 overflow-x-auto no-scrollbar">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 border border-primary/30 px-5 transition-colors">
+<span class="text-primary text-sm font-semibold leading-normal">Nearest</span>
+<span class="material-symbols-outlined text-primary text-[18px]">keyboard_arrow_down</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-700 px-5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Cheapest</p>
+<span class="material-symbols-outlined text-slate-400 text-[18px]">keyboard_arrow_down</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-700 px-5">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Rating</p>
+<span class="material-symbols-outlined text-slate-400 text-[18px]">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+<!-- Section Header Component -->
+<div class="flex items-center justify-between px-4 pb-2 pt-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Top Service Providers in Asaba</h3>
+<button class="text-primary text-sm font-semibold">View Map</button>
+</div>
+<!-- Results List -->
+<div class="px-4 space-y-4">
+<!-- Result Card 1 -->
+<div class="bg-white dark:bg-card-dark rounded-2xl p-4 flex gap-4 border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden shrink-0">
+<img alt="Technician working" class="w-full h-full object-cover" data-alt="Experienced technician repairing air conditioning unit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwaI2FwfKH9fgmAVUjyNLjtPqAVokEbpYSJ1PI3v2jZ5uHycjrQL9sxgO5STAVr_0-yvA3jWuEeyYtzldUwHzkDBvlGzGGEaUjDfTI9v5HLy3upXjjui0nvPYunzoSR_TpECtXL2gdXXp8cas298J_QcwSdvc8v4pl6Hdz7HdIHmoLwkQslchZ9vaovG-CgyjkcbeF2Z0y2V_P2xE7accjvj3QrEVPEEGX0SMqepito0Vs7vzV8h8Kn3GhteTm40X7CstQjkc_hgK6"/>
+<div class="absolute top-1 right-1 bg-primary px-1.5 py-0.5 rounded text-[10px] font-bold text-background-dark uppercase">Verified</div>
+</div>
+<div class="flex flex-col justify-between flex-1">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-slate-900 dark:text-white">Precision Cooling Services</h4>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm fill-1">star</span>
+<span class="text-xs font-bold">4.9</span>
+</div>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Specialist in HVAC &amp; Inverter Units</p>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>Okpanam Road, 1.2km</span>
+</div>
+<div class="w-1 h-1 rounded-full bg-slate-400"></div>
+<div class="text-[11px] text-primary font-semibold">8 yrs exp.</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3">
+<p class="text-sm font-bold">From <span class="text-primary">₦5,500</span></p>
+<button class="bg-primary text-background-dark text-xs font-bold px-4 py-2 rounded-full">Book Now</button>
+</div>
+</div>
+</div>
+<!-- Result Card 2 -->
+<div class="bg-white dark:bg-card-dark rounded-2xl p-4 flex gap-4 border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden shrink-0">
+<img alt="Professional workshop" class="w-full h-full object-cover" data-alt="Clean and professional service center workshop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANVsx1s_wzH57APBJkJEw3PzP-P02zXZDLFk7edITIgowIdLf6wLCWAWdaWrkKfBtm3PvQresGncejNF56pin-BBapzp965tWoalsxfy61sGPNKGgovF5jz-B7oReqpaWk9CJlX-y13hOozmp_7wKfAAMp52c0fURhqaXwE2V-onfkU_z5jlzebzLvS1Ip4drVAIByMeNpm-VVKCGCe0O2KOg8dc6ohJUhQqb7tUXgK6Qhoo0PKU2kUqB1cqtIcLpSEUByGH8jd4tc"/>
+</div>
+<div class="flex flex-col justify-between flex-1">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-slate-900 dark:text-white">Asaba Home Fix Pro</h4>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm fill-1">star</span>
+<span class="text-xs font-bold">4.7</span>
+</div>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Full AC Installation &amp; Gas Refill</p>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>Summit Road, 2.5km</span>
+</div>
+<div class="w-1 h-1 rounded-full bg-slate-400"></div>
+<div class="text-[11px] text-primary font-semibold">5 yrs exp.</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3">
+<p class="text-sm font-bold">From <span class="text-primary">₦4,000</span></p>
+<button class="bg-primary text-background-dark text-xs font-bold px-4 py-2 rounded-full">Book Now</button>
+</div>
+</div>
+</div>
+<!-- Result Card 3 -->
+<div class="bg-white dark:bg-card-dark rounded-2xl p-4 flex gap-4 border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden shrink-0">
+<img alt="Spare parts shop" class="w-full h-full object-cover" data-alt="Shelves stocked with air conditioning spare parts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3RTFzgplISjai7Tkvd9EJD3yuWFsHXtJ6k-MAcQIPG11U7Z4iw4fFxKZOQ-Fj3yCZMu3wdy0ixSkJt_CB7W_X1VLDNsumDV6YZb2UyCkG-UYA14yh5uj45CYSa7pDSCehaNVtMezpIhqCC5EuyNRWsYEszQN-vnvBw6m4ZT33RB2v4L3PdXz031tno9YFPHTj2qNGknaIL-0sc6anwcUKivjrk5W_JJDy0Zhhh2XRB8UP9LQSNbHAwSLRbCNw8LhxXZwaoV-5zI1K"/>
+</div>
+<div class="flex flex-col justify-between flex-1">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-slate-900 dark:text-white">Delta Cooling Hub</h4>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm fill-1">star</span>
+<span class="text-xs font-bold">4.5</span>
+</div>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Authorized LG &amp; Samsung Repair</p>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>GRA Phase II, 3.1km</span>
+</div>
+<div class="w-1 h-1 rounded-full bg-slate-400"></div>
+<div class="text-[11px] text-primary font-semibold">12 yrs exp.</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3">
+<p class="text-sm font-bold">From <span class="text-primary">₦6,000</span></p>
+<button class="bg-primary text-background-dark text-xs font-bold px-4 py-2 rounded-full">Book Now</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Suggested Products Section Header -->
+<div class="flex items-center justify-between px-4 pb-2 pt-8">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Related Spare Parts</h3>
+<button class="text-primary text-sm font-semibold">See All</button>
+</div>
+<!-- Horizontal Product Scroll -->
+<div class="flex gap-4 overflow-x-auto px-4 no-scrollbar pb-8">
+<!-- Product 1 -->
+<div class="min-w-[160px] bg-white dark:bg-card-dark rounded-2xl p-3 border border-slate-200 dark:border-slate-800">
+<div class="w-full aspect-square rounded-xl bg-slate-100 dark:bg-slate-900 mb-2 overflow-hidden">
+<img alt="AC Remote" class="w-full h-full object-cover" data-alt="Air conditioner remote control replacement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8WzuqCC_x6UsnmV3VzyK2062zd41JnBO44Bb60Ja30_zjXXy5evlFegeAIzTtwwEWHciASluI2qKnqxW6IOZJvCf2OdN0uc_0X3aP84orclZm9z1yTiHibkbctvzsxX8BzHOlaiOPYYw9l2vfxQWVmz-66hg8bgXpCgruIB50ug-k3JxbPhDRbZva5MHfyKNi3rQ3V3mZ7hnt0kE0S_vSRq7h7eirJPMWpjlKilD2iHq-Igp_jq864QH8Ythdqlq5WkgOM48JcLUx"/>
+</div>
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400">Electronics</p>
+<h5 class="text-sm font-bold truncate">Universal AC Remote</h5>
+<p class="text-primary font-bold mt-1 text-sm">₦3,500</p>
+</div>
+<!-- Product 2 -->
+<div class="min-w-[160px] bg-white dark:bg-card-dark rounded-2xl p-3 border border-slate-200 dark:border-slate-800">
+<div class="w-full aspect-square rounded-xl bg-slate-100 dark:bg-slate-900 mb-2 overflow-hidden">
+<img alt="Copper Pipe" class="w-full h-full object-cover" data-alt="Copper piping for air conditioning installation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgLo6ipv8tv3IbGaQ3qIlBsh_obGhjNFE4Gtyw9c9Hlbq3hbalT4FsCiOOiGOEBTtldL9Epmyh9ED0mXjqAd9yMG8h_vLIXiVlxjC_sigZoXllrNvxpFVAfv2Y9Rm_trpSRZTiirMKQi3zk-3n6xGc0edo5L0OhT-nfw8w4w1ievki2cajqqvkvI-RZeIIy-gH202MM8PFTJlDpreUS5aw7dxmaov94Hn9bYOW5DHR7d7KO89Yir9RZY36RxTksDI7uxo7vdsZAAGo"/>
+</div>
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400">Hardware</p>
+<h5 class="text-sm font-bold truncate">Copper Tubing (15m)</h5>
+<p class="text-primary font-bold mt-1 text-sm">₦12,000</p>
+</div>
+<!-- Product 3 -->
+<div class="min-w-[160px] bg-white dark:bg-card-dark rounded-2xl p-3 border border-slate-200 dark:border-slate-800">
+<div class="w-full aspect-square rounded-xl bg-slate-100 dark:bg-slate-900 mb-2 overflow-hidden">
+<img alt="R22 Gas" class="w-full h-full object-cover" data-alt="Refrigerant gas cylinder for AC units" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxTsFWFeCPmUXJeiaUbq1vk3jaq3wzYL3mCoSTZ3lalVo9_4kzR7A_QngB3YlZLuzlSHc_nrGA75msfUS2YaWMTyZDSo8A7H4PoK5s_dDH2DhVr3JP5aOzSRuolDM4l442TkzxiavcR6Rg-MuMhAcyVOZUlklsK6TaIRB1Q3R6gunnBRYhjKqgHiVdeTxvarPvGJR_p5urqnCE7RY9IKkokzQFN7JyY_87aOpmXBsWfyLqV-t2KQ8IMErWmk4w-lwLDYdhHpgsoP-E"/>
+</div>
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400">Gas &amp; Consumables</p>
+<h5 class="text-sm font-bold truncate">Refrigerant R22 Gas</h5>
+<p class="text-primary font-bold mt-1 text-sm">₦8,500</p>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-background-dark/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 flex items-center justify-around py-3 px-6 z-50">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">search</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Search</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">event_note</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Bookings</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Profile</span>
+</button>
+</nav>
+</body></html>

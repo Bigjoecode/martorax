@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Role Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Bricolage+Grotesque:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059669", // Emerald 600
+                        "background-dark": "#0F172A", // Slate 900
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"],
+                        "tagline": ["Bricolage Grotesque"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            background-color: #0F172A;
+            min-height: 100dvh;
+        }
+        .role-card {
+            @apply relative flex items-center p-5 rounded-2xl border-2 transition-all duration-200 bg-slate-800/40;
+        }
+        .role-card.selected {
+            @apply border-primary bg-emerald-950/20;
+        }
+        .role-card.unselected {
+            @apply border-slate-800 hover:border-slate-700;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display text-slate-200 antialiased overflow-x-hidden">
+<div class="relative flex flex-col min-h-screen w-full px-6 py-12">
+<div class="h-6"></div>
+<div class="mb-8">
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-800/50 text-slate-300">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+</div>
+<div class="mb-10">
+<h1 class="text-3xl font-bold text-white mb-3">How would you like to join?</h1>
+<p class="text-slate-400 text-lg leading-relaxed">Select the account type that best describes your needs in Asaba.</p>
+</div>
+<div class="flex-grow space-y-4">
+<div class="role-card selected">
+<div class="flex-shrink-0 w-14 h-14 flex items-center justify-center bg-primary rounded-xl text-white mr-4">
+<span class="material-symbols-outlined !text-3xl" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+</div>
+<div class="flex-grow">
+<h3 class="text-white font-bold text-lg leading-none mb-1">Shopper</h3>
+<p class="text-slate-400 text-sm">I want to buy products and book services</p>
+</div>
+<div class="flex-shrink-0 ml-2">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white !text-sm font-bold">check</span>
+</div>
+</div>
+</div>
+<div class="role-card unselected">
+<div class="flex-shrink-0 w-14 h-14 flex items-center justify-center bg-slate-700 rounded-xl text-slate-300 mr-4">
+<span class="material-symbols-outlined !text-3xl">storefront</span>
+</div>
+<div class="flex-grow">
+<h3 class="text-white font-bold text-lg leading-none mb-1">Vendor</h3>
+<p class="text-slate-400 text-sm">I want to sell products</p>
+</div>
+<div class="flex-shrink-0 ml-2">
+<div class="w-6 h-6 rounded-full border-2 border-slate-700"></div>
+</div>
+</div>
+<div class="role-card unselected">
+<div class="flex-shrink-0 w-14 h-14 flex items-center justify-center bg-slate-700 rounded-xl text-slate-300 mr-4">
+<span class="material-symbols-outlined !text-3xl">handyman</span>
+</div>
+<div class="flex-grow">
+<h3 class="text-white font-bold text-lg leading-none mb-1">Service Provider</h3>
+<p class="text-slate-400 text-sm">I want to offer my professional skills</p>
+</div>
+<div class="flex-shrink-0 ml-2">
+<div class="w-6 h-6 rounded-full border-2 border-slate-700"></div>
+</div>
+</div>
+</div>
+<div class="mt-12 pb-6">
+<button class="w-full bg-primary hover:bg-emerald-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-emerald-900/30 transition-colors">
+                Continue
+            </button>
+<p class="text-center text-slate-500 text-sm mt-6">
+                Already have an account? <span class="text-primary font-semibold">Sign In</span>
+</p>
+</div>
+<div class="flex justify-center mt-4">
+<div class="h-1.5 w-36 bg-slate-800 rounded-full"></div>
+</div>
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -z-10 pointer-events-none"></div>
+<div class="absolute bottom-20 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -z-10 pointer-events-none"></div>
+</div>
+
+</body></html>

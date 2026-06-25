@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Provider Request Completion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab", // Emerald/Green
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 equivalent
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<button class="text-slate-900 dark:text-white flex size-10 shrink-0 items-center justify-start hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Complete Job</h2>
+</div>
+</header>
+<main class="flex-1 max-w-md mx-auto w-full pb-32">
+<!-- Job Summary Card -->
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Interior plumbing repair job showing fixed pipes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwPpSuFxNLA8prFyBvRBjh_IGxz8bZmLUOLekRDfj4tvN0PXs0H4zfy_xyYaQG_JyBntuceWDHXsi2dhRIBmXNISYMUjQnWcBigFAW_PiBVFCkcMK-PkQq9MTtqRV4NjaMK8Kju8AAeSSkz_VAVGttsPTgHbEQZNKJehfcXlItzh25HDE4aQGZTK0ms4a4qR9Un5ABqV6m1ikrXmxUkILdic2gx8qes9ToMtLkE3Gn99gcX2sFvxHr1nHyooqm-tUqx5N9S9au_tx8");'>
+</div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 p-5">
+<div class="flex justify-between items-start mb-2">
+<span class="px-2 py-1 rounded bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">In Progress</span>
+<p class="text-slate-400 text-xs font-medium">Job ID: #MTX-9821</p>
+</div>
+<p class="text-slate-900 dark:text-white text-xl font-extrabold leading-tight tracking-tight">Plumbing Repair - Leakage Fix</p>
+<div class="mt-4 flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-sm">person</span>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Client: <span class="text-slate-900 dark:text-white">Adewale Johnson</span></p>
+</div>
+<div class="flex items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-700/50 mt-2">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Total Earnings:</p>
+<p class="text-primary text-2xl font-extrabold tracking-tight">₦25,000.00</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SectionHeader: Upload Proof -->
+<div class="px-4 pt-6 pb-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Upload Proof of Completion</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal mt-1">Add 1-3 photos of the finished work to expedite payment.</p>
+</div>
+<!-- ImageGrid / Upload Area -->
+<div class="grid grid-cols-3 gap-3 p-4">
+<!-- Uploaded Image 1 -->
+<div class="relative group">
+<div class="w-full aspect-square bg-center bg-no-repeat bg-cover rounded-xl border-2 border-primary/30" data-alt="Close up of repaired faucet with no leaks" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA1HEW_1KyiLJ1jTu85TPK9cOrD3-kqifdpZ50yiQetRa2ZKfoo5d4emR-pXSIEQihzxuUe9HgPax_dFeYGUW35DpU7Hn7x5Chk1gnp9WukeutpuNrTU_yMkxhMe7TBek4BoWej_kUbdyEx_-s46vlGnWS964eSVyusHU9Cfq9tWkuuCcjX0Okfh-GKdN6h6jD5ACXEBzmoWzAKLj1eaLQ2wM58gmpHUZaUXr8qYKx6Ij-OLiKJDYFXY8ed0uaPl8KyvnOHIeVRds3L");'>
+<div class="absolute top-1 right-1 bg-primary text-slate-900 rounded-full size-6 flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+</div>
+</div>
+<!-- Empty Slot / Add Button -->
+<button class="flex flex-col items-center justify-center aspect-square rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/30 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">add_a_photo</span>
+<span class="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-tighter">Add Photo</span>
+</button>
+<!-- Placeholder Slot -->
+<div class="flex flex-col items-center justify-center aspect-square rounded-xl border-2 border-dashed border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20">
+<span class="material-symbols-outlined text-slate-200 dark:text-slate-800 text-3xl">image</span>
+</div>
+</div>
+<!-- Info Box / Microcopy -->
+<div class="mx-4 mt-6 p-4 rounded-xl bg-primary/5 border border-primary/20 flex gap-3">
+<span class="material-symbols-outlined text-primary shrink-0">info</span>
+<p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
+                Once you request release, the customer has <span class="font-bold text-primary">48 hours</span> to confirm or raise a dispute. If no action is taken, funds are automatically released.
+            </p>
+</div>
+</main>
+<!-- Fixed Footer -->
+<footer class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 p-4 pb-8 z-50">
+<div class="max-w-md mx-auto flex flex-col gap-3">
+<button class="w-full bg-primary hover:bg-primary/90 text-slate-900 font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all transform active:scale-[0.98] shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">payments</span>
+                Request Fund Release
+            </button>
+<p class="text-center text-[10px] text-slate-500 uppercase font-bold tracking-[0.1em]">
+                Secure escrow payment via MartoraX
+            </p>
+</div>
+</footer>
+</body></html>

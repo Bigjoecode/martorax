@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white min-h-screen flex flex-col font-display">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark/95 backdrop-blur-md border-b border-white/10 px-4 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-white cursor-pointer">arrow_back_ios</span>
+<h1 class="text-white text-lg font-bold leading-tight tracking-tight">Create Group Buy Deal</h1>
+</div>
+<div class="w-8"></div> <!-- Spacer for symmetry -->
+</header>
+<main class="flex-1 overflow-y-auto pb-40">
+<!-- Page Progress Indicator -->
+<div class="flex w-full flex-row items-center justify-center gap-2 py-6">
+<div class="h-1.5 w-8 rounded-full bg-primary"></div>
+<div class="h-1.5 w-8 rounded-full bg-white/20"></div>
+<div class="h-1.5 w-8 rounded-full bg-white/20"></div>
+<div class="h-1.5 w-8 rounded-full bg-white/20"></div>
+</div>
+<!-- Step 1: Select Product -->
+<section class="px-4 mb-8">
+<div class="flex items-center justify-between mb-3">
+<h3 class="text-white text-base font-bold tracking-tight uppercase text-xs opacity-60">Step 1: Select Product</h3>
+<span class="text-primary text-xs font-semibold">See All Catalog</span>
+</div>
+<div class="space-y-3">
+<!-- Selected Item State -->
+<div class="flex items-center gap-4 bg-white/5 border border-primary/50 p-3 rounded-xl ring-1 ring-primary/30 shadow-lg shadow-primary/5">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-16 shrink-0" data-alt="Premium fresh organic tomatoes in a wooden crate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBs_jqGz54BIcMqecUHIDBuiyPyHFuAW40CcNkb76rgZNTIkJ1P6Zyvv5RGLjDwVKJyV61CQ4Lb5tEDcha2iJ1-YNs5VoE_Zy7mA8MmX83OTLwzwQgZbjjQEDqOvBHKY_muckMQmH_RIVJFr5e00oHqquTZy9R40cv9YLfp1ziPhAhr96U4OTWv0hQR5lzizAjorVfGMdqXDPjuBhIFaajSf6M-NZDp4avWIBht3AA95wcqwGIuPK5lmEeh6Ihtyy2lOc7cNMis75xr");'></div>
+<div class="flex flex-col flex-1">
+<p class="text-white text-base font-semibold leading-tight line-clamp-1">Fresh Farm Tomatoes (Big Basket)</p>
+<p class="text-white/60 text-sm mt-1">Original Price: <span class="line-through">₦15,000</span></p>
+</div>
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+</div>
+</section>
+<!-- Step 2: Set Group Size -->
+<section class="px-4 mb-8">
+<h3 class="text-white text-base font-bold tracking-tight uppercase text-xs opacity-60 mb-4">Step 2: Set Group Size</h3>
+<div class="grid grid-cols-4 gap-3">
+<button class="flex flex-col items-center justify-center py-4 bg-white/5 rounded-xl border border-white/10 hover:border-primary/50 transition-colors">
+<span class="text-lg font-bold">5</span>
+<span class="text-[10px] text-white/50 uppercase">People</span>
+</button>
+<button class="flex flex-col items-center justify-center py-4 bg-primary rounded-xl border border-primary shadow-lg shadow-primary/20">
+<span class="text-lg font-bold">10</span>
+<span class="text-[10px] text-white/80 uppercase">People</span>
+</button>
+<button class="flex flex-col items-center justify-center py-4 bg-white/5 rounded-xl border border-white/10 hover:border-primary/50 transition-colors">
+<span class="text-lg font-bold">20</span>
+<span class="text-[10px] text-white/50 uppercase">People</span>
+</button>
+<button class="flex flex-col items-center justify-center py-4 bg-white/5 rounded-xl border border-white/10 hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-xl">add</span>
+<span class="text-[10px] text-white/50 uppercase">Custom</span>
+</button>
+</div>
+</section>
+<!-- Step 3: Discounted Price -->
+<section class="px-4 mb-8">
+<h3 class="text-white text-base font-bold tracking-tight uppercase text-xs opacity-60 mb-4">Step 3: Set Discounted Price</h3>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-primary font-bold text-xl">₦</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-10 pr-4 text-xl font-bold text-white focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="12,500" type="number" value="12500"/>
+</div>
+<p class="mt-3 text-xs text-white/40 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">info</span>
+                Suggested discount for 10 people: 15% - 25% off
+            </p>
+</section>
+<!-- Step 4: Expiry Time -->
+<section class="px-4 mb-8">
+<h3 class="text-white text-base font-bold tracking-tight uppercase text-xs opacity-60 mb-4">Step 4: Set Expiry Time</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium">6 Hours</button>
+<button class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium">12 Hours</button>
+<button class="px-4 py-2 rounded-full bg-primary border border-primary text-sm font-semibold">24 Hours</button>
+<button class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium">48 Hours</button>
+</div>
+</section>
+<!-- Additional Settings -->
+<section class="px-4 mb-8">
+<div class="bg-white/5 rounded-xl p-4 flex items-center justify-between border border-white/10">
+<div class="flex flex-col gap-0.5">
+<p class="text-sm font-semibold">Auto-cancel if not filled</p>
+<p class="text-[11px] text-white/50">Automatically refund buyers if group isn't full</p>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Footer with Create Button -->
+<div class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark/95 border-t border-white/10 pb-10 pt-4 px-4">
+<button class="w-full bg-primary hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98]">
+            Create Group Deal
+        </button>
+<!-- Navigation Tab Bar -->
+<nav class="flex justify-between items-center mt-6 px-4">
+<div class="flex flex-col items-center gap-1 opacity-40">
+<span class="material-symbols-outlined text-[24px]">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[24px] fill-1">inventory_2</span>
+<span class="text-[10px] font-medium">Inventory</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-40">
+<span class="material-symbols-outlined text-[24px]">shopping_cart</span>
+<span class="text-[10px] font-medium">Orders</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-40">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</nav>
+</div>
+</body></html>

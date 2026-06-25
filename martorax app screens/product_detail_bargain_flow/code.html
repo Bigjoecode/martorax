@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Product Detail &amp; Bargain</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06c656",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                        "accent-amber": "#d97706",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .bottom-sheet {
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 justify-between border-b border-white/5">
+<div class="text-white flex size-10 shrink-0 items-center justify-center bg-white/10 rounded-full" data-icon="arrow_back">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Product Details</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex size-10 items-center justify-center bg-white/10 rounded-full text-white">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</div>
+<main class="pb-40">
+<!-- Header Image Gallery -->
+<div class="@container">
+<div class="@[480px]:px-4 @[480px]:py-3">
+<div class="relative bg-cover bg-center flex flex-col justify-end overflow-hidden min-h-96 @[480px]:rounded-xl" data-alt="High quality fresh red tomatoes in a wooden crate" style='background-image: linear-gradient(0deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0) 40%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAugjqJiSDzGIDywuPbaVei9Y3-rnoipA09PDQGHZ6MktBnDMC565Fu0TkbgPN818y6ruAnobfNBLQOI7uHrfjydhkWLn66kCvmq7P3kNRbp7HAMARg_6KFPtatmEbslBBcF2L8-dNwm6RXUFWqmjThnevwU6PZkELy_MR1HleosDNvHwFTgpJCx8a8B-hjQGHN--hiPpw1thudhU_uxNUTLkafOjgcaZ6T95qonxRdknDmngNTa5n2vCu_ebgE8jQ1DsCaxW8XA-wz");'>
+<div class="absolute top-4 right-4">
+<div class="bg-primary px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="text-xs font-bold uppercase tracking-wider">Trusted Stall</span>
+</div>
+</div>
+<div class="flex justify-center gap-2 p-5">
+<div class="size-2 rounded-full bg-primary"></div>
+<div class="size-2 rounded-full bg-white/30"></div>
+<div class="size-2 rounded-full bg-white/30"></div>
+<div class="size-2 rounded-full bg-white/30"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Headline Text -->
+<div class="px-4 pt-6">
+<div class="flex justify-between items-start">
+<div>
+<h1 class="text-white tracking-tight text-3xl font-bold leading-tight">Fresh Grade A Tomatoes</h1>
+<p class="text-white/60 text-sm mt-1">Sold per basket (approx. 5kg)</p>
+</div>
+<div class="text-right">
+<p class="text-primary text-2xl font-bold">₦5,000</p>
+<p class="text-xs text-white/40 line-through">₦6,500</p>
+</div>
+</div>
+</div>
+<!-- Bargain Button (Key Action) -->
+<div class="px-4 py-6">
+<button class="w-full flex items-center justify-center gap-3 bg-accent-amber hover:bg-amber-500 transition-colors text-white h-14 rounded-xl font-bold text-lg shadow-lg shadow-amber-900/20">
+<span class="material-symbols-outlined">forum</span>
+                Bargain with Seller
+            </button>
+</div>
+<!-- Vendor Card -->
+<div class="px-4">
+<div class="p-4 bg-white/5 border border-white/10 rounded-2xl">
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-[2_2_0px] flex-col gap-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<p class="text-white text-base font-bold leading-tight">Ogbogonogo Stall 42</p>
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+</div>
+<p class="text-white/60 text-sm font-normal flex items-center gap-1 leading-normal">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                Asaba • <span class="text-primary font-medium">Responds in 5 mins</span>
+</p>
+</div>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-full h-9 px-4 bg-white/10 text-white text-sm font-medium hover:bg-white/20 transition-colors">
+<span>View Stall</span>
+</button>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-xl border border-white/10" data-alt="Market vendor stall with variety of vegetables" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBFQDVqfz0o3Ez3jYSxbEtyDxB7_LFoQ-KP6tfAF0QCJROHapQQ9WxWpivcd1g2Z3XxU_xvtQlIdAJw7aBLiT8ir6SMyHa4LUbkqlDDeLx3FR73OlySu3mNw5l5UQjXYb2NbQf87uPFS-DreBuY0WyuFW4H0d02D_Edi6akgG3WFqnfievBhO7aIaZK9bCFtGIxyLG_wLxRPkxNnmwHaIB53r4S_oPA28PrQisW5N5DKZnC-M3lGEzcGY9eCen1izpf2KOT_UpfqnsR");'>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Details List -->
+<div class="mt-6 space-y-1">
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between border-b border-white/5">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-xl bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div>
+<p class="text-white text-sm font-medium">In Stock</p>
+<p class="text-white/40 text-xs">12 baskets available</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="size-3 rounded-full bg-primary animate-pulse"></div>
+</div>
+</div>
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between border-b border-white/5">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-xl bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div>
+<p class="text-white text-sm font-medium">Delivery</p>
+<p class="text-white/40 text-xs">Pickup or 30-min delivery</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-white/20">chevron_right</span>
+</div>
+</div>
+<!-- Canned Pidgin Phrases Section (Bargain Flow Preview) -->
+<div class="px-4 mt-8">
+<p class="text-white/40 text-xs font-bold uppercase tracking-widest mb-4">Quick Bargain Phrases</p>
+<div class="flex flex-wrap gap-2">
+<div class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium text-white/80 hover:bg-primary/20 hover:border-primary/40 cursor-pointer">
+                    Last price?
+                </div>
+<div class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium text-white/80 hover:bg-primary/20 hover:border-primary/40 cursor-pointer">
+                    Reduce small for me
+                </div>
+<div class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium text-white/80 hover:bg-primary/20 hover:border-primary/40 cursor-pointer">
+                    I fit pay ₦4,000
+                </div>
+<div class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium text-white/80 hover:bg-primary/20 hover:border-primary/40 cursor-pointer">
+                    Oga/Madam, do giveaway
+                </div>
+</div>
+</div>
+</main>
+<!-- Sticky Footer -->
+<div class="fixed bottom-0 left-0 right-0 bg-background-dark/95 backdrop-blur-xl border-t border-white/10 pb-8 pt-4 px-4 z-50">
+<!-- Add to Cart Primary Button -->
+<div class="flex gap-4 items-center mb-6">
+<div class="flex items-center bg-white/5 rounded-xl px-3 py-2 border border-white/10">
+<button class="p-1"><span class="material-symbols-outlined text-white/60">remove</span></button>
+<span class="px-4 font-bold">1</span>
+<button class="p-1"><span class="material-symbols-outlined text-primary">add</span></button>
+</div>
+<button class="flex-1 bg-primary hover:bg-emerald-500 transition-all text-white h-14 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">shopping_basket</span>
+                Add to Cart
+            </button>
+</div>
+<!-- Tab Navigation -->
+<nav class="flex justify-between items-center px-4">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-medium">Bookings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</nav>
+</div>
+</body></html>

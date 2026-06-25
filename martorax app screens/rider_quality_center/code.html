@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rider Quality Center - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen pb-24">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-50 flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="flex size-12 shrink-0 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" data-alt="Profile picture of the delivery rider" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAt78h4mvICrk7fVdSc1SRVIgWUDz9QXZ9oJ-WFzJLDHPU4Blua9l2eXQrXKq_lg5he0exyg54vWOO3kja6ydgkcgE3AwDp3BKUiRvz3d0FqGNUZmZH9cpnPV3Cc9UTyrdnYgp7sqRwfwjFC8m66XwXmTWbfHnVNJcGIr41arlMUbfNfthHWcnv0N_507_G46g18nzUpkIEp3euINS_H1eHaQZ3DhuigiJgCXuW6vFlCnXDxzpDbRnWbrFob3YA66uXX-epHXCWxxyt");'>
+</div>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Quality Center</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-slate-900 dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+<!-- Rider Score Section -->
+<div class="flex flex-col items-center justify-center py-8 px-4">
+<div class="relative flex items-center justify-center">
+<!-- Simple SVG Ring representation -->
+<svg class="w-32 h-32 transform -rotate-90">
+<circle class="text-slate-200 dark:text-slate-800" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="72.8" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<h1 class="text-slate-900 dark:text-white tracking-light text-[40px] font-bold leading-none">4.8</h1>
+</div>
+</div>
+<p class="text-slate-500 dark:text-[#9db9a6] text-sm font-medium leading-normal mt-4 text-center">Monthly Rider Score / 5.0</p>
+<div class="mt-2 bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Top 5% in Asaba</div>
+</div>
+<!-- Performance Breakdown Section -->
+<div class="px-4 mb-6">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-4">Performance Breakdown</h3>
+<div class="space-y-3">
+<!-- Speed -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-none">Speed</p>
+<p class="text-slate-500 dark:text-[#9db9a6] text-xs mt-1">Excellent</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-3">
+<div class="w-24 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+<div class="h-full rounded-full bg-primary" style="width: 95%;"></div>
+</div>
+<p class="text-slate-900 dark:text-white text-sm font-bold">95</p>
+</div>
+</div>
+<!-- Politeness -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">sentiment_satisfied</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-none">Politeness</p>
+<p class="text-slate-500 dark:text-[#9db9a6] text-xs mt-1">Good</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-3">
+<div class="w-24 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+<div class="h-full rounded-full bg-primary" style="width: 88%;"></div>
+</div>
+<p class="text-slate-900 dark:text-white text-sm font-bold">88</p>
+</div>
+</div>
+<!-- Handling -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">package_2</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-none">Handling</p>
+<p class="text-slate-500 dark:text-[#9db9a6] text-xs mt-1">Excellent</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-3">
+<div class="w-24 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+<div class="h-full rounded-full bg-primary" style="width: 92%;"></div>
+</div>
+<p class="text-slate-900 dark:text-white text-sm font-bold">92</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Trusted Rider Section -->
+<div class="px-4 mb-6">
+<div class="bg-gradient-to-br from-slate-800 to-slate-950 p-5 rounded-2xl border border-primary/30 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-8xl text-primary">verified</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary">verified</span>
+<h3 class="text-white text-lg font-bold">Trusted Rider Status</h3>
+</div>
+<p class="text-slate-300 text-sm mb-4">You're only 0.2 points away from Gold Status perks!</p>
+<div class="space-y-3">
+<div class="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl">payments</span>
+<p class="text-white text-sm font-medium">5% Lower Service Fees</p>
+</div>
+<div class="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl">priority_high</span>
+<p class="text-white text-sm font-medium">Priority Order Matching</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Customer Feedback -->
+<div class="px-4 mb-8">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-4">Recent Feedback</h3>
+<div class="space-y-4">
+<div class="bg-white dark:bg-slate-800/30 p-4 rounded-xl border border-slate-100 dark:border-slate-800 italic text-sm text-slate-600 dark:text-slate-300">
+                "Super fast delivery to the GRA area! Package was handled with care."
+                <div class="mt-2 flex items-center justify-between not-italic">
+<span class="text-primary font-bold text-xs uppercase tracking-tighter">5 Stars</span>
+<span class="text-slate-400 text-[10px]">Today, 2:15 PM</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800/30 p-4 rounded-xl border border-slate-100 dark:border-slate-800 italic text-sm text-slate-600 dark:text-slate-300">
+                "Very polite and professional. MartoraX riders are always the best in Asaba."
+                <div class="mt-2 flex items-center justify-between not-italic">
+<span class="text-primary font-bold text-xs uppercase tracking-tighter">5 Stars</span>
+<span class="text-slate-400 text-[10px]">Yesterday</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-6 py-3 flex justify-between items-center pb-8">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-[10px] font-medium">Earnings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-[10px] font-bold">Quality</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-medium">History</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</body></html>

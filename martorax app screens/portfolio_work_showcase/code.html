@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio: Work Showcase</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09aa77",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto w-full">
+<button class="flex size-10 shrink-0 items-center justify-start text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Portfolio Setup</h2>
+</div>
+</header>
+<main class="flex-1 w-full max-w-md mx-auto px-4 py-2 pb-32">
+<!-- Progress Bar Component -->
+<div class="flex flex-col gap-2 py-4">
+<div class="flex justify-between items-end">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Step 2 of 5</p>
+<p class="text-primary text-xs font-bold uppercase tracking-wider">Showcase</p>
+</div>
+<div class="h-1.5 w-full rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 40%;"></div>
+</div>
+</div>
+<!-- Headline Component -->
+<div class="pt-4 pb-2">
+<h3 class="text-2xl font-bold leading-tight text-slate-900 dark:text-white">Showcase Your Work</h3>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal leading-relaxed mt-2">
+                Add 3-6 photos of your past projects or certificates to build trust with clients in Asaba.
+            </p>
+</div>
+<!-- Image Upload Grid Component -->
+<div class="grid grid-cols-2 gap-3 py-6">
+<!-- Slot 1 (With Image + Primary Selection) -->
+<div class="relative group aspect-square rounded-xl overflow-hidden border-2 border-primary bg-slate-100 dark:bg-slate-800">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="high quality interior painting project photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDOersLWduuNUEapKHM7vN4HT-QPuF1n1G8zjJ2j7U6m4k15M1viCQAuTEx4nLKDJnotvp-N2dI9u4hTYTIlMaSDoWNgfEopICtU2RK_WjdkwuIjV_l8nW4cUVWpFNhXiWGjki3fiQsuSsFvQHzBt5roCT6WDM03mxtZgOvLmwXxjGEi4MEBVJAwA5CKO2zI-QpzaWsgZ7bMQ2844i1ktvgJ1y3WvVU5VAR-p35twLMD10lsqzZ-mmPnX4tM-6H02wNFdeb_Pn4Jde7');"></div>
+<div class="absolute top-2 left-2 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg">PRIMARY</div>
+<button class="absolute top-2 right-2 bg-black/50 text-white p-1 rounded-full backdrop-blur-sm">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<!-- Slot 2 (With Image) -->
+<div class="relative group aspect-square rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="professional plumbing installation showcase" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWTPIVWDoAQyyn4hkhtyj-CD4WpIJRZTXpgnHqwDdAY12I18n9OXiQnSNd8aHq-bTKxgwsxQ_3rfec6bJuxzsNGZ3-liDKpqR-j10KyPFkuzkm7Vqa43qU6Jy64CEhMWVvAqQSlhhtTBzurgFLQMaHA7J1VBqv6BHesCuYQ35f4XID_O2WEJ6jQZEhmoj_OGsrZzR90E2DQEgnBQcfu6qvJ3bjDm3riFZHHIbfrIkDfAMqmgaVLbkh0TVGAV6OU1C9dM95JO7wOtP4');"></div>
+<button class="absolute top-2 right-2 bg-black/50 text-white p-1 rounded-full backdrop-blur-sm">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<!-- Empty Slot 3 (Upload Prompt) -->
+<button class="aspect-square rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">add_a_photo</span>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Add Photo</span>
+</button>
+<!-- Empty Slot 4 -->
+<button class="aspect-square rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-600 text-3xl">add_a_photo</span>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Add Photo</span>
+</button>
+<!-- Empty Slot 5 -->
+<button class="aspect-square rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-600 text-3xl">add_a_photo</span>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Add Photo</span>
+</button>
+<!-- Empty Slot 6 -->
+<button class="aspect-square rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-600 text-3xl">add_a_photo</span>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Add Photo</span>
+</button>
+</div>
+<!-- Business Description Section -->
+<div class="mt-6">
+<label class="block text-base font-bold text-slate-900 dark:text-white mb-3" for="about">About Your Business</label>
+<textarea class="w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600" id="about" placeholder="Tell clients about your expertise, your years of experience, and the areas you serve in Asaba..." rows="5"></textarea>
+<p class="mt-2 text-[12px] text-slate-400 dark:text-slate-500 text-right italic">Local context helps you rank higher in Asaba searches.</p>
+</div>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<footer class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 pb-8 pt-4 px-4 z-50">
+<div class="max-w-md mx-auto flex flex-col gap-3">
+<button class="w-full bg-primary hover:bg-emerald-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2">
+                Continue
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<div class="h-1.5 w-32 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto mt-2"></div> <!-- iOS Home Indicator Mimic -->
+</div>
+</footer>
+</body></html>

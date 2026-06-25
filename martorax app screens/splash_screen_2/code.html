@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX Splash Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Bricolage+Grotesque:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06ac78",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0F172A", // Slate 900 as requested
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"],
+                        "tagline": ["Bricolage Grotesque"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .loading-spinner {
+            border: 3px solid rgba(6, 172, 120, 0.1);
+            border-top: 3px solid #06ac78;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0F172A] dark:bg-[#0F172A] font-display overflow-hidden">
+<div class="relative flex h-screen w-full flex-col items-center justify-between py-16 px-6 bg-[#0F172A]">
+<!-- Top Empty Space for iOS Status Bar -->
+<div class="w-full h-10"></div>
+<!-- Center Logo and Tagline Section -->
+<div class="flex flex-col items-center justify-center flex-grow gap-6">
+<!-- Brand Logo Placeholder -->
+<div class="relative w-32 h-32 flex items-center justify-center">
+<div class="absolute inset-0 bg-primary/10 blur-3xl rounded-full"></div>
+<div class="z-10 bg-gradient-to-br from-primary to-emerald-800 p-6 rounded-3xl shadow-2xl shadow-emerald-900/40">
+<span class="material-symbols-outlined text-white !text-6xl select-none" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;">
+                        hub
+                    </span>
+</div>
+</div>
+<!-- Brand Name & Tagline -->
+<div class="text-center space-y-2">
+<h1 class="text-white text-4xl font-bold tracking-tight">MartoraX</h1>
+<p class="font-tagline text-emerald-500/90 text-lg font-medium tracking-wide">
+                    Your City In Your Pocket
+                </p>
+</div>
+</div>
+<!-- Bottom Loading Section -->
+<div class="flex flex-col items-center gap-8 pb-8">
+<!-- Subtle Loading Indicator -->
+<div class="flex flex-col items-center gap-4">
+<div class="loading-spinner"></div>
+<p class="text-slate-500 text-sm font-medium tracking-[0.2em] uppercase">
+                    Connecting to Asaba
+                </p>
+</div>
+<!-- iOS Home Indicator Area Spacing -->
+<div class="h-2 w-32 bg-slate-800/50 rounded-full mt-4"></div>
+</div>
+<!-- Background Decorative Elements -->
+<div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-900/10 rounded-full blur-[100px]"></div>
+</div>
+</div>
+<!-- Component reference from list: HeaderImage (as abstract background pattern if needed) -->
+<div class="hidden">
+<div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#111816] @[480px]:rounded-xl min-h-[218px]" data-alt="Abstract dark slate gradient with subtle emerald glows" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 1) 0%, rgba(6, 172, 120, 0.05) 100%);">
+</div>
+</div>
+</body></html>

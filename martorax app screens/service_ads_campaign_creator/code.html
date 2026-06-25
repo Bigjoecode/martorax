@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Ads Campaign Creator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#089166",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#10221c",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-size: 24px; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-white/10">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-primary flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12 font-display">Boost Your Visibility</h2>
+</div>
+<!-- Progress Bar Indicator -->
+<div class="flex w-full flex-row items-center justify-center gap-3 py-3">
+<div class="h-1.5 w-12 rounded-full bg-primary"></div>
+<div class="h-1.5 w-12 rounded-full bg-primary/20"></div>
+<div class="h-1.5 w-12 rounded-full bg-primary/20"></div>
+</div>
+</header>
+<main class="flex-1 pb-32">
+<!-- Live Preview Section -->
+<section class="mt-4">
+<div class="flex items-center justify-between px-4 pb-2 pt-4">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] font-display">Live Preview</h3>
+<span class="text-primary text-xs font-bold uppercase tracking-wider">How it looks</span>
+</div>
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start shadow-xl bg-white dark:bg-[#1b2723] border border-white/5 overflow-hidden">
+<div class="relative w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Professional electrician working on a circuit board in Asaba" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCzOQTmPa4s51-19Tfhot3Xjfm0qVqMyo_uJgKcTb3-IGSeLaQQTp5iDXCzAlmbLVakBYrvvJgGDj320TxhMH4c2Q6BTYHojzwrH3AOakLByr-pTGTKLyHtxDwC4CG9muZbCVtiZX6lgwRpJ5VqXcNR7tWgNU0dtZnSezXRjt_gUYqS9_0k1O7qMO6NDYcHVJxOsxJlRWx2lsRPGKv8Z3sUqDPpw6yFyApPSUVonS_IqNdbv-raTFMO3bz8soiegYgQQJ9dyPoE5agV");'>
+<div class="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined !text-[12px] fill-1">verified</span>
+                            PROMOTED
+                        </div>
+</div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 @xl:px-4 px-4">
+<p class="text-primary text-sm font-semibold leading-normal">Sponsored • Asaba Metro</p>
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] font-display">Premium Electrical Solutions</p>
+<div class="flex items-end gap-3 justify-between mt-1">
+<p class="text-slate-500 dark:text-[#9cbab0] text-sm font-normal leading-normal">Certified wiring, maintenance &amp; backup power setup.</p>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-semibold shadow-md active:scale-95 transition-transform">
+<span class="truncate">Book Now</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 1: Select Goal -->
+<section class="mt-4">
+<h2 class="text-slate-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 font-display">Step 1: Select Goal</h2>
+<div class="px-4 grid grid-cols-2 gap-3">
+<div class="flex flex-col p-4 rounded-xl border-2 border-primary bg-primary/10 cursor-pointer">
+<span class="material-symbols-outlined text-primary mb-2">send</span>
+<p class="font-bold text-sm">Get More Leads</p>
+<p class="text-[11px] text-slate-500 dark:text-[#9cbab0] mt-1">Direct calls &amp; messages</p>
+</div>
+<div class="flex flex-col p-4 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 cursor-pointer">
+<span class="material-symbols-outlined text-slate-400 mb-2">person_search</span>
+<p class="font-bold text-sm">Profile Visits</p>
+<p class="text-[11px] text-slate-500 dark:text-[#9cbab0] mt-1">Build brand awareness</p>
+</div>
+</div>
+</section>
+<!-- Step 2: Set Budget -->
+<section class="mt-4">
+<h2 class="text-slate-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 font-display">Step 2: Budget &amp; Duration</h2>
+<div class="px-4 space-y-4">
+<div class="p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10">
+<label class="text-xs font-bold text-slate-500 dark:text-[#9cbab0] uppercase mb-2 block">Daily Budget</label>
+<div class="flex items-center gap-2">
+<span class="text-2xl font-bold text-primary">₦</span>
+<input class="bg-transparent border-none text-2xl font-bold focus:ring-0 p-0 w-full text-slate-900 dark:text-white" placeholder="0.00" type="number" value="2500"/>
+</div>
+<div class="mt-4 h-1.5 w-full bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-between">
+<div>
+<label class="text-xs font-bold text-slate-500 dark:text-[#9cbab0] uppercase block">Duration</label>
+<p class="text-lg font-bold">7 Days</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center bg-white dark:bg-white/5 active:bg-primary/20">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center bg-white dark:bg-white/5 active:bg-primary/20">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 3: Target Audience -->
+<section class="mt-4">
+<h2 class="text-slate-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 font-display">Step 3: Target Audience</h2>
+<div class="px-4 space-y-4">
+<div class="p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10">
+<div class="flex justify-between items-center mb-4">
+<label class="text-xs font-bold text-slate-500 dark:text-[#9cbab0] uppercase">Radius from Asaba</label>
+<span class="text-primary font-bold">15km</span>
+</div>
+<input class="w-full h-1.5 bg-slate-200 dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary" max="50" min="1" type="range" value="15"/>
+</div>
+<div class="p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10">
+<label class="text-xs font-bold text-slate-500 dark:text-[#9cbab0] uppercase mb-3 block">Service Categories</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-full bg-primary text-white text-xs font-medium">Electricians</span>
+<span class="px-3 py-1.5 rounded-full bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-white text-xs font-medium">Plumbers</span>
+<span class="px-3 py-1.5 rounded-full bg-primary text-white text-xs font-medium">Home Repairs</span>
+<span class="px-3 py-1.5 rounded-full bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-white text-xs font-medium">Cleaning</span>
+<span class="px-3 py-1.5 rounded-full bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-white text-xs font-medium">+ Add More</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Footer -->
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-white/10 shadow-[0_-10px_20px_rgba(0,0,0,0.1)] z-50">
+<div class="max-w-md mx-auto">
+<div class="flex items-center justify-between mb-3 px-1">
+<div class="flex flex-col">
+<span class="text-[10px] text-slate-500 dark:text-[#9cbab0] font-bold uppercase tracking-widest">Total Investment</span>
+<span class="text-lg font-bold text-slate-900 dark:text-white font-display">₦17,500</span>
+</div>
+<div class="text-right">
+<span class="text-[10px] text-slate-500 dark:text-[#9cbab0] font-bold uppercase tracking-widest">Est. Reach</span>
+<span class="text-sm font-semibold text-primary block">~5,200 people</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-emerald-600 text-white font-bold py-4 rounded-xl shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">rocket_launch</span>
+                Launch Ad Campaign
+            </button>
+</div>
+</footer>
+</body></html>

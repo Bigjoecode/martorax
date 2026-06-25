@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Export Business Report</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Spline Sans", sans-serif;
+    -webkit-tap-highlight-color: transparent
+    }
+.custom-checkbox:checked {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuA8RozydmTz0xKXSrjNRFYvXeC6jaPPHn6rRA0AxpA4M_PTLEJ5RghEOVjDCuuMDYLZhMKCT9F-Oi4qyJpK3Gy73O-2t8dlpzLSBEwOmca-OvX8xeQiODlAgJLeFsCEgcOPi-j0T19WEAOAFfeoPEb-RlkqvbA9FyZhkWgHHg0F5r5kFB0QR3QmEqhofIPkcPtLkgH221L-x7UThRm2gF8AbrUwm17buy9BFgJmkSGfVgndQ-q6WUGLslKUj-MllYBrRZHYP4AmfmLd)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between p-4 h-16">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight text-center flex-1 pr-10">Export Business Report</h1>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto pb-32">
+<!-- Brand Intro -->
+<div class="px-4 pt-6 pb-2">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded">MartoraX PRO</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Select the parameters for your performance record.</p>
+</div>
+<!-- Section: Report Period -->
+<section class="mt-4">
+<h3 class="text-slate-900 dark:text-white text-sm font-semibold uppercase tracking-wider px-4 pb-3">Report Period</h3>
+<div class="px-4">
+<div class="flex h-12 items-center justify-center rounded-xl bg-slate-200 dark:bg-slate-800/50 p-1.5 border border-slate-300 dark:border-slate-700/50">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-slate-400 text-sm font-medium transition-all">
+<span class="truncate">Weekly</span>
+<input class="invisible w-0" name="period-range" type="radio" value="Weekly"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-slate-400 text-sm font-medium transition-all">
+<span class="truncate">Monthly</span>
+<input checked="" class="invisible w-0" name="period-range" type="radio" value="Monthly"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-slate-400 text-sm font-medium transition-all">
+<span class="truncate">Custom</span>
+<input class="invisible w-0" name="period-range" type="radio" value="Custom"/>
+</label>
+</div>
+</div>
+</section>
+<!-- Section: Content Selection -->
+<section class="mt-8">
+<h3 class="text-slate-900 dark:text-white text-sm font-semibold uppercase tracking-wider px-4 pb-3">Include in Report</h3>
+<div class="px-4 space-y-1">
+<!-- Checklist Item 1 -->
+<label class="flex items-center justify-between p-4 bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-primary">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white font-medium">Sales Summary</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Revenue, margins, and growth</p>
+</div>
+</div>
+<input checked="" class="custom-checkbox h-6 w-6 rounded-full border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+</label>
+<!-- Checklist Item 2 -->
+<label class="flex items-center justify-between p-4 bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white font-medium">Inventory Logs</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Stock levels and SKU movements</p>
+</div>
+</div>
+<input checked="" class="custom-checkbox h-6 w-6 rounded-full border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+</label>
+<!-- Checklist Item 3 -->
+<label class="flex items-center justify-between p-4 bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-lg bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white font-medium">Logistics Fees</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Shipping costs and fulfillment data</p>
+</div>
+</div>
+<input class="custom-checkbox h-6 w-6 rounded-full border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+</label>
+<!-- Checklist Item 4 -->
+<label class="flex items-center justify-between p-4 bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white font-medium">Tax Estimates</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Projected VAT and regional duties</p>
+</div>
+</div>
+<input class="custom-checkbox h-6 w-6 rounded-full border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+</label>
+</div>
+</section>
+<!-- Information Card -->
+<div class="mx-4 mt-8 p-4 bg-primary/5 border border-primary/20 rounded-xl">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary">info</span>
+<p class="text-sm text-slate-600 dark:text-slate-400">
+                    Reports are generated in high-resolution PDF format and will be sent to your registered email address as well as being available for download here.
+                </p>
+</div>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-[72px] left-0 right-0 px-4 pb-4 pt-4 bg-gradient-to-t from-background-light dark:from-background-dark via-background-light dark:via-background-dark to-transparent">
+<button class="w-full h-14 bg-primary hover:bg-emerald-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+            Generate PDF Report
+        </button>
+</div>
+<!-- iOS Style Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 h-[72px] bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-6 flex items-center justify-between">
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-medium">Inventory</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">description</span>
+<span class="text-[10px] font-medium">Reports</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-[10px] font-medium">Orders</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</nav>
+</body></html>

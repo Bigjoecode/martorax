@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Product Upload</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900 as requested
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .custom-dashed {
+            border-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23334155FF' stroke-width='2' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e") 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-900 dark:text-white cursor-pointer">arrow_back_ios</span>
+<h1 class="text-lg font-bold tracking-tight">Basic Details</h1>
+</div>
+<button class="text-sm font-medium text-slate-500 dark:text-slate-400">Cancel</button>
+</nav>
+<main class="flex-1 pb-32">
+<!-- Progress Indicator -->
+<div class="flex w-full flex-row items-center justify-center gap-3 py-6">
+<div class="h-1.5 w-12 rounded-full bg-primary"></div>
+<div class="h-1.5 w-12 rounded-full bg-slate-200 dark:bg-slate-800"></div>
+<div class="h-1.5 w-12 rounded-full bg-slate-200 dark:bg-slate-800"></div>
+</div>
+<!-- Step 1: Upload Photos -->
+<section class="px-4 mb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold leading-tight tracking-tight">Step 1: Product Photos</h3>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Up to 6</span>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<!-- Main Photo -->
+<div class="col-span-1 aspect-square bg-slate-100 dark:bg-slate-800/50 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl flex flex-col items-center justify-center gap-1 cursor-pointer hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary">add_a_photo</span>
+<span class="text-[10px] font-bold text-primary uppercase">Main</span>
+</div>
+<!-- Other Slots -->
+<div class="aspect-square bg-slate-100 dark:bg-slate-800/50 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl flex items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-slate-400">add</span>
+</div>
+<div class="aspect-square bg-slate-100 dark:bg-slate-800/50 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl flex items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-slate-400">add</span>
+</div>
+<div class="aspect-square bg-slate-100 dark:bg-slate-800/50 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl flex items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-slate-400">add</span>
+</div>
+<div class="aspect-square bg-slate-100 dark:bg-slate-800/50 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl flex items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-slate-400">add</span>
+</div>
+<div class="aspect-square bg-slate-100 dark:bg-slate-800/50 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl flex items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-slate-400">add</span>
+</div>
+</div>
+</section>
+<!-- Step 2: Basic Info -->
+<section class="px-4 mb-8">
+<h3 class="text-lg font-bold leading-tight tracking-tight mb-4">Step 2: Product Info</h3>
+<div class="space-y-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-semibold text-slate-400 px-1">Product Name</label>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg p-4 text-white focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="e.g. Fresh Ogbogonogo Peppers" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-semibold text-slate-400 px-1">Category</label>
+<div class="relative">
+<select class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg p-4 text-white appearance-none focus:ring-2 focus:ring-primary outline-none transition-all">
+<option>Select Category</option>
+<option>Farm Produce</option>
+<option>Spices &amp; Seasoning</option>
+<option>Grains &amp; Cereals</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 3: AI Pricing & Description -->
+<section class="px-4 space-y-6">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold leading-tight tracking-tight">Step 3: AI Smart Price</h3>
+<div class="flex items-center gap-1 bg-primary/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] text-primary">auto_awesome</span>
+<span class="text-[10px] font-bold text-primary uppercase">Smart AI</span>
+</div>
+</div>
+<div class="relative bg-slate-100 dark:bg-slate-800 border border-primary/30 rounded-xl p-4">
+<div class="flex items-center justify-between mb-2">
+<label class="text-sm font-semibold text-slate-400">Asking Price (₦)</label>
+<div class="flex items-center gap-1 group cursor-pointer">
+<span class="text-[10px] text-slate-500">Ogbogonogo Board</span>
+<span class="material-symbols-outlined text-[14px] text-slate-500">info</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<input class="flex-1 bg-transparent border-none p-0 text-2xl font-bold text-white focus:ring-0 outline-none" placeholder="5,000" type="number"/>
+<div class="bg-primary/20 text-primary px-3 py-1.5 rounded-lg text-xs font-bold border border-primary/20">
+                            Suggested: ₦4,850
+                        </div>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<label class="text-sm font-semibold text-slate-400 px-1">Description</label>
+<button class="flex items-center gap-1.5 text-primary text-sm font-bold bg-primary/10 py-1.5 px-3 rounded-lg hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-sm">magic_button</span>
+                        AI Description
+                    </button>
+</div>
+<textarea class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg p-4 text-white focus:ring-2 focus:ring-primary outline-none resize-none transition-all" placeholder="Describe your product here..." rows="4"></textarea>
+<p class="text-[11px] text-slate-500 italic px-1">"Catchy local descriptions attract 3x more buyers in the market."</p>
+</div>
+</section>
+</main>
+<!-- Fixed Footer Action -->
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 pb-8">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary hover:bg-emerald-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+                Continue to Review
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>

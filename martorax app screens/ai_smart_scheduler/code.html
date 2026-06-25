@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Smart Scheduler - MartoraX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#10221c",
+                        "slate-900": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .optimized-glow {
+            box-shadow: 0 0 15px rgba(9, 246, 171, 0.3);
+        }
+        .ios-tab-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(16, 34, 28, 0.8);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white transition-colors duration-300">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-background-light dark:bg-background-dark/95 border-b border-white/5">
+<div class="flex items-center p-4 pb-2 justify-between max-w-md mx-auto">
+<div class="text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">AI Smart Scheduler</h2>
+<div class="size-12 flex items-center justify-end">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-32 max-w-md mx-auto px-4">
+<!-- AI Insight Chip -->
+<div class="mb-6">
+<div class="flex gap-3 flex-wrap">
+<div class="flex min-h-[64px] w-full items-center justify-start gap-x-3 rounded-xl bg-primary/10 border border-primary/20 p-4 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="material-symbols-outlined text-4xl text-primary">psychology</span>
+</div>
+<div class="flex-1">
+<p class="text-white text-sm font-medium leading-relaxed">
+<span class="text-primary font-bold">💡 Tip:</span> Booking for Tuesday 10 AM is ₦2,000 cheaper and avoids Nnebisi Road traffic.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Select Date -->
+<section class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Select Date</h3>
+<span class="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full uppercase font-bold tracking-wider">Optimized Calendar</span>
+</div>
+<div class="bg-white/5 rounded-2xl p-4 border border-white/10">
+<div class="flex items-center p-1 justify-between mb-2">
+<button class="text-white/60 hover:text-white transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<p class="text-white text-base font-bold leading-tight flex-1 text-center">October 2023</p>
+<button class="text-white/60 hover:text-white transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7 gap-1">
+<p class="text-white/40 text-[11px] font-bold uppercase flex h-10 w-full items-center justify-center">S</p>
+<p class="text-white/40 text-[11px] font-bold uppercase flex h-10 w-full items-center justify-center">M</p>
+<p class="text-white/40 text-[11px] font-bold uppercase flex h-10 w-full items-center justify-center">T</p>
+<p class="text-white/40 text-[11px] font-bold uppercase flex h-10 w-full items-center justify-center">W</p>
+<p class="text-white/40 text-[11px] font-bold uppercase flex h-10 w-full items-center justify-center">T</p>
+<p class="text-white/40 text-[11px] font-bold uppercase flex h-10 w-full items-center justify-center">F</p>
+<p class="text-white/40 text-[11px] font-bold uppercase flex h-10 w-full items-center justify-center">S</p>
+<!-- Calendar Days with AI Glow on 5th (Tuesday) -->
+<div class="h-10 w-full text-white/20 text-sm font-medium flex items-center justify-center">28</div>
+<div class="h-10 w-full text-white/20 text-sm font-medium flex items-center justify-center">29</div>
+<div class="h-10 w-full text-white/20 text-sm font-medium flex items-center justify-center">30</div>
+<button class="h-10 w-full text-white text-sm font-medium hover:bg-white/10 rounded-full transition-all">1</button>
+<button class="h-10 w-full text-white text-sm font-medium hover:bg-white/10 rounded-full transition-all">2</button>
+<button class="h-10 w-full text-white text-sm font-medium hover:bg-white/10 rounded-full transition-all">3</button>
+<button class="h-10 w-full text-white text-sm font-medium hover:bg-white/10 rounded-full transition-all">4</button>
+<!-- Optimized Day -->
+<button class="h-10 w-full text-background-dark text-sm font-bold relative group">
+<div class="flex size-full items-center justify-center rounded-full bg-primary optimized-glow scale-110">5</div>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 size-1 bg-primary rounded-full animate-pulse"></div>
+</button>
+<button class="h-10 w-full text-white text-sm font-medium hover:bg-white/10 rounded-full transition-all">6</button>
+<button class="h-10 w-full text-white text-sm font-medium hover:bg-white/10 rounded-full transition-all">7</button>
+<button class="h-10 w-full text-white text-sm font-medium hover:bg-white/10 rounded-full transition-all">8</button>
+<button class="h-10 w-full text-white text-sm font-medium hover:bg-white/10 rounded-full transition-all">9</button>
+<button class="h-10 w-full text-white text-sm font-medium hover:bg-white/10 rounded-full transition-all">10</button>
+<button class="h-10 w-full text-white text-sm font-medium hover:bg-white/10 rounded-full transition-all">11</button>
+<button class="h-10 w-full text-white text-sm font-medium hover:bg-white/10 rounded-full transition-all">12</button>
+</div>
+</div>
+</section>
+<!-- Section: Available Slots -->
+<section class="mb-8">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] mb-4">Available Slots</h3>
+<div class="grid grid-cols-2 gap-3">
+<!-- Standard Slot -->
+<button class="flex flex-col items-start p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all text-left">
+<span class="text-white text-base font-bold">08:00 AM</span>
+<span class="text-white/40 text-xs">₦8,500</span>
+</button>
+<button class="flex flex-col items-start p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all text-left">
+<span class="text-white text-base font-bold">09:00 AM</span>
+<span class="text-white/40 text-xs">₦8,500</span>
+</button>
+<!-- Optimized Slot 10:00 AM -->
+<button class="flex flex-col items-start p-4 rounded-xl bg-primary/20 border-2 border-primary optimized-glow text-left relative overflow-hidden group">
+<div class="absolute -right-2 -top-2 bg-primary text-background-dark text-[10px] font-black px-3 py-1 rotate-12 uppercase">Best Value</div>
+<span class="text-primary text-base font-bold">10:00 AM</span>
+<div class="flex items-center gap-1">
+<span class="text-white text-sm font-bold">₦6,500</span>
+<span class="text-white/40 text-[10px] line-through">₦8,500</span>
+</div>
+<span class="text-primary/80 text-[10px] mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">speed</span> No Traffic
+                    </span>
+</button>
+<button class="flex flex-col items-start p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all text-left">
+<span class="text-white text-base font-bold">11:00 AM</span>
+<span class="text-white/40 text-xs">₦8,500</span>
+</button>
+<button class="flex flex-col items-start p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all text-left">
+<span class="text-white text-base font-bold">01:00 PM</span>
+<span class="text-white/40 text-xs">₦8,500</span>
+</button>
+<button class="flex flex-col items-start p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all text-left">
+<span class="text-white text-base font-bold">02:00 PM</span>
+<span class="text-white/40 text-xs text-red-400">₦9,000 (Peak)</span>
+</button>
+</div>
+</section>
+<!-- Traffic Heatmap Indicator -->
+<div class="bg-slate-900 rounded-xl p-4 border border-white/5 mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-sm">map</span>
+<span class="text-xs font-bold text-white/60 uppercase tracking-widest">Live Asaba Traffic Data</span>
+</div>
+<div class="h-24 w-full rounded-lg relative overflow-hidden bg-slate-800">
+<img class="w-full h-full object-cover opacity-40 grayscale" data-alt="Abstract dark city map grid with glowing routes" data-location="Asaba, Nigeria" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWVmzXTD5l0w2CI9UnDNbKrBT0EqFDkROgI8cTu-BpTPXoMdiUvH3MGoUxps0umjzELUTNuZGfbLQmI-tJE6PHGQZexVqa02nEr29SuRMuMx6S-Cmi6MNq2Fx3dnlKYvAEq293hwOcdQHaiTdKKLRSD2G20xGaX_TSIYo9wRnO4oGARe_qp0UZNR2815xNwpqmhQb9-pPGvw_u-tuAca-meNcVOHbONuj2TlfyZzSU2W1Pf9fmhofyxKLxQn6UJbCztcBRaVo_6tF1"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-3">
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-primary animate-pulse"></div>
+<p class="text-[10px] text-white/80 font-medium">Nnebisi Road: Clear traffic predicted for 10:00 AM</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action & Navigation -->
+<div class="fixed bottom-0 left-0 right-0 z-50">
+<!-- Floating Confirm Button -->
+<div class="max-w-md mx-auto px-4 pb-4">
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-xl shadow-primary/10 transition-transform active:scale-[0.98]">
+                Confirm Tuesday 10:00 AM
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- iOS Style Tab Bar -->
+<nav class="ios-tab-blur border-t border-white/10 pb-8 pt-3">
+<div class="max-w-md mx-auto flex justify-around items-center px-6">
+<div class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined font-bold">calendar_month</span>
+<span class="text-[10px] font-bold">Bookings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rider Delay Reporting Updated</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059669", // Emerald 600
+                        "background-dark": "#0f172a", // Slate 900
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-[#0f172a] text-white antialiased font-display;
+            }
+        }.pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="dark">
+<div class="flex flex-col h-screen max-w-md mx-auto relative overflow-hidden">
+<header class="flex items-center bg-[#0f172a] p-4 pb-2 justify-between border-b border-slate-800 shrink-0">
+<div class="text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">Rider Delay Reporting Updated</h2>
+<div class="size-12"></div>
+</header>
+<main class="flex-1 overflow-y-auto pb-32">
+<div class="p-4 @container">
+<div class="flex flex-col items-start justify-between gap-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-sm">notifications_active</span>
+<p class="text-emerald-500 text-base font-bold leading-tight">Instant Notification</p>
+</div>
+<p class="text-slate-400 text-sm font-normal leading-normal">Shopper and Vendor will be notified immediately of your situation in Asaba.</p>
+</div>
+</div>
+<div class="px-4 pt-4">
+<h3 class="text-white tracking-tight text-2xl font-bold leading-tight">What's the issue?</h3>
+<p class="text-slate-400 text-sm mt-1">Select the reason for your delay</p>
+</div>
+<div class="flex flex-col gap-3 p-4">
+<label class="flex items-center gap-4 rounded-xl border border-slate-800 bg-slate-800/40 p-4 flex-row-reverse cursor-pointer transition-colors active:bg-slate-800">
+<input checked="" class="h-6 w-6 border-2 border-slate-600 bg-transparent text-emerald-600 checked:bg-emerald-600 focus:ring-0 focus:ring-offset-0 checked:border-emerald-600 rounded-full" name="delay_reason" type="radio"/>
+<div class="flex grow items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 text-slate-300">
+<span class="material-symbols-outlined">rainy</span>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-semibold">Heavy Rain</p>
+<p class="text-slate-400 text-xs">Impacts delivery speed</p>
+</div>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border border-slate-800 bg-slate-800/40 p-4 flex-row-reverse cursor-pointer transition-colors active:bg-slate-800">
+<input class="h-6 w-6 border-2 border-slate-600 bg-transparent text-emerald-600 checked:bg-emerald-600 focus:ring-0 focus:ring-offset-0 checked:border-emerald-600 rounded-full" name="delay_reason" type="radio"/>
+<div class="flex grow items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 text-slate-300">
+<span class="material-symbols-outlined">car_repair</span>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-semibold">Vehicle Breakdown</p>
+<p class="text-slate-400 text-xs">Need assistance or new vehicle</p>
+</div>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border border-slate-800 bg-slate-800/40 p-4 flex-row-reverse cursor-pointer transition-colors active:bg-slate-800">
+<input class="h-6 w-6 border-2 border-slate-600 bg-transparent text-emerald-600 checked:bg-emerald-600 focus:ring-0 focus:ring-offset-0 checked:border-emerald-600 rounded-full" name="delay_reason" type="radio"/>
+<div class="flex grow items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 text-slate-300">
+<span class="material-symbols-outlined">traffic</span>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-semibold">Heavy Traffic</p>
+<p class="text-slate-400 text-xs">Unavoidable road congestion</p>
+</div>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border border-slate-800 bg-slate-800/40 p-4 flex-row-reverse cursor-pointer transition-colors active:bg-slate-800">
+<input class="h-6 w-6 border-2 border-slate-600 bg-transparent text-emerald-600 checked:bg-emerald-600 focus:ring-0 focus:ring-offset-0 checked:border-emerald-600 rounded-full" name="delay_reason" type="radio"/>
+<div class="flex grow items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 text-slate-300">
+<span class="material-symbols-outlined">wrong_location</span>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-semibold">Incorrect Address</p>
+<p class="text-slate-400 text-xs">Cannot find the customer location</p>
+</div>
+</div>
+</label>
+</div>
+<div class="flex flex-col gap-2 px-4 py-3">
+<p class="text-white text-base font-medium leading-normal">Comment</p>
+<textarea class="form-input flex w-full resize-none rounded-xl text-white focus:outline-0 focus:ring-2 focus:ring-emerald-500/50 border border-slate-800 bg-slate-800/50 focus:border-emerald-500 min-h-[120px] placeholder:text-slate-500 p-4 text-base font-normal leading-normal shadow-sm" placeholder="Add more details about the situation..."></textarea>
+</div>
+</main>
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#0f172a] via-[#0f172a] to-transparent pb-safe z-50">
+<button class="w-full h-14 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-lg rounded-xl transition-all active:scale-[0.98] shadow-lg shadow-emerald-900/40 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">send</span>
+                Submit Report
+            </button>
+</footer>
+</div>
+
+</body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MartoraX - Service Discovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#09f6ab",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f172a", // Slate 900
+                        "card-dark": "#1e293b", // Slate 800
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden max-w-md mx-auto shadow-2xl bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">grid_view</span>
+<h2 class="text-xl font-bold leading-tight tracking-tight">MartoraX</h2>
+</div>
+<div class="flex items-center gap-3">
+<button class="relative p-2 rounded-full bg-slate-100 dark:bg-slate-800">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+<span class="absolute top-2 right-2 flex h-2 w-2 rounded-full bg-red-500"></span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto pb-24">
+<!-- Welcome Header -->
+<div class="px-6 py-4">
+<h1 class="text-2xl font-bold">Discover Services</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Top rated professionals near you</p>
+</div>
+<!-- Feed Section -->
+<div class="flex flex-col gap-6 px-6">
+<!-- Regular Card 1 -->
+<div class="group flex flex-col items-stretch justify-start rounded-xl shadow-lg bg-white dark:bg-card-dark overflow-hidden border border-slate-200 dark:border-slate-800">
+<div class="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover" data-alt="professional garden landscape with green lawn" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqQwgbLOqGBvzopVcxNOLImrRqt-DtqArDKfIN3arjEEyuG4JBdaIA6C70HJvyjYWL3pWyBGCKchyTpsGFgwXPexAmrNh9Op_DMF6qL6BLa1wRGspqxejIcuAuRWVZJiNzb0x-3zc92huI8q69ai4n8UuD-GFrG9C8HEGmWQM5CI-Rpdmr8f9ButNjfXyqU1kVzpOplZsP0DDbmDL2cylqKP5LXza7A32OewNVIFCClh3ALmc19SuVEwgMTeQxL0C9Zz4nS5IJakXr");'></div>
+<div class="flex flex-col gap-1 p-4">
+<div class="flex justify-between items-start">
+<p class="text-primary text-xs font-bold uppercase tracking-wider">Highly Rated</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-sm fill-1">star</span>
+<span class="text-xs font-semibold">4.9</span>
+</div>
+</div>
+<p class="text-lg font-bold">Modern Garden Design</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-2">Green Scape Solutions • $45/hr</p>
+<button class="flex w-full items-center justify-center rounded-lg h-10 px-4 bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white text-sm font-bold transition-all hover:bg-slate-200 dark:hover:bg-slate-600">
+                            View Profile
+                        </button>
+</div>
+</div>
+<!-- SPONSORED CARD (The Highlight) -->
+<div class="relative group flex flex-col items-stretch justify-start rounded-xl shadow-[0_0_25px_-5px_rgba(9,246,171,0.3)] dark:shadow-[0_0_30px_-10px_rgba(9,246,171,0.4)] bg-white dark:bg-card-dark overflow-hidden border-2 border-primary/40">
+<!-- Sponsored Badge -->
+<div class="absolute top-3 left-3 z-10 flex items-center gap-1 rounded-full px-3 py-1 bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-900 text-[10px] font-black uppercase tracking-widest shadow-lg">
+<span class="material-symbols-outlined text-[12px] font-bold">verified</span>
+                        Sponsored
+                    </div>
+<div class="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover" data-alt="modern minimalist home interior styling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChbcUHqvLsa0kbjOjqm_Gu-Kib9Mt8cA7mTqtWrlw_9B9gcsLdeye8IUjIWl3tcotkAv1E-N9L09N7gXXdfrCKgGf2KoAIH8olYoNROq2GsWsZOq7dWF9sXz-JSpYYSTn41inpeZFM-2uXpfHcyq2glnTa21ghH-_yrJOQPw9Uu_CE0a8hvkZJ_qT8O8VbjDzvhR9aUwMk8JGY29V-IZO20CZZtECNMMq84o_EE8mv9tik8QKpxUqcvdJBANByOF3h0J3o8CqJLYkK");'></div>
+<div class="flex flex-col gap-1 p-4 bg-gradient-to-b from-primary/5 to-transparent">
+<div class="flex justify-between items-start">
+<p class="text-amber-500 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">Recommended for you</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-sm fill-1">star</span>
+<span class="text-xs font-semibold">5.0</span>
+</div>
+</div>
+<p class="text-lg font-bold">Premium Interior Styling</p>
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm">Studio Luxe • Professional Consultation</p>
+<p class="text-primary text-sm font-medium">Message Now for 10% off your first booking.</p>
+</div>
+<button class="mt-3 flex w-full items-center justify-center rounded-lg h-12 px-4 bg-primary text-slate-900 text-base font-bold transition-all active:scale-95 shadow-lg shadow-primary/20">
+                            Book Now
+                        </button>
+</div>
+</div>
+<!-- Section Header -->
+<div class="pt-4">
+<h3 class="text-lg font-bold leading-tight">Nearby Services</h3>
+</div>
+<!-- Regular Card 2 -->
+<div class="group flex flex-col items-stretch justify-start rounded-xl shadow-lg bg-white dark:bg-card-dark overflow-hidden border border-slate-200 dark:border-slate-800">
+<div class="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover" data-alt="photographer holding professional camera" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjZpO8eDKjgQRu4fput0pw_T1RALUP2ZSAzMU0O9se02uLwXW5A_--GjXhlpAQrme3dh0ULaJIr51S1ohbxu8PKXiQ9LVmPCxXA419nQq5yFW0rwDxknzHFeHBX3oviZWt1TpxWq6fMh-DM4ZS_cD8uZXB0gIyUYkr2TcbQVjVck2Pmu25RLT1UBcc_A2mKnIix8MTwqwcJdPCAt1ecu_eJP4iYAvJgsZgQqq5yp1eGPYMCBN2xq5fTRsNisVljw9JLmW5sCgmUuIv");'></div>
+<div class="flex flex-col gap-1 p-4">
+<div class="flex justify-between items-start">
+<p class="text-primary text-xs font-bold uppercase tracking-wider">Featured</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-sm fill-1">star</span>
+<span class="text-xs font-semibold">4.8</span>
+</div>
+</div>
+<p class="text-lg font-bold">Professional Photography</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-2">Flash &amp; Frame • $120/session</p>
+<button class="flex w-full items-center justify-center rounded-lg h-10 px-4 bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white text-sm font-bold transition-all hover:bg-slate-200 dark:hover:bg-slate-600">
+                            View Portfolio
+                        </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Bar (iOS style) -->
+<nav class="fixed bottom-0 left-0 right-0 mx-auto max-w-md bg-white/80 dark:bg-card-dark/80 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 pb-8 pt-3 px-6">
+<div class="flex justify-between items-center">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-medium">Bookings</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+<!-- iOS Indicator Mock -->
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full opacity-50"></div>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rider Delivery Proof &amp; Code</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059669", // Emerald 600
+                        "background-dark": "#0f172a", // Slate 900
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Public Sans", sans-serif;
+            min-height: 100dvh;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-white flex flex-col">
+<header class="sticky top-0 z-20 bg-background-dark/95 backdrop-blur-md border-b border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<button class="text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-slate-800">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Arrived at Destination</h2>
+<div class="size-10"></div>
+</div>
+</header>
+<main class="flex-1 max-w-md mx-auto w-full pb-64">
+<div class="px-4 pt-6 pb-2">
+<h3 class="text-white tracking-tight text-2xl font-bold leading-tight">Take a Photo of Delivered Items</h3>
+</div>
+<div class="px-4 pb-4">
+<p class="text-slate-400 text-base font-normal leading-normal">
+                Photo evidence is required for SafePay fund release. Ensure the items and house number are visible.
+            </p>
+</div>
+<div class="px-4 mb-6">
+<div class="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-slate-800 border-2 border-dashed border-slate-700 flex flex-col items-center justify-center text-slate-400">
+<div class="absolute inset-0 opacity-20 bg-gradient-to-br from-primary/30 to-transparent"></div>
+<span class="material-symbols-outlined text-6xl mb-2 opacity-50">photo_camera</span>
+<p class="text-sm font-medium">Tap shutter to capture</p>
+</div>
+</div>
+<div class="flex items-center justify-center gap-8 px-4 mb-8">
+<button class="flex shrink-0 items-center justify-center rounded-full size-12 bg-slate-800 text-white shadow-sm border border-slate-700">
+<span class="material-symbols-outlined">image</span>
+</button>
+<button class="flex shrink-0 items-center justify-center rounded-full size-20 bg-primary text-white shadow-lg shadow-primary/20 transform active:scale-95 transition-transform">
+<span class="material-symbols-outlined !text-4xl">photo_camera</span>
+</button>
+<button class="flex shrink-0 items-center justify-center rounded-full size-12 bg-slate-800 text-white shadow-sm border border-slate-700">
+<span class="material-symbols-outlined">flash_on</span>
+</button>
+</div>
+<div class="px-4 py-3">
+<label class="flex flex-col w-full">
+<p class="text-white text-base font-medium leading-normal pb-2">Delivery Notes</p>
+<textarea class="form-input flex w-full resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-700 bg-slate-800 placeholder:text-slate-500 min-h-24 p-4 text-base font-normal leading-normal transition-colors" placeholder="e.g., Left at the gate with Security"></textarea>
+</label>
+</div>
+</main>
+<footer class="fixed bottom-0 left-0 right-0 z-30 bg-slate-900/95 backdrop-blur-xl border-t border-slate-800">
+<div class="max-w-md mx-auto p-4 pb-8 space-y-4">
+<div class="bg-slate-800/50 p-4 rounded-2xl border border-slate-800">
+<div class="flex items-center justify-between mb-3">
+<label class="text-sm font-semibold text-slate-300 uppercase tracking-wider" for="code">Completion Code</label>
+<span class="text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded-full font-bold uppercase">Required</span>
+</div>
+<div class="flex gap-3 justify-center">
+<input class="w-14 h-16 text-center text-2xl font-bold bg-slate-900 border border-slate-700 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 text-white" maxlength="1" placeholder="•" type="number"/>
+<input class="w-14 h-16 text-center text-2xl font-bold bg-slate-900 border border-slate-700 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 text-white" maxlength="1" placeholder="•" type="number"/>
+<input class="w-14 h-16 text-center text-2xl font-bold bg-slate-900 border border-slate-700 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 text-white" maxlength="1" placeholder="•" type="number"/>
+<input class="w-14 h-16 text-center text-2xl font-bold bg-slate-900 border border-slate-700 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 text-white" maxlength="1" placeholder="•" type="number"/>
+</div>
+<p class="text-center text-xs text-slate-500 mt-3">Ask the shopper for the 4-digit security code</p>
+</div>
+<button class="w-full bg-primary hover:bg-emerald-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2 text-lg">
+                Submit Proof &amp; Finalize
+                <span class="material-symbols-outlined">task_alt</span>
+</button>
+</div>
+</footer>
+
+</body></html>

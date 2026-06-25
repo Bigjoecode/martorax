@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shopper Bookings Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f231d",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab {
+            border-bottom: 3px solid #059467;
+            color: white;
+        }
+        /* Hide scrollbar for cleaner look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col font-display">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-white/10">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-900 dark:text-white cursor-pointer">arrow_back_ios</span>
+<h1 class="text-xl font-bold tracking-tight">My Bookings</h1>
+</div>
+<span class="material-symbols-outlined text-slate-900 dark:text-white cursor-pointer">filter_list</span>
+</div>
+</header>
+<!-- Tabs Navigation -->
+<nav class="sticky top-[61px] z-40 bg-background-light dark:bg-background-dark max-w-md mx-auto w-full">
+<div class="flex border-b border-slate-200 dark:border-white/10 px-4">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-primary pb-3 pt-4 flex-1 font-bold text-sm" href="#">
+                Active
+            </a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-4 flex-1 font-bold text-sm hover:text-primary transition-colors" href="#">
+                Completed
+            </a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-4 flex-1 font-bold text-sm hover:text-primary transition-colors" href="#">
+                Cancelled
+            </a>
+</div>
+</nav>
+<!-- Scrollable Content Area -->
+<main class="flex-1 overflow-y-auto p-4 max-w-md mx-auto w-full space-y-4 pb-24">
+<!-- Booking Card 1: In Progress -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#1b2723] p-4 shadow-sm border border-slate-100 dark:border-none">
+<div class="flex flex-[2_2_0px] flex-col justify-between gap-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+<p class="text-primary text-xs font-bold uppercase tracking-wider">In Progress</p>
+</div>
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight">TechFlow Solutions</p>
+<p class="text-slate-500 dark:text-[#9bbbb1] text-sm font-medium">Deep Home Cleaning</p>
+<div class="flex items-center gap-1.5 mt-1 text-slate-400 dark:text-slate-500 text-xs">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>Today, 10:30 AM</span>
+</div>
+</div>
+<button class="flex min-w-[120px] max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white gap-2 text-sm font-bold transition-transform active:scale-95 shadow-md shadow-primary/20">
+<span class="truncate">View Details</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<div class="w-32 bg-center bg-no-repeat aspect-square bg-cover rounded-xl shadow-inner border border-slate-100 dark:border-white/5" data-alt="Professional home cleaning service in progress" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBble_yl89PtqwtBmfmSbq72uLkSRAigscz85pwlpZGI-VHoGFi9-5lTj4Q_IstiN82CULRg3PK9kwn7j2HunkVj4iH8pDkN-1-PvKxdEoBmz_OdAFi9A_8q2IBihd8U3sMP2vrCQuU_8kJsciRGfJ-3_SjUwWtpbJWqArEEmU7vmUMYsZnx46tVWYNVUaZLAJUhH3YktAaZc-SuSlTpfEOA5_l_AiRB3uA8F7cuIAqBvIkqXm6W0nZF7QynuCIV2n1iYjpais003Il");'>
+</div>
+</div>
+<!-- Booking Card 2: Awaiting Delivery -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#1b2723] p-4 shadow-sm border border-slate-100 dark:border-none">
+<div class="flex flex-[2_2_0px] flex-col justify-between gap-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-amber-500">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+<p class="text-xs font-bold uppercase tracking-wider">Awaiting Delivery</p>
+</div>
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Organic Pantry</p>
+<p class="text-slate-500 dark:text-[#9bbbb1] text-sm font-medium">Fresh Grocery Bundle</p>
+<div class="flex items-center gap-1.5 mt-1 text-slate-400 dark:text-slate-500 text-xs">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>Oct 26, 2:00 PM</span>
+</div>
+</div>
+<button class="flex min-w-[120px] max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-slate-100 dark:bg-[#273a34] text-slate-900 dark:text-white gap-2 text-sm font-bold transition-transform active:scale-95">
+<span class="truncate">View Details</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<div class="w-32 bg-center bg-no-repeat aspect-square bg-cover rounded-xl shadow-inner border border-slate-100 dark:border-white/5" data-alt="Assorted fresh organic vegetables and groceries" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-iCy3YHeePk2h-0JPvfKAim0i143naEVoSXb0NtC9ldukKGKQvUrM_ajfl4BzKl2FK8IMU8T2T1lh3SJM46zrzi7u_bNw0c7ZORWSA3naC-h4zs05LSw_fnBwpDxoo2D5N6eF_XBNaptv1jGHv5d4AUcIN3PK3gGMFXZPtYzCUqNc63tE2G5hgYibOJDsUg8bpIDO4VpeapHc7yyp4zqtVMbwAjKSiuwwjRwjHpffhFVWqSgUgNK_GS23bXMAq7D71ezEaVQjJ2aQ");'>
+</div>
+</div>
+<!-- Booking Card 3: Pending Approval -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#1b2723] p-4 shadow-sm border border-slate-100 dark:border-none">
+<div class="flex flex-[2_2_0px] flex-col justify-between gap-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-slate-500">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<p class="text-xs font-bold uppercase tracking-wider">Pending Approval</p>
+</div>
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Gadget Hub</p>
+<p class="text-slate-500 dark:text-[#9bbbb1] text-sm font-medium">MacBook Pro M3 Max</p>
+<div class="flex items-center gap-1.5 mt-1 text-slate-400 dark:text-slate-500 text-xs">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>Nov 02, 09:00 AM</span>
+</div>
+</div>
+<button class="flex min-w-[120px] max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-slate-100 dark:bg-[#273a34] text-slate-900 dark:text-white gap-2 text-sm font-bold transition-transform active:scale-95">
+<span class="truncate">View Details</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<div class="w-32 bg-center bg-no-repeat aspect-square bg-cover rounded-xl shadow-inner border border-slate-100 dark:border-white/5" data-alt="Latest MacBook laptop on a desk" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCHgJy8TTOSjeBAvbo36PLmdfyBpS7MG3xQTjplCCJHNO-bTkrjudxwyO1GusjQ0Wse_m0KZWTwRv5FuuYukywKXxpfWLu-tNLGSxWTJQ5aw8d41_iOvisoVFMj9hgUpSORqVP-6F9dzQ6fodm_-4aBj-H-sySFN5usp9J3XpVYgvc9hzvC5ohz_CyPxdC-pzyR0BIpB8COVQKpXLxt4ktuZLDJ8hQ6_DCd8FYZrkstOBuOP7hklxo2Ymr9cH_f013fr8ZkY0-zPlOq");'>
+</div>
+</div>
+<!-- Booking Card 4: Service Requested -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#1b2723] p-4 shadow-sm border border-slate-100 dark:border-none">
+<div class="flex flex-[2_2_0px] flex-col justify-between gap-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<p class="text-xs font-bold uppercase tracking-wider">Service Confirmed</p>
+</div>
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Lawn Masters</p>
+<p class="text-slate-500 dark:text-[#9bbbb1] text-sm font-medium">Seasonal Landscaping</p>
+<div class="flex items-center gap-1.5 mt-1 text-slate-400 dark:text-slate-500 text-xs">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>Nov 15, 11:30 AM</span>
+</div>
+</div>
+<button class="flex min-w-[120px] max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-slate-100 dark:bg-[#273a34] text-slate-900 dark:text-white gap-2 text-sm font-bold transition-transform active:scale-95">
+<span class="truncate">View Details</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<div class="w-32 bg-center bg-no-repeat aspect-square bg-cover rounded-xl shadow-inner border border-slate-100 dark:border-white/5" data-alt="Manicured green lawn with landscaping" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDubr1IJoNxntK7PALREgnicd0jxFslQB2bmiyMW9pPwgbBFJv74oyR6Afdi9C6IZ33jKMeytRScNg1DwJIZNuT7no6zRYlUb5dnQDaaBjF6vIbMm55yY9JCGeuENWBtdl_Lnfzu3H2ihz5je2gLrzTY7tic9mFfjCrRU3rrH3HkvsfX5VAz-XvOrSIS6c8fzLfQ_9Y6cqsf1swkHFE9dWUeWoNaMngzQBC7Tyl5HDi4lISvs72d3luGCNqBdMazDLwJqJ-nIvuO2-g");'>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<footer class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-[#111816]/90 backdrop-blur-lg border-t border-slate-200 dark:border-white/10 pb-6 pt-2 z-50">
+<div class="flex items-center justify-around max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+<span class="text-[10px] font-bold">Bookings</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-[10px] font-bold">Messages</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</div>
+</footer>
+</body></html>

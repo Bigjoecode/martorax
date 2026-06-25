@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MartoraX Super Admin - Enterprise Command Console</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #090E17;
+            --sidebar-bg: #0D1527;
+            --card-bg: #14213d;
+            --surface-card: rgba(20, 33, 61, 0.45);
+            --primary-emerald: #059669;
+            --primary-light: #10B981;
+            --accent-gold: #F59E0B;
+            --danger-red: #EF4444;
+            --text-slate: #94A3B8;
+            --glass-border: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        /* 📱 RESPONSIVE SIDEBAR NAVIGATION */
+        aside {
+            width: 280px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sidebar-brand {
+            padding: 24px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo h1 {
+            font-size: 20px;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #FFF, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-badge {
+            background-color: rgba(5, 150, 105, 0.15);
+            color: var(--primary-light);
+            border: 1px solid rgba(5, 150, 105, 0.3);
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-profile {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.03) 100%);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--primary-emerald);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #FFFFFF;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .profile-info h3 {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .profile-info p {
+            font-size: 11px;
+            color: var(--text-slate);
+            font-weight: 500;
+        }
+
+        .sidebar-menu {
+            padding: 16px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: var(--text-slate);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .menu-item:hover, .menu-item.active {
+            color: #FFFFFF;
+            background-color: rgba(255, 255, 255, 0.04);
+        }
+
+        .menu-item.active {
+            background-color: var(--primary-emerald);
+            box-shadow: 0 4px 20px rgba(5, 150, 105, 0.25);
+        }
+
+        /* 📱 RESPONSIVE MAIN APP CONTENT LAYER */
+        main {
+            flex: 1;
+            margin-left: 280px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        /* 📱 MOBILE NAVIGATION BAR HEADER */
+        .mobile-header {
+            display: none;
+            background-color: var(--sidebar-bg);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 14px 20px;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .hamburger-btn {
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* PAGE SHELLS */
+        .page-content {
+            padding: 32px;
+            flex: 1;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        .page-header {
+            margin-bottom: 28px;
+        }
+
+        .page-header h2 {
+            font-size: 24px;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 6px;
+        }
+
+        .page-header p {
+            font-size: 13px;
+            color: var(--text-slate);
+        }
+
+        /* 🖥️ ANALYTICS AND TELEMETRY STYLES */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .stat-card {
+            background-color: var(--sidebar-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .stat-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-slate);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-val {
+            font-size: 32px;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* 🔍 DYNAMIC SEARCH & FILTER HEADER BLOCK */
+        .filter-block {
+            background-color: var(--sidebar-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .search-wrapper {
+            position: relative;
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .search-input {
+            width: 100%;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--glass-border);
+            padding: 10px 16px;
+            border-radius: 10px;
+            color: #FFFFFF;
+            font-size: 13px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-emerald);
+        }
+
+        .select-filter {
+            background-color: var(--bg-dark);
+            border: 1px solid var(--glass-border);
+            padding: 10px 16px;
+            border-radius: 10px;
+            color: #FFFFFF;
+            font-size: 13px;
+            outline: none;
+        }
+
+        /* DATA PANELS */
+        .data-panel {
+            background-color: var(--sidebar-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 24px;
+            overflow: hidden;
+        }
+
+        /* TABLES */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            color: var(--text-slate);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        td {
+            padding: 16px;
+            font-size: 13px;
+            border-bottom: 1px solid var(--glass-border);
+            color: #FFFFFF;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-shopper { background-color: rgba(16, 185, 129, 0.1); color: var(--primary-light); }
+        .badge-vendor { background-color: rgba(245, 158, 11, 0.1); color: var(--accent-gold); }
+        .badge-provider { background-color: rgba(59, 130, 246, 0.1); color: #3B82F6; }
+        .badge-rider { background-color: rgba(139, 92, 246, 0.1); color: #8B5CF6; }
+        
+        .badge-approved { background-color: rgba(16, 185, 129, 0.15); color: var(--primary-light); }
+        .badge-pending { background-color: rgba(245, 158, 11, 0.15); color: var(--accent-gold); }
+        .badge-flagged { background-color: rgba(239, 68, 68, 0.15); color: var(--danger-red); }
+
+        .btn {
+            background-color: var(--primary-emerald);
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--glass-border);
+            color: var(--text-slate);
+        }
+
+        .btn-secondary:hover {
+            border-color: #FFFFFF;
+            color: #FFFFFF;
+        }
+
+        .btn-danger {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--danger-red);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+        }
+
+        .btn-danger:hover {
+            background-color: var(--danger-red);
+            color: #FFFFFF;
+        }
+
+        /* SafePay Dispute row style */
+        .dispute-row {
+            background-color: rgba(255,255,255,0.01);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .dispute-desc {
+            margin-top: 12px;
+            padding: 14px;
+            background-color: rgba(255,255,255,0.02);
+            border-radius: 8px;
+            font-size: 13px;
+            border-left: 3px solid var(--accent-gold);
+            line-height: 1.5;
+        }
+
+        /* 📱 CONFIG SETTINGS PAGE */
+        .setting-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .setting-card {
+            background-color: rgba(255,255,255,0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            color: var(--text-slate);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--glass-border);
+            padding: 12px;
+            border-radius: 8px;
+            color: #FFFFFF;
+            outline: none;
+        }
+
+        /* Mobile sidebar overlays backdrop */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==========================================
+             📱 MOBILE RESPONSIVE MEDIA QUERIES
+             ========================================== --> */
+        @media (max-width: 992px) {
+            aside {
+                transform: translateX(-280px);
+            }
+
+            aside.open {
+                transform: translateX(0);
+            }
+
+            main {
+                margin-left: 0;
+            }
+
+            .mobile-header {
+                display: flex;
+            }
+
+            .page-content {
+                padding: 20px 16px;
+            }
+
+            .sidebar-overlay.open {
+                display: block;
+            }
+
+            /* Convert tables to cards on mobile screen viewports */
+            .table-container table, 
+            .table-container thead, 
+            .table-container tbody, 
+            .table-container th, 
+            .table-container td, 
+            .table-container tr {
+                display: block;
+            }
+
+            .table-container thead {
+                display: none;
+            }
+
+            .table-container tr {
+                background-color: rgba(255, 255, 255, 0.02);
+                border: 1px solid var(--glass-border);
+                border-radius: 12px;
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+
+            .table-container td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            }
+
+            .table-container td:last-child {
+                border-bottom: none;
+                margin-top: 6px;
+                justify-content: flex-end;
+                gap: 6px;
+            }
+
+            .table-container td::before {
+                content: attr(data-label);
+                font-size: 10px;
+                font-weight: 800;
+                color: var(--text-slate);
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .setting-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 📱 MOBILE SIDEBAR DRAWER OVERLAY BACKDROP -->
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- 📱 ENTERPRISE DRAWER NAVIGATION SIDEBAR -->
+    <aside id="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-logo">
+                <h1>MartoraX</h1>
+                <span class="brand-badge">PRO</span>
+            </div>
+            <button class="hamburger-btn" style="display: none;" onclick="toggleSidebar()" id="close-drawer">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <div class="sidebar-profile">
+            <div class="avatar">SA</div>
+            <div class="profile-info">
+                <h3>Super Admin</h3>
+                <p>System Administrator</p>
+            </div>
+        </div>
+
+        <div class="sidebar-menu">
+            <a class="menu-item active" onclick="loadPage('analytics', this)">📊 Command Central</a>
+            <a class="menu-item" onclick="loadPage('safepay', this)">💸 SafePay Ledger</a>
+            <a class="menu-item" onclick="loadPage('users', this)">👥 User Directory</a>
+            <a class="menu-item" onclick="loadPage('catalog', this)">🍎 Catalog Auditing</a>
+            <a class="menu-item" onclick="loadPage('logistics', this)">🛵 Logistics Fleet</a>
+            <a class="menu-item" onclick="loadPage('concierge', this)">🤖 AI Concierge Monitor</a>
+            <a class="menu-item" onclick="loadPage('settings', this)">⚙️ App System Config</a>
+        </div>
+    </aside>
+
+    <main>
+        <!-- 📱 STICKY MOBILE TOP NAVBAR -->
+        <div class="mobile-header">
+            <button class="hamburger-btn" onclick="toggleSidebar()">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            <h1 style="font-size: 16px; font-family: 'Outfit'; font-weight: 800;">MartoraX Admin</h1>
+            <div class="avatar" style="width: 32px; height: 32px; font-size: 11px;">SA</div>
+        </div>
+
+        <!-- =========================================================
+             PAGE 1: COMMAND CENTRAL (ANALYTICS HUB)
+             ========================================================= -->
+        <div id="page-analytics" class="page-content active">
+            <div class="page-header">
+                <h2>Command Central</h2>
+                <p>Real-time analytics telemetries, fee yields, and systems health margins.</p>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-meta"><span>Gross Escrow Locked</span><span>Naira</span></div>
+                    <div class="stat-val">₦1,245,800.00</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-meta"><span>Platform Commission (1.5%)</span><span>Earnings</span></div>
+                    <div class="stat-val" style="color: var(--primary-light);">₦18,687.00</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-meta"><span>Active Service Request</span><span>Queue</span></div>
+                    <div class="stat-val">42 Open</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-meta"><span>Logistics Response Rate</span><span>SLA</span></div>
+                    <div class="stat-val" style="color: var(--accent-gold);">98.4%</div>
+                </div>
+            </div>
+
+            <div class="data-panel">
+                <div class="panel-title">Real-Time Core Database Operations Sync</div>
+                <p style="font-size: 13px; color: var(--text-slate); margin-bottom: 12px;">Websocket Stream Node: <strong>ONLINE (0.1ms ping)</strong></p>
+                <div style="height: 12px; background-color: rgba(255,255,255,0.03); border-radius: 6px; overflow: hidden;">
+                    <div style="width: 98%; height: 100%; background-color: var(--primary-emerald);"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =========================================================
+             PAGE 2: SAFEPAY ESCROW AUDIT LEDGER
+             ========================================================= -->
+        <div id="page-safepay" class="page-content">
+            <div class="page-header">
+                <h2>SafePay Escrow Ledger</h2>
+                <p>Track locked escrow funds, manage active service contracts, and resolve client disputes.</p>
+            </div>
+
+            <div class="filter-block">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="dispute-search" onkeyup="filterDisputes()" placeholder="Search disputes by dispute code or names...">
+                </div>
+                <select class="select-filter" id="dispute-filter" onchange="filterDisputes()">
+                    <option value="ALL">Show All Status</option>
+                    <option value="PENDING">Pending Settlement</option>
+                    <option value="RESOLVED">Resolved / Closed</option>
+                </select>
+            </div>
+
+            <div id="dispute-container">
+                <div class="dispute-row dispute-card" data-status="PENDING" data-keyword="akinade techflow SP-MTX-8821 DISP-MTX-8821">
+                    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                        <div>
+                            <strong style="color: var(--accent-gold); font-size: 15px;">DISP-MTX-8821</strong>
+                            <p style="font-size: 12px; color: var(--text-slate); margin-top: 4px;">Hold Reference Code: SP-MTX-8821</p>
+                        </div>
+                        <div>
+                            <span style="font-size: 18px; font-weight: 800; color: #FFFFFF;">₦11,000.00</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; margin-top: 8px;"><strong>Buyer:</strong> Akinade O. | <strong>Provider:</strong> TechFlow Solutions</p>
+                    <div class="dispute-desc">
+                        "Pipe leaking again within 2 hours of fixing. Service provider refused to come back to Summit Road address to rectify work."
+                    </div>
+                    <div class="dispute-actions" id="act-disp-1">
+                        <button class="btn" onclick="resolveDispute('disp-1', 'Akinade O.', 'Refunded')">Refund Shopper</button>
+                        <button class="btn btn-secondary" onclick="resolveDispute('disp-1', 'TechFlow Solutions', 'Released')">Release to Vendor</button>
+                    </div>
+                </div>
+
+                <div class="dispute-row dispute-card" data-status="PENDING" data-keyword="john chidi SP-MTX-9012 DISP-MTX-9012">
+                    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                        <div>
+                            <strong style="color: var(--accent-gold); font-size: 15px;">DISP-MTX-9012</strong>
+                            <p style="font-size: 12px; color: var(--text-slate); margin-top: 4px;">Hold Reference Code: SP-MTX-9012</p>
+                        </div>
+                        <div>
+                            <span style="font-size: 18px; font-weight: 800; color: #FFFFFF;">₦22,800.00</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; margin-top: 8px;"><strong>Buyer:</strong> John Doe | <strong>Vendor:</strong> Mama Chidi Fabrics</p>
+                    <div class="dispute-desc">
+                        "Received standard cotton fabrics instead of the premium Ankara gold print ordered from the store catalog."
+                    </div>
+                    <div class="dispute-actions" id="act-disp-2">
+                        <button class="btn" onclick="resolveDispute('disp-2', 'John Doe', 'Refunded')">Refund Shopper</button>
+                        <button class="btn btn-secondary" onclick="resolveDispute('disp-2', 'Mama Chidi Fabrics', 'Released')">Release to Vendor</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =========================================================
+             PAGE 3: USER DIRECTORY & KYC GUARD
+             ========================================================= -->
+        <div id="page-users" class="page-content">
+            <div class="page-header">
+                <h2>User Directory & KYC Guard</h2>
+                <p>Audits users, update role profiles, and manage KYC verification statuses.</p>
+            </div>
+
+            <div class="filter-block">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="user-search" onkeyup="filterUsers()" placeholder="Search users by name, email or role...">
+                </div>
+            </div>
+
+            <div class="data-panel">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Active Profile</th>
+                                <th>KYC verification</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-table-rows">
+                            <tr class="user-row-item" data-keyword="akinade akinade@martorax.com shopper">
+                                <td data-label="Name"><strong>Akinade O.</strong></td>
+                                <td data-label="Email">akinade@martorax.com</td>
+                                <td data-label="Active Profile"><span class="badge badge-shopper">SHOPPER</span></td>
+                                <td data-label="KYC verification"><span class="badge badge-approved" id="kyc-row-u1">Approved</span></td>
+                                <td data-label="Actions">
+                                    <button class="btn btn-secondary" onclick="toggleKycRow('u1')">Toggle KYC</button>
+                                    <button class="btn btn-danger" onclick="suspendUser('Akinade O.')">Suspend</button>
+                                </td>
+                            </tr>
+                            <tr class="user-row-item" data-keyword="mama chidi chidi@martorax.com vendor">
+                                <td data-label="Name"><strong>Mama Chidi</strong></td>
+                                <td data-label="Email">chidi@martorax.com</td>
+                                <td data-label="Active Profile"><span class="badge badge-vendor">VENDOR</span></td>
+                                <td data-label="KYC verification"><span class="badge badge-approved" id="kyc-row-u2">Approved</span></td>
+                                <td data-label="Actions">
+                                    <button class="btn btn-secondary" onclick="toggleKycRow('u2')">Toggle KYC</button>
+                                    <button class="btn btn-danger" onclick="suspendUser('Mama Chidi')">Suspend</button>
+                                </td>
+                            </tr>
+                            <tr class="user-row-item" data-keyword="efe plumber efe@martorax.com provider">
+                                <td data-label="Name"><strong>Efe Plumber</strong></td>
+                                <td data-label="Email">efe@martorax.com</td>
+                                <td data-label="Active Profile"><span class="badge badge-provider">PROVIDER</span></td>
+                                <td data-label="KYC verification"><span class="badge badge-pending" id="kyc-row-u3">Pending</span></td>
+                                <td data-label="Actions">
+                                    <button class="btn btn-secondary" onclick="toggleKycRow('u3')">Toggle KYC</button>
+                                    <button class="btn btn-danger" onclick="suspendUser('Efe Plumber')">Suspend</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- =========================================================
+             PAGE 4: WHOLESALE COMMODITIES GUARD
+             ========================================================= -->
+        <div id="page-catalog" class="page-content">
+            <div class="page-header">
+                <h2>Catalog Auditing</h2>
+                <p>Manage product items listed in the Asaba wholesale clusters.</p>
+            </div>
+
+            <div class="data-panel">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item Title</th>
+                                <th>Wholesale Hub</th>
+                                <th>Listed Price</th>
+                                <th>Action Control</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="web-prod-1">
+                                <td data-label="Item Title"><strong>Fresh Tomatoes (Basket)</strong></td>
+                                <td data-label="Wholesale Hub">Ogbogonogo Agro Cluster</td>
+                                <td data-label="Listed Price" style="color: var(--primary-light); font-weight: 700;">₦4,500.00</td>
+                                <td data-label="Action Control"><button class="btn btn-danger" onclick="flagWebProduct('web-prod-1', 'Fresh Tomatoes')">Flag Listing</button></td>
+                            </tr>
+                            <tr id="web-prod-2">
+                                <td data-label="Item Title"><strong>Premium Ankara 6Yards</strong></td>
+                                <td data-label="Wholesale Hub">Mama Chidi Fabrics</td>
+                                <td data-label="Listed Price" style="color: var(--primary-light); font-weight: 700;">₦22,800.00</td>
+                                <td data-label="Action Control"><button class="btn btn-danger" onclick="flagWebProduct('web-prod-2', 'Premium Ankara')">Flag Listing</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- =========================================================
+             PAGE 5: LOGISTICS FLEET CONTROL
+             ========================================================= -->
+        <div id="page-logistics" class="page-content">
+            <div class="page-header">
+                <h2>Logistics Fleet</h2>
+                <p>Real-time delivery riders logs and SLA tracking.</p>
+            </div>
+
+            <div class="data-panel">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rider</th>
+                                <th>Last Active Landmark Area</th>
+                                <th>Live Signal</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Rider"><strong>Rider Tobi</strong></td>
+                                <td data-label="Last Active Area">Ogbogonogo Central Market</td>
+                                <td data-label="Live Signal"><span class="badge badge-pending">IN TRANSIT</span></td>
+                                <td data-label="Rating">⭐️ 4.9</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Rider"><strong>Rider Chuka</strong></td>
+                                <td data-label="Last Active Area">Nnebisi Junction Hub</td>
+                                <td data-label="Live Signal"><span class="badge badge-approved">ACTIVE</span></td>
+                                <td data-label="Rating">⭐️ 4.7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- =========================================================
+             PAGE 6: AI CONCIERGE & SMART QUOTES
+             ========================================================= -->
+        <div id="page-concierge" class="page-content">
+            <div class="page-header">
+                <h2>AI Concierge Monitor</h2>
+                <p>View NLP parsing logs, category budgets, and landmarks extracted from shopper voice/text pings.</p>
+            </div>
+
+            <div class="data-panel">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Shopper Intent Query</th>
+                                <th>Extracted Category</th>
+                                <th>Target Budget</th>
+                                <th>Extracted Landmark</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Query">"Need my kitchen pipe repaired near Summit Road, budget is 12k"</td>
+                                <td data-label="Category"><span class="badge badge-provider">PLUMBING</span></td>
+                                <td data-label="Budget">₦12,000.00</td>
+                                <td data-label="Landmark">Summit Road</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Query">"Help me buy fresh basket of tomatoes at Ogbogonogo max 5k"</td>
+                                <td data-label="Category"><span class="badge badge-vendor">GROCERIES</span></td>
+                                <td data-label="Budget">₦5,000.00</td>
+                                <td data-label="Landmark">Ogbogonogo Market</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- =========================================================
+             PAGE 7: SYSTEM CONFIGURATION VARIABLES
+             ========================================================= -->
+        <div id="page-settings" class="page-content">
+            <div class="page-header">
+                <h2>App System Config</h2>
+                <p>Manage operational variables, transaction fees, and cache invalidation policies.</p>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-card">
+                    <div class="panel-title" style="margin-bottom: 20px;">SafePay Escrow Config</div>
+                    <div class="form-group">
+                        <label>Escrow Platform Fee (%)</label>
+                        <input type="text" class="form-control" value="1.5%">
+                    </div>
+                    <div class="form-group">
+                        <label>Maximum Escrow Duration Hold (Days)</label>
+                        <input type="number" class="form-control" value="14">
+                    </div>
+                    <button class="btn" onclick="saveSettings()">Save Configurations</button>
+                </div>
+
+                <div class="setting-card">
+                    <div class="panel-title" style="margin-bottom: 20px;">TTL Cache Invalidator</div>
+                    <div class="form-group">
+                        <label>Stall Catalog TTL (Seconds)</label>
+                        <input type="number" class="form-control" value="1800">
+                    </div>
+                    <button class="btn btn-danger" onclick="invalidateCaches()">Invalidate System Caches</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // 📱 MOBILE DRAWER SIDEBAR TOGGLE
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const closeBtn = document.getElementById('close-drawer');
+            
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('open');
+            if (sidebar.classList.contains('open')) {
+                closeBtn.style.display = 'block';
+            } else {
+                closeBtn.style.display = 'none';
+            }
+        }
+
+        // 📂 ROUTING MANAGER (SUB-PAGES)
+        function loadPage(pageName, el) {
+            // Deactivate all page views
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(p => p.classList.remove('active'));
+
+            // Deactivate menu highlights
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(i => i.classList.remove('active'));
+
+            // Activate chosen page view
+            document.getElementById('page-' + pageName).classList.add('active');
+            
+            // Highlight selected sidebar tab
+            el.classList.add('active');
+
+            // Close mobile sidebar drawer if open
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.classList.contains('open')) {
+                toggleSidebar();
+            }
+        }
+
+        // 🔍 Dispute Filter Engine
+        function filterDisputes() {
+            const query = document.getElementById('dispute-search').value.toLowerCase();
+            const filter = document.getElementById('dispute-filter').value;
+            const cards = document.querySelectorAll('.dispute-card');
+
+            cards.forEach(card => {
+                const keyword = card.getAttribute('data-keyword').toLowerCase();
+                const status = card.getAttribute('data-status');
+                const matchesQuery = keyword.includes(query);
+                const matchesFilter = (filter === 'ALL' || status === filter);
+
+                if (matchesQuery && matchesFilter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 🔍 User search filter
+        function filterUsers() {
+            const query = document.getElementById('user-search').value.toLowerCase();
+            const rows = document.querySelectorAll('.user-row-item');
+
+            rows.forEach(row => {
+                const keyword = row.getAttribute('data-keyword').toLowerCase();
+                if (keyword.includes(query)) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        function toggleKycRow(userId) {
+            const el = document.getElementById('kyc-row-' + userId);
+            if (el.innerText === 'Approved') {
+                el.innerText = 'Pending';
+                el.className = 'badge badge-pending';
+            } else {
+                el.innerText = 'Approved';
+                el.className = 'badge badge-approved';
+            }
+        }
+
+        function suspendUser(name) {
+            alert('🔒 Security Control: Suspended account access for user "' + name + '".');
+        }
+
+        function flagWebProduct(prodId, name) {
+            const el = document.getElementById(prodId);
+            el.style.opacity = '0.3';
+            alert('🚩 Listing "' + name + '" flagged and hidden from wholesale search arrays.');
+        }
+
+        function resolveDispute(dispId, name, action) {
+            const container = document.getElementById('act-' + dispId);
+            container.innerHTML = '<p style="color: var(--primary-light); font-weight: 700; font-size: 13px;">✅ Escrow ' + action + ' successfully!</p>';
+        }
+
+        function saveSettings() {
+            alert('⚙️ System variables successfully committed to database config.');
+        }
+
+        function invalidateCaches() {
+            alert('🧹 Evicted all local JSON cache structures across active devices.');
+        }
+    </script>
+</body>
+</html>

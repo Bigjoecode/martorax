@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rider Pickup &amp; Loop Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059669","primary-accent": "#07df9e","background-light": "#f5f8f7",
+                        "background-dark": "#0f172a",},
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }.content-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .content-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-white h-screen flex flex-col overflow-hidden">
+<header class="flex-none bg-slate-900/90 backdrop-blur-md border-b border-white/10 z-50">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">New Order</h2>
+<div class="flex w-12 items-center justify-end">
+<div class="flex items-center gap-1.5 px-2 py-1 rounded-full bg-emerald-500/20">
+<div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<p class="text-emerald-500 text-[10px] font-bold uppercase tracking-wider">Online</p>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto content-scroll pb-6">
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start shadow-xl bg-slate-800/50 border border-white/5 overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover relative" data-alt="Map showing route" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-u9pVQnAL9xyxNB5FT9zCbUHavppApai4itXbQZtfkyMdCu-XIsDyiDzuP-K8reqo74Vi7yKarMWWTUPw--Wdmj1IoH_7iTPmpsiooqY2uuiYl3RA8gE4tKV9Qr_fUABEoS4HqZ_m-hjdvls4A_WbWdEYmK0yT3mWSULyqCObRROn_SRwrWHMd4p5WF5jB1DEyypXSdfvEB7iKPo4ZGmM6oZ7mjZHxSiJFus2LEAdMcWaSiW-azY1mlHjXcWqS1GvHR5kG9xZ9kiz");'>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+</div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 px-4">
+<div class="flex justify-between items-center mb-1">
+<p class="text-emerald-500 text-sm font-semibold leading-normal">Active Request</p>
+<p class="text-slate-400 text-xs font-medium">₦1,200 Payout</p>
+</div>
+<p class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">New Delivery Request</p>
+<div class="flex items-end gap-3 justify-between mt-1">
+<p class="text-slate-400 text-sm font-normal leading-normal">Total Distance: 3.5 km • Est. 12 mins</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 -mt-2">
+<div class="bg-slate-800/50 rounded-xl p-4 border border-white/5">
+<p class="text-slate-400 text-center text-xs font-medium uppercase tracking-widest mb-3">Offer expires in</p>
+<div class="flex gap-4">
+<div class="flex grow basis-0 flex-col items-stretch gap-2">
+<div class="flex h-12 grow items-center justify-center rounded-lg px-3 bg-slate-900 border border-emerald-500/20">
+<p class="text-emerald-500 text-xl font-bold leading-tight tracking-[-0.015em]">00</p>
+</div>
+<div class="flex items-center justify-center"><p class="text-slate-500 text-[10px] font-bold uppercase">Minutes</p></div>
+</div>
+<div class="flex grow basis-0 flex-col items-stretch gap-2">
+<div class="flex h-12 grow items-center justify-center rounded-lg px-3 bg-slate-900 border border-emerald-500/20">
+<p class="text-emerald-500 text-xl font-bold leading-tight tracking-[-0.015em]">42</p>
+</div>
+<div class="flex items-center justify-center"><p class="text-slate-500 text-[10px] font-bold uppercase">Seconds</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2">Trip Details</h3>
+</div>
+<div class="px-4">
+<div class="bg-slate-800/50 rounded-xl p-4 border border-white/5">
+<div class="grid grid-cols-[40px_1fr] gap-x-2">
+<div class="flex flex-col items-center gap-1 pt-1">
+<div class="text-emerald-500 flex items-center justify-center bg-emerald-500/10 rounded-full p-2">
+<span class="material-symbols-outlined text-xl">storefront</span>
+</div>
+<div class="w-[2px] bg-emerald-500/20 h-10 grow"></div>
+</div>
+<div class="flex flex-1 flex-col py-1 pb-6">
+<p class="text-white text-base font-bold">Stall 42, Ogbogonogo Market</p>
+<p class="text-slate-400 text-sm font-normal">Pickup • Fresh Mart Vendor</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-[2px] bg-emerald-500/20 h-4"></div>
+<div class="text-white flex items-center justify-center bg-white/5 rounded-full p-2">
+<span class="material-symbols-outlined text-xl">location_on</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col py-1">
+<p class="text-white text-base font-bold">Near Delta State Secretariat</p>
+<p class="text-slate-400 text-sm font-normal">Delivery • Landmark: High Court</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 px-4">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-3">Pickup Instructions</h3>
+<div class="bg-slate-800/30 border border-dashed border-emerald-500/30 rounded-xl p-4">
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-emerald-500 mt-0.5">info</span>
+<div>
+<p class="text-white text-sm font-medium leading-relaxed">
+                            "Please park at the main market gate. Ask for Stall 42 near the produce section. Handle items with care (fragile). Collect cash payment of ₦500 from customer upon delivery."
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<div class="flex-none bg-slate-900 border-t border-white/5 shadow-2xl z-50">
+<div class="p-4 flex flex-col gap-3">
+<button class="w-full bg-primary hover:bg-emerald-700 text-white font-bold py-4 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/20 active:scale-[0.98]">
+<span class="material-symbols-outlined">check_circle</span>
+                Accept Order
+            </button>
+<button class="w-full bg-transparent hover:bg-white/5 text-red-400 font-semibold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 active:scale-[0.98]">
+<span class="material-symbols-outlined">cancel</span>
+                Decline Request
+            </button>
+</div>
+<nav class="pb-8 pt-2 px-6 flex justify-between items-center border-t border-white/5">
+<div class="flex flex-col items-center gap-1 text-emerald-500">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-slate-400">payments</span>
+<span class="text-[10px] font-medium">Earnings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-slate-400">history</span>
+<span class="text-[10px] font-medium">History</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined text-slate-400">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</nav>
+</div>
+
+</body></html>

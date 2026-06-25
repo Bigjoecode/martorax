@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#059467",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f231d",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased">
+<!-- Main Container (iOS Phone Aspect) -->
+<div class="relative flex flex-col h-screen w-full max-w-[430px] mx-auto overflow-hidden bg-background-dark shadow-2xl">
+<!-- Top Navigation Overlay -->
+<div class="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-4 bg-gradient-to-b from-background-dark/80 to-transparent">
+<button class="flex items-center justify-center size-10 rounded-full bg-background-dark/40 backdrop-blur-md text-white border border-white/10">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold">Live Tracking</span>
+<h2 class="text-white text-sm font-bold leading-tight">Order #MX-72841</h2>
+</div>
+<button class="flex items-center justify-center size-10 rounded-full bg-background-dark/40 backdrop-blur-md text-white border border-white/10">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<!-- Live Map Section (Top 50%) -->
+<div class="relative h-[55%] w-full">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover" data-alt="Dark themed city map showing a green delivery route in Asaba" data-location="Asaba, Nigeria" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDfZCt8S_MiNGSOX8XS_IOVNOz0iDjUI3drPeKtB9fWcrZHzkLhvPeA_RMNFe43M6nBMNB0Iwcl9aaRBZ4hQe5YpOoy8fIbh_nzw29PUr2ZHj-Tsw6zWdyBHShntSZui_LoAYZCoCXqy5PNmDi4u0XiDWgBBv5Lenu4UKvxjQ8bazwyxTrIM4HaDrPgiJa8hPaYefebznYPRRkN_sw0r-m29RkxM_B56GPhW_ZZsB4-RWbtxPWVLfRRanfwj9ev2YBWtv41G5HIpHL3");'>
+<!-- Route Path Overlay (Simulated with Gradient/Svg) -->
+<div class="absolute inset-0 bg-background-dark/20"></div>
+<!-- Rider Marker (Keke) -->
+<div class="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="relative flex items-center justify-center size-12 bg-primary rounded-full shadow-[0_0_20px_rgba(5,148,103,0.6)] border-2 border-white">
+<span class="material-symbols-outlined text-white fill-icon">electric_rickshaw</span>
+</div>
+<div class="mt-2 px-2 py-1 bg-background-dark/90 backdrop-blur-sm rounded text-[10px] font-bold text-white border border-primary/30">
+                        Chidi is here
+                    </div>
+</div>
+<!-- Destination Marker -->
+<div class="absolute bottom-1/4 right-1/4 flex flex-col items-center">
+<div class="flex items-center justify-center size-8 bg-white rounded-full shadow-lg border-2 border-primary">
+<span class="material-symbols-outlined text-primary text-sm fill-icon">home</span>
+</div>
+</div>
+</div>
+<!-- SOS Floating Button -->
+<button class="absolute bottom-6 right-4 z-30 flex flex-col items-center justify-center size-16 bg-red-600 rounded-full shadow-[0_0_25px_rgba(220,38,38,0.5)] border-4 border-red-500/30 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl fill-icon">emergency_home</span>
+<span class="text-[9px] font-bold text-white uppercase tracking-tighter">SOS</span>
+</button>
+</div>
+<!-- Rider Card & Info (Bottom Half) -->
+<div class="relative flex-1 flex flex-col bg-background-light dark:bg-background-dark rounded-t-xl -mt-4 z-10 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] border-t border-white/5 overflow-y-auto">
+<!-- Bottom Sheet Handle -->
+<div class="flex h-6 w-full items-center justify-center shrink-0">
+<div class="h-1.5 w-12 rounded-full bg-slate-300 dark:bg-primary/30"></div>
+</div>
+<!-- Rider Profile & Quick Actions -->
+<div class="px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="size-16 rounded-xl overflow-hidden border-2 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of a male delivery rider" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqN2zLf5LkGvgut9jLDr2PQo5gW9p62zL2p3tGFubo2fnzz9PotQjSr6Ey3C9crIr8zZONr_B3Okb4N0me95QXtCoHKrSbummrZW4wfBGaJR6VIu_sX9oymFTl208zYWvgrRMKPruYRGYE14hEjzNx_ZLZaV5Pu0pGOf2fBaDJXbDi75rX4gC4IDdOFfV-ebmuucENEs0ZZR_hNg9tfelZ5A7n_4ZErbmcWjc3WCOE8vpKcdf7R76ZUvRm0aeKQblPUaDsZ7Bo_0ut"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-yellow-400 text-slate-900 text-[10px] font-bold px-1.5 py-0.5 rounded-md flex items-center gap-0.5">
+                            4.8 <span class="material-symbols-outlined text-[10px] fill-icon">star</span>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">Chidi K.</h3>
+<p class="text-sm text-slate-500 dark:text-[#8fccb8]">Yellow Keke • ASB-123-XY</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="size-11 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary border border-primary/20">
+<span class="material-symbols-outlined fill-icon">call</span>
+</button>
+<button class="size-11 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary border border-primary/20">
+<span class="material-symbols-outlined fill-icon">chat_bubble</span>
+</button>
+</div>
+</div>
+<div class="px-6 py-2">
+<div class="w-full h-px bg-slate-200 dark:bg-white/5"></div>
+</div>
+<!-- Delivery Status Timeline -->
+<div class="px-6 py-4">
+<div class="grid grid-cols-[32px_1fr] gap-x-4">
+<!-- Step 1: Picked Up -->
+<div class="flex flex-col items-center">
+<div class="flex items-center justify-center size-8 rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="w-0.5 bg-primary h-8 my-1 opacity-50"></div>
+</div>
+<div class="flex flex-col pb-6">
+<p class="text-slate-900 dark:text-white text-sm font-bold leading-none">Order Picked up</p>
+<p class="text-slate-500 dark:text-[#8fccb8] text-[12px] mt-1">10:15 AM • Summit Road</p>
+</div>
+<!-- Step 2: On the Way (Active) -->
+<div class="flex flex-col items-center">
+<div class="flex items-center justify-center size-8 rounded-full bg-primary text-white shadow-[0_0_10px_rgba(5,148,103,0.4)]">
+<span class="material-symbols-outlined text-sm animate-pulse">local_shipping</span>
+</div>
+<div class="w-0.5 bg-slate-300 dark:bg-white/10 h-8 my-1"></div>
+</div>
+<div class="flex flex-col pb-6">
+<div class="flex items-center gap-2">
+<p class="text-primary text-sm font-bold leading-none">On the way</p>
+<span class="px-1.5 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase">Live</span>
+</div>
+<p class="text-slate-900 dark:text-white text-[12px] mt-1 font-medium">Approaching your location</p>
+</div>
+<!-- Step 3: Arriving -->
+<div class="flex flex-col items-center">
+<div class="flex items-center justify-center size-8 rounded-full bg-slate-100 dark:bg-white/5 text-slate-400 dark:text-white/30 border border-slate-200 dark:border-white/10">
+<span class="material-symbols-outlined text-sm">location_on</span>
+</div>
+</div>
+<div class="flex flex-col">
+<p class="text-slate-400 dark:text-white/30 text-sm font-bold leading-none">Arriving</p>
+<p class="text-slate-400 dark:text-white/20 text-[12px] mt-1 italic">Estimated 10:30 AM</p>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="mt-auto p-6 pb-8 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent">
+<button class="w-full flex items-center justify-center gap-2 py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">share_location</span>
+                    Share Trip Progress
+                </button>
+<p class="text-center text-[11px] text-slate-500 dark:text-white/40 mt-4">
+                    MartoraX Secure Delivery • Asaba, Delta State
+                </p>
+</div>
+</div>
+<!-- iOS Bottom Home Indicator -->
+<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-300 dark:bg-white/20 rounded-full z-50"></div>
+</div>
+</body></html>
