@@ -1,13 +1,76 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/supabase/gps_tracking_service.dart';
+import '../../core/widgets/martorax_map.dart';
 
-class DeliveryTrackingScreen extends StatelessWidget {
+class DeliveryTrackingScreen extends StatefulWidget {
   const DeliveryTrackingScreen({super.key});
 
   @override
+  State<DeliveryTrackingScreen> createState() => _DeliveryTrackingScreenState();
+}
+
+class _DeliveryTrackingScreenState extends State<DeliveryTrackingScreen> {
+  final _gps = GpsTrackingService();
+  StreamSubscription<Map<String, double>>? _sub;
+  GoogleMapController? _mapController;
+
+  // Destination = Nnebisi Junction (route end in GpsTrackingService).
+  static const LatLng _destination = LatLng(6.1950, 6.7150);
+  LatLng _rider = kAsabaCenter;
+
+  @override
+  void initState() {
+    super.initState();
+    _sub = _gps.streamRiderLocation('MX-72841').listen((pos) {
+      final next = LatLng(pos['latitude']!, pos['longitude']!);
+      if (!mounted) return;
+      setState(() => _rider = next);
+      _mapController?.animateCamera(CameraUpdate.newLatLng(next));
+    });
+  }
+
+  @override
+  void dispose() {
+    _sub?.cancel();
+    _mapController?.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final markers = {
+      Marker(
+        markerId: const MarkerId('rider'),
+        position: _rider,
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+        infoWindow: const InfoWindow(title: 'Chidi K.', snippet: 'Your rider'),
+      ),
+      Marker(
+        markerId: const MarkerId('destination'),
+        position: _destination,
+        infoWindow: const InfoWindow(title: 'Drop-off'),
+      ),
+    };
+    final route = {
+      Polyline(
+        polylineId: const PolylineId('route'),
+        color: AppColors.emerald600,
+        width: 4,
+        points: const [
+          LatLng(6.2054, 6.7291),
+          LatLng(6.2030, 6.7260),
+          LatLng(6.2005, 6.7225),
+          LatLng(6.1975, 6.7180),
+          LatLng(6.1950, 6.7150),
+        ],
+      ),
+    };
+
     return Scaffold(
       backgroundColor: AppColors.darkBg,
       body: Stack(
@@ -19,94 +82,13 @@ class DeliveryTrackingScreen extends StatelessWidget {
                 flex: 55,
                 child: Stack(
                   children: [
-                    // Map background
-                    Container(
-                      width: double.infinity,
-                      color: const Color(0xFF1A2E3A),
-                      child: CustomPaint(
-                        painter: _CityMapPainter(),
-                      ),
-                    ),
-
-                    // Gradient overlay
-                    Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            AppColors.darkBg.withValues(alpha: 0.15),
-                            Colors.transparent,
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    // Rider marker
-                    Positioned(
-                      left: MediaQuery.of(context).size.width * 0.33,
-                      top: MediaQuery.of(context).size.height * 0.55 * 0.45,
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 48,
-                            height: 48,
-                            decoration: BoxDecoration(
-                              color: AppColors.emerald600,
-                              shape: BoxShape.circle,
-                              border: Border.all(color: Colors.white, width: 2),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColors.emerald600.withValues(alpha: 0.6),
-                                  blurRadius: 20,
-                                  spreadRadius: 2,
-                                ),
-                              ],
-                            ),
-                            child: const Icon(Icons.electric_rickshaw_rounded,
-                                color: Colors.white, size: 24),
-                          ),
-                          const SizedBox(height: 6),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 4),
-                            decoration: BoxDecoration(
-                              color: AppColors.darkBg.withValues(alpha: 0.9),
-                              borderRadius: BorderRadius.circular(6),
-                              border: Border.all(
-                                  color: AppColors.emerald600.withValues(alpha: 0.3)),
-                            ),
-                            child: Text('Chidi is here',
-                                style: GoogleFonts.inter(
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white)),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // Destination marker
-                    Positioned(
-                      right: MediaQuery.of(context).size.width * 0.25,
-                      bottom: MediaQuery.of(context).size.height * 0.55 * 0.25,
-                      child: Container(
-                        width: 32,
-                        height: 32,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                          border:
-                              Border.all(color: AppColors.emerald600, width: 2),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black.withValues(alpha: 0.3),
-                                blurRadius: 8)
-                          ],
-                        ),
-                        child: Icon(Icons.home_rounded,
-                            color: AppColors.emerald600, size: 16),
-                      ),
+                    // Live Google Map
+                    MartoraxMap(
+                      initialTarget: kAsabaCenter,
+                      initialZoom: 14.5,
+                      markers: markers,
+                      polylines: route,
+                      onMapCreated: (c) => _mapController = c,
                     ),
 
                     // SOS button
@@ -528,36 +510,3 @@ class _TrackRow extends StatelessWidget {
   }
 }
 
-class _CityMapPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final bg = Paint()..color = const Color(0xFF0F1F2A);
-    canvas.drawRect(Offset.zero & size, bg);
-    final road = Paint()
-      ..color = const Color(0xFF1E3040)
-      ..strokeWidth = 12
-      ..strokeCap = StrokeCap.round;
-    final route = Paint()
-      ..color = const Color(0xFF059669)
-      ..strokeWidth = 4
-      ..strokeCap = StrokeCap.round;
-
-    canvas.drawLine(Offset(0, size.height * 0.3), Offset(size.width, size.height * 0.3), road);
-    canvas.drawLine(Offset(0, size.height * 0.6), Offset(size.width, size.height * 0.6), road);
-    canvas.drawLine(Offset(0, size.height * 0.8), Offset(size.width, size.height * 0.8), road);
-    canvas.drawLine(Offset(size.width * 0.25, 0), Offset(size.width * 0.25, size.height), road);
-    canvas.drawLine(Offset(size.width * 0.6, 0), Offset(size.width * 0.6, size.height), road);
-    canvas.drawLine(Offset(size.width * 0.85, 0), Offset(size.width * 0.85, size.height), road);
-
-    // Route path
-    final path = Path()
-      ..moveTo(size.width * 0.25, size.height * 0.6)
-      ..lineTo(size.width * 0.6, size.height * 0.6)
-      ..lineTo(size.width * 0.6, size.height * 0.3)
-      ..lineTo(size.width * 0.85, size.height * 0.3);
-    canvas.drawPath(path, route);
-  }
-
-  @override
-  bool shouldRepaint(_CityMapPainter old) => false;
-}

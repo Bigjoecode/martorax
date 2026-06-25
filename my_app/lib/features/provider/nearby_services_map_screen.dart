@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/widgets/martorax_map.dart';
 
 class NearbyServicesMapScreen extends StatefulWidget {
   const NearbyServicesMapScreen({super.key});
@@ -27,53 +29,37 @@ class _NearbyServicesMapScreenState
       backgroundColor: const Color(0xFF10221C),
       body: Stack(
         children: [
-          // Map background
-          CustomPaint(
-            size: Size.infinite,
-            painter: _CityMapPainter(),
-          ),
-          // Map markers
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.3,
-            left: MediaQuery.of(context).size.width * 0.2,
-            child: _MarkerWithPulse(
-                icon: Icons.location_on_rounded,
-                color: const Color(0xFF09F6AB)),
-          ),
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.45,
-            left: MediaQuery.of(context).size.width * 0.45,
-            child: Column(
-              children: [
-                _MarkerWithPulse(
-                    icon: Icons.verified_user_rounded,
-                    color: const Color(0xFFFFD700),
-                    size: 40),
-                const SizedBox(height: 4),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 8, vertical: 3),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF334155),
-                    borderRadius: BorderRadius.circular(20),
-                    border:
-                        Border.all(color: const Color(0xFFFFD700)),
-                  ),
-                  child: Text('TRUSTED',
-                      style: GoogleFonts.inter(
-                          fontSize: 9,
-                          fontWeight: FontWeight.w700,
-                          color: const Color(0xFFFFD700))),
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            bottom: MediaQuery.of(context).size.height * 0.3,
-            right: MediaQuery.of(context).size.width * 0.2,
-            child: _MarkerWithPulse(
-                icon: Icons.location_on_rounded,
-                color: const Color(0xFF09F6AB)),
+          // Real Google Map with nearby provider markers
+          MartoraxMap(
+            initialTarget: kAsabaCenter,
+            initialZoom: 14,
+            markers: {
+              Marker(
+                markerId: const MarkerId('p1'),
+                position: const LatLng(6.2080, 6.7250),
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueGreen),
+                infoWindow: const InfoWindow(
+                    title: 'John Doe', snippet: 'Plumbing Specialist • 4.8★'),
+              ),
+              Marker(
+                markerId: const MarkerId('p2'),
+                position: const LatLng(6.2040, 6.7320),
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueYellow),
+                infoWindow: const InfoWindow(
+                    title: 'Elite Salon (Trusted)',
+                    snippet: 'Hairdressing & Spa • 5.0★'),
+              ),
+              Marker(
+                markerId: const MarkerId('p3'),
+                position: const LatLng(6.2015, 6.7270),
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueGreen),
+                infoWindow: const InfoWindow(
+                    title: 'Power Fixers', snippet: 'Electrical Repairs • 4.7★'),
+              ),
+            },
           ),
           // Top search overlay
           Positioned(
@@ -345,36 +331,6 @@ class _NearbyServicesMapScreenState
   }
 }
 
-class _MarkerWithPulse extends StatelessWidget {
-  final IconData icon;
-  final Color color;
-  final double size;
-
-  const _MarkerWithPulse({
-    required this.icon,
-    required this.color,
-    this.size = 36,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Container(
-          width: size + 16,
-          height: size + 16,
-          decoration: BoxDecoration(
-            color: color.withValues(alpha: 0.2),
-            shape: BoxShape.circle,
-          ),
-        ),
-        Icon(icon, color: color, size: size),
-      ],
-    );
-  }
-}
-
 class _ProviderTile extends StatelessWidget {
   final String name;
   final String title;
@@ -559,48 +515,3 @@ class _NavItem extends StatelessWidget {
   }
 }
 
-class _CityMapPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final bg = Paint()
-      ..color = const Color(0xFF0B1812)
-      ..style = PaintingStyle.fill;
-    canvas.drawRect(Offset.zero & size, bg);
-
-    final road = Paint()
-      ..color = const Color(0xFF1A2A20)
-      ..strokeWidth = 10
-      ..style = PaintingStyle.stroke;
-    for (int i = 0; i < 8; i++) {
-      canvas.drawLine(
-          Offset(0, size.height * (i + 1) / 8),
-          Offset(size.width, size.height * (i + 1) / 8),
-          road);
-    }
-    for (int i = 0; i < 5; i++) {
-      canvas.drawLine(
-          Offset(size.width * (i + 1) / 5, 0),
-          Offset(size.width * (i + 1) / 5, size.height),
-          road);
-    }
-
-    final block = Paint()
-      ..color = const Color(0xFF101F18)
-      ..style = PaintingStyle.fill;
-    for (int i = 0; i < 4; i++) {
-      for (int j = 0; j < 6; j++) {
-        final x = (i * size.width / 5) + 8;
-        final y = (j * size.height / 8) + 8;
-        canvas.drawRRect(
-            RRect.fromRectAndRadius(
-                Rect.fromLTWH(x, y, size.width / 5 - 16,
-                    size.height / 8 - 16),
-                const Radius.circular(3)),
-            block);
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(_CityMapPainter o) => false;
-}

@@ -37,6 +37,11 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        // Google Maps key is injected from android/key.properties (gitignored).
+        // Add a line `MAPS_API_KEY=AIza...` there; the map will render once set.
+        manifestPlaceholders["MAPS_API_KEY"] =
+            (keystoreProperties["MAPS_API_KEY"] as String?) ?: ""
     }
 
     signingConfigs {

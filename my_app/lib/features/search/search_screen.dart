@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/localization/app_localizations.dart';
+import '../../core/widgets/martorax_map.dart';
 
 class SearchScreen extends ConsumerStatefulWidget {
   const SearchScreen({super.key});
@@ -489,25 +490,9 @@ class _MapPlaceholder extends ConsumerWidget {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.slate700),
       ),
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.map_rounded,
-                size: 64,
-                color: AppColors.emerald600.withValues(alpha: 0.4)),
-            const SizedBox(height: 12),
-            Text(ref.tr('search_map_view'),
-                style: GoogleFonts.manrope(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white)),
-            const SizedBox(height: 6),
-            Text(ref.tr('search_map_coming'),
-                style: GoogleFonts.inter(
-                    fontSize: 13, color: AppColors.slate400)),
-          ],
-        ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: const MartoraxMap(initialZoom: 13.5),
       ),
     );
   }

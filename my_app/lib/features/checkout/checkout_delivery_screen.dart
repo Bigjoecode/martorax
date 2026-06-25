@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/localization/app_localizations.dart';
+import '../../core/widgets/martorax_map.dart';
 
 class CheckoutDeliveryScreen extends ConsumerStatefulWidget {
   const CheckoutDeliveryScreen({super.key});
@@ -141,8 +142,8 @@ class _CheckoutDeliveryScreenState extends ConsumerState<CheckoutDeliveryScreen>
                           ),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
-                            child: CustomPaint(
-                              painter: _MapPainter(),
+                            child: const MartoraxMap(
+                              initialZoom: 15,
                             ),
                           ),
                         ),
@@ -301,21 +302,3 @@ class _FooterButton extends StatelessWidget {
   }
 }
 
-class _MapPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final bg = Paint()..color = const Color(0xFF1A2E3A);
-    canvas.drawRect(Offset.zero & size, bg);
-    final road = Paint()
-      ..color = const Color(0xFF253545)
-      ..strokeWidth = 10
-      ..strokeCap = StrokeCap.round;
-    canvas.drawLine(Offset(0, size.height * 0.4), Offset(size.width, size.height * 0.4), road);
-    canvas.drawLine(Offset(0, size.height * 0.7), Offset(size.width, size.height * 0.7), road);
-    canvas.drawLine(Offset(size.width * 0.3, 0), Offset(size.width * 0.3, size.height), road);
-    canvas.drawLine(Offset(size.width * 0.7, 0), Offset(size.width * 0.7, size.height), road);
-  }
-
-  @override
-  bool shouldRepaint(_MapPainter old) => false;
-}

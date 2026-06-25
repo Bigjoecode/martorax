@@ -57,14 +57,33 @@ flutter pub get
 flutter run
 ```
 
-## What's left before a production release
+## Status
 
-- [ ] **Release signing:** replace the debug `signingConfig` with a real upload
-      keystore (`android/key.properties`).
-- [ ] **Application ID:** change `com.example.my_app` to a real id
-      (e.g. `com.martorax.app`) — Play Store rejects `com.example.*`.
-- [ ] **App icon:** replace the default Flutter launcher icon with MartoraX branding.
-- [ ] **Deploy backend:** apply Supabase migrations and deploy the Edge Function;
-      set the live Paystack keys.
-- [ ] **Maps:** "Google Maps integration coming soon" placeholders in the
-      map/discovery screens.
+- [x] **Release signing** — real upload keystore via `android/key.properties` (gitignored).
+- [x] **Application ID** — `com.martorax.app`.
+- [x] **App icon** — branded MartoraX launcher icon.
+- [x] **Backend deployed** — migrations 002–005 applied; `verify-payment-and-hold`
+      Edge Function live; Paystack test secret set on the Supabase project.
+- [x] **Admin dashboard** — live on Vercel (see `admin/`).
+- [x] **Google Maps** — real maps on the tracking, nearby-services, checkout and
+      search screens (see *Google Maps setup* below to supply a key).
+
+### Google Maps setup
+The map screens use `google_maps_flutter`. The Android key is injected from
+`android/key.properties` (gitignored) — add one line and rebuild:
+
+```
+MAPS_API_KEY=AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+Create the key in Google Cloud Console → enable **Maps SDK for Android** (and
+enable billing). Restrict it to the app's package `com.martorax.app` + signing
+SHA-1 for production. For iOS, also call
+`GMSServices.provideAPIKey(...)` in `ios/Runner/AppDelegate.swift`.
+
+### Remaining / optional
+- [ ] Switch Paystack to **live** keys when ready for real charges.
+- [ ] Provide a Maps API key (above) so map tiles render.
+- [ ] iOS Maps key wiring + App Store signing if shipping on iOS.
+
+
