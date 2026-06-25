@@ -66,6 +66,7 @@ import '../../features/ai/ai_smart_quote_screen.dart';
 import '../../features/vendor/vendor_order_details_screen.dart';
 import '../../features/admin/admin_escrow_dashboard_screen.dart';
 import '../../features/admin/admin_universal_dashboard_screen.dart';
+import '../../features/kyc/kyc_verify_screen.dart';
 import '../widgets/role_gate.dart';
 
 // Routes that are reachable WITHOUT being signed in.
@@ -217,5 +218,6 @@ final appRouter = GoRouter(
     GoRoute(path: '/quote/approval', builder: (_, __) => const ShopperQuoteApprovalScreen()),
     GoRoute(path: '/ai/smart-quote', builder: (_, __) => const AiSmartQuoteScreen()),
     GoRoute(path: '/vendor/order-details', builder: (_, __) => const VendorOrderDetailsScreen()),
+    GoRoute(path: '/kyc/verify', builder: (_, __) => const KycVerifyScreen()),
   ],
 );

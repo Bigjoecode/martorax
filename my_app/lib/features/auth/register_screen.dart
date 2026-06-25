@@ -80,7 +80,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
         context.go('/provider/register');
         break;
       case 'rider':
-        context.go('/rider/dashboard');
+        context.go('/rider/register');
         break;
       default:
         context.go('/home');

@@ -79,3 +79,101 @@ final vendorDashboardProvider =
     return const VendorDashboardData();
   }
 });
+
+/// Service provider dashboard: bookings assigned to the signed-in provider.
+class ProviderDashboardData {
+  final int totalBookings;
+  final int pendingCount;
+  final int completedCount;
+  final double earnings;
+  final List<Map<String, dynamic>> recent;
+  const ProviderDashboardData({
+    this.totalBookings = 0,
+    this.pendingCount = 0,
+    this.completedCount = 0,
+    this.earnings = 0,
+    this.recent = const [],
+  });
+}
+
+final providerDashboardProvider =
+    FutureProvider.autoDispose<ProviderDashboardData>((ref) async {
+  final user = ref.watch(currentUserProvider);
+  if (user == null) return const ProviderDashboardData();
+  try {
+    final rows = List<Map<String, dynamic>>.from(await SupabaseConfig.client
+        .from('service_bookings')
+        .select('id, shopper_id, service_category, description, amount, status, scheduled_for, created_at')
+        .eq('provider_id', user.id)
+        .order('created_at', ascending: false));
+
+    final completed = rows.where((b) => (b['status'] as String?) == 'completed');
+    final pending = rows.where((b) =>
+        (b['status'] as String?) == 'requested' ||
+        (b['status'] as String?) == 'accepted');
+    final earnings =
+        completed.fold<double>(0, (s, b) => s + (b['amount'] as num? ?? 0).toDouble());
+
+    return ProviderDashboardData(
+      totalBookings: rows.length,
+      pendingCount: pending.length,
+      completedCount: completed.length,
+      earnings: earnings,
+      recent: rows.take(6).toList(),
+    );
+  } catch (_) {
+    return const ProviderDashboardData();
+  }
+});
+
+/// Rider dashboard: orders assigned to the signed-in rider for delivery.
+class RiderDashboardData {
+  final int totalDeliveries;
+  final int activeCount;
+  final int completedCount;
+  final double earnings;
+  final List<Map<String, dynamic>> recent;
+  const RiderDashboardData({
+    this.totalDeliveries = 0,
+    this.activeCount = 0,
+    this.completedCount = 0,
+    this.earnings = 0,
+    this.recent = const [],
+  });
+}
+
+/// Flat delivery fee a rider earns per completed drop (Naira).
+const double kRiderFeePerDelivery = 800;
+
+final riderDashboardProvider =
+    FutureProvider.autoDispose<RiderDashboardData>((ref) async {
+  final user = ref.watch(currentUserProvider);
+  if (user == null) return const RiderDashboardData();
+  try {
+    final rows = List<Map<String, dynamic>>.from(await SupabaseConfig.client
+        .from('orders')
+        .select('id, total_amount, delivery_status, landmark_destination, created_at')
+        .eq('rider_id', user.id)
+        .order('created_at', ascending: false));
+
+    final completed =
+        rows.where((o) => (o['delivery_status'] as String?) == 'delivered');
+    final active = rows.where((o) => (o['delivery_status'] as String?) != 'delivered');
+
+    return RiderDashboardData(
+      totalDeliveries: rows.length,
+      activeCount: active.length,
+      completedCount: completed.length,
+      earnings: completed.length * kRiderFeePerDelivery,
+      recent: rows.take(6).toList(),
+    );
+  } catch (_) {
+    return const RiderDashboardData();
+  }
+});
+
+/// The signed-in user's KYC verification status (unverified/pending/verified/rejected).
+final kycStatusProvider = Provider<String>((ref) {
+  final profile = ref.watch(currentProfileProvider).valueOrNull;
+  return (profile?['kyc_status'] as String?) ?? 'unverified';
+});

@@ -4,12 +4,24 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/localization/app_localizations.dart';
+import '../../core/providers/auth_provider.dart';
+import '../../core/providers/data_providers.dart';
+
+String _naira(num v) =>
+    '₦${v.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+$)'), (m) => '${m[1]},')}';
 
 class RiderServiceDashboardScreen extends ConsumerWidget {
   const RiderServiceDashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final data =
+        ref.watch(riderDashboardProvider).valueOrNull ?? const RiderDashboardData();
+    final profile = ref.watch(currentProfileProvider).valueOrNull;
+    final fullName = (profile?['full_name'] as String?)?.trim();
+    final greetName = (fullName != null && fullName.isNotEmpty) ? fullName : 'Rider';
+    final rating = (profile?['rating'] as num?)?.toStringAsFixed(1) ?? '5.0';
+    final verified = (profile?['kyc_status'] as String?) == 'verified';
     return Scaffold(
       backgroundColor: AppColors.darkBg,
       body: Stack(
@@ -61,12 +73,13 @@ class RiderServiceDashboardScreen extends ConsumerWidget {
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                       color: Colors.white)),
-                              Text('Verified Rider',
+                              Text(verified ? 'Verified Rider' : 'Verification pending',
                                   style: GoogleFonts.inter(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w500,
-                                      color:
-                                          AppColors.emerald600)),
+                                      color: verified
+                                          ? AppColors.emerald600
+                                          : AppColors.amber500)),
                             ],
                           ),
                         ],
@@ -126,7 +139,7 @@ class RiderServiceDashboardScreen extends ConsumerWidget {
                                 style: GoogleFonts.inter(
                                     fontSize: 13,
                                     color: AppColors.slate400)),
-                            Text('Good Morning, Rider!',
+                            Text('Welcome, $greetName!',
                                 style: GoogleFonts.inter(
                                     fontSize: 24,
                                     fontWeight: FontWeight.w700,
@@ -142,21 +155,21 @@ class RiderServiceDashboardScreen extends ConsumerWidget {
                           children: [
                             _StatCard(
                               icon: Icons.payments_rounded,
-                              label: 'Daily Earnings',
-                              value: '₦12,500',
+                              label: 'Earnings',
+                              value: _naira(data.earnings),
                               valueColor: AppColors.emerald600,
                             ),
                             const SizedBox(width: 12),
                             _StatCard(
                               icon: Icons.directions_bike_rounded,
                               label: 'Completed',
-                              value: '14',
+                              value: '${data.completedCount}',
                             ),
                             const SizedBox(width: 12),
                             _StatCard(
                               icon: Icons.star_rounded,
                               label: 'Rating',
-                              value: '4.9',
+                              value: rating,
                               valueSuffix: '/5',
                             ),
                           ],
@@ -554,7 +567,10 @@ class RiderServiceDashboardScreen extends ConsumerWidget {
                                           CrossAxisAlignment
                                               .start,
                                       children: [
-                                        Text('Food Delivery',
+                                        Text(
+                                            data.recent.isEmpty
+                                                ? 'No deliveries yet'
+                                                : 'Delivery',
                                             style:
                                                 GoogleFonts.inter(
                                               fontSize: 13,
@@ -563,7 +579,11 @@ class RiderServiceDashboardScreen extends ConsumerWidget {
                                               color: Colors.white,
                                             )),
                                         Text(
-                                            '10:45 AM • Asaba Mall',
+                                            data.recent.isEmpty
+                                                ? 'Completed deliveries appear here'
+                                                : ((data.recent.first['landmark_destination']
+                                                        as String?) ??
+                                                    'Asaba'),
                                             style:
                                                 GoogleFonts.inter(
                                               fontSize: 11,
@@ -573,7 +593,10 @@ class RiderServiceDashboardScreen extends ConsumerWidget {
                                       ],
                                     ),
                                   ),
-                                  Text('₦850',
+                                  Text(
+                                      data.recent.isEmpty
+                                          ? ''
+                                          : _naira(kRiderFeePerDelivery),
                                       style: GoogleFonts.inter(
                                           fontSize: 13,
                                           fontWeight:

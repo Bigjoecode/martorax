@@ -53,7 +53,7 @@ class _VendorRegisterScreenState extends ConsumerState<VendorRegisterScreen> {
 
       if (!mounted) return;
       _showSnack('Stall created!');
-      context.go('/vendor/dashboard');
+      context.go('/kyc/verify');
     } catch (e) {
       _showSnack('Could not save: $e', isError: true);
     } finally {

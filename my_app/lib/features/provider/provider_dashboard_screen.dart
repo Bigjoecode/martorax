@@ -1,21 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/providers/auth_provider.dart';
+import '../../core/providers/data_providers.dart';
 
-class ProviderDashboardScreen extends StatefulWidget {
+String _naira(num v) =>
+    '₦${v.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+$)'), (m) => '${m[1]},')}';
+
+String _short(Object? id, [int n = 6]) {
+  final s = id?.toString() ?? '';
+  return s.length <= n ? s : s.substring(0, n);
+}
+
+class ProviderDashboardScreen extends ConsumerStatefulWidget {
   const ProviderDashboardScreen({super.key});
 
   @override
-  State<ProviderDashboardScreen> createState() => _ProviderDashboardScreenState();
+  ConsumerState<ProviderDashboardScreen> createState() => _ProviderDashboardScreenState();
 }
 
-class _ProviderDashboardScreenState extends State<ProviderDashboardScreen> {
+class _ProviderDashboardScreenState extends ConsumerState<ProviderDashboardScreen> {
   bool _isOnline = true;
-  final double _earnings = 68500.00;
 
   @override
   Widget build(BuildContext context) {
+    final data =
+        ref.watch(providerDashboardProvider).valueOrNull ?? const ProviderDashboardData();
+    final profile = ref.watch(currentProfileProvider).valueOrNull;
+    final bizName = (profile?['business_name'] as String?)?.trim();
+    final category = (profile?['service_category'] as String?)?.trim();
+    final fullName = (profile?['full_name'] as String?)?.trim();
+    final displayName = (bizName != null && bizName.isNotEmpty)
+        ? bizName
+        : (category != null && category.isNotEmpty
+            ? category
+            : (fullName != null && fullName.isNotEmpty ? fullName : 'Your Services'));
+    final rating = (profile?['rating'] as num?)?.toStringAsFixed(1) ?? '5.0';
+    final activeBooking = data.recent.where((b) {
+      final s = b['status'] as String?;
+      return s == 'requested' || s == 'accepted';
+    }).toList();
     return Scaffold(
       backgroundColor: AppColors.darkBg,
       appBar: AppBar(
@@ -42,7 +68,7 @@ class _ProviderDashboardScreenState extends State<ProviderDashboardScreen> {
                 Text('Welcome back,',
                     style: GoogleFonts.inter(
                         fontSize: 11, color: AppColors.slate400)),
-                Text("Efe Plumber Services",
+                Text(displayName,
                     style: GoogleFonts.inter(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
@@ -120,7 +146,7 @@ class _ProviderDashboardScreenState extends State<ProviderDashboardScreen> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      '₦${_earnings.toStringAsFixed(2)}',
+                      _naira(data.earnings),
                       style: GoogleFonts.manrope(
                           fontSize: 28,
                           fontWeight: FontWeight.w800,
@@ -156,7 +182,7 @@ class _ProviderDashboardScreenState extends State<ProviderDashboardScreen> {
                       icon: Icons.flash_on_rounded,
                       color: AppColors.emerald600,
                       label: 'ACTIVE LEADS',
-                      value: '5 Leads',
+                      value: '${data.pendingCount}',
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -165,7 +191,7 @@ class _ProviderDashboardScreenState extends State<ProviderDashboardScreen> {
                       icon: Icons.check_circle_outline_rounded,
                       color: Colors.blueAccent,
                       label: 'COMPLETED JOBS',
-                      value: '24 Jobs',
+                      value: '${data.completedCount}',
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -174,7 +200,7 @@ class _ProviderDashboardScreenState extends State<ProviderDashboardScreen> {
                       icon: Icons.star_rounded,
                       color: AppColors.amber500,
                       label: 'RATING',
-                      value: '4.9 Star',
+                      value: rating,
                     ),
                   ),
                 ],
@@ -224,24 +250,32 @@ class _ProviderDashboardScreenState extends State<ProviderDashboardScreen> {
                           ),
                         ),
                         Text(
-                          '₦11,000.00',
+                          activeBooking.isEmpty
+                              ? '—'
+                              : _naira((activeBooking.first['amount'] as num?) ?? 0),
                           style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w800, color: Colors.white),
                         ),
                       ],
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      'Akinade O.',
+                      activeBooking.isEmpty
+                          ? 'No active booking'
+                          : 'Customer ${_short(activeBooking.first['shopper_id'])}',
                       style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.white),
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'Summit Road Landmark, Asaba',
+                      activeBooking.isEmpty
+                          ? 'New requests will appear here'
+                          : ((activeBooking.first['service_category'] as String?) ?? 'Service'),
                       style: GoogleFonts.inter(fontSize: 12, color: AppColors.slate400),
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Issue: Leaking Kitchen Sink Pipe Repair',
+                      activeBooking.isEmpty
+                          ? ''
+                          : 'Issue: ${(activeBooking.first['description'] as String?) ?? '—'}',
                       style: GoogleFonts.inter(fontSize: 12, color: Colors.white.withValues(alpha: 0.8)),
                     ),
                     const SizedBox(height: 20),

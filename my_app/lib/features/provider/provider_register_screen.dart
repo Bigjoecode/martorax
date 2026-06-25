@@ -52,7 +52,7 @@ class _ProviderRegisterScreenState extends ConsumerState<ProviderRegisterScreen>
 
       if (!mounted) return;
       _showSnack('Profile saved!');
-      context.go('/provider/dashboard');
+      context.go('/kyc/verify');
     } catch (e) {
       _showSnack('Could not save: $e', isError: true);
     } finally {

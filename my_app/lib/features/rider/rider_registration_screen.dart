@@ -179,13 +179,13 @@ class _RiderRegistrationScreenState extends ConsumerState<RiderRegistrationScree
               width: double.infinity,
               height: 56,
               child: ElevatedButton(
-                onPressed: () => context.go('/rider/dashboard'),
+                onPressed: () => context.go('/kyc/verify'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.emerald600,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14)),
                 ),
-                child: Text('Continue',
+                child: Text('Continue to verification',
                     style: GoogleFonts.inter(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
