@@ -2,9 +2,9 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'local_cache_service.dart';
 
 class SupabaseConfig {
-  static const String supabaseUrl = 'https://kabkurhvsthlxokmnbrb.supabase.co';
+  static const String supabaseUrl = 'https://wceitvgbwhnnvxkauphe.supabase.co';
   static const String supabaseAnonKey =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthYmt1cmh2c3RobHhva21uYnJiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyMDA0NzcsImV4cCI6MjA5NDc3NjQ3N30.jq7LFeMbSAFcB3NSqaxKqCkGdTZ27j4P-OJ_lZ2IqTY';
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndjZWl0dmdid2hubnZ4a2F1cGhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzODQzNTgsImV4cCI6MjA5Nzk2MDM1OH0.NDq7qCKhJm7NqDTluH2p6yskWMxXRoSdCH_eb7fkbdA';
 
   // Initialize Supabase. Catch errors gracefully if offline or in a test sandbox.
   static Future<void> initialize() async {
