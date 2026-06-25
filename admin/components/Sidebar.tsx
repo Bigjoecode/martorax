@@ -9,9 +9,13 @@ const NAV = [
   { href: "/kyc", label: "KYC Review", icon: "🪪" },
   { href: "/products", label: "Products", icon: "▤" },
   { href: "/orders", label: "Orders", icon: "🛒" },
+  { href: "/bookings", label: "Bookings", icon: "📅" },
   { href: "/escrow", label: "Escrow (SafePay)", icon: "🔒" },
   { href: "/disputes", label: "Disputes", icon: "⚖" },
+  { href: "/payouts", label: "Payouts", icon: "💸" },
   { href: "/riders", label: "Riders", icon: "🛵" },
+  { href: "/notifications", label: "Notifications", icon: "🔔" },
+  { href: "/messages", label: "Messages", icon: "💬" },
 ];
 
 export default function Sidebar({ logout }: { logout: () => void }) {
