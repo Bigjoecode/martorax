@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/providers/app_providers.dart';
+import '../../core/providers/data_providers.dart';
 import '../../core/localization/app_localizations.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -546,109 +547,160 @@ class _HotDealsHeader extends StatelessWidget {
   }
 }
 
-class _HotDealsList extends StatelessWidget {
+String _naira(num v) => '₦${v.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+$)'), (m) => '${m[1]},')}';
+
+class _HotDealsList extends ConsumerWidget {
   const _HotDealsList();
 
-  static const _deals = [
-    ('Fresh Tomatoes (Basket)', '₦4,500', '₦6,000', 'Ogbogonogo Farms', '25%'),
-    ('Ankara Fabric (6yds)', '₦3,800', '₦5,500', 'Mama Chidi Fabrics', '31%'),
-    ('Palm Oil (Gallon)', '₦2,200', '₦3,000', 'Uche Oil Depot', '27%'),
-  ];
-
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: _deals.map((deal) {
-        final (name, price, oldPrice, vendor, discount) = deal;
-        return GestureDetector(
-          onTap: () => context.go('/product'),
-          child: Container(
-          margin: const EdgeInsets.only(bottom: 12),
-          padding: const EdgeInsets.all(14),
-          decoration: BoxDecoration(
-            color: AppColors.cardBg,
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: AppColors.slate700),
-          ),
-          child: Row(
-            children: [
-              Container(
-                width: 56,
-                height: 56,
+  Widget build(BuildContext context, WidgetRef ref) {
+    final feed = ref.watch(productsFeedProvider);
+    return feed.when(
+      loading: () => const Padding(
+        padding: EdgeInsets.symmetric(vertical: 32),
+        child: Center(
+            child: CircularProgressIndicator(
+                strokeWidth: 2.4, color: AppColors.emerald600)),
+      ),
+      error: (_, __) => _emptyDeals('Could not load products'),
+      data: (products) {
+        if (products.isEmpty) {
+          return _emptyDeals('No products yet — check back soon');
+        }
+        return Column(
+          children: products.map((p) {
+            final title = (p['title'] as String?) ?? 'Product';
+            final price = (p['price'] as num?) ?? 0;
+            final location = (p['location'] as String?) ?? 'Asaba';
+            final stock = (p['stock'] as num?)?.toInt() ?? 0;
+            return GestureDetector(
+              onTap: () => context.go('/product'),
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 12),
+                padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  color: AppColors.emerald700.withValues(alpha: 0.2),
-                  borderRadius: BorderRadius.circular(12),
+                  color: AppColors.cardBg,
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(color: AppColors.slate700),
                 ),
-                child: const Icon(Icons.local_offer_rounded,
-                    color: AppColors.emerald600, size: 28),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
                   children: [
-                    Text(name,
-                        style: GoogleFonts.inter(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white)),
-                    const SizedBox(height: 2),
-                    Text(vendor,
-                        style: GoogleFonts.inter(
-                            fontSize: 12, color: AppColors.slate400)),
-                    const SizedBox(height: 6),
-                    Row(
-                      children: [
-                        Text(price,
-                            style: GoogleFonts.inter(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white)),
-                        const SizedBox(width: 6),
-                        Text(oldPrice,
-                            style: GoogleFonts.inter(
-                                fontSize: 12,
-                                color: AppColors.slate400,
-                                decoration: TextDecoration.lineThrough)),
-                      ],
+                    _ProductThumb(imageUrl: p['image_url'] as String?),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(title,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: GoogleFonts.inter(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white)),
+                          const SizedBox(height: 2),
+                          Row(
+                            children: [
+                              const Icon(Icons.location_on_rounded,
+                                  size: 12, color: AppColors.slate400),
+                              const SizedBox(width: 2),
+                              Text(location,
+                                  style: GoogleFonts.inter(
+                                      fontSize: 12, color: AppColors.slate400)),
+                              const SizedBox(width: 8),
+                              Text(stock > 0 ? 'In stock' : 'Out of stock',
+                                  style: GoogleFonts.inter(
+                                      fontSize: 11,
+                                      color: stock > 0
+                                          ? AppColors.emerald600
+                                          : AppColors.red500)),
+                            ],
+                          ),
+                          const SizedBox(height: 6),
+                          Text(_naira(price),
+                              style: GoogleFonts.inter(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.white)),
+                        ],
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: stock > 0
+                          ? () {
+                              ref.read(cartProvider.notifier).addItem(CartItem(
+                                    id: p['id'].toString(),
+                                    name: title,
+                                    price: price.toDouble(),
+                                    vendor: (p['vendor_id'] as String?) ?? '',
+                                  ));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('$title added to cart'),
+                                  backgroundColor: AppColors.emerald600,
+                                  duration: const Duration(seconds: 1),
+                                ),
+                              );
+                            }
+                          : null,
+                      child: Container(
+                        width: 36,
+                        height: 36,
+                        decoration: BoxDecoration(
+                          color: stock > 0
+                              ? AppColors.emerald600
+                              : AppColors.slate700,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: const Icon(Icons.add_rounded,
+                            color: Colors.white, size: 20),
+                      ),
                     ),
                   ],
                 ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: AppColors.amber500.withValues(alpha: 0.2),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text('-$discount',
-                        style: GoogleFonts.inter(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.amber500)),
-                  ),
-                  const SizedBox(height: 8),
-                  Container(
-                    width: 36,
-                    height: 36,
-                    decoration: BoxDecoration(
-                      color: AppColors.emerald600,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child:
-                        const Icon(Icons.add_rounded, color: Colors.white, size: 20),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          ),
+            );
+          }).toList(),
         );
-      }).toList(),
+      },
+    );
+  }
+
+  Widget _emptyDeals(String msg) => Container(
+        padding: const EdgeInsets.symmetric(vertical: 28, horizontal: 16),
+        decoration: BoxDecoration(
+          color: AppColors.cardBg,
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: AppColors.slate700),
+        ),
+        child: Center(
+          child: Text(msg,
+              style: GoogleFonts.inter(fontSize: 13, color: AppColors.slate400)),
+        ),
+      );
+}
+
+class _ProductThumb extends StatelessWidget {
+  final String? imageUrl;
+  const _ProductThumb({this.imageUrl});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 56,
+      height: 56,
+      decoration: BoxDecoration(
+        color: AppColors.emerald700.withValues(alpha: 0.2),
+        borderRadius: BorderRadius.circular(12),
+        image: (imageUrl != null && imageUrl!.isNotEmpty)
+            ? DecorationImage(
+                image: NetworkImage(imageUrl!), fit: BoxFit.cover)
+            : null,
+      ),
+      child: (imageUrl == null || imageUrl!.isEmpty)
+          ? const Icon(Icons.storefront_rounded,
+              color: AppColors.emerald600, size: 28)
+          : null,
     );
   }
 }

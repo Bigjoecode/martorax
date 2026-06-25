@@ -1,13 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/providers/auth_provider.dart';
+import '../../core/providers/data_providers.dart';
 
-class VendorDashboardScreen extends StatelessWidget {
+String _naira(num v) =>
+    '₦${v.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+$)'), (m) => '${m[1]},')}';
+
+String _shortId(Object? id, [int n = 6]) {
+  final s = id?.toString() ?? '';
+  return s.length <= n ? s : s.substring(0, n);
+}
+
+String _timeOf(Object? iso) {
+  final s = iso?.toString();
+  if (s == null) return '';
+  final d = DateTime.tryParse(s)?.toLocal();
+  if (d == null) return '';
+  final h = d.hour % 12 == 0 ? 12 : d.hour % 12;
+  final m = d.minute.toString().padLeft(2, '0');
+  return '$h:$m ${d.hour < 12 ? 'AM' : 'PM'}';
+}
+
+Color _statusColor(String status) {
+  switch (status.toLowerCase()) {
+    case 'delivered':
+    case 'completed':
+    case 'shipped':
+      return AppColors.emerald600;
+    case 'cancelled':
+      return Colors.red;
+    case 'pending':
+      return AppColors.slate400;
+    default:
+      return AppColors.amber500;
+  }
+}
+
+class VendorDashboardScreen extends ConsumerWidget {
   const VendorDashboardScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final data =
+        ref.watch(vendorDashboardProvider).valueOrNull ?? const VendorDashboardData();
+    final profile = ref.watch(currentProfileProvider).valueOrNull;
+    final storeName = (profile?['business_name'] as String?)?.trim();
+    final fullName = (profile?['full_name'] as String?)?.trim();
+    final displayName = (storeName != null && storeName.isNotEmpty)
+        ? storeName
+        : (fullName != null && fullName.isNotEmpty ? fullName : 'Your Store');
+    final outOfStock =
+        data.products.where((p) => ((p['stock'] as num?) ?? 0) <= 0).length;
     return Scaffold(
       backgroundColor: AppColors.darkBg,
       appBar: AppBar(
@@ -34,7 +80,7 @@ class VendorDashboardScreen extends StatelessWidget {
                 Text('Welcome back,',
                     style: GoogleFonts.inter(
                         fontSize: 11, color: AppColors.slate400)),
-                Text("Chief's Electronics",
+                Text(displayName,
                     style: GoogleFonts.inter(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
@@ -100,7 +146,7 @@ class VendorDashboardScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Current Balance',
+                    Text('Total Sales',
                         style: GoogleFonts.inter(
                             fontSize: 13,
                             color: Colors.white.withValues(alpha: 0.9))),
@@ -109,7 +155,7 @@ class VendorDashboardScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text('₦1,240,500.00',
+                        Text(_naira(data.totalSales),
                             style: GoogleFonts.manrope(
                                 fontSize: 28,
                                 fontWeight: FontWeight.w800,
@@ -133,7 +179,7 @@ class VendorDashboardScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 16),
-                    Text('Next payout in 2 days',
+                    Text('From ${data.orderCount} order${data.orderCount == 1 ? '' : 's'} • ${data.productCount} product${data.productCount == 1 ? '' : 's'} listed',
                         style: GoogleFonts.inter(
                             fontSize: 12,
                             color: Colors.white.withValues(alpha: 0.8))),
@@ -152,8 +198,7 @@ class VendorDashboardScreen extends StatelessWidget {
                       icon: Icons.shopping_bag_rounded,
                       iconColor: AppColors.emerald600,
                       label: 'ORDERS',
-                      value: '12',
-                      change: '+15%',
+                      value: '${data.orderCount}',
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -162,7 +207,7 @@ class VendorDashboardScreen extends StatelessWidget {
                       icon: Icons.local_shipping_rounded,
                       iconColor: AppColors.amber500,
                       label: 'PENDING',
-                      value: '5',
+                      value: '${data.pendingCount}',
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -170,9 +215,9 @@ class VendorDashboardScreen extends StatelessWidget {
                     child: _StatTile(
                       icon: Icons.warning_rounded,
                       iconColor: Colors.red,
-                      label: 'ALERTS',
-                      value: '3',
-                      valueColor: Colors.red,
+                      label: 'OUT OF STOCK',
+                      value: '$outOfStock',
+                      valueColor: outOfStock > 0 ? Colors.red : Colors.white,
                     ),
                   ),
                 ],
@@ -267,36 +312,38 @@ class VendorDashboardScreen extends StatelessWidget {
             const SizedBox(height: 12),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  _OrderRow(
-                    name: 'Chukwudi Onuoha',
-                    orderId: 'MX-8921',
-                    time: '12:45 PM',
-                    amount: '₦42,000',
-                    status: 'Processing',
-                    statusColor: AppColors.amber500,
-                  ),
-                  const SizedBox(height: 10),
-                  _OrderRow(
-                    name: 'Blessing Amadi',
-                    orderId: 'MX-8919',
-                    time: '10:20 AM',
-                    amount: '₦12,500',
-                    status: 'Shipped',
-                    statusColor: AppColors.emerald600,
-                  ),
-                  const SizedBox(height: 10),
-                  _OrderRow(
-                    name: 'Emeka Okafor',
-                    orderId: 'MX-8918',
-                    time: '09:15 AM',
-                    amount: '₦85,000',
-                    status: 'Delivered',
-                    statusColor: AppColors.slate400,
-                  ),
-                ],
-              ),
+              child: data.recentOrders.isEmpty
+                  ? Container(
+                      padding: const EdgeInsets.symmetric(vertical: 28),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: AppColors.cardBg.withValues(alpha: 0.4),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                            color: AppColors.slate700.withValues(alpha: 0.5)),
+                      ),
+                      child: Center(
+                        child: Text('No orders yet',
+                            style: GoogleFonts.inter(
+                                fontSize: 13, color: AppColors.slate400)),
+                      ),
+                    )
+                  : Column(
+                      children: [
+                        for (final o in data.recentOrders) ...[
+                          _OrderRow(
+                            name: 'Customer ${_shortId(o['buyer_id'])}',
+                            orderId: _shortId(o['id']),
+                            time: _timeOf(o['created_at']),
+                            amount: _naira((o['total_amount'] as num?) ?? 0),
+                            status: (o['delivery_status'] as String?) ?? 'pending',
+                            statusColor: _statusColor(
+                                (o['delivery_status'] as String?) ?? 'pending'),
+                          ),
+                          const SizedBox(height: 10),
+                        ],
+                      ],
+                    ),
             ),
           ],
         ),
@@ -311,7 +358,6 @@ class _StatTile extends StatelessWidget {
   final Color iconColor;
   final String label;
   final String value;
-  final String? change;
   final Color? valueColor;
 
   const _StatTile({
@@ -319,7 +365,6 @@ class _StatTile extends StatelessWidget {
     required this.iconColor,
     required this.label,
     required this.value,
-    this.change,
     this.valueColor,
   });
 
@@ -353,14 +398,6 @@ class _StatTile extends StatelessWidget {
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
                       color: valueColor ?? Colors.white)),
-              if (change != null) ...[
-                const SizedBox(width: 4),
-                Text(change!,
-                    style: GoogleFonts.inter(
-                        fontSize: 9,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.emerald600)),
-              ],
             ],
           ),
         ],
