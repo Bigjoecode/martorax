@@ -177,3 +177,21 @@ final kycStatusProvider = Provider<String>((ref) {
   final profile = ref.watch(currentProfileProvider).valueOrNull;
   return (profile?['kyc_status'] as String?) ?? 'unverified';
 });
+
+/// The signed-in user's in-app notifications, newest first.
+final notificationsProvider =
+    FutureProvider.autoDispose<List<Map<String, dynamic>>>((ref) async {
+  final user = ref.watch(currentUserProvider);
+  if (user == null) return const [];
+  try {
+    final rows = await SupabaseConfig.client
+        .from('notifications')
+        .select('id, title, body, type, is_read, created_at')
+        .eq('user_id', user.id)
+        .order('created_at', ascending: false)
+        .limit(50);
+    return List<Map<String, dynamic>>.from(rows);
+  } catch (_) {
+    return const [];
+  }
+});

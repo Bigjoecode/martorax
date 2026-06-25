@@ -72,6 +72,19 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     }
   }
 
+  Future<void> _oauth(OAuthProvider provider) async {
+    try {
+      await ref.read(authServiceProvider).signInWithOAuth(provider);
+      // The auth-state listener in the router redirects once the OAuth
+      // round-trip completes.
+    } catch (e) {
+      if (!mounted) return;
+      _showSnack(
+          '${provider.name[0].toUpperCase()}${provider.name.substring(1)} sign-in is not configured yet.',
+          isError: true);
+    }
+  }
+
   void _showSnack(String msg, {bool isError = false}) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(msg),
@@ -157,13 +170,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               const SizedBox(height: 12),
               Align(
                 alignment: Alignment.centerRight,
-                child: Text(ref.tr('login_forgot'),
-                    style: GoogleFonts.inter(
-                        fontSize: 13,
-                        color: AppColors.emerald600,
-                        fontWeight: FontWeight.w500,
-                        decoration: TextDecoration.underline,
-                        decorationColor: AppColors.emerald600)),
+                child: GestureDetector(
+                  onTap: () => context.go('/forgot-password'),
+                  child: Text(ref.tr('login_forgot'),
+                      style: GoogleFonts.inter(
+                          fontSize: 13,
+                          color: AppColors.emerald600,
+                          fontWeight: FontWeight.w500,
+                          decoration: TextDecoration.underline,
+                          decorationColor: AppColors.emerald600)),
+                ),
               ),
               const SizedBox(height: 28),
               SizedBox(
@@ -209,13 +225,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       child: SocialButton(
                           icon: Icons.g_mobiledata_rounded,
                           label: 'Google',
-                          onTap: () {})),
+                          onTap: () => _oauth(OAuthProvider.google))),
                   const SizedBox(width: 12),
                   Expanded(
                       child: SocialButton(
                           icon: Icons.apple_rounded,
                           label: 'Apple',
-                          onTap: () {})),
+                          onTap: () => _oauth(OAuthProvider.apple))),
                 ],
               ),
               const SizedBox(height: 28),

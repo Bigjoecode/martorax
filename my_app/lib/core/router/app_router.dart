@@ -8,6 +8,7 @@ import '../../features/onboarding/get_started_screen.dart';
 import '../../features/onboarding/role_selection_screen.dart';
 import '../../features/auth/login_screen.dart';
 import '../../features/auth/register_screen.dart';
+import '../../features/auth/forgot_password_screen.dart';
 import '../../features/home/home_screen.dart';
 import '../../features/search/search_screen.dart';
 import '../../features/product/product_detail_screen.dart';
@@ -67,6 +68,7 @@ import '../../features/vendor/vendor_order_details_screen.dart';
 import '../../features/admin/admin_escrow_dashboard_screen.dart';
 import '../../features/admin/admin_universal_dashboard_screen.dart';
 import '../../features/kyc/kyc_verify_screen.dart';
+import '../../features/vendor/add_product_screen.dart';
 import '../widgets/role_gate.dart';
 
 // Routes that are reachable WITHOUT being signed in.
@@ -78,6 +80,7 @@ const _publicPaths = {
   '/role',
   '/login',
   '/register',
+  '/forgot-password',
   '/vendor/register',
   '/provider/register',
   '/rider/register',
@@ -105,6 +108,7 @@ final appRouter = GoRouter(
     GoRoute(path: '/role', builder: (_, __) => const RoleSelectionScreen()),
     GoRoute(path: '/login', builder: (_, __) => const LoginScreen()),
     GoRoute(path: '/register', builder: (_, __) => const RegisterScreen()),
+    GoRoute(path: '/forgot-password', builder: (_, __) => const ForgotPasswordScreen()),
     GoRoute(path: '/product', builder: (_, __) => const ProductDetailScreen()),
     
     // Stateful tab navigation shell
@@ -212,12 +216,23 @@ final appRouter = GoRouter(
     GoRoute(path: '/provider/leads', builder: (_, __) => const LeadsManagementScreen()),
     GoRoute(path: '/market/trends', builder: (_, __) => const MarketTrendsScreen()),
     GoRoute(path: '/search/filters', builder: (_, __) => const SearchFiltersScreen()),
-    GoRoute(path: '/provider/chat', builder: (_, __) => const ProviderChatScreen()),
+    GoRoute(
+      path: '/provider/chat',
+      builder: (_, state) {
+        final extra = (state.extra as Map?) ?? const {};
+        return ProviderChatScreen(
+          roomId: extra['roomId'] as String?,
+          otherUserId: extra['otherUserId'] as String?,
+          otherName: extra['otherName'] as String?,
+        );
+      },
+    ),
     GoRoute(path: '/order/tracking-safety', builder: (_, __) => const DeliveryTrackingSafetyScreen()),
     GoRoute(path: '/services/map', builder: (_, __) => const NearbyServicesMapScreen()),
     GoRoute(path: '/quote/approval', builder: (_, __) => const ShopperQuoteApprovalScreen()),
     GoRoute(path: '/ai/smart-quote', builder: (_, __) => const AiSmartQuoteScreen()),
     GoRoute(path: '/vendor/order-details', builder: (_, __) => const VendorOrderDetailsScreen()),
     GoRoute(path: '/kyc/verify', builder: (_, __) => const KycVerifyScreen()),
+    GoRoute(path: '/vendor/add-product', builder: (_, __) => const AddProductScreen()),
   ],
 );

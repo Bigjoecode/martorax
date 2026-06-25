@@ -1,19 +1,21 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/supabase/supabase_config.dart';
 
 // Chat message model
 class ChatMessage {
+  final String? id;
   final String sender;
   final String text;
   final String time;
   final bool isMe;
 
   ChatMessage({
+    this.id,
     required this.sender,
     required this.text,
     required this.time,
@@ -22,7 +24,22 @@ class ChatMessage {
 }
 
 class ProviderChatScreen extends ConsumerStatefulWidget {
-  const ProviderChatScreen({super.key});
+  /// Conversation room id (deterministic per pair/booking). Defaults to a
+  /// personal room if not supplied.
+  final String? roomId;
+
+  /// The other participant's user id (message recipient).
+  final String? otherUserId;
+
+  /// Display name shown in the header.
+  final String? otherName;
+
+  const ProviderChatScreen({
+    super.key,
+    this.roomId,
+    this.otherUserId,
+    this.otherName,
+  });
 
   @override
   ConsumerState<ProviderChatScreen> createState() => _ProviderChatScreenState();
@@ -32,70 +49,96 @@ class _ProviderChatScreenState extends ConsumerState<ProviderChatScreen> {
   final TextEditingController _textController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   final List<ChatMessage> _messages = [];
-  bool _isTyping = false;
-  StreamSubscription? _realtimeSubscription;
+  final Set<String> _seenIds = {};
+  final bool _isTyping = false;
+  RealtimeChannel? _channel;
+
+  late final String _userId;
+  late final String _roomId;
+  late final String _receiverId;
 
   @override
   void initState() {
     super.initState();
-    _loadInitialMessages();
-    _subscribeToRealtimeChannel();
+    _userId = SupabaseConfig.client.auth.currentUser?.id ?? 'anonymous';
+    // Deterministic room: explicit roomId, else a stable pair key, else personal.
+    _receiverId = widget.otherUserId ?? _userId;
+    _roomId = widget.roomId ??
+        (([_userId, _receiverId]..sort()).join(':'));
+    _loadMessages();
+    _subscribeRealtime();
   }
 
   @override
   void dispose() {
     _textController.dispose();
     _scrollController.dispose();
-    _realtimeSubscription?.cancel();
+    if (_channel != null) {
+      SupabaseConfig.client.removeChannel(_channel!);
+    }
     super.dispose();
   }
 
-  void _loadInitialMessages() {
-    _messages.addAll([
-      ChatMessage(
-        sender: 'John Doe',
-        text: 'I need help fixing my kitchen sink today. Can you come? The pipe underneath is leaking heavily since morning.',
-        time: '10:24 AM',
-        isMe: false,
-      ),
-      ChatMessage(
-        sender: 'You',
-        text: 'Yes, I am available. I can head over to your location in 30 minutes. Do you have replacement parts already?',
-        time: '10:26 AM',
-        isMe: true,
-      ),
-      ChatMessage(
-        sender: 'John Doe',
-        text: "No, I don't have anything. Please buy what's needed and add it to the bill. What's your service charge?",
-        time: '10:27 AM',
-        isMe: false,
-      ),
-    ]);
+  String _fmtTime(DateTime d) {
+    final h = d.hour % 12 == 0 ? 12 : d.hour % 12;
+    final m = d.minute.toString().padLeft(2, '0');
+    return '$h:$m ${d.hour < 12 ? 'AM' : 'PM'}';
   }
 
-  // Subscribe to real-time broadcasts
-  void _subscribeToRealtimeChannel() {
+  void _appendRow(Map<String, dynamic> row) {
+    final id = row['id']?.toString();
+    if (id != null && !_seenIds.add(id)) return; // de-dupe
+    final created =
+        DateTime.tryParse(row['created_at']?.toString() ?? '')?.toLocal() ??
+            DateTime.now();
+    setState(() {
+      _messages.add(ChatMessage(
+        id: id,
+        sender: row['sender_id'] == _userId ? 'You' : (widget.otherName ?? 'Them'),
+        text: (row['message_content'] as String?) ?? '',
+        time: _fmtTime(created),
+        isMe: row['sender_id'] == _userId,
+      ));
+    });
+    _scrollToBottom();
+  }
+
+  Future<void> _loadMessages() async {
     try {
-      // In a real staging environment, this connects directly to Supabase WebSockets:
-      final channel = SupabaseConfig.client.channel('chat_lobby_asaba');
-      channel.onBroadcast(
-        event: 'message_received',
-        callback: (payload) {
-          if (mounted) {
-            setState(() {
-              _messages.add(ChatMessage(
-                sender: payload['sender'] ?? 'John Doe',
-                text: payload['message'] ?? '',
-                time: 'Just now',
-                isMe: false,
-              ));
-            });
-            _scrollToBottom();
-          }
-        },
-      ).subscribe();
+      final rows = await SupabaseConfig.client
+          .from('messages')
+          .select('id, sender_id, message_content, created_at')
+          .eq('chat_room_id', _roomId)
+          .order('created_at', ascending: true)
+          .limit(200);
+      for (final r in List<Map<String, dynamic>>.from(rows)) {
+        _appendRow(r);
+      }
     } catch (_) {
-      // Graceful offline real-time sandboxed channel setup
+      // Offline / no rows yet — start with an empty thread.
+    }
+  }
+
+  void _subscribeRealtime() {
+    try {
+      _channel = SupabaseConfig.client
+          .channel('messages:$_roomId')
+          .onPostgresChanges(
+            event: PostgresChangeEvent.insert,
+            schema: 'public',
+            table: 'messages',
+            filter: PostgresChangeFilter(
+              type: PostgresChangeFilterType.eq,
+              column: 'chat_room_id',
+              value: _roomId,
+            ),
+            callback: (payload) {
+              if (mounted) _appendRow(payload.newRecord);
+            },
+          )
+          .subscribe();
+    } catch (_) {
+      // Realtime unavailable — messages still load on open / refresh.
     }
   }
 
@@ -111,69 +154,30 @@ class _ProviderChatScreenState extends ConsumerState<ProviderChatScreen> {
     });
   }
 
-  // Send message method
-  void _sendMessage(String text) {
+  // Send a real message; the realtime insert echoes it back into the list.
+  Future<void> _sendMessage(String text) async {
     if (text.trim().isEmpty) return;
-
-    final now = DateTime.now();
-    final timeStr = "${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')} ${now.hour >= 12 ? 'PM' : 'AM'}";
-
-    setState(() {
-      _messages.add(ChatMessage(
-        sender: 'You',
-        text: text,
-        time: timeStr,
-        isMe: true,
-      ));
-    });
-
     _textController.clear();
-    _scrollToBottom();
-
-    // Secure async insertion into Supabase db
     try {
-      SupabaseConfig.client.from('messages').insert({
-        'chat_room_id': 'room_john_doe',
-        'sender_id': 'current_user_placeholder_uuid',
-        'receiver_id': 'john_doe_placeholder_uuid',
-        'message_content': text,
-      }).then((_) {});
-    } catch (_) {}
-
-    // Simulated responsive customer reply
-    _simulateBuyerResponse(text);
-  }
-
-  // Intelligent conversational simulator
-  void _simulateBuyerResponse(String userText) {
-    setState(() => _isTyping = true);
-    _scrollToBottom();
-
-    Timer(const Duration(milliseconds: 1500), () {
-      if (!mounted) return;
-
-      String responseText = "Naira don set! Make we do the work.";
-      if (userText.contains('₦') || userText.toLowerCase().contains('charge') || userText.toLowerCase().contains('cost')) {
-        responseText = "Okay, ₦5,000 for work is perfect. Please come quickly, water is filling the room!";
-      } else if (userText.toLowerCase().contains('location') || userText.toLowerCase().contains('where')) {
-        responseText = "I dey for 12 Nnebisi Road, close to the big junction.";
-      } else if (userText.toLowerCase().contains('come') || userText.toLowerCase().contains('road')) {
-        responseText = "Great! I dey wait for you for house.";
-      } else {
-        responseText = "Oya! Let's arrange this quickly. I am ready to release SafePay as soon as you finish.";
-      }
-
-      setState(() {
-        _isTyping = false;
-        _messages.add(ChatMessage(
-          sender: 'John Doe',
-          text: responseText,
-          time: 'Just now',
-          isMe: false,
+      final inserted = await SupabaseConfig.client
+          .from('messages')
+          .insert({
+            'chat_room_id': _roomId,
+            'sender_id': _userId,
+            'receiver_id': _receiverId,
+            'message_content': text.trim(),
+          })
+          .select('id, sender_id, message_content, created_at')
+          .single();
+      _appendRow(inserted); // immediate echo (realtime de-dupes)
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Could not send: $e'),
+          backgroundColor: Colors.red.shade700,
         ));
-      });
-      _scrollToBottom();
-    });
+      }
+    }
   }
 
   @override
@@ -217,7 +221,7 @@ class _ProviderChatScreenState extends ConsumerState<ProviderChatScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'John Doe',
+                            widget.otherName ?? 'Conversation',
                             style: GoogleFonts.inter(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,

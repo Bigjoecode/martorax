@@ -613,7 +613,7 @@ class _BottomNav extends StatelessWidget {
           Positioned(
             top: -28,
             child: GestureDetector(
-              onTap: () => ctx.go('/vendor/go-live'),
+              onTap: () => ctx.go('/vendor/add-product'),
               child: Container(
                 width: 56,
                 height: 56,

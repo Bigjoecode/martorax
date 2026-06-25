@@ -4,12 +4,54 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/localization/app_localizations.dart';
+import '../../core/providers/auth_provider.dart';
+import '../../core/providers/data_providers.dart';
+import '../../core/supabase/supabase_config.dart';
+
+IconData _iconFor(String? type) {
+  switch (type) {
+    case 'order':
+      return Icons.receipt_long_rounded;
+    case 'payment':
+    case 'escrow':
+      return Icons.account_balance_wallet_rounded;
+    case 'kyc':
+      return Icons.verified_user_rounded;
+    case 'booking':
+      return Icons.calendar_today_rounded;
+    default:
+      return Icons.notifications_rounded;
+  }
+}
+
+String _relative(Object? iso) {
+  final d = DateTime.tryParse(iso?.toString() ?? '')?.toLocal();
+  if (d == null) return '';
+  final diff = DateTime.now().difference(d);
+  if (diff.inMinutes < 1) return 'Just now';
+  if (diff.inMinutes < 60) return '${diff.inMinutes}m ago';
+  if (diff.inHours < 24) return '${diff.inHours}h ago';
+  if (diff.inDays < 7) return '${diff.inDays}d ago';
+  return '${d.day}/${d.month}/${d.year}';
+}
 
 class NotificationScreen extends ConsumerWidget {
   const NotificationScreen({super.key});
 
+  Future<void> _markAllRead(WidgetRef ref) async {
+    final user = ref.read(currentUserProvider);
+    if (user == null) return;
+    try {
+      await SupabaseConfig.client
+          .from('notifications')
+          .update({'is_read': true}).eq('user_id', user.id);
+    } catch (_) {}
+    ref.invalidate(notificationsProvider);
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final notifs = ref.watch(notificationsProvider);
     return Scaffold(
       backgroundColor: AppColors.darkBg,
       appBar: AppBar(
@@ -22,7 +64,7 @@ class NotificationScreen extends ConsumerWidget {
                 fontWeight: FontWeight.w800)),
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () => _markAllRead(ref),
             child: Text(ref.tr('ntf_mark_all_read'),
                 style: GoogleFonts.inter(
                     fontSize: 13,
@@ -35,82 +77,50 @@ class NotificationScreen extends ConsumerWidget {
         children: [
           Divider(color: AppColors.slate700.withValues(alpha: 0.5), height: 1),
           Expanded(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.only(bottom: 80),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Today section
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: notifs.when(
+              loading: () => const Center(
+                  child: CircularProgressIndicator(color: AppColors.emerald600)),
+              error: (_, __) => Center(
+                child: Text('Could not load notifications',
+                    style: GoogleFonts.inter(
+                        fontSize: 13, color: AppColors.slate400)),
+              ),
+              data: (items) {
+                if (items.isEmpty) {
+                  return Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text('Today',
+                        Icon(Icons.notifications_off_rounded,
+                            size: 56,
+                            color: AppColors.slate400.withValues(alpha: 0.5)),
+                        const SizedBox(height: 12),
+                        Text('No notifications yet',
                             style: GoogleFonts.inter(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white)),
-                        Text('3 new',
-                            style: GoogleFonts.inter(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                                color: AppColors.slate400)),
+                                fontSize: 14, color: AppColors.slate400)),
                       ],
                     ),
+                  );
+                }
+                return RefreshIndicator(
+                  color: AppColors.emerald600,
+                  onRefresh: () async => ref.invalidate(notificationsProvider),
+                  child: ListView.builder(
+                    padding: const EdgeInsets.only(top: 8, bottom: 80),
+                    itemCount: items.length,
+                    itemBuilder: (_, i) {
+                      final n = items[i];
+                      return _NotifItem(
+                        icon: _iconFor(n['type'] as String?),
+                        title: (n['title'] as String?) ?? '',
+                        subtitle: (n['body'] as String?) ?? '',
+                        time: _relative(n['created_at']),
+                        unread: !((n['is_read'] as bool?) ?? false),
+                      );
+                    },
                   ),
-
-                  _NotifItem(
-                    icon: Icons.calendar_today_rounded,
-                    title: 'New booking request from Chidi',
-                    subtitle: 'Kitchen renovation consultation scheduled.',
-                    time: '10:30 AM',
-                    unread: true,
-                  ),
-                  _NotifItem(
-                    icon: Icons.account_balance_wallet_rounded,
-                    title: '₦15,000 released to your wallet',
-                    subtitle: 'Payment for order #882 has been processed.',
-                    time: '8:15 AM',
-                    unread: true,
-                  ),
-                  _NotifItem(
-                    icon: Icons.verified_user_rounded,
-                    title: 'Your KYC is verified!',
-                    subtitle: 'You can now accept premium projects.',
-                    time: '6:00 AM',
-                    unread: false,
-                    dimmed: true,
-                  ),
-
-                  // Earlier section
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
-                    child: Text('Earlier',
-                        style: GoogleFonts.inter(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white)),
-                  ),
-
-                  _NotifItem(
-                    icon: Icons.event_repeat_rounded,
-                    title: 'Service reminder: Jane Smith',
-                    subtitle: 'Scheduled for tomorrow at 9:00 AM.',
-                    time: 'Yesterday',
-                    unread: false,
-                    dimmed: true,
-                  ),
-                  _NotifItem(
-                    icon: Icons.payments_rounded,
-                    title: 'Withdrawal Successful',
-                    subtitle: '₦45,000 sent to your GT Bank account.',
-                    time: 'Oct 24, 2023',
-                    unread: false,
-                    dimmed: true,
-                  ),
-                ],
-              ),
+                );
+              },
             ),
           ),
           _BottomNav(context),
@@ -126,7 +136,6 @@ class _NotifItem extends StatelessWidget {
   final String subtitle;
   final String time;
   final bool unread;
-  final bool dimmed;
 
   const _NotifItem({
     required this.icon,
@@ -134,13 +143,12 @@ class _NotifItem extends StatelessWidget {
     required this.subtitle,
     required this.time,
     required this.unread,
-    this.dimmed = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return Opacity(
-      opacity: dimmed ? 0.8 : 1.0,
+      opacity: unread ? 1.0 : 0.8,
       child: Container(
         margin: const EdgeInsets.only(bottom: 4),
         decoration: BoxDecoration(

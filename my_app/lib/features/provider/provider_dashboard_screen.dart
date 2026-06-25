@@ -296,7 +296,19 @@ class _ProviderDashboardScreenState extends ConsumerState<ProviderDashboardScree
                         const SizedBox(width: 12),
                         Expanded(
                           child: ElevatedButton.icon(
-                            onPressed: () => context.go('/provider/chat'),
+                            onPressed: () {
+                              final shopperId = activeBooking.isEmpty
+                                  ? null
+                                  : activeBooking.first['shopper_id'] as String?;
+                              context.go('/provider/chat', extra: {
+                                if (shopperId != null) 'otherUserId': shopperId,
+                                if (shopperId != null)
+                                  'roomId': 'booking:${activeBooking.first['id']}',
+                                'otherName': activeBooking.isEmpty
+                                    ? 'Customer'
+                                    : 'Customer ${_short(activeBooking.first['shopper_id'])}',
+                              });
+                            },
                             icon: const Icon(Icons.chat_bubble_rounded, size: 16, color: Colors.white),
                             label: const Text('Open Chat'),
                             style: ElevatedButton.styleFrom(

@@ -85,6 +85,21 @@ class AuthService {
   Future<void> signOut() async {
     await _client.auth.signOut();
   }
+
+  /// Sends a password-reset email. The user resets via the link.
+  Future<void> sendPasswordReset(String email) async {
+    await _client.auth.resetPasswordForEmail(email);
+  }
+
+  /// OAuth sign-in (Google / Apple). Requires the provider to be enabled in the
+  /// Supabase dashboard and the redirect scheme registered on the device.
+  /// Returns true if the OAuth flow was launched.
+  Future<bool> signInWithOAuth(OAuthProvider provider) async {
+    return _client.auth.signInWithOAuth(
+      provider,
+      redirectTo: 'com.martorax.app://login-callback/',
+    );
+  }
 }
 
 final authServiceProvider = Provider<AuthService>((ref) => AuthService());
