@@ -6,6 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/supabase/gps_tracking_service.dart';
 import '../../core/widgets/martorax_map.dart';
+import '../../core/utils/app_actions.dart';
 
 class DeliveryTrackingScreen extends StatefulWidget {
   const DeliveryTrackingScreen({super.key});
@@ -96,7 +97,7 @@ class _DeliveryTrackingScreenState extends State<DeliveryTrackingScreen> {
                       bottom: 24,
                       right: 16,
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () => triggerSos(context),
                         child: Container(
                           width: 64,
                           height: 64,
@@ -235,11 +236,11 @@ class _DeliveryTrackingScreenState extends State<DeliveryTrackingScreen> {
                               children: [
                                 _ActionBtn(
                                     icon: Icons.call_rounded,
-                                    onTap: () {}),
+                                    onTap: () => dialPhone(context, null)),
                                 const SizedBox(width: 8),
                                 _ActionBtn(
                                     icon: Icons.chat_bubble_rounded,
-                                    onTap: () {}),
+                                    onTap: () => context.go('/provider/chat')),
                               ],
                             ),
                           ],
@@ -286,7 +287,8 @@ class _DeliveryTrackingScreenState extends State<DeliveryTrackingScreen> {
                           width: double.infinity,
                           height: 52,
                           child: ElevatedButton.icon(
-                            onPressed: () {},
+                            onPressed: () => shareText(
+                                'Track my MartoraX delivery — order #MX-72841 is on the way! 🛵'),
                             icon: const Icon(Icons.share_location_rounded,
                                 color: Colors.white, size: 20),
                             label: Text('Share Trip Progress',

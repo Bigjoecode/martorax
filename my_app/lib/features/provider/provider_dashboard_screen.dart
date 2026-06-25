@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/providers/auth_provider.dart';
 import '../../core/providers/data_providers.dart';
+import '../../core/widgets/withdraw_sheet.dart';
 
 String _naira(num v) =>
     '₦${v.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+$)'), (m) => '${m[1]},')}';
@@ -157,7 +158,8 @@ class _ProviderDashboardScreenState extends ConsumerState<ProviderDashboardScree
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () =>
+                                showWithdrawSheet(context, ref, data.earnings),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppColors.emerald600,
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

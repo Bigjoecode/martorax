@@ -6,6 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/supabase/gps_tracking_service.dart';
 import '../../core/widgets/martorax_map.dart';
+import '../../core/utils/app_actions.dart';
 
 class DeliveryTrackingSafetyScreen extends StatefulWidget {
   const DeliveryTrackingSafetyScreen({super.key});
@@ -161,7 +162,9 @@ class _DeliveryTrackingSafetyScreenState
                     Positioned(
                       right: 16,
                       bottom: 24,
-                      child: Container(
+                      child: GestureDetector(
+                        onTap: () => triggerSos(context),
+                        child: Container(
                         width: 64,
                         height: 64,
                         decoration: BoxDecoration(
@@ -196,6 +199,7 @@ class _DeliveryTrackingSafetyScreenState
                                     letterSpacing: -0.5)),
                           ],
                         ),
+                      ),
                       ),
                     ),
                   ],
@@ -413,7 +417,8 @@ class _DeliveryTrackingSafetyScreenState
                     width: double.infinity,
                     height: 54,
                     child: ElevatedButton.icon(
-                      onPressed: () {},
+                      onPressed: () => shareText(
+                          'Track my MartoraX delivery — order #MX-72841 is on the way! 🛵'),
                       icon: const Icon(
                           Icons.share_location_rounded,
                           color: Colors.white,

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/providers/auth_provider.dart';
 import '../../core/providers/data_providers.dart';
+import '../../core/widgets/withdraw_sheet.dart';
 
 String _naira(num v) =>
     '₦${v.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+$)'), (m) => '${m[1]},')}';
@@ -161,7 +162,8 @@ class VendorDashboardScreen extends ConsumerWidget {
                                 fontWeight: FontWeight.w800,
                                 color: Colors.white)),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () =>
+                              showWithdrawSheet(context, ref, data.totalSales),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
                             foregroundColor: AppColors.emerald600,
