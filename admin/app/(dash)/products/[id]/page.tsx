@@ -15,7 +15,7 @@ export default async function EditProductPage({
   const db = createAdminClient();
   const { data } = await db
     .from("products")
-    .select("id, vendor_id, title, description, price, wholesale_price, stock, location, image_url")
+    .select("id, vendor_id, title, description, price, wholesale_price, stock, location, category, image_url")
     .eq("id", id)
     .maybeSingle();
 

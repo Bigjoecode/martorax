@@ -37,7 +37,7 @@ async function getStats() {
 
   const [
     profiles, products, ordersAll, escrowHeld, disputes,
-    bookings, pendingKyc, payoutsReq, recentOrders, ordersSeries,
+    bookings, pendingKyc, payoutsReq, recentOrders, ordersSeries, liveVendors,
   ] = await Promise.all([
     headCount("profiles"),
     headCount("products"),
@@ -49,6 +49,7 @@ async function getStats() {
     db.from("payout_requests").select("amount").eq("status", "requested"),
     db.from("orders").select("id, buyer_id, total_amount, delivery_status, created_at").order("created_at", { ascending: false }).limit(8),
     db.from("orders").select("created_at, total_amount").gte("created_at", since.toISOString()),
+    db.from("profiles").select("id", { count: "exact", head: true }).eq("is_live", true),
   ]);
 
   const series = buildSeries((ordersSeries.data || []) as any[]);
@@ -68,6 +69,7 @@ async function getStats() {
     payoutsCount: (payoutsReq.data || []).length,
     payoutSum,
     recentOrders: recentOrders.data || [],
+    liveVendors: liveVendors.count ?? 0,
     series,
     error: profiles.error?.message || ordersAll.error?.message || null,
   };
@@ -96,6 +98,7 @@ export default async function DashboardPage() {
         <Metric label="GMV" value={naira(s.gmv)} sub="gross merchandise value" />
         <Metric label="Escrow Held" value={naira(s.held)} sub="SafePay in custody" />
         <Metric label="Bookings" value={s.bookings.toLocaleString()} sub="service jobs" />
+        <Metric label="Live now" value={s.liveVendors.toLocaleString()} sub="vendors streaming" />
       </div>
 
       <div className="grid" style={{ gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 18 }}>

@@ -39,7 +39,7 @@ export default async function UsersPage({
 
   let query = db
     .from("profiles")
-    .select("id, full_name, active_role, phone_number, rating, kyc_status, business_name, service_category, created_at")
+    .select("id, full_name, active_role, phone_number, rating, kyc_status, business_name, service_category, is_live, created_at")
     .order("created_at", { ascending: false })
     .range(from, from + PAGE_SIZE);
   if (role && role !== "all") query = query.eq("active_role", role);
@@ -91,7 +91,10 @@ export default async function UsersPage({
             {rows.map((u: any) => (
               <tr key={u.id}>
                 <td className="mono">{shortId(u.id)}</td>
-                <td><a href={`/users/${u.id}`} style={{ color: "var(--emerald-bright)" }}>{u.full_name || "—"}</a></td>
+                <td>
+                  <a href={`/users/${u.id}`} style={{ color: "var(--emerald-bright)" }}>{u.full_name || "—"}</a>
+                  {u.is_live ? <span className="badge disputed" style={{ marginLeft: 6 }}>● LIVE</span> : null}
+                </td>
                 <td>
                   <span className="badge role">{u.active_role}</span>{" "}
                   <span style={{ color: "var(--muted)", fontSize: 12 }}>

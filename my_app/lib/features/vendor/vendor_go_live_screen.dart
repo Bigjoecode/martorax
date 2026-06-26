@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/localization/app_localizations.dart';
+import '../../core/providers/auth_provider.dart';
+import '../../core/supabase/supabase_config.dart';
 
 class VendorGoLiveScreen extends ConsumerStatefulWidget {
   const VendorGoLiveScreen({super.key});
@@ -14,6 +16,33 @@ class VendorGoLiveScreen extends ConsumerStatefulWidget {
 
 class _VendorGoLiveScreenState extends ConsumerState<VendorGoLiveScreen> {
   int _pinnedProduct = 0;
+  bool _goingLive = false;
+
+  Future<void> _startLive() async {
+    final user = ref.read(currentUserProvider);
+    if (user == null) return;
+    setState(() => _goingLive = true);
+    try {
+      await SupabaseConfig.client.from('profiles').update({
+        'is_live': true,
+        'live_started_at': DateTime.now().toUtc().toIso8601String(),
+      }).eq('id', user.id);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('You are now LIVE! Shoppers can see your stream.'),
+        backgroundColor: AppColors.emerald600,
+      ));
+      context.go('/vendor/dashboard');
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Could not go live: $e'),
+        backgroundColor: Colors.red.shade700,
+      ));
+    } finally {
+      if (mounted) setState(() => _goingLive = false);
+    }
+  }
 
   static const _products = [
     _Product('Fresh Tomatoes', '₦2,500 / basket', Icons.eco_rounded),
@@ -361,7 +390,7 @@ class _VendorGoLiveScreenState extends ConsumerState<VendorGoLiveScreen> {
               child: SizedBox(
                 height: 60,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: _goingLive ? null : _startLive,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.emerald600,
                     shape: RoundedRectangleBorder(
@@ -380,7 +409,7 @@ class _VendorGoLiveScreenState extends ConsumerState<VendorGoLiveScreen> {
                         ),
                       ),
                       const SizedBox(width: 12),
-                      Text('Start Live Deal',
+                      Text(_goingLive ? 'Going live…' : 'Start Live Deal',
                           style: GoogleFonts.inter(
                               fontSize: 17,
                               fontWeight: FontWeight.w700,

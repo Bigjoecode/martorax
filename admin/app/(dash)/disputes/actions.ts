@@ -3,9 +3,10 @@
 import { revalidatePath } from "next/cache";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth";
+import { logAction } from "@/lib/audit";
 
 export async function resolveDispute(formData: FormData) {
-  await requireAdmin();
+  const { user } = await requireAdmin();
   const id = String(formData.get("id"));
   const escrowId = String(formData.get("escrow_id"));
   const notes = String(formData.get("notes") || "");
@@ -27,5 +28,6 @@ export async function resolveDispute(formData: FormData) {
       await db.from("escrow_ledger").update({ status: "resolved" }).eq("id", escrowId);
     }
   }
+  await logAction(user.email, "resolve_dispute", "dispute", id, `outcome=${outcome}`);
   revalidatePath("/disputes");
 }

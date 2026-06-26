@@ -7,6 +7,7 @@ type Product = {
   wholesale_price?: number | null;
   stock?: number;
   location?: string | null;
+  category?: string | null;
   image_url?: string | null;
 };
 
@@ -47,9 +48,19 @@ export default function ProductForm({
           <input name="stock" type="number" defaultValue={p.stock ?? 0} />
         </div>
       </div>
-      <div>
-        <label>Location</label>
-        <input name="location" defaultValue={p.location || "Asaba"} />
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+        <div>
+          <label>Location</label>
+          <input name="location" defaultValue={p.location || "Asaba"} />
+        </div>
+        <div>
+          <label>Category</label>
+          <input name="category" defaultValue={p.category || ""} placeholder="e.g. Grocery, Fashion" list="cat-list" />
+          <datalist id="cat-list">
+            <option value="Grocery" /><option value="Fashion" /><option value="Electronics" />
+            <option value="Food" /><option value="Home" /><option value="Health" /><option value="Other" />
+          </datalist>
+        </div>
       </div>
       <div>
         <label>Image URL</label>

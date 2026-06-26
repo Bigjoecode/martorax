@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { naira, dateTime, shortDate, shortId } from "@/lib/format";
-import { updateProfile, deleteUser } from "../actions";
+import { updateProfile, deleteUser, endVendorLive } from "../actions";
 import { approveKyc, rejectKyc } from "../../kyc/actions";
 
 export const dynamic = "force-dynamic";
@@ -74,6 +74,19 @@ export default async function UserDossierPage({
         </div>
         <a className="btn" href="/users">← All users</a>
       </div>
+
+      {u.is_live && (
+        <div className="card" style={{ marginBottom: 16, borderColor: "var(--red)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <span style={{ fontWeight: 650 }}>
+            <span className="badge disputed">● LIVE NOW</span>{" "}
+            Streaming{u.live_started_at ? ` since ${dateTime(u.live_started_at)}` : ""}
+          </span>
+          <form action={endVendorLive}>
+            <input type="hidden" name="id" value={u.id} />
+            <button className="btn btn-sm btn-danger" type="submit">End live stream</button>
+          </form>
+        </div>
+      )}
 
       {/* Registration + KYC */}
       <div className="grid" style={{ gridTemplateColumns: "1fr 1fr", gap: 16 }}>
