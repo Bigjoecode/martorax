@@ -117,20 +117,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 16),
+              const SizedBox(height: 8),
               Center(
-                child: Container(
-                  width: 56,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    color: AppColors.emerald600.withValues(alpha: 0.15),
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: const Icon(Icons.shield_rounded,
-                      color: AppColors.emerald600, size: 28),
+                child: Image.asset(
+                  'assets/branding/martorax-logo.png',
+                  height: 120,
+                  fit: BoxFit.contain,
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
               Text(ref.tr('login_welcome'),
                   style: GoogleFonts.manrope(
                       fontSize: 28,

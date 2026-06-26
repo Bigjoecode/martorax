@@ -62,46 +62,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                 scale: _logoScale,
                 child: Column(
                   children: [
-                    Container(
-                      width: 96,
-                      height: 96,
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [AppColors.emerald600, AppColors.emerald700],
-                        ),
-                        borderRadius: BorderRadius.circular(22),
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppColors.emerald600.withValues(alpha: 0.4),
-                            blurRadius: 24,
-                            offset: const Offset(0, 8),
-                          ),
-                        ],
-                      ),
-                      child: const Icon(Icons.hub_rounded,
-                          color: Colors.white, size: 52),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      ref.tr('app_title'),
-                      style: GoogleFonts.manrope(
-                        fontSize: 36,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.white,
-                        letterSpacing: -0.5,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      ref.tr('tagline'),
-                      style: GoogleFonts.inter(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.emerald600,
-                        letterSpacing: 0.3,
-                      ),
+                    Image.asset(
+                      'assets/branding/martorax-logo.png',
+                      width: 260,
+                      fit: BoxFit.contain,
                     ),
                   ],
                 ),
