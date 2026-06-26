@@ -3,14 +3,23 @@ export default function Pagination({
   page,
   hasMore,
   query,
+  params,
 }: {
-  basePath: string;
+  basePath: string; // path only, no query string
   page: number;
   hasMore: boolean;
-  query?: string;
+  query?: string; // shorthand for ?q=
+  params?: Record<string, string | undefined>;
 }) {
-  const mk = (p: number) =>
-    `${basePath}?page=${p}${query ? `&q=${encodeURIComponent(query)}` : ""}`;
+  const mk = (p: number) => {
+    const usp = new URLSearchParams();
+    usp.set("page", String(p));
+    if (query) usp.set("q", query);
+    for (const [k, v] of Object.entries(params || {})) {
+      if (v) usp.set(k, v);
+    }
+    return `${basePath}?${usp.toString()}`;
+  };
   return (
     <div
       className="row-actions"
