@@ -37,6 +37,7 @@ export default async function OrdersPage({
           <p>Open an order for items + escrow, override status, or delete.</p>
         </div>
         <div className="row-actions" style={{ flexWrap: "wrap" }}>
+          <a className="btn btn-sm" href="/export/orders">⬇ CSV</a>
           {filters.map((f) => (
             <a key={f} className={`btn btn-sm${(status || "all") === f ? " btn-primary" : ""}`} href={f === "all" ? "/orders" : `/orders?status=${f}`}>{f}</a>
           ))}

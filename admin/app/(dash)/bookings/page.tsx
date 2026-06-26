@@ -35,6 +35,7 @@ export default async function BookingsPage({
           <p>Provider jobs requested by shoppers.</p>
         </div>
         <div className="row-actions" style={{ flexWrap: "wrap" }}>
+          <a className="btn btn-sm" href="/export/bookings">⬇ CSV</a>
           {["all", ...STATUSES].map((f) => (
             <a key={f} className={`btn btn-sm${(status || "all") === f ? " btn-primary" : ""}`} href={f === "all" ? "/bookings" : `/bookings?status=${f}`}>{f}</a>
           ))}

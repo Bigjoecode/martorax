@@ -1,7 +1,30 @@
 import { createAdminClient } from "@/lib/supabase/admin";
 import { naira, shortDate, shortId } from "@/lib/format";
+import BarChart from "@/components/BarChart";
 
 export const dynamic = "force-dynamic";
+
+/** Buckets orders into the last [days] calendar days for count + GMV charts. */
+function buildSeries(rows: { created_at: string; total_amount: number | null }[], days = 14) {
+  const today = new Date();
+  const keys: { label: string; key: string }[] = [];
+  for (let i = days - 1; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(today.getDate() - i);
+    keys.push({ label: `${d.getDate()}`, key: d.toISOString().slice(0, 10) });
+  }
+  const countMap = new Map<string, number>();
+  const gmvMap = new Map<string, number>();
+  for (const r of rows) {
+    const k = (r.created_at || "").slice(0, 10);
+    countMap.set(k, (countMap.get(k) || 0) + 1);
+    gmvMap.set(k, (gmvMap.get(k) || 0) + Number(r.total_amount || 0));
+  }
+  return {
+    counts: keys.map((k) => ({ label: k.label, value: countMap.get(k.key) || 0 })),
+    gmv: keys.map((k) => ({ label: k.label, value: gmvMap.get(k.key) || 0 })),
+  };
+}
 
 async function getStats() {
   const db = createAdminClient();
@@ -9,9 +32,12 @@ async function getStats() {
   const headCount = (table: string, col = "id") =>
     db.from(table).select(col, { count: "exact", head: true });
 
+  const since = new Date();
+  since.setDate(since.getDate() - 14);
+
   const [
     profiles, products, ordersAll, escrowHeld, disputes,
-    bookings, pendingKyc, payoutsReq, recentOrders,
+    bookings, pendingKyc, payoutsReq, recentOrders, ordersSeries,
   ] = await Promise.all([
     headCount("profiles"),
     headCount("products"),
@@ -22,7 +48,10 @@ async function getStats() {
     db.from("profiles").select("id", { count: "exact", head: true }).eq("kyc_status", "pending"),
     db.from("payout_requests").select("amount").eq("status", "requested"),
     db.from("orders").select("id, buyer_id, total_amount, delivery_status, created_at").order("created_at", { ascending: false }).limit(8),
+    db.from("orders").select("created_at, total_amount").gte("created_at", since.toISOString()),
   ]);
+
+  const series = buildSeries((ordersSeries.data || []) as any[]);
 
   const gmv = (ordersAll.data || []).reduce((s, o: any) => s + Number(o.total_amount || 0), 0);
   const held = (escrowHeld.data || []).reduce((s, e: any) => s + Number(e.amount || 0), 0);
@@ -39,6 +68,7 @@ async function getStats() {
     payoutsCount: (payoutsReq.data || []).length,
     payoutSum,
     recentOrders: recentOrders.data || [],
+    series,
     error: profiles.error?.message || ordersAll.error?.message || null,
   };
 }
@@ -66,6 +96,11 @@ export default async function DashboardPage() {
         <Metric label="GMV" value={naira(s.gmv)} sub="gross merchandise value" />
         <Metric label="Escrow Held" value={naira(s.held)} sub="SafePay in custody" />
         <Metric label="Bookings" value={s.bookings.toLocaleString()} sub="service jobs" />
+      </div>
+
+      <div className="grid" style={{ gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 18 }}>
+        <BarChart title="Orders — last 14 days" data={s.series.counts} />
+        <BarChart title="Revenue (GMV) — last 14 days" data={s.series.gmv} color="var(--amber)" format={(n) => naira(n)} />
       </div>
 
       {(s.pendingKyc > 0 || s.payoutsCount > 0 || s.openDisputes > 0) && (

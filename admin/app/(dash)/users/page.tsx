@@ -36,6 +36,7 @@ export default async function UsersPage({
           <h2 style={{ fontSize: 20, fontWeight: 700 }}>Users</h2>
           <p>Search, edit profiles, change roles, or remove accounts.</p>
         </div>
+        <a className="btn btn-sm" href="/export/users">⬇ Export CSV</a>
       </div>
 
       <div style={{ marginBottom: 14 }}>

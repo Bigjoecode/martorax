@@ -34,7 +34,10 @@ export default async function ProductsPage({
           <h2 style={{ fontSize: 20, fontWeight: 700 }}>Products</h2>
           <p>Create, edit stock, or remove listings.</p>
         </div>
-        <a className="btn btn-primary" href="/products/new">+ New product</a>
+        <div className="row-actions">
+          <a className="btn btn-sm" href="/export/products">⬇ CSV</a>
+          <a className="btn btn-primary" href="/products/new">+ New product</a>
+        </div>
       </div>
 
       <div style={{ marginBottom: 14 }}>

@@ -42,6 +42,7 @@ export default async function PayoutsPage({
           <p>Withdrawals requested by vendors / providers / riders.</p>
         </div>
         <div className="row-actions" style={{ flexWrap: "wrap" }}>
+          <a className="btn btn-sm" href="/export/payouts">⬇ CSV</a>
           {["all", ...STATUSES].map((f) => (
             <a key={f} className={`btn btn-sm${(status || "all") === f ? " btn-primary" : ""}`} href={f === "all" ? "/payouts" : `/payouts?status=${f}`}>{f}</a>
           ))}
